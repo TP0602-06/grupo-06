@@ -1,0 +1,15 @@
+language: java
+jdk:
+  - oraclejdk8
+before_install:
+ - chmod +x gradlew
+after_failure:
+ - cat build/reports/*/*.xml
+cache:
+ directories:
+  - $HOME/.m2
+  - $HOME/.gradle/wrapper
+  - $HOME/.gradle/caches
+notifications:
+  slack: tecnicas7510-02-2016:Nrt3OhE7XgGeA27ZSeoxLyxa
+  slack: tecnicas7510-02-2016:eh2tzQxNENQuu1fsf1PtvgB6
