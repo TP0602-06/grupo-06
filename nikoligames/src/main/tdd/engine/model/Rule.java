@@ -10,7 +10,7 @@ public abstract class Rule {
 
     protected ArrayList<Cell> cells;
 
-    public Rule() {
+    Rule() {
         cells = new ArrayList<Cell>();
     }
 
@@ -18,5 +18,5 @@ public abstract class Rule {
         cells.add(cell);
     }
 
-    abstract boolean isBrocken();
+    public abstract boolean isBrocken();
 }
