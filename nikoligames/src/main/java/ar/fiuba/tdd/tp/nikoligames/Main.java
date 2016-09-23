@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames;
+package java.ar.fiuba.tdd.tp.nikoligames;
 
 /**
  * Created by mcapolupo on 18/9/16.

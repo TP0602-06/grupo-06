@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames;
+package java.ar.fiuba.tdd.tp.nikoligames;
 
 import org.junit.Test;
 
