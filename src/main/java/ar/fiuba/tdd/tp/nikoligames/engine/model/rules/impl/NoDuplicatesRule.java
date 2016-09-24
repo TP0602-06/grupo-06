@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
