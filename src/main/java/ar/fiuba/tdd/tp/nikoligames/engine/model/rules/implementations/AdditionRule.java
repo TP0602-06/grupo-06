@@ -22,7 +22,7 @@ public class AdditionRule extends Rule {
     public boolean isBroken() {
         Integer addition = 0;
         for (CellInterface cell : this.cells) {
-            addition += cell.getValue();
+            addition += Integer.parseInt(cell.getValue());
         }
         return this.value.equals(addition);
     }

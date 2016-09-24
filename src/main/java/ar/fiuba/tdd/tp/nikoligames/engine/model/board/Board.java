@@ -1,12 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import java.net.PortUnreachableException;
 import java.util.ArrayList;
 
 /**
  * Tablero del juego. Representar la disposicion de celdas.
  */
-public class Board implements BoardInterface {
+public class Board {
     private int length;
     private int width;
     private CellInterface cells[][];

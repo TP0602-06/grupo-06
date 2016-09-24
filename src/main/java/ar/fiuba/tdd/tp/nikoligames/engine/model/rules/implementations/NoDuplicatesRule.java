@@ -19,10 +19,10 @@ public class NoDuplicatesRule extends Rule {
     public boolean isBroken() {
         ArrayList<Integer> values = new ArrayList<Integer>();
         for (CellInterface cell : this.cells) {
-            if (values.contains(cell.getValue())) {
+            if (values.contains(Integer.parseInt(cell.getValue()))) {
                 return false;
             }
-            values.add(cell.getValue());
+            values.add(Integer.parseInt(cell.getValue()));
         }
         return true;
     }

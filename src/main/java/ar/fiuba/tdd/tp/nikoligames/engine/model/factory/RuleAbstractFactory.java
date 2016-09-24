@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.factory;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.factory;
 
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellInterface;
