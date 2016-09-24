@@ -7,5 +7,7 @@ public interface CellInterface {
     //TODO: fuerza solo enteros
     int getValue();
 
+    void setValue(int value);
+
     boolean isEqual(Cell otherCell);
 }

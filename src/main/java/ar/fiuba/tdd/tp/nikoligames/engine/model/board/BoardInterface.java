@@ -5,4 +5,12 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
  */
 public interface BoardInterface {
 
+    void setCell(int column, int row, CellInterface cell);
+
+    public CellInterface getCell(Position position);
+
+    int getLength();
+
+    int getWidth();
+
 }
