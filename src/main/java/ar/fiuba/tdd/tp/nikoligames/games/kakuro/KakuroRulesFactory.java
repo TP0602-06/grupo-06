@@ -3,8 +3,8 @@ package ar.fiuba.tdd.tp.nikoligames.games.kakuro;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.AdditionRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.AdditionRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
 
 import java.util.ArrayList;
 import java.util.Collection;
