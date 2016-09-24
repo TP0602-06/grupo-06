@@ -1,6 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-// Tablero del juego. Representar la disposicion de celdas.
+/**
+ * Tablero del juego. Representar la disposicion de celdas.
+ */
 public class Board {
     public void setCell(int column, int row, Cell cell) {
         throw new UnsupportedOperationException();

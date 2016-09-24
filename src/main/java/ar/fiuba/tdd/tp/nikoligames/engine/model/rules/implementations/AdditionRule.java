@@ -3,7 +3,9 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 
-// Regla de adicion. Valida que la adicion de valores de un grupo de celdas.
+/**
+ * Regla de adicion. Valida que la adicion de valores de un grupo de celdas.
+ */
 public class AdditionRule implements Rule {
     private Integer value;
     private Iterable<Cell> cells;

@@ -5,7 +5,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 
 import java.util.ArrayList;
 
-// Regla de no duplicidad. Valida la no repeticion de valores de un grupo de celdas.
+/**
+ * Regla de no duplicidad. Valida la no repeticion de valores de un grupo de celdas.
+ */
 public class NoDuplicatesRule implements Rule {
     private Iterable<Cell> cells;
 
