@@ -36,3 +36,8 @@ configurations.all {
         force 'xml-apis:xml-apis:1.4.01'
     }
 }
+
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'ar.fiuba.tdd.tp.nikoligames.Main'
+}
