@@ -2,11 +2,13 @@ package ar.fiuba.tdd.tp.nikoligames.engine.parser.impl;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.games.sudoku.SudokuConfigParser;
-import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by mcapolupo on 24/9/16.
@@ -14,7 +16,7 @@ import java.io.FileReader;
 
 public class SudokuConfigParserTest {
 
-    private final String CONFIG_PATH = "./src/test/config/sudoku/easy.json";
+    private static final String CONFIG_PATH = "./src/test/config/sudoku/easy.json";
 
     @Test
     public void testBuildGameConfig() throws FileNotFoundException {
