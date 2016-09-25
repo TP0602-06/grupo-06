@@ -5,7 +5,6 @@ import javax.swing.*;
 /**
  * Interfaz para armar la vista de grillas.
  */
-public abstract class GridView extends JPanel {
+public abstract class GridView extends JPanel{
     public abstract void addCell(JButton cell);
-
 }

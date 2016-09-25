@@ -7,10 +7,11 @@ import javax.swing.*;
 /**
  * Esta clase representa las celdas invalidas.
  */
-public class InvalidCell extends JButton {
+public class InvalidCellView extends CellView  {
 
-    public InvalidCell() {
+    public InvalidCellView() {
         this.setBackground(ColorSet.INVALID_BACKGROUND);
+        this.setEnabled(false);
     }
 
 }

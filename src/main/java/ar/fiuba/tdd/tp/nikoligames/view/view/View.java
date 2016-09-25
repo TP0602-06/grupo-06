@@ -1,7 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view;
-
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-
+package ar.fiuba.tdd.tp.nikoligames.view.view;
 import java.awt.*;
 
 import javax.swing.*;
