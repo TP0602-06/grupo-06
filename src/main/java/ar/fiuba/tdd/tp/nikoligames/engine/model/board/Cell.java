@@ -6,7 +6,7 @@ import java.util.Objects;
  * Celda. Contiene informacion de celdas relevante para la logica del juego.
  */
 public class Cell implements CellInterface {
-    String value;
+    private String value="";
 
 
 
@@ -22,4 +22,11 @@ public class Cell implements CellInterface {
         return (Objects.equals(this.getValue(), otherCell.getValue()));
     }
 
+    public boolean isNullCell(){
+        return true;
+    }
+
+    public boolean isEmpty(){
+        return true;
+    }
 }

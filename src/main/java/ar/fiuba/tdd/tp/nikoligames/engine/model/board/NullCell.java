@@ -21,4 +21,11 @@ public class NullCell implements CellInterface {
     }
 
     ;
+    public boolean isNullCell(){
+        return true;
+    }
+
+    public boolean isEmpty(){
+        return true;
+    }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Tablero del juego. Representar la disposicion de celdas.
  */
-public class Board {
+public class Board implements  DrawableBoard{
     private int length;
     private int width;
     private CellInterface cells[][];
@@ -39,6 +39,11 @@ public class Board {
         cells[column][row] = cell;
     }
 
+    public void setCellValue(Position position, String value) {
+        checkRange(position.getX(), position.getY());
+        cells[position.getX()][position.getY()].setValue(value);
+    }
+
     public CellInterface getCell(Position position) {
         checkRange(position.getX(), position.getY());
         return cells[position.getX()][position.getY()];
@@ -50,6 +55,10 @@ public class Board {
             arrayOfCells.add(getCell(position));
         }
         return arrayOfCells;
+    }
+
+    public ArrayList<? extends DrawableCell> getArrayOfDrawableCells(ArrayList<Position> positions){
+        return this.getArrayOfCells(positions);
     }
 }
 
