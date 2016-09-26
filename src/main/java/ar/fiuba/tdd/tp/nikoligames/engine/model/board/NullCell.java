@@ -1,27 +1,26 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import java.util.Objects;
-
 /**
- * Celda. Contiene informacion de celdas relevante para la logica del juego.
+ * Created by Andres on 24/09/2016.
  */
-public class Cell implements CellInterface {
-    private String value="";
-
-
-
+public class NullCell implements CellInterface {
+    //TODO: fuerza solo enteros
     public String getValue() {
-        return value;
+        return "";
     }
+
+    ;
 
     public void setValue(String value) {
-        this.value = value;
     }
+
+    ;
 
     public boolean isEqual(Cell otherCell) {
-        return (Objects.equals(this.getValue(), otherCell.getValue()));
+        return false;
     }
 
+    ;
     public boolean isNullCell(){
         return true;
     }
