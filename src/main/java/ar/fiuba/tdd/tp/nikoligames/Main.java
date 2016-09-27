@@ -6,6 +6,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.parentView.FactoryView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentView.View;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
+import javax.swing.*;
+
 /**
  * Created by mcapolupo on 18/9/16.
  */
@@ -19,9 +21,10 @@ public class Main {
         View view = factoryView.createDefaultWindow();
 
         FactoryGridView factoryGridView = new FactoryGridView();
-        GridView gridView = factoryGridView.createDefaultBoard(7,10);
 
-        view.add(gridView);
+        factoryGridView.createDefaultBoard(7,10, view);
+
+        //view.add(gridView);
 
         view.setVisible(true);
     }

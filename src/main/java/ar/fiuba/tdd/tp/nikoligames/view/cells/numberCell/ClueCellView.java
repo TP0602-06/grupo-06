@@ -13,9 +13,9 @@ import javax.swing.*;
  */
 public class ClueCellView extends JButton {
 
-    public ClueCellView(Integer clue, AbstractSelectValueController selectValueController) {
+    public ClueCellView(int clue, AbstractSelectValueController selectValueController) {
         setBackground(ColorSet.NORMAL_BACKGROUND);
-        setForeground(ColorSet.NUMBER);
+        setForeground(ColorSet.CLUE);
         this.setText(Integer.toString(clue));
         registerMouseListener(selectValueController);
     }

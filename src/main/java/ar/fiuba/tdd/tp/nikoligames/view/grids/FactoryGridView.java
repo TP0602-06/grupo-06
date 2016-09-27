@@ -5,6 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.focusHelpers.focusGridViewHelper.F
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.ClueCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.EditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.ValueToSelectCellView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentView.View;
 import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewController.SelectValueController;
 
@@ -17,33 +18,33 @@ import java.security.acl.Group;
  */
 public class FactoryGridView implements AbstractFactoryBoard {
 
-    public JPanel createDefaultBoard(Integer rows, Integer cols, GridView selectValuesPanel) {
+    public void createDefaultBoard(Integer rows, Integer cols, View view) {
         GridView boardGridView = new GridOfSquares(rows,cols);
-        AbstractSelectValueController selectValueController = new SelectValueController(boardGridView,selectValuesPanel);
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols ; j++) {
-                Component component = new EditableNumberCell(selectValueController);
-                boardGridView.addCellView(component);
-            }
-        }
-        JPanel boardPanel = new JPanel(new FlowLayout());
-        boardPanel.add(boardGridView);
-        boardPanel.add(selectValuesPanel);
-
-        return boardPanel;
-    }
-
-    @Override
-    public GridView createDefaultSelectValuesPanel() {
         GridView selectValuesGridView = new GridOfSquares(1,9);
+
+        AbstractSelectValueController selectValueController = new SelectValueController(boardGridView,selectValuesGridView);
+
         for (int j = 1; j <=9 ; j++) {
-            Component component = new ValueToSelectCellView(j);
+            Component component = new ValueToSelectCellView(j,selectValueController);
             selectValuesGridView.addCellView(component);
         }
 
-        return selectValuesGridView;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols ; j++) {
+                Component component;
+                if(j == 3){
+                    component = new ClueCellView(8,selectValueController);
+
+                }else {
+                    component = new EditableNumberCell(selectValueController);
+                }
+                boardGridView.addCellView(component);
+            }
+        }
+
+        boardGridView.setVisible(true);
+        view.add(boardGridView);
+        selectValuesGridView.setVisible(false);
+        view.add(selectValuesGridView);
     }
-
-
 }

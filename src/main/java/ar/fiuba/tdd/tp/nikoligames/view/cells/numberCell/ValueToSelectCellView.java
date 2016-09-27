@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectEditableCellListener;
+import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectValueCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
 
 import javax.swing.*;
@@ -11,9 +12,9 @@ import javax.swing.*;
  */
 public class ValueToSelectCellView extends JButton {
 
-    private Integer value;
+    private int value;
 
-    public ValueToSelectCellView(Integer value, AbstractSelectValueController selectValueController){
+    public ValueToSelectCellView(int value, AbstractSelectValueController selectValueController){
         setBackground(ColorSet.NORMAL_BACKGROUND);
         setForeground(ColorSet.NUMBER);
         this.value = value;
@@ -22,7 +23,7 @@ public class ValueToSelectCellView extends JButton {
     }
 
     private void registerMouseHandler(AbstractSelectValueController selectValueController) {
-        this.addMouseListener(new SelectEditableCellListener(selectValueController));
+        this.addMouseListener(new SelectValueCellListener(selectValueController));
     }
 
     public Integer getValue(){
