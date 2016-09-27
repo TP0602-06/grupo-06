@@ -12,15 +12,12 @@ import java.awt.event.MouseEvent;
  */
 public class SelectComponentCellListener extends AbstractSelectValueListener {
 
-    protected JButton getButton(MouseEvent event) {
-        return (JButton) event.getSource();
-    }
     public SelectComponentCellListener(AbstractSelectValueController selectValueController) {
         super(selectValueController);
     }
 
-    protected void notofySelectValueController(MouseEvent event) {
-        JButton cellView = this.getButton(event);
+    protected void notifySelectValueController(MouseEvent event) {
+        JButton cellView = (JButton)event.getSource();
         super.selectValueController.notifySelectedComponent(cellView);
     }
 }

@@ -15,15 +15,12 @@ import javax.swing.*;
  */
 public class SelectEditableCellListener extends AbstractSelectValueListener {
 
-    protected AbstractEditableNumberCell getButton(MouseEvent event) {
-        return (AbstractEditableNumberCell) event.getSource();
-    }
     public SelectEditableCellListener(AbstractSelectValueController selectValueController) {
         super(selectValueController);
     }
 
-    protected void notofySelectValueController(MouseEvent event) {
-        AbstractEditableNumberCell cellView = this.getButton(event);
+    protected void notifySelectValueController(MouseEvent event) {
+        AbstractEditableNumberCell cellView = (AbstractEditableNumberCell) event.getSource();
         super.selectValueController.notifySelectedEditableCellView(cellView);
     }
 }

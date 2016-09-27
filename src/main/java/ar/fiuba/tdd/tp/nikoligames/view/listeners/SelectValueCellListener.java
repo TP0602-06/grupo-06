@@ -11,15 +11,12 @@ import java.awt.event.MouseEvent;
  */
 public class SelectValueCellListener extends AbstractSelectValueListener {
 
-    protected ValueToSelectCellView getButton(MouseEvent event) {
-        return (ValueToSelectCellView) event.getSource();
-    }
     public SelectValueCellListener(AbstractSelectValueController selectValueController) {
         super(selectValueController);
     }
 
-    protected void notofySelectValueController(MouseEvent event) {
-        ValueToSelectCellView cellView = this.getButton(event);
+    protected void notifySelectValueController(MouseEvent event) {
+        ValueToSelectCellView cellView = (ValueToSelectCellView) event.getSource();
         super.selectValueController.notifySelectedValue(cellView.getValue());
     }
 }
