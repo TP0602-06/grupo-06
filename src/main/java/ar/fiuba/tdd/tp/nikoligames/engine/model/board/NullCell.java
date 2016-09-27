@@ -3,7 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 /**
  * Created by Andres on 24/09/2016.
  */
-public class NullCell implements CellInterface {
+public class NullCell extends AbstractCell {
     //TODO: fuerza solo enteros
     public String getValue() {
         return "";
@@ -12,6 +12,7 @@ public class NullCell implements CellInterface {
     ;
 
     public void setValue(String value) {
+
     }
 
     ;
@@ -21,11 +22,17 @@ public class NullCell implements CellInterface {
     }
 
     ;
-    public boolean isNullCell(){
+
+    public boolean isNullCell() {
         return true;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return true;
     }
+
+    public boolean isEditable() {
+        return true;
+    }
+
 }

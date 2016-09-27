@@ -5,7 +5,11 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
  */
 public interface DrawableCell {
     boolean isNullCell();
+
     boolean isEmpty();
+
+    boolean isEditable();
+
     String getValue();
 
 }

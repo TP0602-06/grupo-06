@@ -1,8 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
-
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellInterface;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ import java.util.ArrayList;
 public class AdditionRule extends Rule {
     private Integer value;
 
-    public AdditionRule(Integer value, ArrayList<CellInterface> cells) {
+    public AdditionRule(Integer value, ArrayList<AbstractCell> cells) {
         super(cells);
         this.value = value;
     }
@@ -21,7 +19,7 @@ public class AdditionRule extends Rule {
     @Override
     public boolean isBroken() {
         Integer addition = 0;
-        for (CellInterface cell : this.cells) {
+        for (AbstractCell cell : this.cells) {
             addition += Integer.parseInt(cell.getValue());
         }
         return this.value.equals(addition);
