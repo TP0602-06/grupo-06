@@ -1,17 +1,18 @@
 package ar.fiuba.tdd.tp.nikoligames.games.sudoku;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
 
 import java.util.ArrayList;
 
-// Fabrica de reglas Sudoku. Contruye el conjunto de reglas para un juego del tipo Sudoku.
+/**
+ * Fabrica de reglas Sudoku. Contruye el conjunto de reglas para un juego del tipo Sudoku.
+ */
 public class SudokuRulesFactory {
     //TODO: Estos valores pueden ser necesarios en otro lado, ver bien donde se pueden ubicar
-    private static final int BOARD_COLUMN_SIZE = 9;
-    private static final int BOARD_ROW_SIZE = 9;
     private static final int REGION_COLUMN_SIZE = 3;
     private static final int REGION_ROW_SIZE = 3;
 
@@ -30,45 +31,74 @@ public class SudokuRulesFactory {
     }
 
     private void addColumnsRules(ArrayList<Rule> rules) {
-        for (int column = 0; column < BOARD_COLUMN_SIZE; column++) {
-            rules.add(new NoDuplicatesRule(board.getColumn(column)));
+        for (int boardColumn = 0; boardColumn < this.board.getWidth(); boardColumn++) {
+            ArrayList<Position> positions = this.getColumnPositions(boardColumn);
+            ArrayList<AbstractCell> cells = this.board.getArrayOfCells(positions);
+            rules.add(new NoDuplicatesRule(cells));
         }
     }
 
     private void addRowsRules(ArrayList<Rule> rules) {
-        for (int row = 0; row < BOARD_ROW_SIZE; row++) {
-            rules.add(new NoDuplicatesRule(board.getRow(row)));
+        for (int boardRow = 0; boardRow < this.board.getLength(); boardRow++) {
+            ArrayList<Position> positions = this.getRowPositions(boardRow);
+            ArrayList<AbstractCell> cells = this.board.getArrayOfCells(positions);
+            rules.add(new NoDuplicatesRule(cells));
         }
     }
 
     private void addRegionsRules(ArrayList<Rule> rules) {
         for (int regionColumn = 0; regionColumn < REGION_COLUMN_SIZE; regionColumn++) {
             for (int regionRow = 0; regionRow < REGION_ROW_SIZE; regionRow++) {
-                rules.add(new NoDuplicatesRule(this.getRegion(regionColumn, regionRow)));
+                ArrayList<Position> positions = this.getRegionPositions(regionColumn, regionRow);
+                ArrayList<AbstractCell> cells = this.board.getArrayOfCells(positions);
+                rules.add(new NoDuplicatesRule(cells));
             }
         }
     }
 
-    private Iterable<Cell> getRegion(int regionColumn, int regionRow) {
-        return board.getRange(this.getFirstColumnOfRegion(regionColumn),
-                this.getLastColumnOfRegion(regionColumn),
-                this.getFirstRowOfRegion(regionRow),
-                this.getLastRowOfRegion(regionRow));
+    private ArrayList<Position> getColumnPositions(int boardColumn) {
+        ArrayList<Position> positions = new ArrayList<>();
+        for (int boardRow = 0; boardRow < this.board.getLength(); boardRow++) {
+            positions.add(new Position(boardColumn, boardRow));
+        }
+        return positions;
     }
 
-    private int getFirstColumnOfRegion(int column) {
-        return column * REGION_COLUMN_SIZE;
+    private ArrayList<Position> getRowPositions(int boardRow) {
+        ArrayList<Position> positions = new ArrayList<>();
+        for (int boardColumn = 0; boardColumn < this.board.getWidth(); boardColumn++) {
+            positions.add(new Position(boardColumn, boardRow));
+        }
+        return positions;
     }
 
-    private int getLastColumnOfRegion(int column) {
-        return this.getFirstColumnOfRegion(column) + 2;
+    private ArrayList<Position> getRegionPositions(int regionColumn, int regionRow) {
+        ArrayList<Position> positions = new ArrayList<>();
+        int firstBoardColumn = this.getFirstColumnOfRegion(regionColumn);
+        int lastBoardColumn = this.getLastColumnOfRegion(regionColumn);
+        int firstBoardRow = this.getFirstRowOfRegion(regionRow);
+        int lastBoardRow = this.getLastRowOfRegion(regionRow);
+        for (int boardColumn = firstBoardColumn; boardColumn <= lastBoardColumn; boardColumn++) {
+            for (int boardRow = firstBoardRow; boardRow <= lastBoardRow; boardRow++) {
+                positions.add(new Position(boardColumn, boardRow));
+            }
+        }
+        return positions;
     }
 
-    private int getFirstRowOfRegion(int column) {
-        return column * REGION_ROW_SIZE;
+    private int getFirstColumnOfRegion(int regionColumn) {
+        return regionColumn * REGION_COLUMN_SIZE;
     }
 
-    private int getLastRowOfRegion(int column) {
-        return this.getFirstRowOfRegion(column) + 2;
+    private int getLastColumnOfRegion(int regionColumn) {
+        return this.getFirstColumnOfRegion(regionColumn) + 2;
+    }
+
+    private int getFirstRowOfRegion(int regionRow) {
+        return regionRow * REGION_ROW_SIZE;
+    }
+
+    private int getLastRowOfRegion(int regionRow) {
+        return this.getFirstRowOfRegion(regionRow) + 2;
     }
 }
