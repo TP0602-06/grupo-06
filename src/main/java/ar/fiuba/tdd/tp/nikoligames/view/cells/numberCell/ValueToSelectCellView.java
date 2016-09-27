@@ -8,7 +8,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueContro
 import javax.swing.*;
 
 /**
- * Created by german on 9/27/2016.
+ * Estas son celdas que proven el input para las celdas editables.
  */
 public class ValueToSelectCellView extends JButton {
 

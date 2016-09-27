@@ -11,7 +11,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Esta clase se encarga del comportamiento de las celdas.
+ * Esta clase se encarga del comportamiento de las celdas editables.
  */
 public class SelectEditableCellListener extends AbstractSelectValueListener {
 

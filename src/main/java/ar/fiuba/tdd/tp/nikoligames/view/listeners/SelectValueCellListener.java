@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 /**
- * Esta clase se encarga del comportamiento de las celdas.
+ * Esta clase se encarga del comportamiento cuando un valor es seleccionado.
  */
 public class SelectValueCellListener extends AbstractSelectValueListener {
 

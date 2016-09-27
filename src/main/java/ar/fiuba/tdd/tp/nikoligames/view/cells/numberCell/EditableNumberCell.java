@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectEditableCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
 
 /**
- * Clase que define las celdas con posicion, son celdas con numeros, por eso heredan.
+ * Clase que define las celdas con valores editables.
  */
 public class EditableNumberCell extends AbstractEditableNumberCell {
 

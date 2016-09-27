@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.AbstractEditableNumberC
 import java.awt.*;
 
 /**
- * Created by german on 9/27/2016.
+ * Esta clase es la que sabe que hacer al escuchar las interacciones con las celdas.
  */
 public interface AbstractSelectValueController {
     void notifySelectedEditableCellView(AbstractEditableNumberCell cellView);

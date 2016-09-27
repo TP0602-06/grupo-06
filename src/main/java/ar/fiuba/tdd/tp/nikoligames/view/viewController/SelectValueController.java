@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by german on 9/27/2016.
+ * Esta clase escucha las interacciones con las celdas.
  */
 public class SelectValueController implements AbstractSelectValueController {
 
