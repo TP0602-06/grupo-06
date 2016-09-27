@@ -42,4 +42,8 @@ public class SelectValueController implements AbstractSelectValueController {
     public void notifySelectedValue(Integer value){
         this.lastSelectedEditableCellView.changeValue(value);
     }
+
+    public void notifyClearValue() {
+        lastSelectedEditableCellView.clearValue();
+    }
 }

@@ -11,4 +11,5 @@ public interface AbstractSelectValueController {
     void notifySelectedEditableCellView(AbstractEditableNumberCell cellView);
     void notifySelectedComponent(Component component);
     void notifySelectedValue(Integer value);
+    void notifyClearValue();
 }
