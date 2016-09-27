@@ -23,10 +23,10 @@ public class NoDuplicatesRule extends Rule {
                 continue;
             }
             if (values.contains(Integer.parseInt(cell.getValue()))) {
-                return false;
+                return true;
             }
             values.add(Integer.parseInt(cell.getValue()));
         }
-        return true;
+        return false;
     }
 }

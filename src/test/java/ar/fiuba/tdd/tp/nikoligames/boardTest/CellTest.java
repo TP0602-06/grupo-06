@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames;
+package ar.fiuba.tdd.tp.nikoligames.boardTest;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
@@ -57,7 +57,7 @@ public class CellTest {
         cell1.setValue("value1");
         Cell cell2 = (new Cell());
         cell2.setValue("value2");
-        assertTrue(cell1.equals(cell2));
+        assertTrue(!cell1.equals(cell2));
     }
 
 
