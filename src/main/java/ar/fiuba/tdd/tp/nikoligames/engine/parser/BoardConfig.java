@@ -12,7 +12,10 @@ public class BoardConfig {
     private CellConfig[][] cells;
 
     public BoardConfig(JSONArray jsonArray) {
-        cells = new CellConfig[9][9];
+        //TODO: fix harcoded value
+        int row = 9;
+        int cols = 9;
+        cells = new CellConfig[row][cols];
         populateCells(jsonArray);
     }
 
@@ -32,7 +35,7 @@ public class BoardConfig {
     }
 
     public CellConfig[][] getCells() {
-        return cells;
+        return cells.clone(); //TODO: findbug tira EI_EXPOSE_REP
     }
 
 
