@@ -31,8 +31,9 @@ public class SudokuConfigParserTest {
         //Asserts
         assertEquals(new Long(9), gameConfig.getSize().getCols());
         assertEquals(new Long(9), gameConfig.getSize().getRows());
-        assertNotNull(gameConfig.getProblem());
-        assertNotNull(gameConfig.getSolution());
+        assertNotNull(gameConfig.getBoard());
+        assertEquals("?", gameConfig.getBoard().getCells()[0][8].getInput());
+        assertEquals("6", gameConfig.getBoard().getCells()[8][0].getInput());
 
     }
 

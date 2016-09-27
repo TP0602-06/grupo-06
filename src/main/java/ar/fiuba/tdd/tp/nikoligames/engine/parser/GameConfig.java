@@ -10,21 +10,15 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
 public class GameConfig {
 
     private SizeConfig size;
-    private BoardConfig problem;
-    private BoardConfig solution;
+    private BoardConfig board;
 
-    public GameConfig(SizeConfig sizeConfig, BoardConfig problem, BoardConfig solution) {
+    public GameConfig(SizeConfig sizeConfig, BoardConfig board) {
         this.size = sizeConfig;
-        this.problem = problem;
-        this.solution = solution;
+        this.board = board;
     }
 
-    public BoardConfig getProblem() {
-        return problem;
-    }
-
-    public BoardConfig getSolution() {
-        return solution;
+    public BoardConfig getBoard() {
+        return board;
     }
 
     public SizeConfig getSize() {

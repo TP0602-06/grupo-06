@@ -16,25 +16,21 @@ public class SudokuConfigParser extends GameConfigParserJson {
     protected GameConfig buildGameConfig(JSONObject jsonObject) {
 
         JSONObject size = (JSONObject) jsonObject.get("size");
-        JSONObject problem = (JSONObject) jsonObject.get("problem");
-        JSONObject solution = (JSONObject) jsonObject.get("solution");
+        JSONArray board = (JSONArray) jsonObject.get("board");
 
         SizeConfig sizeConfig = getSizeConfig(size);
-        BoardConfig problemConfig = getBoardConfig(problem);
-        BoardConfig solutionConfig = getBoardConfig(solution);
+        BoardConfig boardConfig = getBoardConfig(board);
 
-        return new GameConfig(sizeConfig, problemConfig, solutionConfig);
+        return new GameConfig(sizeConfig, boardConfig);
     }
 
     private SizeConfig getSizeConfig(JSONObject jsonObject) {
-        Long rows = (Long) jsonObject.get("rows");
-        Long cols = (Long) jsonObject.get("cols");
+        long rows = (long) jsonObject.get("rows");
+        long cols = (long) jsonObject.get("cols");
         return new SizeConfig(rows, cols);
     }
 
-    private BoardConfig getBoardConfig(JSONObject jsonObject) {
-        JSONArray rows = (JSONArray) jsonObject.get("board");
-        rows.forEach(r -> System.out.println(((JSONObject) r).get("row")));
-        return new BoardConfig();
+    private BoardConfig getBoardConfig(JSONArray jsonArray) {
+        return new BoardConfig(jsonArray);
     }
 }
