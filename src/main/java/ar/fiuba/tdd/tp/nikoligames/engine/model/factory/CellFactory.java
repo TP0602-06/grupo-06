@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellInterface;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellType;
 
 /**
@@ -21,8 +21,8 @@ public class CellFactory {
         return instance;
     }
 
-    public CellInterface createCell(CellType cellType, String value) {
-        CellInterface cell = cellType.createCell();
+    public AbstractCell createCell(CellType cellType, String value) {
+        AbstractCell cell = cellType.createCell();
         cell.setValue(value);
         return cell;
     }

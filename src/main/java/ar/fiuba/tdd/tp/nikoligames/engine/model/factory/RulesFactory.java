@@ -1,9 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellInterface;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.AdditionRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.AdditionRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
 
 import java.util.ArrayList;
 
@@ -15,11 +16,11 @@ public class RulesFactory implements RuleAbstractFactory {
     private RulesFactory() {
     }
 
-    public Rule createAdditionRule(int sum, ArrayList<CellInterface> cells) {
+    public Rule createAdditionRule(int sum, ArrayList<AbstractCell> cells) {
         return new AdditionRule(sum, cells);
     }
 
-    public Rule createNoDuplicatesRule(ArrayList<CellInterface> cells) {
+    public Rule createNoDuplicatesRule(ArrayList<AbstractCell> cells) {
         return new NoDuplicatesRule(cells);
     }
 

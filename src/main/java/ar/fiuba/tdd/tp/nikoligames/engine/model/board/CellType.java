@@ -4,15 +4,22 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
  * Created by Andres on 24/09/2016.
  */
 public enum CellType {
+
+
     NULLTYPE {
-        public CellInterface createCell() {
+        public AbstractCell createCell() {
             return new NullCell();
         }
     }, STRINGTYPE {
-        public CellInterface createCell() {
+        public AbstractCell createCell() {
             return new Cell();
+        }
+    }, NONEDITABLETYPE {
+        public AbstractCell createCell() {
+            return new NonEditableCell();
         }
     };
 
-    abstract public CellInterface createCell();
+    public abstract AbstractCell createCell();
+
 }
