@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 
 /**
  * Created by mcapolupo on 20/9/16.
@@ -16,6 +16,7 @@ public class GameConfig {
     public GameConfig(SizeConfig sizeConfig, BoardConfig problem, BoardConfig solution) {
         this.size = sizeConfig;
         this.problem = problem;
+
         this.solution = solution;
     }
 
