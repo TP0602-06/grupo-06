@@ -1,6 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
 import java.awt.*;
+import java.util.*;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -10,6 +12,8 @@ import javax.swing.*;
 public class GridOfSquares extends GridView {
     private Integer rows;
     private Integer cols;
+    List<Component> cellViewList = new ArrayList<>();
+
 
     public GridOfSquares(Integer rows, Integer cols) {
         setLayout(new GridLayout(rows, cols));
@@ -18,8 +22,14 @@ public class GridOfSquares extends GridView {
         this.cols = cols;
     }
 
-    public void addCell(JButton cell) {
+    public void addCellView(Component cell) {
         add(cell);
+        cellViewList.add(cell);
+    }
+
+    @Override
+    public List<Component> getCellViews() {
+        return cellViewList;
     }
 
     private Integer calculateCellSide(Integer width, Integer height) {

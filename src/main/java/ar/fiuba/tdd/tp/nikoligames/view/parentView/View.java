@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view.view;
+package ar.fiuba.tdd.tp.nikoligames.view.parentView;
 import java.awt.*;
 
 import javax.swing.*;

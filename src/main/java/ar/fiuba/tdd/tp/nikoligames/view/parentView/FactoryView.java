@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view.view;
+package ar.fiuba.tdd.tp.nikoligames.view.parentView;
 
 /**
  * Created by german on 9/25/2016.

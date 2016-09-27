@@ -1,25 +1,20 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 
 import javax.swing.*;
 
 /**
  * Estas celdas son la vista de celdas que contienen numeros.
+ * Una vez creadas no puede cambiarse su valor
  */
-public class NumberCellView extends CellView {
+public class ClueCellView extends JButton {
 
-    public NumberCellView() {
-        super();
+    public ClueCellView(Integer clue) {
         setBackground(ColorSet.NORMAL_BACKGROUND);
         setForeground(ColorSet.NUMBER);
+        this.setText(Integer.toString(clue));
     }
-
-    public void setNumber(Integer number) {
-        this.setText(String.valueOf(number));
-    }
-
 }
 
 
