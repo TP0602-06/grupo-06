@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.listeners;
 
-import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,7 +12,7 @@ public abstract class AbstractSelectValueListener extends MouseAdapter {
 
     protected final AbstractSelectValueController selectValueController;
 
-    public AbstractSelectValueListener(AbstractSelectValueController selectValueController){
+    public AbstractSelectValueListener(AbstractSelectValueController selectValueController) {
         this.selectValueController = selectValueController;
     }
 

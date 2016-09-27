@@ -1,8 +1,8 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell;
+package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectEditableCellListener;
-import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 /**
  * Clase que define las celdas con valores editables.
@@ -17,14 +17,15 @@ public class EditableNumberCell extends AbstractEditableNumberCell {
         registerMouseHandler(selectValueController);
     }
 
-    public void changeValue(Integer value){
+    public void changeValue(Integer value) {
         this.setText(Integer.toString(value));
     }
+
     public void clearValue() {
         this.setText(EMPTY_STRING);
     }
 
-    private void registerMouseHandler(AbstractSelectValueController selectValueController){
+    private void registerMouseHandler(AbstractSelectValueController selectValueController) {
         this.addMouseListener(new SelectEditableCellListener(selectValueController));
     }
 }

@@ -1,17 +1,13 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focusHelpers.focusGridViewHelper.AbstractFocusGridViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focusHelpers.focusGridViewHelper.FocusGridViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.ClueCellView;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.EditableNumberCell;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.ValueToSelectCellView;
-import ar.fiuba.tdd.tp.nikoligames.view.parentView.View;
-import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
-import ar.fiuba.tdd.tp.nikoligames.view.viewController.SelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.KakuroCell;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableNumberCell;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.View;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
-import javax.swing.*;
 import java.awt.*;
-import java.security.acl.Group;
 
 /**
  * Created by german on 9/25/2016.
@@ -19,21 +15,21 @@ import java.security.acl.Group;
 public class FactoryGridView implements AbstractFactoryBoard {
 
     public void createDefaultBoard(Integer rows, Integer cols, View view) {
-        GridView boardGridView = new GridOfSquares(rows,cols);
+        GridView boardGridView = new GridOfSquares(rows, cols);
         InputGridFactory factoryInput = new InputDigitFactory();
         GridView selectValuesGridView = factoryInput.createInputGrid();
 
-        AbstractSelectValueController selectValueController = new SelectValueController(boardGridView,selectValuesGridView);
+        AbstractSelectValueController selectValueController = new SelectValueController(boardGridView, selectValuesGridView);
 
-        factoryInput.addInputCells(selectValuesGridView,selectValueController);
+        factoryInput.addInputCells(selectValuesGridView, selectValueController);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols ; j++) {
+            for (int j = 0; j < cols; j++) {
                 Component component;
-                if(j == 3){
-                    component = new ClueCellView(8,selectValueController);
+                if (j == 3) {
+                    component = new ClueCellView(8, selectValueController);
 
-                }else {
+                } else {
                     component = new EditableNumberCell(selectValueController);
                 }
                 boardGridView.addCellView(component);

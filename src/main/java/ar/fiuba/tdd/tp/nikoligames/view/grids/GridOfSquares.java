@@ -36,7 +36,7 @@ public class GridOfSquares extends GridView {
         int padding = 10;
         int widthWithPadding = width - padding;
         int heightWithPadding = height - padding;
-        return Math.min(widthWithPadding/cols, heightWithPadding/rows);
+        return Math.min(widthWithPadding / cols, heightWithPadding / rows);
     }
 
     @Override

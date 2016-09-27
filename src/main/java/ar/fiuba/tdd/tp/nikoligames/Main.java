@@ -1,12 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames;
 
-
 import ar.fiuba.tdd.tp.nikoligames.view.grids.FactoryGridView;
-import ar.fiuba.tdd.tp.nikoligames.view.parentView.FactoryView;
-import ar.fiuba.tdd.tp.nikoligames.view.parentView.View;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
-
-import javax.swing.*;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.FactoryView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.View;
 
 /**
  * Created by mcapolupo on 18/9/16.

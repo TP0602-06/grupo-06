@@ -1,9 +1,8 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell;
+package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectComponentCellListener;
-import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectEditableCellListener;
-import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 import javax.swing.*;
 

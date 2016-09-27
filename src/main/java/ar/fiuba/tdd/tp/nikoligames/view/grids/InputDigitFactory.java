@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.ValueClearerCell;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.ValueToSelectCellView;
-import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueClearerCell;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueToSelectCellView;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 import java.awt.*;
 
@@ -17,10 +17,10 @@ public class InputDigitFactory implements InputGridFactory {
         return new GridOfSquares(firstDigit, lastDigit);
     }
 
-    public void addInputCells(GridView grid, AbstractSelectValueController controller){
+    public void addInputCells(GridView grid, AbstractSelectValueController controller) {
 
-        for (int j = firstDigit; j <=lastDigit ; j++) {
-            Component component = new ValueToSelectCellView(j,controller);
+        for (int j = firstDigit; j <= lastDigit; j++) {
+            Component component = new ValueToSelectCellView(j, controller);
             grid.addCellView(component);
         }
 

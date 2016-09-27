@@ -1,6 +1,5 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.focusHelpers.FocusCellViewHelper;
+package ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper;
 
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -8,5 +7,6 @@ import java.awt.*;
  */
 public interface AbstractFocusCellViewHelper {
     void setFocus(Component button);
+
     void clearFocus(Component button);
 }

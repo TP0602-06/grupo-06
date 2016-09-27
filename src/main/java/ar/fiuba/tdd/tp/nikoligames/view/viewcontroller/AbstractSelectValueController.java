@@ -1,6 +1,6 @@
-package ar.fiuba.tdd.tp.nikoligames.view.viewController;
+package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell.AbstractEditableNumberCell;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.AbstractEditableNumberCell;
 
 import java.awt.*;
 
@@ -9,7 +9,10 @@ import java.awt.*;
  */
 public interface AbstractSelectValueController {
     void notifySelectedEditableCellView(AbstractEditableNumberCell cellView);
+
     void notifySelectedComponent(Component component);
+
     void notifySelectedValue(Integer value);
+
     void notifyClearValue();
 }

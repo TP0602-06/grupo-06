@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell;
+package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
 
 import javax.swing.*;
 
@@ -7,5 +7,6 @@ import javax.swing.*;
  */
 public abstract class AbstractEditableNumberCell extends JButton {
     public abstract void changeValue(Integer value);
+
     public abstract void clearValue();
 }

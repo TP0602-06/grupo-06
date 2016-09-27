@@ -1,8 +1,8 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell;
+package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.ClearCellListener;
-import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 import javax.swing.*;
 
@@ -10,8 +10,8 @@ import javax.swing.*;
 /**
  * Esta celda se encarga de notificar la accion de borrar.
  */
-public class ValueClearerCell extends JButton{
-    public ValueClearerCell(AbstractSelectValueController selectValueController){
+public class ValueClearerCell extends JButton {
+    public ValueClearerCell(AbstractSelectValueController selectValueController) {
         setBackground(ColorSet.NORMAL_BACKGROUND);
         setForeground(ColorSet.NUMBER);
         setText("Clear");
