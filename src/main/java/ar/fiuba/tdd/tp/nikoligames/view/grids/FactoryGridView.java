@@ -20,14 +20,12 @@ public class FactoryGridView implements AbstractFactoryBoard {
 
     public void createDefaultBoard(Integer rows, Integer cols, View view) {
         GridView boardGridView = new GridOfSquares(rows,cols);
-        GridView selectValuesGridView = new GridOfSquares(1,9);
+        InputGridFactory factoryInput = new InputDigitFactory();
+        GridView selectValuesGridView = factoryInput.createInputGrid();
 
         AbstractSelectValueController selectValueController = new SelectValueController(boardGridView,selectValuesGridView);
 
-        for (int j = 1; j <=9 ; j++) {
-            Component component = new ValueToSelectCellView(j,selectValueController);
-            selectValuesGridView.addCellView(component);
-        }
+        factoryInput.addInputCells(selectValuesGridView,selectValueController);
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols ; j++) {
