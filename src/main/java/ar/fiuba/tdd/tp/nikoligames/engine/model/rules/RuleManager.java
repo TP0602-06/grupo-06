@@ -8,10 +8,11 @@ import java.util.ArrayList;
 public class RuleManager {
     ArrayList<Rule> rules;
 
-    RuleManager(ArrayList<Rule> rules) {
+    public RuleManager(ArrayList<Rule> rules) {
         this.rules = rules;
     }
 
+    //Return true if it is all right
     public boolean checkRules() {
         for (Rule rule : this.rules) {
             if (rule.isBroken()) {
