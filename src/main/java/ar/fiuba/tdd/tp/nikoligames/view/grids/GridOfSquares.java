@@ -33,22 +33,21 @@ public class GridOfSquares extends GridView {
     }
 
     private Integer calculateCellSide(Integer width, Integer height) {
-        int minSide = Math.min(width, height);
-        int divisor = rows;
-        if (minSide != height) {
-            divisor = cols;
-        }
-        return minSide / divisor;
+        int padding = 10;
+        int widthWithPadding = width - padding;
+        int heightWithPadding = height - padding;
+        return Math.min(widthWithPadding/cols, heightWithPadding/rows);
     }
 
     @Override
     public Dimension getPreferredSize() {
         Dimension dimension;
+        int minimumDimension = 10;
         Container container = getParent();
         if (container != null) {
             dimension = container.getSize();
         } else {
-            return new Dimension(10, 10);
+            return new Dimension(minimumDimension, minimumDimension);
         }
         int width = (int) dimension.getWidth();
         int height = (int) dimension.getHeight();
