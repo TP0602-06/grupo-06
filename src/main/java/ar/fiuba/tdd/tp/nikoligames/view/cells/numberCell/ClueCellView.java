@@ -1,6 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
+import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectComponentCellListener;
+import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectEditableCellListener;
+import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
 
 import javax.swing.*;
 
@@ -10,10 +13,15 @@ import javax.swing.*;
  */
 public class ClueCellView extends JButton {
 
-    public ClueCellView(Integer clue) {
+    public ClueCellView(Integer clue, AbstractSelectValueController selectValueController) {
         setBackground(ColorSet.NORMAL_BACKGROUND);
         setForeground(ColorSet.NUMBER);
         this.setText(Integer.toString(clue));
+        registerMouseListener(selectValueController);
+    }
+
+    private void registerMouseListener(AbstractSelectValueController selectValueController) {
+        this.addMouseListener(new SelectComponentCellListener(selectValueController));
     }
 }
 

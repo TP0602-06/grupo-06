@@ -1,22 +1,20 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells.numberCell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focusHelpers.focusGridViewHelper.AbstractFocusGridViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectCellListener;
-
-import javax.swing.*;
+import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectEditableCellListener;
+import ar.fiuba.tdd.tp.nikoligames.view.viewController.AbstractSelectValueController;
 
 /**
  * Clase que define las celdas con posicion, son celdas con numeros, por eso heredan.
  */
-public class EditableNumberCell extends JButton implements AbstractEditableNumberCell {
+public class EditableNumberCell extends AbstractEditableNumberCell {
 
     private static String EMPTY_STRING = "";
 
-    public EditableNumberCell(AbstractFocusGridViewHelper focusGridViewHelper) {
+    public EditableNumberCell(AbstractSelectValueController selectValueController) {
         setBackground(ColorSet.NORMAL_BACKGROUND);
         setForeground(ColorSet.NUMBER);
-        registerMouseHandler(focusGridViewHelper);
+        registerMouseHandler(selectValueController);
     }
 
     public void changeValue(Integer value){
@@ -26,7 +24,7 @@ public class EditableNumberCell extends JButton implements AbstractEditableNumbe
         this.setText(EMPTY_STRING);
     }
 
-    private void registerMouseHandler(AbstractFocusGridViewHelper focusGridViewHelper){
-        this.addMouseListener(new SelectCellListener(focusGridViewHelper));
+    private void registerMouseHandler(AbstractSelectValueController selectValueController){
+        this.addMouseListener(new SelectEditableCellListener(selectValueController));
     }
 }

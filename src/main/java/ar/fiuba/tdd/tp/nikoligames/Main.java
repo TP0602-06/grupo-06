@@ -19,7 +19,7 @@ public class Main {
         View view = factoryView.createDefaultWindow();
 
         FactoryGridView factoryGridView = new FactoryGridView();
-        GridView gridView = factoryGridView.createDefaultGridOfSquares(7,10);
+        GridView gridView = factoryGridView.createDefaultBoard(7,10);
 
         view.add(gridView);
 
