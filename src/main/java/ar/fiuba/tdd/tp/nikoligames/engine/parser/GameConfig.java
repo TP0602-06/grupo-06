@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 
 /**
  * Created by mcapolupo on 20/9/16.
