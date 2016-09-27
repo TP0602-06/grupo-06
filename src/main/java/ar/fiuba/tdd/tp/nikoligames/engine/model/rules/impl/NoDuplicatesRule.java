@@ -19,7 +19,7 @@ public class NoDuplicatesRule extends Rule {
     public boolean isBroken() {
         ArrayList<Integer> values = new ArrayList<Integer>();
         for (AbstractCell cell : this.cells) {
-            if (cell.isEmpty()){
+            if (cell.isEmpty()) {
                 continue;
             }
             if (values.contains(Integer.parseInt(cell.getValue()))) {

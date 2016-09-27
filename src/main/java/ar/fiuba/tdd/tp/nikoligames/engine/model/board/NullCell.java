@@ -5,24 +5,6 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
  */
 public class NullCell extends AbstractCell {
 
-    public String getValue() {
-        return "";
-    }
-
-    ;
-
-    public void setValue(String value) {
-
-    }
-
-    ;
-
-    public boolean isEqual(Cell otherCell) {
-        return false;
-    }
-
-    ;
-
     public boolean isNullCell() {
         return true;
     }

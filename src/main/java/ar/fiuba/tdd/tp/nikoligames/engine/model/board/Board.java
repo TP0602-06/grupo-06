@@ -30,7 +30,6 @@ public class Board implements DrawableBoard {
         return ((0 < column) && (column < width) && (0 < row) && (row < length));
     }
 
-
     private void checkRange(int column, int row) {
         if (outOfRange(column, row)) {
             throw new UnsupportedOperationException();
@@ -62,6 +61,7 @@ public class Board implements DrawableBoard {
         }
         return arrayOfCells;
     }
+
 
     public ArrayList<? extends DrawableCell> getArrayOfDrawableCells(ArrayList<Position> positions) {
         return this.getArrayOfCells(positions);
