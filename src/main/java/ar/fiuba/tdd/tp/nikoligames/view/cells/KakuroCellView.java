@@ -10,12 +10,12 @@ import javax.swing.*;
 /**
  * Esta es la representacion grafica de una celda kakuro.
  */
-public class KakuroCell extends CellView {
+public class KakuroCellView extends CellView {
 
     private Color backgroundColor = ColorSet.INVALID_BACKGROUND ;
     private Color foregroundColor = ColorSet.RULE_NUMBER;
 
-    public KakuroCell() {
+    public KakuroCellView() {
         setBackground(backgroundColor);
         setLayout(new BorderLayout());
         setEnabled(false);

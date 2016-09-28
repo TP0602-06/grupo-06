@@ -3,7 +3,6 @@ package ar.fiuba.tdd.tp.nikoligames.engine.parser.impl;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.BoardConfig;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.SizeConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.impl.GameConfigParserJson;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

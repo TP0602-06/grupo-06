@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.*;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView.AbstractFactoryBoard;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView.FactoryBoardViewFromModel;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView.FactorySampleBoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputGridView.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputGridView.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
@@ -33,7 +32,7 @@ public class FactoryGameView implements AbstractFactoryGameView {
         AbstractSelectValueController selectValueController = new SelectValueController();
 
         AbstractFactoryBoard gridBoardFactory = new FactoryBoardViewFromModel(selectValueController);
-        GridView board = gridBoardFactory.createBoardView(modelBoard.getLength(), modelBoard.getWidth(), modelBoard);
+        GridView board = gridBoardFactory.createBoardView(modelBoard);
 
         //AbstractFactoryBoard gridBoardFactory = new FactoryBoardViewFromModel();
 

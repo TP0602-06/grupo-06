@@ -2,12 +2,11 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.KakuroCell;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.KakuroCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView.AbstractFactoryBoard;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 /**
@@ -20,8 +19,8 @@ public class FactorySampleBoardView implements AbstractFactoryBoard {
         selectValueController = controller;
     }
 
-    public GridView createBoardView(Integer rows, Integer cols, DrawableBoard modelBoard) {
-        GridView boardGridView = new GridOfSquares(rows, cols);
+    public GridView createBoardView(DrawableBoard modelBoard) {
+        GridView boardGridView = new GridOfSquares(9,9);
 
         selectValueController.addBoardView(boardGridView);
 
@@ -42,7 +41,7 @@ public class FactorySampleBoardView implements AbstractFactoryBoard {
                 if (j % 3 == 0) {
                     cell = new ClueCellView(j, selectValueController);
                 } else if (j % 4 == 0){
-                    KakuroCell kakuroCell = new KakuroCell();
+                    KakuroCellView kakuroCell = new KakuroCellView();
                     kakuroCell.setBottom(9);
                     cell = kakuroCell;
 

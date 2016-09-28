@@ -30,7 +30,7 @@ public abstract class AbstractCell implements DrawableCell {
     }
 
     public boolean isEmpty() {
-        return (Objects.equals(this.getValue(), ""));
+        return (Objects.equals(this.getValue(), "?"));
     }
 
 }

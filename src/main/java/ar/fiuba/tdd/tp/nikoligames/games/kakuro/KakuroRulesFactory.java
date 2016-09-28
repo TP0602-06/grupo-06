@@ -24,8 +24,8 @@ public class KakuroRulesFactory {
 
     public ArrayList<Rule> getRules() {
         ArrayList<Rule> rules = new ArrayList<>();
-        for (int column = 0; column < this.board.getWidth(); column++) {
-            for (int row = 0; row < this.board.getLength(); row++) {
+        for (int column = 0; column < this.board.getCols(); column++) {
+            for (int row = 0; row < this.board.getRows(); row++) {
                 AbstractCell cell = this.getCell(column, row);
                 String value = cell.getValue();
                 if (this.isClue(value)) {
@@ -71,24 +71,24 @@ public class KakuroRulesFactory {
     }
 
     private int getLastEditableRowForColumnClue(int column, int firstRow) {
-        for (int row = firstRow; row < this.board.getLength(); row++) {
+        for (int row = firstRow; row < this.board.getRows(); row++) {
             Position position = new Position(column, row);
             AbstractCell cell = this.board.getCell(position);
             if (!cell.isEditable()) {
                 return row - 1;
             }
         }
-        return this.board.getLength() - 1;
+        return this.board.getRows() - 1;
     }
 
     private int getLastEditableColumnForRowClue(int firstColumn, int row) {
-        for (int column = firstColumn; column < this.board.getWidth(); column++) {
+        for (int column = firstColumn; column < this.board.getCols(); column++) {
             AbstractCell cell = this.getCell(column, row);
             if (!cell.isEditable()) {
                 return column - 1;
             }
         }
-        return this.board.getWidth() - 1;
+        return this.board.getCols() - 1;
     }
 
     private AbstractCell getCell(int column, int row) {

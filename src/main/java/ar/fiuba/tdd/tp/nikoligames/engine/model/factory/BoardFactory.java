@@ -17,12 +17,12 @@ public class BoardFactory {
     }
 
     public Board createBoard(SizeConfig sizeConfig, BoardConfig boardConfig) {
-        Board board = new Board(sizeConfig.getCols(), sizeConfig.getRows());
+        Board board = new Board(sizeConfig.getRows(), sizeConfig.getCols());
         CellConfig[][] cellConfigs = boardConfig.getCells();
         CellFactory cellFactory = CellFactory.getInstance();
         for (int i = 0; i < sizeConfig.getCols(); i++) {
             for (int j = 0; j < sizeConfig.getRows(); j++) {
-                board.setCell(i, j, cellFactory.createCell(cellConfigs[i][j].getInput()));
+                board.setCell(j, i, cellFactory.createCell(cellConfigs[j][i].getInput()));
             }
         }
         return board;

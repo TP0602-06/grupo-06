@@ -31,7 +31,7 @@ public class SudokuRulesFactory {
     }
 
     private void addColumnsRules(ArrayList<Rule> rules) {
-        for (int boardColumn = 0; boardColumn < this.board.getWidth(); boardColumn++) {
+        for (int boardColumn = 0; boardColumn < this.board.getCols(); boardColumn++) {
             ArrayList<AbstractCell> cells = this.getColumnCells(boardColumn);
             NoDuplicatesRule rule = new NoDuplicatesRule(cells);
             rules.add(rule);
@@ -39,7 +39,7 @@ public class SudokuRulesFactory {
     }
 
     private void addRowsRules(ArrayList<Rule> rules) {
-        for (int boardRow = 0; boardRow < this.board.getLength(); boardRow++) {
+        for (int boardRow = 0; boardRow < this.board.getRows(); boardRow++) {
             ArrayList<AbstractCell> cells = this.getRowCells(boardRow);
             NoDuplicatesRule rule = new NoDuplicatesRule(cells);
             rules.add(rule);
@@ -73,7 +73,7 @@ public class SudokuRulesFactory {
 
     private ArrayList<Position> getColumnPositions(int boardColumn) {
         ArrayList<Position> positions = new ArrayList<>();
-        for (int boardRow = 0; boardRow < this.board.getLength(); boardRow++) {
+        for (int boardRow = 0; boardRow < this.board.getRows(); boardRow++) {
             positions.add(new Position(boardColumn, boardRow));
         }
         return positions;
@@ -81,7 +81,7 @@ public class SudokuRulesFactory {
 
     private ArrayList<Position> getRowPositions(int boardRow) {
         ArrayList<Position> positions = new ArrayList<>();
-        for (int boardColumn = 0; boardColumn < this.board.getWidth(); boardColumn++) {
+        for (int boardColumn = 0; boardColumn < this.board.getCols(); boardColumn++) {
             positions.add(new Position(boardColumn, boardRow));
         }
         return positions;

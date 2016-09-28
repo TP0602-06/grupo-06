@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.boardTest;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.*;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.CellFactory;
-import javafx.geometry.Pos;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -42,21 +42,6 @@ public class BoardTest {
         AbstractCell cell = CellFactory.getInstance().createCell(value);
         board.setCell(maxColumns, maxRow,cell);
         assertTrue(cell.equals(board.getCell(new Position(maxColumns, maxRow))));
-    }
-
-    @Test
-    public void getDrawableCellListTest() {
-        String value = "value1?";
-        Position pos = new Position(maxColumns,maxRow);
-        Board board = new Board(columns, rows);
-        AbstractCell cell = CellFactory.getInstance().createCell(value);
-        board.setCell(pos.getX(), pos.getY(),cell);
-        ArrayList<Position> list = new ArrayList<>();
-        list.add(pos);
-        for(DrawableCell dcell : board.getArrayOfDrawableCells(list)){
-            assertTrue(cell.equals(dcell));
-            assertTrue(dcell.isEditable());
-        }
     }
 
     @Test

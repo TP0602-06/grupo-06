@@ -7,38 +7,38 @@ import java.util.ArrayList;
  */
 
 public class Board implements DrawableBoard {
-    private int length;
-    private int width;
+    private int rows;
+    private int cols;
     private AbstractCell[][] cells;
 
-    public Board(int width, int length) {
-        this.length = length;
-        this.width = width;
-        this.cells = new AbstractCell[width][length];
+    public Board(int rows, int cols) {
+        this.rows = rows;
+        this.cols = cols;
+        this.cells = new AbstractCell[this.rows][this.cols];
     }
 
-    public int getLength() {
-        return length;
+    public int getRows() {
+        return rows;
     }
 
-    public int getWidth() {
-        return width;
+    public int getCols() {
+        return cols;
     }
 
 
-    private boolean outOfRange(int column, int row) {
-        return !((0 <= column) && (column < width) && (0 <= row) && (row < length));
+    private boolean outOfRange(int row, int column) {
+        return !((0 <= column) && (column < cols) && (0 <= row) && (row < rows));
     }
 
-    private void checkRange(int column, int row) {
-        if (outOfRange(column, row)) {
+    private void checkRange(int row, int column) {
+        if (outOfRange(row, column)) {
             throw new UnsupportedOperationException();
         }
     }
 
-    public void setCell(int column, int row, AbstractCell cell) {
-        checkRange(column, row);
-        cells[column][row] = cell;
+    public void setCell(int row, int column, AbstractCell cell) {
+        checkRange(row, column);
+        cells[row][column] = cell;
     }
 
     public boolean setCellValue(Position position, String value) {
@@ -64,19 +64,12 @@ public class Board implements DrawableBoard {
         return arrayOfCells;
     }
 
+    public DrawableCell getADrawableCell( Position position){
+        return getCell(position);
 
-    public ArrayList<? extends DrawableCell> getArrayOfDrawableCells(ArrayList<Position> positions) {
-        return this.getArrayOfCells(positions);
     }
-    public ArrayList<? extends DrawableCell> getAllDrawableCells() {
-        ArrayList<Position> positions=new ArrayList<Position>();
-        for (int i =0 ;i<this.width;i++){
-            for(int j=0;j<this.length;j++){
-                positions.add(new Position(i,j));
-            }
-        }
-        return this.getArrayOfDrawableCells(positions);
-    }
+
+
 }
 
 

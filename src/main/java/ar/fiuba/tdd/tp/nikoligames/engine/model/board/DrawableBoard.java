@@ -6,11 +6,9 @@ import java.util.ArrayList;
  * Created by Andres on 26/09/2016.
  */
 public interface DrawableBoard {
-    public ArrayList<? extends DrawableCell> getArrayOfDrawableCells(ArrayList<Position> positions);
+    public DrawableCell getADrawableCell( Position position);
 
-    public ArrayList<? extends DrawableCell> getAllDrawableCells();
+    public int getCols();
 
-    public int getWidth();
-
-    public int getLength();
+    public int getRows();
 }
