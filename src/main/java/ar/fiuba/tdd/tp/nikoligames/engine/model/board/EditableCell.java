@@ -14,9 +14,6 @@ public class EditableCell extends AbstractCell {
         super(value);
     }
 
-    public boolean isNullCell() {
-        return false;
-    }
 
     public boolean isEditable() {
         return true;

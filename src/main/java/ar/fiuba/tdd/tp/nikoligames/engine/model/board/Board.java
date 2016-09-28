@@ -30,7 +30,6 @@ public class Board implements DrawableBoard {
         return !((0 <= column) && (column < width) && (0 <= row) && (row < length));
     }
 
-
     private void checkRange(int column, int row) {
         if (outOfRange(column, row)) {
             throw new UnsupportedOperationException();
@@ -42,12 +41,14 @@ public class Board implements DrawableBoard {
         cells[column][row] = cell;
     }
 
-    public void setCellValue(Position position, String value) {
+    public boolean setCellValue(Position position, String value) {
         checkRange(position.getX(), position.getY());
         AbstractCell cell = cells[position.getX()][position.getY()];
         if (cell.isEditable()) {
             cell.setValue(value);
+            return true;
         }
+        return false;
     }
 
     public AbstractCell getCell(Position position) {
@@ -62,6 +63,7 @@ public class Board implements DrawableBoard {
         }
         return arrayOfCells;
     }
+
 
     public ArrayList<? extends DrawableCell> getArrayOfDrawableCells(ArrayList<Position> positions) {
         return this.getArrayOfCells(positions);

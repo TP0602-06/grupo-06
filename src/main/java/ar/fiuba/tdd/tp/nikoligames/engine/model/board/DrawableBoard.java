@@ -8,5 +8,4 @@ import java.util.ArrayList;
 public interface DrawableBoard {
     public ArrayList<? extends DrawableCell> getArrayOfDrawableCells(ArrayList<Position> positions);
 
-    public void setCellValue(Position position, String value);
 }

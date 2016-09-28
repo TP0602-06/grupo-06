@@ -20,8 +20,11 @@ public class AdditionRule extends Rule {
     public boolean isBroken() {
         Integer addition = 0;
         for (AbstractCell cell : this.cells) {
+            if (cell.isEmpty()) {
+                return true;
+            }
             addition += Integer.parseInt(cell.getValue());
         }
-        return !this.value.equals(addition);
+        return (!this.value.equals(addition));
     }
 }
