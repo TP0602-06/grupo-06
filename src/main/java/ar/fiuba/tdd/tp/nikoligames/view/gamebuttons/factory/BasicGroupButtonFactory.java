@@ -1,4 +1,7 @@
-package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons;
+package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory;
+
+import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.CheckGameButton;
+import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.RestartGameButton;
 
 import java.awt.*;
 import javax.swing.*;

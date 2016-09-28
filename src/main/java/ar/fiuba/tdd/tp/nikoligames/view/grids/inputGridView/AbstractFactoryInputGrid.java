@@ -1,5 +1,6 @@
-package ar.fiuba.tdd.tp.nikoligames.view.grids;
+package ar.fiuba.tdd.tp.nikoligames.view.grids.inputGridView;
 
+import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 /**

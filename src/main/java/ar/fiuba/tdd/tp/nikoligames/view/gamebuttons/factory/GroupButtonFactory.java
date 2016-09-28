@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons;
+package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory;
 
 import java.awt.*;
 

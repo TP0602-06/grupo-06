@@ -1,14 +1,14 @@
 package ar.fiuba.tdd.tp.nikoligames;
 
-import ar.fiuba.tdd.tp.nikoligames.view.parentview.FactoryView;
-import ar.fiuba.tdd.tp.nikoligames.view.parentview.View;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        FactoryView factoryView = new FactoryView();
-        View view = factoryView.createDefaultGameView();
+        FactoryGameView factoryView = new FactoryGameView();
+        GameView view = factoryView.createDefaultGameView();
 
         view.setVisible(true);
 

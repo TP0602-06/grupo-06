@@ -10,9 +10,9 @@ import javax.swing.*;
 /**
  * Created by tobias on 24/09/16.
  */
-public class View extends JFrame {
+public class GameView extends JFrame {
 
-    public View(String title, Integer sizeX, Integer sizeY) {
+    public GameView(String title, Integer sizeX, Integer sizeY) {
         super(title);
         setSize(sizeX, sizeY);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
