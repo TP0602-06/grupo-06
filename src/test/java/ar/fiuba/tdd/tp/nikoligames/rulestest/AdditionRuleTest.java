@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.rulestest;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.EditableCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.AdditionRule;
 import org.junit.Test;
 
@@ -16,9 +16,9 @@ import static org.junit.Assert.assertTrue;
 public class AdditionRuleTest {
     private ArrayList<AbstractCell> createAddCells() {
         ArrayList<AbstractCell> cellList = new ArrayList<AbstractCell>();
-        Cell cell = new Cell();
+        EditableCell cell = new EditableCell();
         cell.setValue("2");
-        Cell cell2 = new Cell();
+        EditableCell cell2 = new EditableCell();
         cell2.setValue("3");
         cellList.add(cell);
         cellList.add(cell2);
@@ -30,7 +30,7 @@ public class AdditionRuleTest {
     public void testAddition() {
         ArrayList<AbstractCell> cellList = this.createAddCells();
 
-        Cell cell = new Cell();
+        EditableCell cell = new EditableCell();
         cell.setValue("2");
         cellList.add(cell);
         AdditionRule addRule = new AdditionRule(8, cellList);

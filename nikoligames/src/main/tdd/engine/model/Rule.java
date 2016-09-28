@@ -8,13 +8,13 @@ public abstract class Rule {
 
     //voy a usar TemplateMethod
 
-    protected ArrayList<Cell> cells;
+    protected ArrayList<EditableCell> cells;
 
     Rule() {
-        cells = new ArrayList<Cell>();
+        cells = new ArrayList<EditableCell>();
     }
 
-    public void addCell(Cell cell) {
+    public void addCell(EditableCell cell) {
         cells.add(cell);
     }
 

@@ -15,7 +15,7 @@ public class SumRule  extends Rule {
 
     public boolean isBrocken() {
         int sum = 0;
-        for (Cell cell : cells) {
+        for (EditableCell cell : cells) {
             sum += cell.getNumber();
         }
         return  sumGoal != sum;

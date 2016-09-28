@@ -13,7 +13,7 @@ public class CellFactory {
 
     public CellFactory() {}
 
-    public AbstractCell createCell(String value) {
+    public  AbstractCell createCell(String value) {
         if (value.contains("?")) {
             return new EditableCell(value);
         } else {

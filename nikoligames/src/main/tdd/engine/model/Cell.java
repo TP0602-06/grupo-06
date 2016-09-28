@@ -3,8 +3,8 @@ package tdd.engine.model;
 /**
  * Created by fedebrasburg on 9/23/16.
  */
-public interface Cell {
+public interface EditableCell {
     //TODO: fuerza solo enteros
     int getNumber();
-    boolean isEqual(Cell otherCell);
+    boolean isEqual(EditableCell otherCell);
 }

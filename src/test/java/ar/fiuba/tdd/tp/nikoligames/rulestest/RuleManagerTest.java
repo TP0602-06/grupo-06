@@ -35,7 +35,8 @@ public class RuleManagerTest {
     @Test
     public void oneElementWrongRulesManagerTest() {
         ArrayList<Rule> list = new ArrayList<>();
-        list.add(GenerateRules.wrongNoDuplicatesRule());
+        GenerateRules generateRules = new GenerateRules();
+        list.add(generateRules.wrongNoDuplicatesRule());
         RuleManager manager = new RuleManager(list);
         assertTrue(!manager.checkRules());
     }
