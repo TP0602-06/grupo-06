@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.rulesTest;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellType;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.CellFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
@@ -15,8 +14,9 @@ import static org.junit.Assert.assertTrue;
 
 public class NoDuplicatesRuleTest {
 
-    private AbstractCell createCell(String value){
-        return CellFactory.getInstance().createCell(CellType.STRINGTYPE,value);
+    private AbstractCell createCell(String value) {
+        CellFactory cellFactory = new CellFactory();
+        return cellFactory.createCell(value);
     }
 
     @Test
