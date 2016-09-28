@@ -5,6 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.InvalidCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import javafx.scene.control.Cell;
 
 public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper {
 
@@ -15,15 +16,20 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
     }
     @Override
     public CellView drawCellFromModel(DrawableCell modelCell) {
+
+        CellView cellView;
+
         if (modelCell.isEmpty() && !modelCell.isEditable()){
-            return new InvalidCellView();
+            cellView = new InvalidCellView();
+        }else if(modelCell.isEmpty() && modelCell.isEditable()){
+            cellView = new  EditableNumberCell(controller);
+        }else if(!modelCell.isEmpty() && !modelCell.isEditable()){
+            System.out.println("regla o clue" + modelCell.getValue());
+            cellView = new InvalidCellView();
+        }else{
+            cellView = new InvalidCellView();
         }
-        if(modelCell.isEmpty() && modelCell.isEditable()){
-            return new EditableNumberCell(controller);
-        }
-        if(!modelCell.isEmpty() && !modelCell.isEditable()){
-            System.out.println(modelCell.getValue());
-        }
-        return new InvalidCellView();
+
+        return cellView;
     }
 }
