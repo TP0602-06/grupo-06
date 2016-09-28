@@ -7,5 +7,5 @@ import java.awt.*;
  */
 public interface GroupButtonFactory {
 
-    public Component makeGroupButton();
+    Component makeGroupButton();
 }

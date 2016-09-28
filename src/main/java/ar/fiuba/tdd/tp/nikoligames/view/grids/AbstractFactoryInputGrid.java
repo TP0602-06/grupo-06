@@ -5,8 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueContro
 /**
  * Esta clase se encarga de crear celdas para que el usuario ingrese valores.
  */
-public interface InputGridFactory {
-    GridView createInputGrid();
+public interface AbstractFactoryInputGrid {
+    GridView createInputGridForBoardView(GridView board);
 
-    void addInputCells(GridView grid, AbstractSelectValueController controller);
 }

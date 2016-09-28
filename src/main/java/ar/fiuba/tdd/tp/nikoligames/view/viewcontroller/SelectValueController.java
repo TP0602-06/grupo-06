@@ -14,15 +14,19 @@ import java.awt.*;
  */
 public class SelectValueController implements AbstractSelectValueController {
 
-    private final AbstractFocusGridViewHelper focusGridHelper;
-    private final GridView selectValueGridView;
+    private AbstractFocusGridViewHelper focusGridHelper;
+    private GridView selectValueGridView;
+
     private AbstractFocusCellViewHelper focusCellViewHelper = new FocusCellViewHelper();
 
     private AbstractEditableNumberCell lastSelectedEditableCellView;
 
-    public SelectValueController(GridView boardView, GridView selectValueGridView) {
+    public void addBoardView(GridView boardView){
         this.focusGridHelper = new FocusGridViewHelper(boardView);
-        this.selectValueGridView = selectValueGridView;
+    }
+
+    public void addInputBoardView(GridView inputBoardView){
+        this.selectValueGridView = inputBoardView;
     }
 
     public void notifySelectedEditableCellView(AbstractEditableNumberCell cellView) {

@@ -29,11 +29,11 @@ public class GridOfSquares extends GridView {
         cellViewList.add(cell);
     }
 
-    public Integer amountCols() {
+    public Integer getCols() {
         return cols;
     }
 
-    public Integer amountRows() {
+    public Integer getRows() {
         return rows;
     }
 

@@ -17,7 +17,7 @@ public abstract class GridView extends JPanel {
 
     public abstract List<CellView> getCellViews();
 
-    public abstract Integer amountCols();
+    public abstract Integer getCols();
 
-    public abstract Integer amountRows();
+    public abstract Integer getRows();
 }
