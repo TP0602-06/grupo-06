@@ -14,6 +14,8 @@ import java.util.Collection;
  * Fabrica de reglas Kakuro. Contruye el conjunto de reglas para un juego del tipo Kakuro.
  */
 public class KakuroRulesFactory {
+    private static final String EMPTY_CLUE = "*";
+
     private Board board;
 
     public KakuroRulesFactory(Board board) {
@@ -59,18 +61,13 @@ public class KakuroRulesFactory {
     }
 
     private ArrayList<AbstractCell> getCells(int firstColumn, int lastColumn, int firstRow, int lastRow) {
-        ArrayList<Position> positions = this.getPositions(firstColumn, lastColumn, firstRow, lastRow);
-        return this.board.getArrayOfCells(positions);
-    }
-
-    private ArrayList<Position> getPositions(int firstColumn, int lastColumn, int firstRow, int lastRow) {
         ArrayList<Position> positions = new ArrayList<>();
         for (int column = firstColumn; column <= lastColumn; column++) {
             for (int row = firstRow; row <= lastRow; row++) {
                 positions.add(new Position(column, row));
             }
         }
-        return positions;
+        return this.board.getArrayOfCells(positions);
     }
 
     private int getLastEditableRowForColumnClue(int column, int firstRow) {
@@ -112,6 +109,6 @@ public class KakuroRulesFactory {
     }
 
     private boolean hasClue(String value) {
-        return (value != "*");
+        return !value.equals(EMPTY_CLUE);
     }
 }
