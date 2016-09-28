@@ -14,7 +14,7 @@ public class BoardFactory {
     public Board createBoard(SizeConfig sizeConfig, BoardConfig boardConfig) {
         Board board = new Board(sizeConfig.getCols(), sizeConfig.getRows());
         CellConfig[][] cellConfigs = boardConfig.getCells();
-        CellFactory cellFactory = new CellFactory();
+        CellFactory cellFactory = CellFactory.getInstance();
         for (int i = 0; i < sizeConfig.getCols(); i++) {
             for (int j = 0; j < sizeConfig.getRows(); j++) {
                 board.setCell(i, j, cellFactory.createCell(cellConfigs[i][j].getInput()));

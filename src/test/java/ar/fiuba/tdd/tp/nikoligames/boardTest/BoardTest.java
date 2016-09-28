@@ -39,7 +39,7 @@ public class BoardTest {
     public void insertCellTest() {
         String value = "value1";
         Board board = new Board(columns, rows);
-        AbstractCell cell = (new CellFactory()).createCell(value);
+        AbstractCell cell = CellFactory.getInstance().createCell(value);
         board.setCell(maxColumns, maxRow,cell);
         assertTrue(cell.equals(board.getCell(new Position(maxColumns, maxRow))));
     }
@@ -49,7 +49,7 @@ public class BoardTest {
         String value = "value1?";
         Position pos = new Position(maxColumns,maxRow);
         Board board = new Board(columns, rows);
-        AbstractCell cell = (new CellFactory()).createCell(value);
+        AbstractCell cell = CellFactory.getInstance().createCell(value);
         board.setCell(pos.getX(), pos.getY(),cell);
         ArrayList<Position> list = new ArrayList<>();
         list.add(pos);
@@ -64,7 +64,7 @@ public class BoardTest {
         String value = "value1";
         Position pos = new Position(maxColumns,maxRow);
         Board board = new Board(columns, rows);
-        AbstractCell cell = (new CellFactory()).createCell(value);
+        AbstractCell cell = CellFactory.getInstance().createCell(value);
         board.setCell(pos.getX(), pos.getY(),cell);
         ArrayList<Position> list = new ArrayList<>();
         list.add(pos);

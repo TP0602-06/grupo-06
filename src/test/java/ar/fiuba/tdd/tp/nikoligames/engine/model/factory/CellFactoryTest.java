@@ -17,7 +17,7 @@ public class CellFactoryTest {
 
         //Setup
         String input = "?";
-        CellFactory cellFactory = new CellFactory();
+        CellFactory cellFactory = CellFactory.getInstance();
 
         //Call Method
         AbstractCell cell = cellFactory.createCell(input);
@@ -31,7 +31,7 @@ public class CellFactoryTest {
 
         //Setup
         String input = "*\\*";
-        CellFactory cellFactory = new CellFactory();
+        CellFactory cellFactory = CellFactory.getInstance();
 
         //Call Method
         AbstractCell cell = cellFactory.createCell(input);

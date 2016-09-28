@@ -10,6 +10,11 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.NonEditableCell;
  */
 public class CellFactory {
 
+    private static CellFactory instance;
+
+    private  CellFactory(){
+
+    }
 
     public AbstractCell createCell(String value) {
         if (value.contains("?")) {
@@ -17,5 +22,12 @@ public class CellFactory {
         } else {
             return new NonEditableCell(value);
         }
+    }
+
+    public static CellFactory getInstance(){
+        if(instance == null){
+            instance = new CellFactory();
+        }
+        return instance;
     }
 }
