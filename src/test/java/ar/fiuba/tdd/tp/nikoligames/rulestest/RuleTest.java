@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.rulesTest;
+package ar.fiuba.tdd.tp.nikoligames.rulestest;
 
 /**
  * Created by fedebrasburg on 9/27/16.

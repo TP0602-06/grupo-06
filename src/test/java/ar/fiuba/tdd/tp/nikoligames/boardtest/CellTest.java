@@ -1,16 +1,13 @@
-package ar.fiuba.tdd.tp.nikoligames.boardTest;
+package ar.fiuba.tdd.tp.nikoligames.boardtest;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellType;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.CellFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Pruebas del tipo cell
+ * Pruebas del tipo cell.
  */
 public class CellTest {
 
@@ -33,11 +30,6 @@ public class CellTest {
         assertTrue(!cell.isEmpty());
     }
 
-    @Test
-    public void notNullCellTest() {
-        Cell cell = new Cell();
-        assertTrue(!cell.isNullCell());
-    }
 
     @Test
     public void editableCellTest() {
@@ -59,7 +51,6 @@ public class CellTest {
         cell2.setValue("value2");
         assertTrue(!cell1.equals(cell2));
     }
-
 
 
 }

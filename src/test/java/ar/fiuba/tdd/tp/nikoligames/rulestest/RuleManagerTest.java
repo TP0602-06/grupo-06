@@ -1,12 +1,8 @@
-package ar.fiuba.tdd.tp.nikoligames.rulesTest;
+package ar.fiuba.tdd.tp.nikoligames.rulestest;
 
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellType;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.CellFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -31,7 +27,7 @@ public class RuleManagerTest {
     @Test
     public void oneElementRightRulesManagerTest() {
         ArrayList<Rule> list = new ArrayList<>();
-        list.add(generateRules.rigthNoDuplicatesRule());
+        list.add(GenerateRules.rigthNoDuplicatesRule());
         RuleManager manager = new RuleManager(list);
         assertTrue(manager.checkRules());
     }
@@ -39,7 +35,7 @@ public class RuleManagerTest {
     @Test
     public void oneElementWrongRulesManagerTest() {
         ArrayList<Rule> list = new ArrayList<>();
-        list.add(generateRules.wrongNoDuplicatesRule());
+        list.add(GenerateRules.wrongNoDuplicatesRule());
         RuleManager manager = new RuleManager(list);
         assertTrue(!manager.checkRules());
     }

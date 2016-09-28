@@ -5,9 +5,6 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
  */
 public class NonEditableCell extends AbstractCell {
 
-    public boolean isNullCell() {
-        return false;
-    }
 
 
     public boolean isEditable() {

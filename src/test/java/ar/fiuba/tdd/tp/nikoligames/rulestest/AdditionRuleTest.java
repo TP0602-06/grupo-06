@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.boardTest;
+package ar.fiuba.tdd.tp.nikoligames.rulestest;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
@@ -11,9 +11,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Andres on 27/09/2016.
+ * Created by fedebrasburg on 9/27/16.
  */
-public class RulesTest {
+public class AdditionRuleTest {
     private ArrayList<AbstractCell> createAddCells() {
         ArrayList<AbstractCell> cellList = new ArrayList<AbstractCell>();
         Cell cell = new Cell();
@@ -39,15 +39,8 @@ public class RulesTest {
         assertFalse(addRule.isBroken());
 
     }
-    @Test
-    public void testAdditionWithEmptyCell() {
-        ArrayList<AbstractCell> cellList = this.createAddCells();
 
-        Cell cell = new Cell();
-        cellList.add(cell);
-        AdditionRule addRule = new AdditionRule(5, cellList);
-        assertTrue(addRule.isBroken());
-    }
+
     @Test
     public void testAdditionWithEmptyListOfCell() {
         ArrayList<AbstractCell> cellList = new ArrayList<AbstractCell>();

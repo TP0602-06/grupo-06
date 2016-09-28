@@ -7,9 +7,6 @@ import java.util.Objects;
  */
 public class Cell extends AbstractCell {
 
-    public boolean isNullCell() {
-        return false;
-    }
 
     public boolean isEditable() {
         return true;
