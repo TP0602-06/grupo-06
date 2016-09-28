@@ -22,6 +22,6 @@ public class AdditionRule extends Rule {
         for (AbstractCell cell : this.cells) {
             addition += Integer.parseInt(cell.getValue());
         }
-        return this.value.equals(addition);
+        return !this.value.equals(addition);
     }
 }

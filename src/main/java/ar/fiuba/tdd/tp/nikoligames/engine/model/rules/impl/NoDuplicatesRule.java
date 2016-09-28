@@ -20,10 +20,10 @@ public class NoDuplicatesRule extends Rule {
         ArrayList<Integer> values = new ArrayList<Integer>();
         for (AbstractCell cell : this.cells) {
             if (values.contains(Integer.parseInt(cell.getValue()))) {
-                return false;
+                return true;
             }
             values.add(Integer.parseInt(cell.getValue()));
         }
-        return true;
+        return false;
     }
 }

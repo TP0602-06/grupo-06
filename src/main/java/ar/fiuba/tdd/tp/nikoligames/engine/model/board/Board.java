@@ -14,7 +14,7 @@ public class Board implements DrawableBoard {
     public Board(int width, int length) {
         this.length = length;
         this.width = width;
-        cells = new AbstractCell[width][length];
+        this.cells = new AbstractCell[width][length];
     }
 
     public int getLength() {

@@ -78,12 +78,22 @@ public class SudokuRulesFactoryTest {
 
     private Board createSolvedBoard() {
         Board board = new Board(9, 9);
-        for (int column = 0; column < 9; column++) {
-            for (int row = 0; row < 9; row++) {
-                board.setCell(column, row, this.createCell("0"));
-            }
-        }
+        this.setRow(board, 0, new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"});
+        this.setRow(board, 1, new String[]{"4", "5", "6", "7", "8", "9", "1", "2", "3"});
+        this.setRow(board, 2, new String[]{"7", "8", "9", "1", "2", "3", "4", "5", "6"});
+        this.setRow(board, 3, new String[]{"2", "3", "4", "5", "6", "7", "8", "9", "1"});
+        this.setRow(board, 4, new String[]{"5", "6", "7", "8", "9", "1", "2", "3", "4"});
+        this.setRow(board, 5, new String[]{"8", "9", "1", "2", "3", "4", "5", "6", "7"});
+        this.setRow(board, 6, new String[]{"3", "4", "5", "6", "7", "8", "9", "1", "2"});
+        this.setRow(board, 7, new String[]{"6", "7", "8", "9", "1", "2", "3", "4", "5"});
+        this.setRow(board, 8, new String[]{"9", "1", "2", "3", "4", "5", "6", "7", "8"});
         return board;
+    }
+
+    private void setRow(Board board, int row, String[] values) {
+        for (int column = 0; column < 9; column++) {
+            board.setCell(column, row, this.createCell(values[column]));
+        }
     }
 
     private AbstractCell getCell(Board board, int column, int row) {
