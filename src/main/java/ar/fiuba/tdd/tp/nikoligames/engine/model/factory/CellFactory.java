@@ -1,29 +1,23 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellType;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.*;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Andres on 24/09/2016.
+ * Class
  */
 public class CellFactory {
-    private static CellFactory instance = null;
 
-    private CellFactory() {
-    }
+    public CellFactory() {}
 
-
-    //Singleton
-    public static CellFactory getInstance() {
-        if (instance == null) {
-            instance = new CellFactory();
+    public AbstractCell createCell(String value) {
+        if (value.equals("?")) {
+            return new EditableCell(value);
+        } else {
+            return new NonEditableCell(value);
         }
-        return instance;
-    }
-
-    public AbstractCell createCell(CellType cellType, String value) {
-        AbstractCell cell = cellType.createCell();
-        cell.setValue(value);
-        return cell;
     }
 }
