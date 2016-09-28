@@ -14,7 +14,7 @@ public class Board implements DrawableBoard {
     public Board(int width, int length) {
         this.length = length;
         this.width = width;
-        cells = new AbstractCell[width][length];
+        this.cells = new AbstractCell[width][length];
     }
 
     public int getLength() {
@@ -27,7 +27,7 @@ public class Board implements DrawableBoard {
 
 
     private boolean outOfRange(int column, int row) {
-        return ((0 < column) && (column < width) && (0 < row) && (row < length));
+        return !((0 <= column) && (column < width) && (0 <= row) && (row < length));
     }
 
 
