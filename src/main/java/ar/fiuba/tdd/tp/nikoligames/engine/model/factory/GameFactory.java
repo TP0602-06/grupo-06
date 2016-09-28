@@ -16,10 +16,13 @@ import java.util.ArrayList;
  * Created by Andres on 24/09/2016.
  */
 public abstract class GameFactory {
+
+
+
     protected Board createBoard(FileReader fileReader) throws FileNotFoundException {
         GameConfigParser boardGameConfigParser = new BoardGameConfigParser();
         GameConfig gameConfig = boardGameConfigParser.parse(fileReader);
-        BoardFactory boardFactory = new BoardFactory();
+        BoardFactory boardFactory = BoardFactory.getInstance();
         Board board = boardFactory.createBoard(gameConfig.getSize(), gameConfig.getBoard());
         return board;
     }

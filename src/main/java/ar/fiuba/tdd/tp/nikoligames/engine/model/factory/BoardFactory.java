@@ -10,6 +10,11 @@ import ar.fiuba.tdd.tp.nikoligames.engine.parser.SizeConfig;
  */
 public class BoardFactory {
 
+    private static BoardFactory instance;
+
+    private  BoardFactory(){
+
+    }
 
     public Board createBoard(SizeConfig sizeConfig, BoardConfig boardConfig) {
         Board board = new Board(sizeConfig.getCols(), sizeConfig.getRows());
@@ -22,4 +27,12 @@ public class BoardFactory {
         }
         return board;
     }
+
+    public static BoardFactory getInstance(){
+        if(instance == null){
+            instance = new BoardFactory();
+        }
+        return  instance;
+    }
+
 }

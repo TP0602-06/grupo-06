@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class GenerateRules {
 
     private static AbstractCell createCell(String value) {
-        CellFactory cellFactory = new CellFactory();
+        CellFactory cellFactory = CellFactory.getInstance();
         return cellFactory.createCell(value);
     }
 
