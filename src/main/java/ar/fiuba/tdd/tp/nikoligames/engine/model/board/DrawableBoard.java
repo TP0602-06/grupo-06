@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public interface DrawableBoard {
     public ArrayList<? extends DrawableCell> getArrayOfDrawableCells(ArrayList<Position> positions);
 
+    public ArrayList<? extends DrawableCell> getAllDrawableCells();
+
     public int getWidth();
 
     public int getLength();

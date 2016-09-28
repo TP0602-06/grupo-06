@@ -68,6 +68,15 @@ public class Board implements DrawableBoard {
     public ArrayList<? extends DrawableCell> getArrayOfDrawableCells(ArrayList<Position> positions) {
         return this.getArrayOfCells(positions);
     }
+    public ArrayList<? extends DrawableCell> getAllDrawableCells() {
+        ArrayList<Position> positions=new ArrayList<Position>();
+        for (int i =0 ;i<this.width;i++){
+            for(int j=0;j<this.length;j++){
+                positions.add(new Position(i,j));
+            }
+        }
+        return this.getArrayOfDrawableCells(positions);
+    }
 }
 
 
