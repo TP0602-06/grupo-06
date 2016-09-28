@@ -42,6 +42,7 @@ public class FactoryBoardViewFromModel implements AbstractFactoryBoard {
                 Position position = new Position(i,j);
                 DrawableCell modelCell = modelBoard.getADrawableCell(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
+                cellView.setCoordinates(i,j);
                 grid.addCellView(cellView);
             }
         }

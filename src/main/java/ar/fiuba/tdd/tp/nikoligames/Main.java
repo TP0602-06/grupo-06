@@ -1,6 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.GameFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.games.kakuro.KakuroFactory;
 import ar.fiuba.tdd.tp.nikoligames.games.sudoku.SudokuFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
@@ -14,13 +16,13 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            FileReader fileReader = new FileReader(SUDOKU_CONFIG_PATH);
-            SudokuFactory factory = new SudokuFactory();
-
+            FileReader fileReader = new FileReader(KAKURO_CONFIG_PATH);
+            GameFactory factoryas = new SudokuFactory();
+            GameFactory factory = new KakuroFactory();
 
             Game game = factory.crateGame(fileReader);
             FactoryGameView factoryView = new FactoryGameView();
-            GameView view = factoryView.createDefaultGameView(game.getDrawableBoard());
+            GameView view = factoryView.createDefaultGameView(game);
 
             view.setVisible(true);
 

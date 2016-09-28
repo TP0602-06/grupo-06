@@ -64,7 +64,7 @@ public class KakuroRulesFactory {
         ArrayList<Position> positions = new ArrayList<>();
         for (int column = firstColumn; column <= lastColumn; column++) {
             for (int row = firstRow; row <= lastRow; row++) {
-                positions.add(new Position(column, row));
+                positions.add(new Position(row, column));
             }
         }
         return this.board.getArrayOfCells(positions);
@@ -72,7 +72,7 @@ public class KakuroRulesFactory {
 
     private int getLastEditableRowForColumnClue(int column, int firstRow) {
         for (int row = firstRow; row < this.board.getRows(); row++) {
-            Position position = new Position(column, row);
+            Position position = new Position(row, column);
             AbstractCell cell = this.board.getCell(position);
             if (!cell.isEditable()) {
                 return row - 1;
@@ -92,7 +92,7 @@ public class KakuroRulesFactory {
     }
 
     private AbstractCell getCell(int column, int row) {
-        Position position = new Position(column, row);
+        Position position = new Position(row, column);
         return this.board.getCell(position);
     }
 
