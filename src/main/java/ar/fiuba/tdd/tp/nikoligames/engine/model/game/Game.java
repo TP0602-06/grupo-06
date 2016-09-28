@@ -16,7 +16,7 @@ public class Game {
     }
 
     public DrawableBoard getDrawableBoard() {
-        DrawableBoard drawableBoard = (DrawableBoard) this.board;
+        DrawableBoard drawableBoard = this.board;
         return drawableBoard;
     }
 
