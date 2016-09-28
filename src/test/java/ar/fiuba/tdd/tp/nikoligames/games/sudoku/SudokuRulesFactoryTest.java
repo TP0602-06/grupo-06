@@ -69,9 +69,8 @@ public class SudokuRulesFactoryTest {
     }
 
     private void setRow(Board board, int row, String[] values) {
-        CellFactory cellFactory = new CellFactory();
         for (int column = 0; column < 9; column++) {
-            board.setCell(column, row, cellFactory.createCell(values[column]));
+            board.setCell(column, row, new EditableCell(values[column]));
         }
     }
 
@@ -84,12 +83,6 @@ public class SudokuRulesFactoryTest {
         Position position2 = new Position(column, row);
         board.setCellValue(position2, value);
     }
-
-//    private AbstractCell createCell(String value) {
-//        Cell cell = new Cell();
-//        cell.setValue(value);
-//        return cell;
-//    }
 
     private boolean isBorken(Iterable<Rule> rules) {
         for (Rule rule : rules) {
