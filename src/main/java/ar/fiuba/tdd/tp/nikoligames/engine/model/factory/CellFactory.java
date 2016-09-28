@@ -14,10 +14,10 @@ public class CellFactory {
     public CellFactory() {}
 
     public AbstractCell createCell(String value) {
-        if (value.contains("\\")) {
-            return new NonEditableCell(value);
-        } else {
+        if (value.contains("?")) {
             return new EditableCell(value);
+        } else {
+            return new NonEditableCell(value);
         }
     }
 }
