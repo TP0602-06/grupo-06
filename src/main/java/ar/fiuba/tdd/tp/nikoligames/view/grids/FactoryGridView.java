@@ -21,18 +21,18 @@ public class FactoryGridView implements AbstractFactoryBoard {
         return boardGridView;
     }
 
-    public void setCells(GridView board, AbstractSelectValueController controller){
+    public void setCells(GridView board, AbstractSelectValueController controller) {
         int rows = board.amountRows();
         int cols = board.amountCols();
-        for (int  i = 0; i < rows; i++){
+        for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 CellView cell;
                 if (j % 3 == 0) {
-                    cell = new ClueCellView(j,controller);
+                    cell = new ClueCellView(j, controller);
                 } else {
                     cell = new EditableNumberCell(controller);
                 }
-                cell.setCoordinates(i,j);
+                cell.setCoordinates(i, j);
                 board.addCellView(cell);
             }
         }
