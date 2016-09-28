@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 public class RulesFactory {
 
-
-
     public Rule createAdditionRule(int sum, ArrayList<AbstractCell> cells) {
         return new AdditionRule(sum, cells);
     }

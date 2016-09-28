@@ -17,6 +17,9 @@ import java.util.Iterator;
 public class FactoryBoardViewFromModel implements AbstractFactoryBoard {
     AbstractSelectValueController selectValueController;
 
+    public FactoryBoardViewFromModel(AbstractSelectValueController controller){
+        selectValueController = controller;
+    }
     @Override
     public GridView createBoardView(Integer rows, Integer cols, DrawableBoard modelBoard) {
         GridView boardGridView = new GridOfSquares(modelBoard.getLength(), modelBoard.getWidth());

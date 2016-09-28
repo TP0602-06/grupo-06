@@ -57,7 +57,7 @@ public class Board implements DrawableBoard {
     }
 
     public ArrayList<AbstractCell> getArrayOfCells(ArrayList<Position> positions) {
-        ArrayList<AbstractCell> arrayOfCells = new ArrayList<AbstractCell>();
+        ArrayList<AbstractCell> arrayOfCells = new ArrayList<>();
         for (Position position : positions) {
             arrayOfCells.add(getCell(position));
         }
