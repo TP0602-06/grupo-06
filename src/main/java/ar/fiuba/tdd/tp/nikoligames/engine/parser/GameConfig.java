@@ -6,28 +6,21 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
  * Created by mcapolupo on 20/9/16.
  * This class will have all the necessary settings to create a {@link Game}.
  */
-
+@SuppressWarnings("CPD-START") //TODO: ver por que falla pmd
 public class GameConfig {
-
     private SizeConfig size;
-    private BoardConfig problem;
-    private BoardConfig solution;
+    private BoardConfig board;
 
-    public GameConfig(SizeConfig sizeConfig, BoardConfig problem, BoardConfig solution) {
+    public GameConfig(SizeConfig sizeConfig, BoardConfig board) {
         this.size = sizeConfig;
-        this.problem = problem;
-
-        this.solution = solution;
+        this.board = board;
     }
 
-    public BoardConfig getProblem() {
-        return problem;
+    public BoardConfig getBoard() {
+        return board;
     }
 
-    public BoardConfig getSolution() {
-        return solution;
-    }
-
+    @SuppressWarnings("CPD-END")
     public SizeConfig getSize() {
         return size;
     }
