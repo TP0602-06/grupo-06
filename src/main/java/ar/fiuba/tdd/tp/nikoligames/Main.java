@@ -11,13 +11,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class Main {
-    private static final String SUDOKU_CONFIG_PATH = "./src/test/config/sudoku/easy.json";
-    private static final String KAKURO_CONFIG_PATH = "./src/test/config/kakuro/easy.json";
+    private static final String SUDOKU_CONFIG_PATH = "./src/test/config/sudoku/easy2.json";
+    private static final String KAKURO_CONFIG_PATH = "./src/test/config/kakuro/easy2.json";
 
     public static void main(String[] args) {
         try {
             FileReader fileReader = new FileReader(KAKURO_CONFIG_PATH);
-            GameFactory factoryas = new SudokuFactory();
+            //GameFactory factory = new SudokuFactory();
             GameFactory factory = new KakuroFactory();
 
             Game game = factory.crateGame(fileReader);
