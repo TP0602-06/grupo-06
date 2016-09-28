@@ -5,6 +5,13 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
  */
 public class NonEditableCell extends AbstractCell {
 
+    public NonEditableCell(String value) {
+        super(value);
+    }
+
+    public boolean isNullCell() {
+        return false;
+    }
 
 
     public boolean isEditable() {
