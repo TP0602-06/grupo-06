@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectComponentCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
@@ -8,9 +9,9 @@ import javax.swing.*;
 
 /**
  * Estas celdas son la vista de celdas que contienen numeros.
- * Una vez creadas no puede cambiarse su valor
+ * Una vez creadas no puede cambiarse su valor.
  */
-public class ClueCellView extends JButton {
+public class ClueCellView extends CellView {
 
     public ClueCellView(int clue, AbstractSelectValueController selectValueController) {
         setBackground(ColorSet.NORMAL_BACKGROUND);

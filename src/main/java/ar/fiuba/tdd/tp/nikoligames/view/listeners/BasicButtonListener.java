@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
  */
 public class BasicButtonListener extends MouseAdapter {
 
-    public void mouseClicked(MouseEvent event){
+    public void mouseClicked(MouseEvent event) {
         ButtonCommand button = (ButtonCommand) event.getSource();
         button.execute();
     }

@@ -10,7 +10,7 @@ import javax.swing.*;
 /**
  * Esta es la representacion grafica de una celda kakuro.
  */
-public class KakuroCell extends JButton {
+public class KakuroCell extends CellView {
 
     public KakuroCell() {
         setBackground(ColorSet.INVALID_BACKGROUND);
