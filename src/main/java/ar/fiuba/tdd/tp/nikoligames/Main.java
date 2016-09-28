@@ -9,8 +9,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.parentview.View;
  */
 public class Main {
 
-
-
     public static void main(String[] args) {
 
         FactoryView factoryView = new FactoryView();
@@ -20,8 +18,8 @@ public class Main {
 
         factoryGridView.createDefaultBoard(7,10, view);
 
-        //view.add(gridView);
-
         view.setVisible(true);
+
+        System.out.println("nikoli games :D");
     }
 }

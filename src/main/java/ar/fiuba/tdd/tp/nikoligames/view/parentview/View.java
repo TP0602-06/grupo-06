@@ -11,7 +11,7 @@ import javax.swing.*;
  * Created by tobias on 24/09/16.
  */
 public class View extends JFrame {
-    
+
     public View(String title, Integer sizeX, Integer sizeY) {
         super(title);
         setSize(sizeX, sizeY);
