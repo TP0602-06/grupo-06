@@ -30,12 +30,12 @@ public class KakuroRulesFactory {
                     String columnClue = this.getColumnClue(value);
                     String rowClue = this.getRowClue(value);
                     if (this.hasClue(columnClue)) {
-                        int lastEditableRow = this.getLastEditableRowForColumnClue(column, row);
-                        this.getRowClueRules(Integer.parseInt(rowClue), column, row, lastEditableRow);
+                        int lastEditableRow = this.getLastEditableRowForColumnClue(column, row + 1);
+                        rules.addAll(this.getRowClueRules(Integer.parseInt(columnClue), column, row + 1, lastEditableRow));
                     }
                     if (this.hasClue(rowClue)) {
-                        int lastEditableColumn = this.getLastEditableColumnForRowClue(column, row);
-                        this.getColumnClueRules(Integer.parseInt(columnClue), column, lastEditableColumn, row);
+                        int lastEditableColumn = this.getLastEditableColumnForRowClue(column + 1, row);
+                        rules.addAll(this.getColumnClueRules(Integer.parseInt(rowClue), column + 1, lastEditableColumn, row));
                     }
                 }
             }
@@ -85,7 +85,7 @@ public class KakuroRulesFactory {
     }
 
     private int getLastEditableColumnForRowClue(int firstColumn, int row) {
-        for (int column = firstColumn; row < this.board.getWidth(); row++) {
+        for (int column = firstColumn; column < this.board.getWidth(); column++) {
             AbstractCell cell = this.getCell(column, row);
             if (!cell.isEditable()) {
                 return column - 1;

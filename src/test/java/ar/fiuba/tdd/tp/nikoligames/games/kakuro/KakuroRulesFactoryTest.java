@@ -77,6 +77,16 @@ public class KakuroRulesFactoryTest {
         board.setCell(1, 0, new EditableCell("4"));
         board.setCell(2, 0, new EditableCell("5"));
         board.setCell(3, 0, new EditableCell("6"));
+
+        board.setCell(1, 1, new NonEditableCell(""));
+        board.setCell(1, 2, new NonEditableCell(""));
+        board.setCell(1, 3, new NonEditableCell(""));
+        board.setCell(2, 1, new NonEditableCell(""));
+        board.setCell(2, 2, new NonEditableCell(""));
+        board.setCell(2, 3, new NonEditableCell(""));
+        board.setCell(3, 1, new NonEditableCell(""));
+        board.setCell(3, 2, new NonEditableCell(""));
+        board.setCell(3, 3, new NonEditableCell(""));
         return board;
     }
 
