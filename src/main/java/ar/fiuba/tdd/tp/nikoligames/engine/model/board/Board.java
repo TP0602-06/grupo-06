@@ -27,7 +27,7 @@ public class Board implements DrawableBoard {
 
 
     private boolean outOfRange(int column, int row) {
-        return ((0 < column) && (column < width) && (0 < row) && (row < length));
+        return !((0 <= column) && (column < width) && (0 <= row) && (row < length));
     }
 
 

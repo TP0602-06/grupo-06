@@ -32,28 +32,43 @@ public class SudokuRulesFactory {
 
     private void addColumnsRules(ArrayList<Rule> rules) {
         for (int boardColumn = 0; boardColumn < this.board.getWidth(); boardColumn++) {
-            ArrayList<Position> positions = this.getColumnPositions(boardColumn);
-            ArrayList<AbstractCell> cells = this.board.getArrayOfCells(positions);
-            rules.add(new NoDuplicatesRule(cells));
+            ArrayList<AbstractCell> cells = this.getColumnCells(boardColumn);
+            NoDuplicatesRule rule = new NoDuplicatesRule(cells);
+            rules.add(rule);
         }
     }
 
     private void addRowsRules(ArrayList<Rule> rules) {
         for (int boardRow = 0; boardRow < this.board.getLength(); boardRow++) {
-            ArrayList<Position> positions = this.getRowPositions(boardRow);
-            ArrayList<AbstractCell> cells = this.board.getArrayOfCells(positions);
-            rules.add(new NoDuplicatesRule(cells));
+            ArrayList<AbstractCell> cells = this.getRowCells(boardRow);
+            NoDuplicatesRule rule = new NoDuplicatesRule(cells);
+            rules.add(rule);
         }
     }
 
     private void addRegionsRules(ArrayList<Rule> rules) {
         for (int regionColumn = 0; regionColumn < REGION_COLUMN_SIZE; regionColumn++) {
             for (int regionRow = 0; regionRow < REGION_ROW_SIZE; regionRow++) {
-                ArrayList<Position> positions = this.getRegionPositions(regionColumn, regionRow);
-                ArrayList<AbstractCell> cells = this.board.getArrayOfCells(positions);
-                rules.add(new NoDuplicatesRule(cells));
+                ArrayList<AbstractCell> cells = this.getRegionCells(regionColumn, regionRow);
+                NoDuplicatesRule rule = new NoDuplicatesRule(cells);
+                rules.add(rule);
             }
         }
+    }
+
+    private ArrayList<AbstractCell> getColumnCells(int boardColumn) {
+        ArrayList<Position> positions = this.getColumnPositions(boardColumn);
+        return this.board.getArrayOfCells(positions);
+    }
+
+    private ArrayList<AbstractCell> getRowCells(int boardRow) {
+        ArrayList<Position> positions = this.getRowPositions(boardRow);
+        return this.board.getArrayOfCells(positions);
+    }
+
+    private ArrayList<AbstractCell> getRegionCells(int regionColumn, int regionRow) {
+        ArrayList<Position> positions = this.getRegionPositions(regionColumn, regionRow);
+        return this.board.getArrayOfCells(positions);
     }
 
     private ArrayList<Position> getColumnPositions(int boardColumn) {
