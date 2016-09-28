@@ -41,12 +41,14 @@ public class Board implements DrawableBoard {
         cells[column][row] = cell;
     }
 
-    public void setCellValue(Position position, String value) {
+    public boolean setCellValue(Position position, String value) {
         checkRange(position.getX(), position.getY());
         AbstractCell cell = cells[position.getX()][position.getY()];
         if (cell.isEditable()) {
             cell.setValue(value);
+            return true;
         }
+        return false;
     }
 
     public AbstractCell getCell(Position position) {

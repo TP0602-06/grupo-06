@@ -1,9 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-/**
- * Created by Andres on 24/09/2016.
- */
-public class NullCell extends AbstractCell {
+class NullCell extends AbstractCell {
 
     public boolean isNullCell() {
         return true;
@@ -14,7 +11,7 @@ public class NullCell extends AbstractCell {
     }
 
     public boolean isEditable() {
-        return true;
+        return false;
     }
 
 }

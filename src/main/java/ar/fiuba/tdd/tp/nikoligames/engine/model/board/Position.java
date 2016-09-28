@@ -8,7 +8,7 @@ public class Position {
     private int valueX;
     private int valuey;
 
-    Position(int valueX, int valuey) {
+    Position(int valueX, int valuey){
         this.valueX = valueX;
         this.valuey = valuey;
     }
