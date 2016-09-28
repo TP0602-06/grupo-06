@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp.nikoligames.games.kakuro;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.AdditionRule;
@@ -23,6 +22,24 @@ public class KakuroRulesFactory {
 
     public Iterable<Rule> getRules() {
         ArrayList<Rule> rules = new ArrayList<>();
+        for (int column = 0; column < this.board.getWidth(); column++) {
+            for (int row = 0; row < this.board.getLength(); row++) {
+                AbstractCell cell = this.getCell(column, row);
+                String value = cell.getValue();
+                if (this.isClue(value)) {
+                    String columnClue = this.getColumnClue(value);
+                    String rowClue = this.getRowClue(value);
+                    if (this.hasClue(columnClue)) {
+                        int lastEditableRow = this.getLastEditableRowForColumnClue(column, row);
+                        this.getRowClueRules(Integer.parseInt(rowClue), column, row, lastEditableRow);
+                    }
+                    if (this.hasClue(rowClue)) {
+                        int lastEditableColumn = this.getLastEditableColumnForRowClue(column, row);
+                        this.getColumnClueRules(Integer.parseInt(columnClue), column, lastEditableColumn, row);
+                    }
+                }
+            }
+        }
         return rules;
     }
 
@@ -54,5 +71,47 @@ public class KakuroRulesFactory {
             }
         }
         return positions;
+    }
+
+    private int getLastEditableRowForColumnClue(int column, int firstRow) {
+        for (int row = firstRow; row < this.board.getLength(); row++) {
+            Position position = new Position(column, row);
+            AbstractCell cell = this.board.getCell(position);
+            if (!cell.isEditable()) {
+                return row - 1;
+            }
+        }
+        return this.board.getLength() - 1;
+    }
+
+    private int getLastEditableColumnForRowClue(int firstColumn, int row) {
+        for (int column = firstColumn; row < this.board.getWidth(); row++) {
+            AbstractCell cell = this.getCell(column, row);
+            if (!cell.isEditable()) {
+                return column - 1;
+            }
+        }
+        return this.board.getWidth() - 1;
+    }
+
+    private AbstractCell getCell(int column, int row) {
+        Position position = new Position(column, row);
+        return this.board.getCell(position);
+    }
+
+    private boolean isClue(String value) {
+        return value.contains("\\");
+    }
+
+    private String getColumnClue(String value) {
+        return value.split("\\\\")[0];
+    }
+
+    private String getRowClue(String value) {
+        return value.split("\\\\")[1];
+    }
+
+    private boolean hasClue(String value) {
+        return (value != "*");
     }
 }

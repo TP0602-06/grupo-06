@@ -19,19 +19,6 @@ public class KakuroRulesFactoryTest {
     }
 
     @Test
-    public void testEmptyBoard() {
-        //TODO: Ver si hace falta crear un SudokuBoard que garantice que es de 9x9
-        Board board = this.createEmptyBoard();
-
-        //TODO: Ver si hace falta hacer un singleton
-        KakuroRulesFactory rulesFactory = new KakuroRulesFactory(board);
-        Iterable<Rule> rules = rulesFactory.getRules();
-
-        //TODO: Ver como ejecutar la regla
-        Assert.assertEquals(true, this.isBorken(rules));
-    }
-
-    @Test
     public void testNoDuplicatesInColumnRule() {
         Board board = this.createSolvedBoard();
         KakuroRulesFactory rulesFactory = new KakuroRulesFactory(board);
@@ -81,18 +68,15 @@ public class KakuroRulesFactoryTest {
         Assert.assertEquals(true, this.isBorken(rules));
     }
 
-    private Board createEmptyBoard() {
-        Board board = new Board(9, 9);
-        for (int column = 0; column < 9; column++) {
-            for (int row = 0; row < 9; row++) {
-                board.setCell(column, row, new NullCell());
-            }
-        }
-        return board;
-    }
-
     private Board createSolvedBoard() {
-        Board board = new Board(9, 9);
+        Board board = new Board(4, 4);
+        board.setCell(0, 0, new NonEditableCell("6\\15"));
+        board.setCell(0, 1, new EditableCell("1"));
+        board.setCell(0, 2, new EditableCell("2"));
+        board.setCell(0, 3, new EditableCell("3"));
+        board.setCell(1, 0, new EditableCell("4"));
+        board.setCell(2, 0, new EditableCell("5"));
+        board.setCell(3, 0, new EditableCell("6"));
         return board;
     }
 
@@ -106,16 +90,11 @@ public class KakuroRulesFactoryTest {
         board.setCellValue(position2, value);
     }
 
-    private AbstractCell createCell(String value) {
-        Cell cell = new Cell();
-        cell.setValue(value);
-        return cell;
-    }
-
     private boolean isBorken(Iterable<Rule> rules) {
         for (Rule rule : rules) {
-            if (rule.isBroken())
+            if (rule.isBroken()) {
                 return true;
+            }
         }
         return false;
     }
