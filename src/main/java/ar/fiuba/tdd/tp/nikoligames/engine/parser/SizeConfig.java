@@ -5,19 +5,19 @@ package ar.fiuba.tdd.tp.nikoligames.engine.parser;
  * Created by mcapolupo on 23/9/16.
  */
 public class SizeConfig {
-    private Long rows;
-    private Long cols;
+    private Integer rows;
+    private Integer cols;
 
-    public SizeConfig(Long rows, Long cols) {
+    public SizeConfig(Integer rows, Integer cols) {
         this.rows = rows;
         this.cols = cols;
     }
 
-    public Long getCols() {
+    public Integer getCols() {
         return cols;
     }
 
-    public Long getRows() {
+    public Integer getRows() {
         return rows;
     }
 }

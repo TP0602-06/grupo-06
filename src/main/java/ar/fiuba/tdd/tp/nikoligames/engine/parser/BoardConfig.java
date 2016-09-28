@@ -11,16 +11,13 @@ public class BoardConfig {
 
     private CellConfig[][] cells;
 
-    public BoardConfig(JSONArray jsonArray) {
-        //TODO: fix harcoded value
-        int row = 9;
-        int cols = 9;
-        cells = new CellConfig[row][cols];
+    public BoardConfig(SizeConfig sizeConfig, JSONArray jsonArray) {
+        cells = new CellConfig[sizeConfig.getRows()][sizeConfig.getCols()];
         populateCells(jsonArray);
     }
 
     private void populateCells(JSONArray jsonArray) {
-        int  rowCounter = 0;
+        int rowCounter = 0;
         for (Object rowObject : jsonArray) {
             JSONObject jsonRow = (JSONObject) rowObject;
             String row = (String) jsonRow.get("row");
