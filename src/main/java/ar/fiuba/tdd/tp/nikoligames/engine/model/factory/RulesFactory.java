@@ -9,12 +9,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
 import java.util.ArrayList;
 
 
-public class RulesFactory implements RuleAbstractFactory {
+public class RulesFactory {
 
-    private static RulesFactory instance = null;
 
-    private RulesFactory() {
-    }
 
     public Rule createAdditionRule(int sum, ArrayList<AbstractCell> cells) {
         return new AdditionRule(sum, cells);
@@ -24,12 +21,6 @@ public class RulesFactory implements RuleAbstractFactory {
         return new NoDuplicatesRule(cells);
     }
 
-    //Singleton
-    public static RuleAbstractFactory getInstance() {
-        if (instance == null) {
-            instance = new RulesFactory();
-        }
-        return instance;
-    }
+
 
 }

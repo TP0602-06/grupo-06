@@ -1,65 +1,58 @@
-package ar.fiuba.tdd.tp.nikoligames.boardTest;
+package ar.fiuba.tdd.tp.nikoligames.boardtest;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.CellType;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.CellFactory;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.EditableCell;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Pruebas del tipo cell
+ * Pruebas del tipo cell.
  */
 public class CellTest {
 
+    private EditableCell cell;
+
     @Test
     public void creationTest() {
-        Cell cell = new Cell();
+        EditableCell cell = new EditableCell();
         assertNotNull(cell);
     }
 
     @Test
     public void emptyCellTest() {
-        Cell cell = new Cell();
+        EditableCell cell = new EditableCell();
         assertTrue(cell.isEmpty());
     }
 
     @Test
     public void notEmptyCellTest() {
-        Cell cell = new Cell();
+        EditableCell cell = new EditableCell();
         cell.setValue("value");
         assertTrue(!cell.isEmpty());
     }
 
-    @Test
-    public void notNullCellTest() {
-        Cell cell = new Cell();
-        assertTrue(!cell.isNullCell());
-    }
 
     @Test
     public void editableCellTest() {
-        Cell cell = new Cell();
+        EditableCell cell = new EditableCell();
         assertTrue(cell.isEditable());
     }
 
     @Test
     public void equalCellTest() {
-        Cell cell = new Cell();
+        EditableCell cell = new EditableCell();
         assertTrue(cell.equals(cell));
     }
 
     @Test
     public void notEqualCellTest() {
-        Cell cell1 = (new Cell());
+        EditableCell cell1 = (new EditableCell());
         cell1.setValue("value1");
-        Cell cell2 = (new Cell());
+        EditableCell cell2 = (new EditableCell());
         cell2.setValue("value2");
         assertTrue(!cell1.equals(cell2));
     }
-
 
 
 }

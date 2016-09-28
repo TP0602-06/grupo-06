@@ -6,8 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 
 
-
-public abstract class Game {
+public class Game {
     protected Board board;
     protected RuleManager ruleManager;
 
@@ -25,11 +24,11 @@ public abstract class Game {
         return ruleManager.checkRules();
     }
 
-    public boolean insertValueInCell(Position position, String value){
-        return board.setCellValue(position,value);
+    public boolean insertValueInCell(Position position, String value) {
+        return board.setCellValue(position, value);
     }
 
-    public boolean won(){
+    public boolean won() {
         return false;
     }
 }
