@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
+import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.KakuroCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableNumberCell;
@@ -14,31 +15,26 @@ import java.awt.*;
  */
 public class FactoryGridView implements AbstractFactoryBoard {
 
-    public void createDefaultBoard(Integer rows, Integer cols, View view) {
+    public GridView createDefaultBoard(Integer rows, Integer cols) {
         GridView boardGridView = new GridOfSquares(rows, cols);
-        InputGridFactory factoryInput = new InputDigitFactory();
-        GridView selectValuesGridView = factoryInput.createInputGrid();
+        boardGridView.setVisible(true);
+        return boardGridView;
+    }
 
-        AbstractSelectValueController selectValueController = new SelectValueController(boardGridView, selectValuesGridView);
-
-        factoryInput.addInputCells(selectValuesGridView, selectValueController);
-
-        for (int i = 0; i < rows; i++) {
+    public void setCells(GridView board, AbstractSelectValueController controller){
+        int rows = board.amountRows();
+        int cols = board.amountCols();
+        for (int  i = 0; i < rows; i++){
             for (int j = 0; j < cols; j++) {
-                Component component;
-                if (j == 3) {
-                    component = new ClueCellView(8, selectValueController);
-
+                CellView cell;
+                if (j % 3 == 0) {
+                    cell = new ClueCellView(j,controller);
                 } else {
-                    component = new EditableNumberCell(selectValueController);
+                    cell = new EditableNumberCell(controller);
                 }
-                boardGridView.addCellView(component);
+                cell.setCoordinates(i,j);
+                board.addCellView(cell);
             }
         }
-
-        boardGridView.setVisible(true);
-        view.add(boardGridView);
-        selectValuesGridView.setVisible(false);
-        view.add(selectValuesGridView);
     }
 }

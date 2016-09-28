@@ -14,10 +14,6 @@ public class Main {
         FactoryView factoryView = new FactoryView();
         View view = factoryView.createDefaultWindow();
 
-        FactoryGridView factoryGridView = new FactoryGridView();
-
-        factoryGridView.createDefaultBoard(7,10, view);
-
         view.setVisible(true);
 
         System.out.println("nikoli games :D");

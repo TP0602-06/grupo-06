@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper;
 
+import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -22,8 +23,8 @@ public class FocusGridViewHelper implements AbstractFocusGridViewHelper {
 
     @Override
     public void clearFocus() {
-        List<Component> cellViews = gridView.getCellViews();
-        Iterator<Component> iteratorCellViews = cellViews.iterator();
+        List<CellView> cellViews = gridView.getCellViews();
+        Iterator<CellView> iteratorCellViews = cellViews.iterator();
         while (iteratorCellViews.hasNext()) {
             Component cellView = iteratorCellViews.next();
             focusHelper.clearFocus(cellView);

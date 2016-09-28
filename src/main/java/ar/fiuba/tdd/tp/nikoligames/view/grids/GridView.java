@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
+import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+
 import java.awt.*;
 
 import java.util.List;
@@ -11,7 +13,11 @@ import javax.swing.*;
  */
 public abstract class GridView extends JPanel {
 
-    public abstract void addCellView(Component cell);
+    public abstract void addCellView(CellView cell);
 
-    public abstract List<Component> getCellViews();
+    public abstract List<CellView> getCellViews();
+
+    public abstract Integer amountCols();
+
+    public abstract Integer amountRows();
 }
