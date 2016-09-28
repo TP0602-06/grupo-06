@@ -26,7 +26,7 @@ public class FocusGridViewHelper implements AbstractFocusGridViewHelper {
         List<CellView> cellViews = gridView.getCellViews();
         Iterator<CellView> iteratorCellViews = cellViews.iterator();
         while (iteratorCellViews.hasNext()) {
-            Component cellView = iteratorCellViews.next();
+            CellView cellView = iteratorCellViews.next();
             focusHelper.clearFocus(cellView);
         }
     }

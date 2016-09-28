@@ -12,15 +12,18 @@ import javax.swing.*;
  */
 public class KakuroCell extends CellView {
 
+    private Color backgroundColor = ColorSet.INVALID_BACKGROUND ;
+    private Color foregroundColor = ColorSet.RULE_NUMBER;
+
     public KakuroCell() {
-        setBackground(ColorSet.INVALID_BACKGROUND);
+        setBackground(backgroundColor);
         setLayout(new BorderLayout());
         setEnabled(false);
     }
 
     private JLabel makeLabel(Integer value) {
         JLabel label = new JLabel(String.valueOf(value));
-        label.setForeground(ColorSet.NORMAL_BACKGROUND);
+        label.setForeground(foregroundColor);
         return label;
     }
 
@@ -41,9 +44,14 @@ public class KakuroCell extends CellView {
     public void paintComponent(Graphics graphic) {
         super.paintComponent(graphic);
         Graphics2D g2 = (Graphics2D) graphic;
-        g2.setColor(ColorSet.NORMAL_BACKGROUND);
+        g2.setColor(foregroundColor);
         g2.setStroke(new BasicStroke(2f));
         Rectangle2D bounds = graphic.getClipBounds();
         g2.draw(new Line2D.Double(0, 0, bounds.getWidth(), bounds.getHeight()));
+    }
+
+    @Override
+    public void clearFocus() {
+        this.setBackground(backgroundColor);
     }
 }

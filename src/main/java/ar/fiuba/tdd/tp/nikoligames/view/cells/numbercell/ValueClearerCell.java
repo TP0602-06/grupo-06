@@ -6,15 +6,19 @@ import ar.fiuba.tdd.tp.nikoligames.view.listeners.ClearCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 import javax.swing.*;
+import java.awt.*;
 
 
 /**
  * Esta celda se encarga de notificar la accion de borrar.
  */
 public class ValueClearerCell extends CellView {
+    private Color backgroundColor = ColorSet.NORMAL_BACKGROUND ;
+    private Color foregroundColor = ColorSet.NUMBER ;
+
     public ValueClearerCell(AbstractSelectValueController selectValueController) {
-        setBackground(ColorSet.NORMAL_BACKGROUND);
-        setForeground(ColorSet.NUMBER);
+        setBackground(backgroundColor);
+        setForeground(foregroundColor);
         setText("Clear");
         registerMouseListener(selectValueController);
     }
@@ -22,5 +26,8 @@ public class ValueClearerCell extends CellView {
     protected void registerMouseListener(AbstractSelectValueController selectValueController) {
         this.addMouseListener(new ClearCellListener(selectValueController));
     }
-
+    @Override
+    public void clearFocus() {
+        this.setBackground(backgroundColor);
+    }
 }

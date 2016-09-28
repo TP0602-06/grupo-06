@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView;
 
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.KakuroCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
@@ -40,6 +41,11 @@ public class FactorySampleBoardView implements AbstractFactoryBoard {
                 CellView cell;
                 if (j % 3 == 0) {
                     cell = new ClueCellView(j, selectValueController);
+                } else if (j % 4 == 0){
+                    KakuroCell kakuroCell = new KakuroCell();
+                    kakuroCell.setBottom(9);
+                    cell = kakuroCell;
+
                 } else {
                     cell = new EditableNumberCell(selectValueController);
                 }

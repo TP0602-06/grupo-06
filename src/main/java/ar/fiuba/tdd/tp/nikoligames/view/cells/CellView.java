@@ -22,4 +22,6 @@ public abstract class CellView extends JButton {
         return this.indexY;
     }
 
+    public abstract void clearFocus();
+
 }

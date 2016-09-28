@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectComponentCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
-import javax.swing.*;
+import java.awt.*;
 
 /**
  * Estas celdas son la vista de celdas que contienen numeros.
@@ -13,15 +13,24 @@ import javax.swing.*;
  */
 public class ClueCellView extends CellView {
 
+    private Color backgroundColor = ColorSet.NORMAL_BACKGROUND ;
+    private Color foregroundColor = ColorSet.CLUE ;
+
+
     public ClueCellView(int clue, AbstractSelectValueController selectValueController) {
-        setBackground(ColorSet.NORMAL_BACKGROUND);
-        setForeground(ColorSet.CLUE);
+        setBackground(backgroundColor);
+        setForeground(foregroundColor);
         this.setText(Integer.toString(clue));
         registerMouseListener(selectValueController);
     }
 
     private void registerMouseListener(AbstractSelectValueController selectValueController) {
         this.addMouseListener(new SelectComponentCellListener(selectValueController));
+    }
+
+    @Override
+    public void clearFocus() {
+        this.setBackground(backgroundColor);
     }
 }
 

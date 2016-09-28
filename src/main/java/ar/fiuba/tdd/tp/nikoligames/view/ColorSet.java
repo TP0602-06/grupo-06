@@ -7,9 +7,11 @@ import java.awt.Color;
  */
 public class ColorSet {
     public static final Color NORMAL_BACKGROUND = Color.WHITE;
-    public static final Color INVALID_BACKGROUND = Color.BLACK;
+    public static final Color INVALID_BACKGROUND = Color.LIGHT_GRAY;
+    public static final Color RULE_NUMBER = Color.BLACK;
     public static final Color NUMBER = Color.BLACK;
-    public static final Color CLUE = Color.ORANGE;
+    public static final Color CLUE = Color.BLUE;
     public static final Color ERROR = Color.RED;
-    public static final Color HOVER = Color.LIGHT_GRAY;
+    public static final Color HOVER = Color.orange;
+
 }
