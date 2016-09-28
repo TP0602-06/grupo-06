@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 
 /**
  * Created by mcapolupo on 23/9/16.
+ * Class used to build a {@link GameConfig} when the game is based on a board.
  */
 public class BoardGameConfigParser extends GameConfigParserJson {
 

@@ -6,6 +6,7 @@ import org.json.simple.JSONObject;
 
 /**
  * Created by mcapolupo on 20/9/16.
+ * It is a kind of Board DTO, totally agnostic to model.
  */
 public class BoardConfig {
 

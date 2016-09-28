@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.games.sudoku;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.*;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.CellFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import org.junit.Test;
 
@@ -53,16 +54,6 @@ public class SudokuRulesFactoryTest {
         assertEquals(true, this.isBorken(rules));
     }
 
-    private Board createEmptyBoard() {
-        Board board = new Board(9, 9);
-        for (int column = 0; column < 9; column++) {
-            for (int row = 0; row < 9; row++) {
-                board.setCell(column, row, new Cell());
-            }
-        }
-        return board;
-    }
-
     private Board createSolvedBoard() {
         Board board = new Board(9, 9);
         this.setRow(board, 0, new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"});
@@ -78,8 +69,9 @@ public class SudokuRulesFactoryTest {
     }
 
     private void setRow(Board board, int row, String[] values) {
+        CellFactory cellFactory = new CellFactory();
         for (int column = 0; column < 9; column++) {
-            board.setCell(column, row, this.createCell(values[column]));
+            board.setCell(column, row, cellFactory.createCell(values[column]));
         }
     }
 
@@ -93,11 +85,11 @@ public class SudokuRulesFactoryTest {
         board.setCellValue(position2, value);
     }
 
-    private AbstractCell createCell(String value) {
-        Cell cell = new Cell();
-        cell.setValue(value);
-        return cell;
-    }
+//    private AbstractCell createCell(String value) {
+//        Cell cell = new Cell();
+//        cell.setValue(value);
+//        return cell;
+//    }
 
     private boolean isBorken(Iterable<Rule> rules) {
         for (Rule rule : rules) {
