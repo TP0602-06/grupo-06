@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.KakuroCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
@@ -15,12 +16,11 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueContro
 public class FactorySampleBoardView implements AbstractFactoryBoard {
     AbstractSelectValueController selectValueController;
 
-
     public FactorySampleBoardView(AbstractSelectValueController controller){
         selectValueController = controller;
     }
 
-    public GridView createBoardView(Integer rows, Integer cols) {
+    public GridView createBoardView(Integer rows, Integer cols, DrawableBoard modelBoard) {
         GridView boardGridView = new GridOfSquares(rows, cols);
 
         selectValueController.addBoardView(boardGridView);

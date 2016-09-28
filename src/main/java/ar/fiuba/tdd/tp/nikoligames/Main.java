@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+
         FactoryGameView factoryView = new FactoryGameView();
         GameView view = factoryView.createDefaultGameView();
 

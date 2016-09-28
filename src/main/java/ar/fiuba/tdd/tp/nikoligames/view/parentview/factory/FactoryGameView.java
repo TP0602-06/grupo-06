@@ -31,7 +31,7 @@ public class FactoryGameView implements AbstractFactoryGameView {
         AbstractSelectValueController selectValueController = new SelectValueController();
 
         AbstractFactoryBoard gridBoardFactory = new FactorySampleBoardView(selectValueController);
-        GridView board = gridBoardFactory.createBoardView(DEFAULT_GAME_ROWS, DEFAULT_GAME_COLS);
+        GridView board = gridBoardFactory.createBoardView(DEFAULT_GAME_ROWS, DEFAULT_GAME_COLS,null);
 
         AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(selectValueController);
         GridView inputs = inputFactory.createInputGridForBoardView(board);
