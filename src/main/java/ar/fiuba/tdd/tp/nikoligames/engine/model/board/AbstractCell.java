@@ -10,7 +10,8 @@ public abstract class AbstractCell implements DrawableCell {
     //TODO: fuerza solo enteros
     protected String value = "";
 
-    public AbstractCell(){}
+    public AbstractCell() {
+    }
 
     public AbstractCell(String value) {
         this.value = value;
@@ -29,7 +30,7 @@ public abstract class AbstractCell implements DrawableCell {
     }
 
     public boolean isEmpty() {
-        return (Objects.equals(this.getValue(),""));
+        return (Objects.equals(this.getValue(), ""));
     }
 
 }
