@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.rulesTest;
+package ar.fiuba.tdd.tp.nikoligames.rulestest;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.CellFactory;
@@ -83,7 +83,7 @@ public class NoDuplicatesRuleTest {
         AbstractCell cell2 = createCell("");
         list.add(cell2);
         Rule rule = new NoDuplicatesRule(list);
-        assertTrue(!rule.isBroken());
+        assertTrue(rule.isBroken());
     }
 
 }

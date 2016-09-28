@@ -20,7 +20,7 @@ public class NoDuplicatesRule extends Rule {
         ArrayList<Integer> values = new ArrayList<Integer>();
         for (AbstractCell cell : this.cells) {
             if (cell.isEmpty()) {
-                continue;
+                return true;
             }
             if (values.contains(Integer.parseInt(cell.getValue()))) {
                 return true;

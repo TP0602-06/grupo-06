@@ -47,4 +47,13 @@ public class AdditionRuleTest {
         AdditionRule addRule = new AdditionRule(5, cellList);
         assertTrue(addRule.isBroken());
     }
+
+    @Test
+    public void testAdditionWithEmptyCell() {
+        ArrayList<AbstractCell> cellList = new ArrayList<AbstractCell>();
+        EditableCell cell = new EditableCell();
+        cellList.add(cell);
+        AdditionRule addRule = new AdditionRule(5, cellList);
+        assertTrue(addRule.isBroken());
+    }
 }
