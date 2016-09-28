@@ -1,26 +1,30 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
+
+import java.util.ArrayList;
 
 /**
  * Regla de adicion. Valida que la adicion de valores de un grupo de celdas.
  */
-public class AdditionRule implements Rule {
+public class AdditionRule extends Rule {
     private Integer value;
-    private Iterable<Cell> cells;
 
-    public AdditionRule(Integer value, Iterable<Cell> cells) {
+    public AdditionRule(Integer value, ArrayList<AbstractCell> cells) {
+        super(cells);
         this.value = value;
-        this.cells = cells;
     }
 
     @Override
     public boolean isBroken() {
         Integer addition = 0;
-        for (Cell cell : this.cells) {
-            addition += cell.getValue();
+        for (AbstractCell cell : this.cells) {
+            if (cell.isEmpty()) {
+                return true;
+            }
+            addition += Integer.parseInt(cell.getValue());
         }
-        return this.value.equals(addition);
+        return (!this.value.equals(addition));
     }
 }
