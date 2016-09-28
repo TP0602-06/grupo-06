@@ -6,6 +6,10 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
  */
 public class EditableCell extends AbstractCell {
 
+    public EditableCell() {
+        super();
+    }
+
     public EditableCell(String value) {
         super(value);
     }

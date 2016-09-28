@@ -10,6 +10,8 @@ public abstract class AbstractCell implements DrawableCell {
     //TODO: fuerza solo enteros
     protected String value = "";
 
+    public AbstractCell(){}
+
     public AbstractCell(String value) {
         this.value = value;
     }
