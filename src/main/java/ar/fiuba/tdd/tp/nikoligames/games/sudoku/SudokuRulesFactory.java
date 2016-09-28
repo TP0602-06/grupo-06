@@ -22,7 +22,7 @@ public class SudokuRulesFactory {
         this.board = board;
     }
 
-    public Iterable<Rule> getRules() {
+    public ArrayList<Rule> getRules() {
         ArrayList<Rule> rules = new ArrayList<>();
         this.addColumnsRules(rules);
         this.addRowsRules(rules);

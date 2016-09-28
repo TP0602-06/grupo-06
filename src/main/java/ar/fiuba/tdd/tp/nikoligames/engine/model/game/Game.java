@@ -6,7 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 
 
-public abstract class Game {
+public class Game {
     protected Board board;
     protected RuleManager ruleManager;
 

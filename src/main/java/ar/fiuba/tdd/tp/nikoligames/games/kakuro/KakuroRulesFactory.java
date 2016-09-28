@@ -22,7 +22,7 @@ public class KakuroRulesFactory {
         this.board = board;
     }
 
-    public Iterable<Rule> getRules() {
+    public ArrayList<Rule> getRules() {
         ArrayList<Rule> rules = new ArrayList<>();
         for (int column = 0; column < this.board.getWidth(); column++) {
             for (int row = 0; row < this.board.getLength(); row++) {
