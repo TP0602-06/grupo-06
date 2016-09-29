@@ -9,27 +9,44 @@ import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
-    private static final String SUDOKU_CONFIG_PATH = "./src/test/config/sudoku/easy2.json";
-    private static final String KAKURO_CONFIG_PATH = "./src/test/config/kakuro/easy2.json";
+    private Map<String, GameFactory> gamesFactories;
 
     public static void main(String[] args) {
-        try {
-            FileReader fileReader = new FileReader(KAKURO_CONFIG_PATH);
-            //GameFactory factory = new SudokuFactory();
-            GameFactory factory = new KakuroFactory();
+        Main main = new Main();
 
-            Game game = factory.crateGame(fileReader);
+        try {
+            Game game = main.getGame(args);
             FactoryGameView factoryView = new FactoryGameView();
             GameView view = factoryView.createDefaultGameView(game);
 
             view.setVisible(true);
-
-            System.out.println("nikoli games :D");
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public Main() {
+        this.gamesFactories = new HashMap<>();
+        this.gamesFactories.put("sudoku", new SudokuFactory());
+        this.gamesFactories.put("kakuro", new KakuroFactory());
+    }
+
+    private Game getGame(String[] args) throws Exception {
+        for (int index = 0; index < args.length; index++) {
+            GameFactory gameFactory = this.gamesFactories.get(args[index]);
+            if (gameFactory != null) {
+                return this.createGame(gameFactory, args[index + 1]);
+            }
+        }
+        throw new Exception("The game does not exist");
+    }
+
+    private Game createGame(GameFactory gameFactory, String configFile) throws FileNotFoundException {
+        FileReader fileReader = new FileReader(configFile);
+        return gameFactory.crateGame(fileReader);
     }
 }
