@@ -91,12 +91,12 @@ public class KakuroRulesFactoryTest {
     }
 
     private AbstractCell getCell(Board board, int column, int row) {
-        Position position = new Position(row, column);
+        Position position = new Position(column, row);
         return board.getCell(position);
     }
 
     private void setValue(Board board, int column, int row, String value) {
-        Position position = new Position(row, column);
+        Position position = new Position(column, row);
         board.setCellValue(position, value);
     }
 
