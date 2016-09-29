@@ -23,15 +23,16 @@ public class SelectValueController implements AbstractSelectValueController {
     public SelectValueController(Game game) {
         this.game = game;
     }
+
     private AbstractFocusCellViewHelper focusCellViewHelper = new FocusCellViewHelper();
 
     private AbstractEditableNumberCell lastSelectedEditableCellView;
 
-    public void addBoardView(GridView boardView){
+    public void addBoardView(GridView boardView) {
         this.focusGridHelper = new FocusGridViewHelper(boardView);
     }
 
-    public void addInputBoardView(GridView inputBoardView){
+    public void addInputBoardView(GridView inputBoardView) {
         this.selectValueGridView = inputBoardView;
     }
 

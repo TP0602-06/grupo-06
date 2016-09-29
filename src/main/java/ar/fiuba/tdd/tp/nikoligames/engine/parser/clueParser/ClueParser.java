@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.parser.clueParser;
+package ar.fiuba.tdd.tp.nikoligames.engine.parser.clueparser;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableCell;
 

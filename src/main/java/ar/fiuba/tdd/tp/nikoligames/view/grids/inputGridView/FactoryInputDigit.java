@@ -1,11 +1,10 @@
-package ar.fiuba.tdd.tp.nikoligames.view.grids.inputGridView;
+package ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview;
 
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueClearerCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueToSelectCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.inputGridView.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 /**
@@ -18,9 +17,10 @@ public class FactoryInputDigit implements AbstractFactoryInputGrid {
 
     AbstractSelectValueController selectValueController;
 
-    public FactoryInputDigit(AbstractSelectValueController controller){
+    public FactoryInputDigit(AbstractSelectValueController controller) {
         this.selectValueController = controller;
     }
+
     public GridView createInputGridForBoardView(GridView board) {
 
         GridView inputGridView = new GridOfSquares(firstDigit, lastDigit);

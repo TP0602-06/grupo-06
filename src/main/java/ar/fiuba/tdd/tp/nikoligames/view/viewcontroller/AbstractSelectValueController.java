@@ -11,6 +11,7 @@ import java.awt.*;
 public interface AbstractSelectValueController {
 
     void addBoardView(GridView boardView);
+
     void addInputBoardView(GridView inputBoardView);
 
     void notifySelectedEditableCellView(AbstractEditableNumberCell cellView);

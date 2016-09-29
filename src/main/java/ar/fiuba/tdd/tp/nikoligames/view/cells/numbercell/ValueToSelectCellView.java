@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.SelectValueCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -31,6 +30,7 @@ public class ValueToSelectCellView extends CellView {
     public Integer getValue() {
         return value;
     }
+
     @Override
     public void clearFocus() {
         this.setBackground(backgroundColor);

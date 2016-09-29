@@ -12,7 +12,7 @@ public class BoardFactory {
 
     private static BoardFactory instance;
 
-    private  BoardFactory(){
+    private BoardFactory() {
 
     }
 
@@ -28,11 +28,11 @@ public class BoardFactory {
         return board;
     }
 
-    public static BoardFactory getInstance(){
-        if(instance == null){
+    public static BoardFactory getInstance() {
+        if (instance == null) {
             instance = new BoardFactory();
         }
-        return  instance;
+        return instance;
     }
 
 }
