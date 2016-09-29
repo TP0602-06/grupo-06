@@ -12,7 +12,9 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import java.awt.*;
 
 /**
- * Esta clase escucha las interacciones con las celdas.
+ * Responsabilidades:
+ * 1. Implementa la clase AbstractSelectValueController
+ * Patrón: OBSERVER
  */
 public class SelectValueController implements AbstractSelectValueController {
 
