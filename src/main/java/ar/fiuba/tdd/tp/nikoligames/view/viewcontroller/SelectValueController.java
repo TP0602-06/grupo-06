@@ -50,7 +50,7 @@ public class SelectValueController implements AbstractSelectValueController {
 
     public void notifySelectedValue(String value) {
         this.lastSelectedEditableCellView.changeValue(value);
-        changeModelCellValue(value.toString());
+        changeModelCellValue(value);
     }
 
     public void notifyClearValue() {
