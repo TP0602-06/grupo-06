@@ -1,4 +1,8 @@
-# grupo-06
+# grupo-06 - Games Creator
+
+## NikoliGames
+
+El objetivo de este proyecto es el de proveer un creador de juegos de la coleccion de Kikoli. Actualmente se puede jugar al [Sudoku](https://es.wikipedia.org/wiki/Sudoku) y al [kakuro](https://es.wikipedia.org/wiki/Kakuro)
 
 ## Prepare your workspace
 
