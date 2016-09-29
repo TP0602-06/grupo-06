@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.boardTest;
+package ar.fiuba.tdd.tp.nikoligames.boardtest;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.*;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.CellFactory;
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 public class BoardTest {
 
     private int columns = 5, rows = 10;
-    private int maxColumns = columns -1, maxRow = rows -1;
+    private int maxColumns = columns - 1, maxRow = rows - 1;
 
     @Test
     public void creationTest() {
@@ -23,16 +23,16 @@ public class BoardTest {
         assertNotNull(board);
     }
 
-    @Test (expected = UnsupportedOperationException.class)
+    @Test(expected = UnsupportedOperationException.class)
     public void outOfRangeWidthTest() {
         Board board = new Board(columns, rows);
-        board.setCell(maxColumns +1, maxRow,new EditableCell());
+        board.setCell(maxColumns + 1, maxRow, new EditableCell());
     }
 
-    @Test (expected = UnsupportedOperationException.class)
+    @Test(expected = UnsupportedOperationException.class)
     public void outOfRangeLengthTest() {
         Board board = new Board(columns, rows);
-        board.setCell(maxColumns, maxRow +1,new EditableCell());
+        board.setCell(maxColumns, maxRow + 1, new EditableCell());
     }
 
     @Test
@@ -40,20 +40,20 @@ public class BoardTest {
         String value = "value1";
         Board board = new Board(columns, rows);
         AbstractCell cell = CellFactory.getInstance().createCell(value);
-        board.setCell(maxColumns, maxRow,cell);
+        board.setCell(maxColumns, maxRow, cell);
         assertTrue(cell.equals(board.getCell(new Position(maxColumns, maxRow))));
     }
 
     @Test
     public void getCellListTest() {
         String value = "value1";
-        Position pos = new Position(maxColumns,maxRow);
+        Position pos = new Position(maxColumns, maxRow);
         Board board = new Board(columns, rows);
         AbstractCell cell = CellFactory.getInstance().createCell(value);
-        board.setCell(pos.getX(), pos.getY(),cell);
+        board.setCell(pos.getX(), pos.getY(), cell);
         ArrayList<Position> list = new ArrayList<>();
         list.add(pos);
-        for(DrawableCell bcell : board.getArrayOfCells(list)){
+        for (DrawableCell bcell : board.getArrayOfCells(list)) {
             assertTrue(cell.equals(bcell));
             assertTrue(!bcell.isEditable());
         }

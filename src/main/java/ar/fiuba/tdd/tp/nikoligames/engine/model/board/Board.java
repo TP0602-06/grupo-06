@@ -64,7 +64,7 @@ public class Board implements DrawableBoard {
         return arrayOfCells;
     }
 
-    public DrawableCell getADrawableCell( Position position){
+    public DrawableCell getADrawableCell(Position position) {
         return getCell(position);
 
     }

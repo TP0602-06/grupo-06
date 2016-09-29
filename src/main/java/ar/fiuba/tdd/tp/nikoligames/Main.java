@@ -3,9 +3,8 @@ package ar.fiuba.tdd.tp.nikoligames;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.GameFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.games.kakuro.KakuroFactory;
-import ar.fiuba.tdd.tp.nikoligames.games.sudoku.SudokuFactory;
-import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

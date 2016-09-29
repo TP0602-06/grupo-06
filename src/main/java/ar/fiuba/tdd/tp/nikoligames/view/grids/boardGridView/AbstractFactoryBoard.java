@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView;
+package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;

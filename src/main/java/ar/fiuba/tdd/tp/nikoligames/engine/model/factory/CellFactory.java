@@ -12,7 +12,7 @@ public class CellFactory {
 
     private static CellFactory instance;
 
-    private  CellFactory(){
+    private CellFactory() {
 
     }
 
@@ -24,8 +24,8 @@ public class CellFactory {
         }
     }
 
-    public static CellFactory getInstance(){
-        if(instance == null){
+    public static CellFactory getInstance() {
+        if (instance == null) {
             instance = new CellFactory();
         }
         return instance;

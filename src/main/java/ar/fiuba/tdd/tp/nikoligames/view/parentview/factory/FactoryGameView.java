@@ -1,14 +1,13 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.*;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView.AbstractFactoryBoard;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.boardGridView.FactoryBoardViewFromModel;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.inputGridView.AbstractFactoryInputGrid;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.inputGridView.FactoryInputDigit;
+import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.AbstractFactoryBoard;
+import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.FactoryBoardViewFromModel;
+import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
+import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;

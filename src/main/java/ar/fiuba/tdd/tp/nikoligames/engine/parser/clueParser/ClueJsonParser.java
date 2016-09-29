@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.parser.clueParser;
+package ar.fiuba.tdd.tp.nikoligames.engine.parser.clueparser;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableCell;
 
@@ -11,12 +11,12 @@ public class ClueJsonParser implements ClueParser {
     private static final String separator = "\\\\";
     private static final String EMPTY_CLUE = "*";
 
-    public String topClue(DrawableCell cell){
+    public String topClue(DrawableCell cell) {
         return extractClue(cell, topIndex);
     }
 
-    public String bottomClue(DrawableCell cell){
-        return extractClue(cell,bottomIndex);
+    public String bottomClue(DrawableCell cell) {
+        return extractClue(cell, bottomIndex);
     }
 
     @Override
@@ -34,11 +34,11 @@ public class ClueJsonParser implements ClueParser {
         return value.split(separator)[index];
     }
 
-    private boolean isEmptyClue(String value){
+    private boolean isEmptyClue(String value) {
         return !value.equals(EMPTY_CLUE);
     }
 
-    public boolean isBarClue(DrawableCell cell){
+    public boolean isBarClue(DrawableCell cell) {
         String value = cell.getValue();
         return value.contains("\\");
     }

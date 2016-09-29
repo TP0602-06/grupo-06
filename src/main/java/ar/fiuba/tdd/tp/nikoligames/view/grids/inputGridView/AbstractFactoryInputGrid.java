@@ -1,7 +1,6 @@
-package ar.fiuba.tdd.tp.nikoligames.view.grids.inputGridView;
+package ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview;
 
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 /**
  * Esta clase se encarga de crear celdas para que el usuario ingrese valores.
