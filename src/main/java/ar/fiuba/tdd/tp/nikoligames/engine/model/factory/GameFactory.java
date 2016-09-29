@@ -1,39 +1,42 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParser;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.impl.BoardGameConfigParser;
+import ar.fiuba.tdd.tp.nikoligames.games.kakuro.KakuroFactory;
+import ar.fiuba.tdd.tp.nikoligames.games.sudoku.SudokuFactory;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Desliga al cliente de conocer como se crea  un juego y lo resuelve.
+ * Responsabilidades:
+ * 1. Seleccionar la referencia a la factory necesaria para crear el juego
+ * 1. Crear el juego a partir de la la factory
+ * Patrón de diseno: Strategy - Abstract Factory
  */
-public abstract class GameFactory {
+public class GameFactory {
 
-    protected Board createBoard(Reader fileReader) throws FileNotFoundException {
-        GameConfigParser boardGameConfigParser = new BoardGameConfigParser();
-        GameConfig gameConfig = boardGameConfigParser.parse(fileReader);
-        BoardFactory boardFactory = BoardFactory.getInstance();
-        Board board = boardFactory.createBoard(gameConfig.getSize(), gameConfig.getBoard());
-        return board;
+    private Map<String, AbstractGameFactory> gamesFactories;
+
+    private AbstractGameFactory actualGameFactory;
+
+    public GameFactory() {
+        this.gamesFactories = new HashMap<>();
+        this.gamesFactories.put("sudoku", new SudokuFactory());
+        this.gamesFactories.put("kakuro", new KakuroFactory());
     }
 
-    public Game crateGame(Reader fileReader) throws FileNotFoundException {
-        Board board = this.createBoard(fileReader);
-        ArrayList<Rule> rules = this.getRules(board);
-        RuleManager ruleManager = new RuleManager(rules);
-        Game game = new Game(board, ruleManager);
-        return game;
+    public Game createGame(String gameType, String gameConfigFileName) throws Exception {
+        this.selectGameFactory(gameType);
+        Reader fileReader = new InputStreamReader(new FileInputStream(gameConfigFileName), "UTF-8");
+        return this.actualGameFactory.crateGame(fileReader);
     }
 
-    protected abstract ArrayList<Rule> getRules(Board board);
-
+    private void selectGameFactory(String gameType) throws Exception {
+        if (this.gamesFactories.containsKey(gameType)) {
+            this.actualGameFactory = this.gamesFactories.get(gameType);
+        } else {
+            throw new Exception("Not a valid type of game");
+        }
+    }
 }
