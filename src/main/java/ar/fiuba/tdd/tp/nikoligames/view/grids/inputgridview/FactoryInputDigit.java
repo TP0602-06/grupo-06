@@ -8,7 +8,10 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 /**
- * Esta clase se encarga de la construccion de una grid input.
+ * Responsabilidades:
+ * 1. Implementa la abstracción para la encapsulación de la creación de una grilla para el ingreso de valores al tablero o board
+ * Patrón:
+ *  1. Abstract Factory
  */
 public class FactoryInputDigit implements AbstractFactoryInputGrid {
 

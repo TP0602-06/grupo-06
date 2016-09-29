@@ -9,7 +9,8 @@ import java.util.List;
 import javax.swing.*;
 
 /**
- * Es la vista de una grilla cuadrada.
+ * Responsabilidades:
+ * 1. Implementar una vista de grilla cuadriculada
  */
 public class GridOfSquares extends GridView {
     private Integer rows;

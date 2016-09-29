@@ -10,7 +10,10 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.DrawCellFrom
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
 /**
- * Es la factory que toma el modelo y arma la vista del tablero cuadriculada.
+ * Responsabilidades:
+ * 1. Implementa la abstracción para la encapsulación de la creación de una grilla para el board
+ * Patrón:
+ *  1. Abstract Factory
  */
 public class FactoryBoardViewFromModel implements AbstractFactoryBoard {
     AbstractSelectValueController selectValueController;

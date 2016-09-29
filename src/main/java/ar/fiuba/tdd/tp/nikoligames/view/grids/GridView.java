@@ -9,7 +9,8 @@ import java.util.List;
 import javax.swing.*;
 
 /**
- * Interfaz para armar la vista de grillas.
+ * Responsabilidades:
+ * 1. Crear una abstracción para la vista de grillas
  */
 public abstract class GridView extends JPanel {
 
