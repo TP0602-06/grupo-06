@@ -15,7 +15,7 @@ public class CheckGameButton extends JButton implements ButtonCommand {
     private Game game;
 
     public CheckGameButton(Game game) {
-        setText("X");
+        setText("Check");
         addMouseListener(new BasicButtonListener());
         this.game = game;
     }
