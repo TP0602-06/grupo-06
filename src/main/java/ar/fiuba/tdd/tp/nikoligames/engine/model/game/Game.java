@@ -27,8 +27,17 @@ public class Game {
         return ruleManager.checkRules();
     }
 
+
     public boolean insertValueInCell(Position position, String value) {
-        return board.setCellValue(position, value);
+
+        String previousValue = board.getCell(position).getValue();
+        board.setCellValue(position, value);
+        if(ruleManager.checkActualRules()){
+            return true;
+        }
+        board.setCellValue(position, previousValue);
+        return false;
+
     }
 
 }

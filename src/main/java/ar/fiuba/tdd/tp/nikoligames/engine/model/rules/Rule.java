@@ -15,4 +15,6 @@ public abstract class Rule {
     }
 
     public abstract boolean isBroken();
+
+    public abstract boolean isActualBroken();
 }

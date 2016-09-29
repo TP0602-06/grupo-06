@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.AdditionRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.MultiplyRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
 
 import java.util.ArrayList;
@@ -22,6 +23,9 @@ public class RulesFactory {
         return new NoDuplicatesRule(cells);
     }
 
+    public Rule createMultiplyRule(int sum,ArrayList<AbstractCell> cells) {
+        return new MultiplyRule(sum,cells);
+    }
 
 
 }

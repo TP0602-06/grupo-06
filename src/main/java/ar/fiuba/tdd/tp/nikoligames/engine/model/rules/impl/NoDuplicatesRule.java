@@ -29,4 +29,19 @@ public class NoDuplicatesRule extends Rule {
         }
         return false;
     }
+
+    @Override
+    public boolean isActualBroken() {
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        for (AbstractCell cell : this.cells) {
+            if (cell.isEmpty()) {
+                continue;
+            }
+            if (values.contains(Integer.parseInt(cell.getValue()))) {
+                return true;
+            }
+            values.add(Integer.parseInt(cell.getValue()));
+        }
+        return false;
+    }
 }

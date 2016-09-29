@@ -12,13 +12,25 @@ public class RuleManager {
         this.rules = rules;
     }
 
-    //Return true if it is all right
-    public boolean checkRules() {
+    // En el futuro no va a haber otras reglas a chequear
+    private boolean check(boolean actual){
         for (Rule rule : this.rules) {
-            if (rule.isBroken()) {
+            if (rule.isActualBroken() && actual) {
+                return false;
+            }
+            if (rule.isBroken() && !actual) {
                 return false;
             }
         }
         return true;
+    }
+
+    //Return true if it is all right
+    public boolean checkRules() {
+        return check(false);
+    }
+
+    public  boolean checkActualRules(){
+        return check(true);
     }
 }
