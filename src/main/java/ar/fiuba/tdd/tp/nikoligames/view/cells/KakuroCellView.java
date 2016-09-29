@@ -19,25 +19,27 @@ public class KakuroCellView extends CellView {
         setBackground(backgroundColor);
         setLayout(new BorderLayout());
         setEnabled(false);
+        setMargin(new Insets(0, 0, 0, 0));
     }
 
-    private JLabel makeLabel(Integer value) {
-        JLabel label = new JLabel(String.valueOf(value));
+    private JLabel makeLabel(String  value) {
+        JLabel label = new JLabel(value);
         label.setForeground(foregroundColor);
         return label;
     }
 
-    public void setTop(Integer topValue) {
-        JLabel label = makeLabel(topValue);
-        label.setHorizontalAlignment(JLabel.RIGHT);
-        add(label, BorderLayout.PAGE_START);
-
+    public void setTop(String topValue) {
+        makeClueCell(topValue, JLabel.RIGHT, BorderLayout.NORTH);
     }
 
-    public void setBottom(Integer bottomValue) {
+    public void setBottom(String bottomValue) {
+        makeClueCell(bottomValue, JLabel.LEFT, BorderLayout.SOUTH);
+    }
+
+    private void makeClueCell(String bottomValue, int alignment, String pageEnd) {
         JLabel label = makeLabel(bottomValue);
-        label.setHorizontalAlignment(JLabel.LEFT);
-        add(makeLabel(bottomValue), BorderLayout.PAGE_END);
+        label.setHorizontalAlignment(alignment);
+        add(label, pageEnd);
     }
 
     @Override

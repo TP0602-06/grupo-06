@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
 /**
- * Created by german on 9/25/2016.
+ * Es la factory de la grilla para el tablero.
  */
 public interface AbstractFactoryBoard {
     GridView createBoardView(DrawableBoard modelBoard);

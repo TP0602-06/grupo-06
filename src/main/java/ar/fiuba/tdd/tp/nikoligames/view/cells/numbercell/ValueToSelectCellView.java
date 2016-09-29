@@ -27,8 +27,8 @@ public class ValueToSelectCellView extends CellView {
         this.addMouseListener(new SelectValueCellListener(selectValueController));
     }
 
-    public Integer getValue() {
-        return value;
+    public String getValue() {
+        return Integer.toString(value);
     }
 
     @Override

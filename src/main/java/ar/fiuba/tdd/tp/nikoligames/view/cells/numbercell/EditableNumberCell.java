@@ -21,8 +21,8 @@ public class EditableNumberCell extends AbstractEditableNumberCell {
         registerMouseHandler(selectValueController);
     }
 
-    public void changeValue(Integer value) {
-        this.setText(Integer.toString(value));
+    public void changeValue(String  value) {
+        this.setText(value);
     }
 
     public void clearValue() {

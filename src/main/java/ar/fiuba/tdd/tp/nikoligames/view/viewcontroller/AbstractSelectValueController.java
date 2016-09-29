@@ -6,7 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import java.awt.*;
 
 /**
- * Esta clase es la que sabe que hacer al escuchar las interacciones con las celdas.
+ * Esta clase es la que sabe que hacer al escuchar las interacciones con las celdas para su input.
  */
 public interface AbstractSelectValueController {
 
@@ -18,7 +18,7 @@ public interface AbstractSelectValueController {
 
     void notifySelectedComponent(Component component);
 
-    void notifySelectedValue(Integer value);
+    void notifySelectedValue(String value);
 
     void notifyClearValue();
 }

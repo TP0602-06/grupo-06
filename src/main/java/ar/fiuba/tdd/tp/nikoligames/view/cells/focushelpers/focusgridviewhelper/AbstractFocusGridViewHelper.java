@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper;
 
 /**
- * Created by german on 9/27/2016.
+ * Define la interfaz para deseleccionar el tablero.
  */
 public interface AbstractFocusGridViewHelper {
     void clearFocus();

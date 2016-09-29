@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 
 /**
- * Created by german on 9/25/2016.
+ * Es la factory para generar la vista del juego.
  */
 public interface AbstractFactoryGameView {
     GameView createDefaultGameView(Game game);
