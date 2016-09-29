@@ -8,7 +8,7 @@ import javax.swing.*;
 
 
 /**
- * Created by tobias on 24/09/16.
+ * Esta clase define la ventana del juego.
  */
 public class GameView extends JFrame {
 

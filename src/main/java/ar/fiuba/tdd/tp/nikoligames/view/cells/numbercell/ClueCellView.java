@@ -8,7 +8,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueContro
 import java.awt.*;
 
 /**
- * Estas celdas son la vista de celdas que contienen numeros.
+ * Estas celdas son la vista de celdas que contienen numeros predeterminados.
  * Una vez creadas no puede cambiarse su valor.
  */
 public class ClueCellView extends CellView {

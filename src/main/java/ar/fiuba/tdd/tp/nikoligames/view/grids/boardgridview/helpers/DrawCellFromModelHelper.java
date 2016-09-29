@@ -9,6 +9,9 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
+/**
+ * Esta clase define como elegir las celdas de la vista en base a las del modelo.
+ */
 public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper {
 
     private final AbstractSelectValueController controller;

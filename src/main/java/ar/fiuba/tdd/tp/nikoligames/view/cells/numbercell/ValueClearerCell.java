@@ -18,7 +18,7 @@ public class ValueClearerCell extends CellView {
     public ValueClearerCell(AbstractSelectValueController selectValueController) {
         setBackground(backgroundColor);
         setForeground(foregroundColor);
-        setText("Clear");
+        setText("X");
         registerMouseListener(selectValueController);
     }
 

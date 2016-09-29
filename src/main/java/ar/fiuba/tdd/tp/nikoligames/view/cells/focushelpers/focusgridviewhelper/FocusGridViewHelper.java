@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by german on 9/27/2016.
+ * Define como limpia la seleccion del tablero de la vista.
  */
 public class FocusGridViewHelper implements AbstractFocusGridViewHelper {
 

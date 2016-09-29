@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons;
 
 /**
- * Created by tobias on 27/09/16.
+ * Define la interfaz de los botones generales para utilizar el juego.
  */
 public interface ButtonCommand {
     void execute();

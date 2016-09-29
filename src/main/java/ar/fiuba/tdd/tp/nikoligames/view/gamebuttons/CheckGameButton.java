@@ -9,13 +9,13 @@ import javax.swing.*;
 
 
 /**
- * Created by tobias on 27/09/16.
+ * Es la implementacion de un boton que verifica si se cumplen las reglas del juego.
  */
 public class CheckGameButton extends JButton implements ButtonCommand {
     private Game game;
 
     public CheckGameButton(Game game) {
-        setText("End Game and Check");
+        setText("Check");
         addMouseListener(new BasicButtonListener());
         this.game = game;
     }

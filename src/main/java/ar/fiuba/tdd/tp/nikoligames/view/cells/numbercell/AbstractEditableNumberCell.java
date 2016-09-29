@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import javax.swing.*;
 
 /**
- * Created by german on 9/27/2016.
+ * Esta interfaz define el comportamiento de las celdas de la vista.
  */
 public abstract class AbstractEditableNumberCell extends CellView {
 
