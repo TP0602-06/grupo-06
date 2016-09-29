@@ -2,35 +2,20 @@ package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
 
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 /**
  * Created by mcapolupo on 20/9/16.
  * It is a kind of Board DTO, totally agnostic to model.
  */
-public class BoardConfig {
+public abstract class BoardConfig {
 
     private CellConfig[][] cells;
 
     public BoardConfig(SizeConfig sizeConfig, JSONArray jsonArray) {
-        cells = new CellConfig[sizeConfig.getRows()][sizeConfig.getCols()];
-        populateCells(jsonArray);
+        this.cells =  this.createCells(sizeConfig, jsonArray);
     }
 
-    private void populateCells(JSONArray jsonArray) {
-        int rowCounter = 0;
-        for (Object rowObject : jsonArray) {
-            JSONObject jsonRow = (JSONObject) rowObject;
-            String row = (String) jsonRow.get("row");
-            String[] inputs = row.split(" ");
-            int colCounter = 0;
-            for (String input : inputs) {
-                cells[rowCounter][colCounter] = new CellConfig(input);
-                colCounter++;
-            }
-            rowCounter++;
-        }
-    }
+    protected abstract CellConfig[][] createCells(SizeConfig sizeConfig, JSONArray jsonArray);
 
     public CellConfig[][] getCells() {
         return cells.clone();
