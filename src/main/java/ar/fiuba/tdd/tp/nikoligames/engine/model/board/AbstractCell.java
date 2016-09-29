@@ -4,7 +4,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 import java.util.Objects;
 
 /**
- *  AbstractCell contiene los aspectos generales de cualquier celda de cualquier juego.
+ * AbstractCell contiene los aspectos generales de cualquier celda de cualquier juego.
  */
 public abstract class AbstractCell implements DrawableCell {
 
@@ -30,7 +30,9 @@ public abstract class AbstractCell implements DrawableCell {
     }
 
     public boolean isEmpty() {
-        return (Objects.equals(this.getValue(), "?") || Objects.equals(this.getValue(), "*\\*"));
+        return this.getValue().equals("")
+                || this.getValue().equals("?")
+                || this.getValue().equals("*\\*");
     }
 
 }

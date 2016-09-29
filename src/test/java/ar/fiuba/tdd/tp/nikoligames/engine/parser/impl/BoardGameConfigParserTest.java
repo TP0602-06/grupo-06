@@ -30,8 +30,8 @@ public class BoardGameConfigParserTest {
         GameConfig gameConfig = boardGameConfigParser.parse(fileReader);
 
         //Asserts
-        assertEquals(new Integer(9), gameConfig.getSize().getRows());
-        assertEquals(new Integer(9), gameConfig.getSize().getCols());
+        assertEquals(Integer.valueOf(9), gameConfig.getSize().getRows());
+        assertEquals(Integer.valueOf(9), gameConfig.getSize().getCols());
         assertEquals("?", gameConfig.getBoard().getCells()[0][8].getInput());
         assertEquals("6", gameConfig.getBoard().getCells()[8][0].getInput());
 
@@ -48,8 +48,8 @@ public class BoardGameConfigParserTest {
         GameConfig gameConfig = boardGameConfigParser.parse(fileReader);
 
         //Asserts
-        assertEquals(new Integer(10), gameConfig.getSize().getRows());
-        assertEquals(new Integer(12), gameConfig.getSize().getCols());
+        assertEquals(Integer.valueOf(10), gameConfig.getSize().getRows());
+        assertEquals(Integer.valueOf(12), gameConfig.getSize().getCols());
         assertEquals("16\\*", gameConfig.getBoard().getCells()[0][2].getInput());
         assertEquals("*\\*", gameConfig.getBoard().getCells()[9][11].getInput());
 

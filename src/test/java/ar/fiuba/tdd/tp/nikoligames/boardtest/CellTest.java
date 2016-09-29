@@ -10,9 +10,6 @@ import static org.junit.Assert.assertTrue;
  * Pruebas del tipo cell.
  */
 public class CellTest {
-
-    private EditableCell cell;
-
     @Test
     public void creationTest() {
         EditableCell cell = new EditableCell();
