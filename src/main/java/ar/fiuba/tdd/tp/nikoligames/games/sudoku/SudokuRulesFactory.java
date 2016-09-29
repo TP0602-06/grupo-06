@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * Fabrica de reglas Sudoku. Contruye el conjunto de reglas para un juego del tipo Sudoku.
  */
 public class SudokuRulesFactory {
-    //TODO: Estos valores pueden ser necesarios en otro lado, ver bien donde se pueden ubicar
     private static final int REGION_COLUMN_SIZE = 3;
     private static final int REGION_ROW_SIZE = 3;
 

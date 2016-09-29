@@ -44,5 +44,5 @@ task start(type: JavaExec) {
     systemProperties System.getProperties()
 
     /* Need to split the space-delimited value in the exec.args */
-    args System.getProperty("exec.args").split()
+    //args System.getProperty("exec.args").split()
 }

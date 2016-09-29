@@ -33,7 +33,7 @@ public class BoardConfig {
     }
 
     public CellConfig[][] getCells() {
-        return cells.clone(); //TODO: findbug tira EI_EXPOSE_REP
+        return cells.clone();
     }
 
 
