@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
+import ar.fiuba.tdd.tp.nikoligames.games.MappedValues;
+
 /**
  * AbstractCell contiene los aspectos generales de cualquier celda de cualquier juego.
  */
@@ -23,9 +25,9 @@ public abstract class AbstractCell implements DrawableCell {
     }
 
     public boolean isEmpty() {
-        return this.getValue().equals("")
-                || this.getValue().equals("?")
-                || this.getValue().equals("*\\*");
+        return this.getValue().equals(MappedValues.EMPTY_CELL)
+                || this.getValue().equals(MappedValues.INPUT_EDITABLE)
+                || this.getValue().equals(MappedValues.GREY_CELL);
     }
 
 }
