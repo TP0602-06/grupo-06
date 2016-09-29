@@ -11,10 +11,4 @@
 
 ## Repo usage
 
-*No pushear directamente al branch master*
-
-Seguir el siguiente branching model:
-![alt tag](http://nvie.com/img/git-model@2x.png)
-
-Para más detalle:
-http://nvie.com/posts/a-successful-git-branching-model/
+* [Ver Git Flow en la wiki] (https://github.com/TP0602-06/grupo-06/wiki/Git-Flow)
