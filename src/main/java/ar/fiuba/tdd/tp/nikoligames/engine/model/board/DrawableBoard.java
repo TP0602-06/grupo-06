@@ -3,7 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 import java.util.ArrayList;
 
 /**
- * Created by Andres on 26/09/2016.
+ * Da una interfaz para el exterior del modelo evitando que sea modificado por ese medio.
  */
 public interface DrawableBoard {
     public DrawableCell getADrawableCell( Position position);

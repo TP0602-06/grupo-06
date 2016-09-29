@@ -5,6 +5,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 
+/**
+ * Game. Adminstra el juego. Valida las reglas y permite que se modifiquen el valor de las celdas.
+ */
 
 public class Game {
     protected Board board;
@@ -28,7 +31,4 @@ public class Game {
         return board.setCellValue(position, value);
     }
 
-    public boolean won() {
-        return false;
-    }
 }

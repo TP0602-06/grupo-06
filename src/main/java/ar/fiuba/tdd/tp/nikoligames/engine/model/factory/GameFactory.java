@@ -13,12 +13,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 /**
- * Created by Andres on 24/09/2016.
+ *  Desliga al cliente de conocer como se crea  un juego y lo resuelve.
  */
 public abstract class GameFactory {
 
 
-
+    // Recibe un fileReader con la configuacion del juego y lo devuelve en forma de tamblero
     protected Board createBoard(FileReader fileReader) throws FileNotFoundException {
         GameConfigParser boardGameConfigParser = new BoardGameConfigParser();
         GameConfig gameConfig = boardGameConfigParser.parse(fileReader);
