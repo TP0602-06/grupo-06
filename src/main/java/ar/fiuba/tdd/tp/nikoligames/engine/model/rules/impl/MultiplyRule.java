@@ -6,19 +6,20 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import java.util.ArrayList;
 
 /**
- * Regla de adicion. Valida que la adicion de valores de un grupo de celdas.
+ * Created by fedebrasburg on 9/29/16.
  */
-public class AdditionRule extends Rule {
+public class MultiplyRule extends Rule {
+
     private Integer value;
 
-    public AdditionRule(Integer value, ArrayList<AbstractCell> cells) {
+    public MultiplyRule(Integer value, ArrayList<AbstractCell> cells) {
         super(cells);
         this.value = value;
     }
 
     @Override
     public boolean isBroken() {
-        Integer addition = 0;
+        Integer addition = 1;
         for (AbstractCell cell : this.cells) {
             if (cell.isEmpty()) {
                 return true;
@@ -30,7 +31,7 @@ public class AdditionRule extends Rule {
 
     @Override
     public boolean isActualBroken() {
-        Integer addition = 0;
+        Integer addition = 1;
         for (AbstractCell cell : this.cells) {
             if (cell.isEmpty()) {
                 return false;
@@ -39,4 +40,5 @@ public class AdditionRule extends Rule {
         }
         return (!this.value.equals(addition));
     }
+
 }
