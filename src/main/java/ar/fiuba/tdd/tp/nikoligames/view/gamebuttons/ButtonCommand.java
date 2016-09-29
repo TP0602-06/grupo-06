@@ -1,7 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons;
 
 /**
- * Define la interfaz de los botones generales para utilizar el juego.
+ * Responsabilidades:
+ * 1. Crear una abstracción para la encapsulación del comando a ejecutar por un botón
+ * Patrón:
+ *  1. Commmand
  */
 public interface ButtonCommand {
     void execute();

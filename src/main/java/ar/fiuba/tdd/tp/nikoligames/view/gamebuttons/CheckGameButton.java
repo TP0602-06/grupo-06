@@ -6,10 +6,11 @@ import ar.fiuba.tdd.tp.nikoligames.view.listeners.BasicButtonListener;
 
 import java.awt.*;
 import javax.swing.*;
-
-
 /**
- * Es la implementacion de un boton que verifica si se cumplen las reglas del juego.
+ * Responsabilidades:
+ * 1. Es la implementacion de una abstracción para la encapsulación del comando para verificar si se cumplen las reglas del juego
+ * Patrón:
+ *  1. Commmand
  */
 public class CheckGameButton extends JButton implements ButtonCommand {
     private Game game;

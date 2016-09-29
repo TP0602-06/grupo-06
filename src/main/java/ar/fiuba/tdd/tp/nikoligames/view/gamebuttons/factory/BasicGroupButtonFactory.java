@@ -5,9 +5,12 @@ import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.CheckGameButton;
 
 import java.awt.*;
 import javax.swing.*;
-
 /**
- * Esta clase crea un set de botones para utilizar en el juego.
+ * Responsabilidades:
+ * 1. Es la implementacion de la factory para crear botones
+ * Patrón:
+ *  1. Commmand
+ *  2. Abstract Factory
  */
 public class BasicGroupButtonFactory implements GroupButtonFactory {
 
