@@ -1,11 +1,15 @@
 package ar.fiuba.tdd.tp.nikoligames.games;
 
 /**
- * Created by mcapolupo on 28/9/16.
+ * Tiene lo caracteres especiales y no esten hardcodeados
  */
 public enum MappedValues {
 
-    INPUT_EDITABLE("?");
+    INPUT_EDITABLE("?"),
+
+    GREY_CELL("*\\*"),
+
+    EMPTY_CELL("");
 
     private String value;
 
