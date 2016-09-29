@@ -25,9 +25,9 @@ public abstract class AbstractCell implements DrawableCell {
     }
 
     public boolean isEmpty() {
-        return this.getValue().equals(MappedValues.EMPTY_CELL)
-                || this.getValue().equals(MappedValues.INPUT_EDITABLE)
-                || this.getValue().equals(MappedValues.GREY_CELL);
+        return this.getValue().equals(MappedValues.EMPTY_CELL.getValue())
+                || this.getValue().equals(MappedValues.INPUT_EDITABLE.getValue())
+                || this.getValue().equals(MappedValues.GREY_CELL.getValue());
     }
 
 }

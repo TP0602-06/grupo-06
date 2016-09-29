@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.games;
 
 /**
- * Tiene lo caracteres especiales y no esten hardcodeados
+ * Tiene lo caracteres especiales y no esten hardcodeados.
  */
 public enum MappedValues {
 
