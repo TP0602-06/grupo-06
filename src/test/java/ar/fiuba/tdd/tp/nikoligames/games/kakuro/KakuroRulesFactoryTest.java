@@ -70,7 +70,7 @@ public class KakuroRulesFactoryTest {
 
     private Board createSolvedBoard() {
         Board board = new Board(4, 4);
-        board.setCell(0, 0, new NonEditableCell("6\\15"));
+        board.setCell(0, 0, new NonEditableCell("15\\6"));
         board.setCell(0, 1, new EditableCell("1"));
         board.setCell(0, 2, new EditableCell("2"));
         board.setCell(0, 3, new EditableCell("3"));
@@ -91,13 +91,13 @@ public class KakuroRulesFactoryTest {
     }
 
     private AbstractCell getCell(Board board, int column, int row) {
-        Position position = new Position(column, row);
+        Position position = new Position(row, column);
         return board.getCell(position);
     }
 
     private void setValue(Board board, int column, int row, String value) {
-        Position position2 = new Position(column, row);
-        board.setCellValue(position2, value);
+        Position position = new Position(row, column);
+        board.setCellValue(position, value);
     }
 
     private boolean isBorken(Iterable<Rule> rules) {
