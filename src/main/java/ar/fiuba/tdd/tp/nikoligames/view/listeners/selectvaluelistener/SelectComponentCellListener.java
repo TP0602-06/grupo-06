@@ -1,13 +1,17 @@
-package ar.fiuba.tdd.tp.nikoligames.view.listeners;
+package ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener;
 
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import javax.swing.*;
 
 
+
 /**
- * Esta clase se encarga del comportamiento de las celdas.
+ * Responsabilidades:
+ * 1. Implementación de la clase AbstractSelectValueListener para la celda de la grilla board no editable
+ * Patrón:
+ * 1. OBSERVER
  */
 public class SelectComponentCellListener extends AbstractSelectValueListener {
 

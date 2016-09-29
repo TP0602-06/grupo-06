@@ -6,7 +6,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Esta clase se ocupa de ejecutar el comando del boton.
+ * Responsabilidades:
+ * 1.Capturar el evento click del mouse en el botón en los botones de configuración, inicio y check del juego
+ * Patrón:
+ * 1. Command
  */
 public class BasicButtonListener extends MouseAdapter {
 
