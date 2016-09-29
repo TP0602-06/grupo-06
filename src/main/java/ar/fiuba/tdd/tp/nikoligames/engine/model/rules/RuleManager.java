@@ -3,7 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 import java.util.ArrayList;
 
 /**
- * Created by Andres on 27/09/2016.
+ * Se encarga de manejar todas las reglas y validarlas.
  */
 public class RuleManager {
     ArrayList<Rule> rules;

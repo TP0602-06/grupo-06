@@ -1,13 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-
-import java.util.Objects;
-
 /**
- * Created by fedebrasburg on 9/23/16.
+ * AbstractCell contiene los aspectos generales de cualquier celda de cualquier juego.
  */
 public abstract class AbstractCell implements DrawableCell {
-    //TODO: fuerza solo enteros
+
     protected String value = "";
 
     public AbstractCell() {
@@ -25,12 +22,10 @@ public abstract class AbstractCell implements DrawableCell {
         this.value = value;
     }
 
-    public boolean isEqual(EditableCell otherCell) {
-        return (Objects.equals(this.getValue(), otherCell.getValue()));
-    }
-
     public boolean isEmpty() {
-        return (Objects.equals(this.getValue(), "?")||Objects.equals(this.getValue(), "*\\*"));
+        return this.getValue().equals("")
+                || this.getValue().equals("?")
+                || this.getValue().equals("*\\*");
     }
 
 }

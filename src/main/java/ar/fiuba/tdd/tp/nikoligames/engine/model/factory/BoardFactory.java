@@ -6,7 +6,8 @@ import ar.fiuba.tdd.tp.nikoligames.engine.parser.CellConfig;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.SizeConfig;
 
 /**
- * Created by Andres on 24/09/2016.
+ * BoardFactory. Abstrae al cliente de conocer la creacion de un tablero y le facilita su creacion.
+ * Se hizo singleton para que no se instancie varias veces y no se preste a confusiones.
  */
 public class BoardFactory {
 

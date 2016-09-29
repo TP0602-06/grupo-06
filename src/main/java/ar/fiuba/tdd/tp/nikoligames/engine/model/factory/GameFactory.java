@@ -14,11 +14,9 @@ import java.io.Reader;
 import java.util.ArrayList;
 
 /**
- * Created by Andres on 24/09/2016.
+ * Desliga al cliente de conocer como se crea  un juego y lo resuelve.
  */
 public abstract class GameFactory {
-
-
 
     protected Board createBoard(Reader fileReader) throws FileNotFoundException {
         GameConfigParser boardGameConfigParser = new BoardGameConfigParser();
