@@ -9,7 +9,7 @@ import javax.swing.*;
  */
 public abstract class AbstractEditableNumberCell extends CellView {
 
-    public abstract void changeValue(Integer value);
+    public abstract void changeValue(String value);
 
     public abstract void clearValue();
 }

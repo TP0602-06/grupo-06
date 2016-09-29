@@ -21,23 +21,25 @@ public class KakuroCellView extends CellView {
         setEnabled(false);
     }
 
-    private JLabel makeLabel(Integer value) {
-        JLabel label = new JLabel(String.valueOf(value));
+    private JLabel makeLabel(String  value) {
+        JLabel label = new JLabel(value);
         label.setForeground(foregroundColor);
         return label;
     }
 
-    public void setTop(Integer topValue) {
-        JLabel label = makeLabel(topValue);
-        label.setHorizontalAlignment(JLabel.RIGHT);
-        add(label, BorderLayout.PAGE_START);
+    public void setTop(String topValue) {
+        makeClueCell(topValue, JLabel.RIGHT, BorderLayout.PAGE_START);
 
     }
 
-    public void setBottom(Integer bottomValue) {
+    public void setBottom(String bottomValue) {
+        makeClueCell(bottomValue, JLabel.LEFT, BorderLayout.PAGE_END);
+    }
+
+    private void makeClueCell(String bottomValue, int left, String pageEnd) {
         JLabel label = makeLabel(bottomValue);
-        label.setHorizontalAlignment(JLabel.LEFT);
-        add(makeLabel(bottomValue), BorderLayout.PAGE_END);
+        label.setHorizontalAlignment(left);
+        add(label, pageEnd);
     }
 
     @Override

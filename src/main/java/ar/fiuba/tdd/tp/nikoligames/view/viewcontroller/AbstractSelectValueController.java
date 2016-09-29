@@ -18,7 +18,7 @@ public interface AbstractSelectValueController {
 
     void notifySelectedComponent(Component component);
 
-    void notifySelectedValue(Integer value);
+    void notifySelectedValue(String value);
 
     void notifyClearValue();
 }

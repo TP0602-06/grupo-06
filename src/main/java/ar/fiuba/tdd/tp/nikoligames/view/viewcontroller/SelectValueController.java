@@ -48,7 +48,7 @@ public class SelectValueController implements AbstractSelectValueController {
         focusGridHelper.clearFocus();
     }
 
-    public void notifySelectedValue(Integer value) {
+    public void notifySelectedValue(String value) {
         this.lastSelectedEditableCellView.changeValue(value);
         changeModelCellValue(value.toString());
     }

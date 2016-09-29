@@ -49,11 +49,11 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
             KakuroCellView kakuroview = new KakuroCellView();
             if (clueParser.hasTopClue(modelCell)) {
                 String value = clueParser.topClue(modelCell);
-                kakuroview.setTop(Integer.parseInt(value));
+                kakuroview.setTop(value);
             }
             if (clueParser.hasBottomClue(modelCell)) {
                 String value = clueParser.bottomClue(modelCell);
-                kakuroview.setBottom(Integer.parseInt(value));
+                kakuroview.setBottom(value);
             }
             return kakuroview;
         }
