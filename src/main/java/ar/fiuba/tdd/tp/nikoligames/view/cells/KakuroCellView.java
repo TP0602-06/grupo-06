@@ -19,6 +19,7 @@ public class KakuroCellView extends CellView {
         setBackground(backgroundColor);
         setLayout(new BorderLayout());
         setEnabled(false);
+        setMargin(new Insets(0, 0, 0, 0));
     }
 
     private JLabel makeLabel(String  value) {
@@ -28,17 +29,16 @@ public class KakuroCellView extends CellView {
     }
 
     public void setTop(String topValue) {
-        makeClueCell(topValue, JLabel.RIGHT, BorderLayout.PAGE_START);
-
+        makeClueCell(topValue, JLabel.RIGHT, BorderLayout.NORTH);
     }
 
     public void setBottom(String bottomValue) {
-        makeClueCell(bottomValue, JLabel.LEFT, BorderLayout.PAGE_END);
+        makeClueCell(bottomValue, JLabel.LEFT, BorderLayout.SOUTH);
     }
 
-    private void makeClueCell(String bottomValue, int left, String pageEnd) {
+    private void makeClueCell(String bottomValue, int alignment, String pageEnd) {
         JLabel label = makeLabel(bottomValue);
-        label.setHorizontalAlignment(left);
+        label.setHorizontalAlignment(alignment);
         add(label, pageEnd);
     }
 
