@@ -37,7 +37,12 @@ configurations.all {
     }
 }
 
-task runApp(type: JavaExec) {
+task start(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'ar.fiuba.tdd.tp.nikoligames.Main'
+
+    systemProperties System.getProperties()
+
+    /* Need to split the space-delimited value in the exec.args */
+    args System.getProperty("exec.args").split()
 }
