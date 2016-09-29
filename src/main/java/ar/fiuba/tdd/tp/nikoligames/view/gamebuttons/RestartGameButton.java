@@ -16,6 +16,7 @@ public class RestartGameButton extends JButton implements ButtonCommand {
     }
 
     public void execute() {
+        System.out.println(game);
         //TODO restart game from 0;
     }
 }

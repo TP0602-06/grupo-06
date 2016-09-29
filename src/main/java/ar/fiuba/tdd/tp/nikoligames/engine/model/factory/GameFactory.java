@@ -10,6 +10,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.parser.impl.BoardGameConfigParser;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.Reader;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +20,7 @@ public abstract class GameFactory {
 
 
 
-    protected Board createBoard(FileReader fileReader) throws FileNotFoundException {
+    protected Board createBoard(Reader fileReader) throws FileNotFoundException {
         GameConfigParser boardGameConfigParser = new BoardGameConfigParser();
         GameConfig gameConfig = boardGameConfigParser.parse(fileReader);
         BoardFactory boardFactory = BoardFactory.getInstance();
@@ -27,7 +28,7 @@ public abstract class GameFactory {
         return board;
     }
 
-    public Game crateGame(FileReader fileReader) throws FileNotFoundException {
+    public Game crateGame(Reader fileReader) throws FileNotFoundException {
         Board board = this.createBoard(fileReader);
         ArrayList<Rule> rules = this.getRules(board);
         RuleManager ruleManager = new RuleManager(rules);

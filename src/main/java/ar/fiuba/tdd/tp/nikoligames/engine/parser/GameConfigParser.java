@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import java.io.FileReader;
+import java.io.Reader;
 
 /**
  * Created by mcapolupo on 20/9/16.
@@ -8,5 +8,5 @@ import java.io.FileReader;
  */
 public interface GameConfigParser {
 
-    GameConfig parse(FileReader fileReader);
+    GameConfig parse(Reader fileReader);
 }

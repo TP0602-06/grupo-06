@@ -6,6 +6,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
+import java.io.Reader;
 
 /**
  * Created by mcapolupo on 21/9/16.
@@ -16,7 +17,7 @@ public abstract class GameConfigParserJson implements GameConfigParser {
     JSONParser jsonParser = new JSONParser();
 
     @Override
-    public GameConfig parse(FileReader fileReader) {
+    public GameConfig parse(Reader fileReader) {
 
         JSONObject jsonObject = null;
 

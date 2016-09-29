@@ -14,8 +14,10 @@ import static org.junit.Assert.assertTrue;
 
 public class BoardTest {
 
-    private int columns = 5, rows = 10;
-    private int maxColumns = columns - 1, maxRow = rows - 1;
+    private int columns = 5;
+    private int rows = 10;
+    private int maxColumns = columns - 1;
+    private int maxRow = rows - 1;
 
     @Test
     public void creationTest() {
