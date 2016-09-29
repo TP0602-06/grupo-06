@@ -4,10 +4,10 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 import java.util.Objects;
 
 /**
- * Created by fedebrasburg on 9/23/16.
+ *  AbstractCell contiene los aspectos generales de cualquier celda de cualquier juego.
  */
 public abstract class AbstractCell implements DrawableCell {
-    //TODO: fuerza solo enteros
+
     protected String value = "";
 
     public AbstractCell() {

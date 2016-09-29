@@ -8,6 +8,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
 
 import java.util.ArrayList;
 
+/**
+ * Fabrica de reglas que permite al cliente no conocer la implementacion de la creacion  de una regla.
+ */
 
 public class RulesFactory {
 

@@ -5,8 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.EditableCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.NonEditableCell;
 
 /**
- * Created by Andres on 24/09/2016.
- * Class
+ * Fabrica de cledas que permite al cliente no conocer la implementacion de la creacion de una celda y asi no depender de ella.
  */
 public class CellFactory {
 
