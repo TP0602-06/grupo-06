@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.rulesTest;
+package ar.fiuba.tdd.tp.nikoligames.rulestest;
 
 
 public class RuleTest {

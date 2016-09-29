@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.omg.PortableInterceptor.Interceptor;
 
 public class KakuroRulesFactoryTest {
     @Test
@@ -15,7 +14,7 @@ public class KakuroRulesFactoryTest {
         KakuroRulesFactory rulesFactory = new KakuroRulesFactory(board);
         Iterable<Rule> rules = rulesFactory.getRules();
 
-        Assert.assertEquals(false, this.isBorken(rules));
+        Assert.assertEquals(false, this.isBroken(rules));
     }
 
     @Test
@@ -27,7 +26,7 @@ public class KakuroRulesFactoryTest {
         AbstractCell cell = this.getCell(board, 0, 1);
         this.setValue(board, 0, 2, cell.getValue());
 
-        Assert.assertEquals(true, this.isBorken(rules));
+        Assert.assertEquals(true, this.isBroken(rules));
     }
 
     @Test
@@ -39,7 +38,7 @@ public class KakuroRulesFactoryTest {
         AbstractCell cell = this.getCell(board, 1, 0);
         this.setValue(board, 2, 0, cell.getValue());
 
-        Assert.assertEquals(true, this.isBorken(rules));
+        Assert.assertEquals(true, this.isBroken(rules));
     }
 
     @Test
@@ -52,7 +51,7 @@ public class KakuroRulesFactoryTest {
         Integer value = Integer.parseInt(cell.getValue()) + 1;
         this.setValue(board, 0, 1, value.toString());
 
-        Assert.assertEquals(true, this.isBorken(rules));
+        Assert.assertEquals(true, this.isBroken(rules));
     }
 
     @Test
@@ -65,7 +64,7 @@ public class KakuroRulesFactoryTest {
         Integer value = Integer.parseInt(cell.getValue()) + 1;
         this.setValue(board, 1, 0, value.toString());
 
-        Assert.assertEquals(true, this.isBorken(rules));
+        Assert.assertEquals(true, this.isBroken(rules));
     }
 
     private Board createSolvedBoard() {
@@ -100,7 +99,7 @@ public class KakuroRulesFactoryTest {
         board.setCellValue(position2, value);
     }
 
-    private boolean isBorken(Iterable<Rule> rules) {
+    private boolean isBroken(Iterable<Rule> rules) {
         for (Rule rule : rules) {
             if (rule.isBroken()) {
                 return true;
