@@ -21,7 +21,7 @@ public class Main {
             argsParserHelper.parseArgs(args);
 
             GameFactory gameFactory = new GameFactory();
-            Game game = gameFactory.createGame(argsParserHelper.getArgGameType(), argsParserHelper.getArgGameConfigFile());
+            Game game = gameFactory.createGame(argsParserHelper.getArgGameType(), argsParserHelper.getArgGameDifficulty());
 
             FactoryGameView factoryView = new FactoryGameView();
             GameView view = factoryView.createDefaultGameView(game);
@@ -32,6 +32,4 @@ public class Main {
             e.printStackTrace();
         }
     }
-
-
 }

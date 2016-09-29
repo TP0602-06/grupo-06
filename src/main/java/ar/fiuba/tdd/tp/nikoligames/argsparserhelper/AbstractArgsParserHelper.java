@@ -9,5 +9,5 @@ public interface AbstractArgsParserHelper {
 
     String getArgGameType();
 
-    String getArgGameConfigFile();
+    String getArgGameDifficulty();
 }

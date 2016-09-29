@@ -8,17 +8,17 @@ public class ArgsParserHelper implements AbstractArgsParserHelper {
 
     public static final int NUMBER_ARGS = 2;
     public static final int ARG_GAME_TYPE = 0;
-    public static final int ARG_GAME_CONFIG_FILENAME = 1;
+    public static final int ARG_GAME_DIFFICULTY = 1;
 
     private String arg0GameType;
-    private String arg1GameConfigFile;
+    private String arg1GameDifficulty;
 
     public void parseArgs(String[] args) throws Exception {
         if (args.length == NUMBER_ARGS) {
             this.arg0GameType = (args[ARG_GAME_TYPE]).toLowerCase();
-            this.arg1GameConfigFile = args[ARG_GAME_CONFIG_FILENAME];
+            this.arg1GameDifficulty = args[ARG_GAME_DIFFICULTY];
         } else {
-            throw new Exception("Bad number of arguments, - Example: 'sudoku' 'test/config/kakuro/easy.json' ");
+            throw new Exception("Bad number of arguments, - Example: 'sudoku' 'easy' ");
         }
     }
 
@@ -26,7 +26,7 @@ public class ArgsParserHelper implements AbstractArgsParserHelper {
         return arg0GameType;
     }
 
-    public String getArgGameConfigFile() {
-        return arg1GameConfigFile;
+    public String getArgGameDifficulty() {
+        return arg1GameDifficulty;
     }
 }
