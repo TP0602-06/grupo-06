@@ -8,5 +8,5 @@ import java.io.Reader;
  */
 public interface GameConfigParser {
 
-    GameConfig parse(Reader fileReader);
+    BoardConfig parse(Reader fileReader);
 }

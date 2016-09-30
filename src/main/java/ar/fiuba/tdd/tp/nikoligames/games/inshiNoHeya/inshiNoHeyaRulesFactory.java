@@ -1,17 +1,13 @@
 package ar.fiuba.tdd.tp.nikoligames.games.inshiNoHeya;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.GroupRulesFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.RulesFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.AdditionRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.regionrule.RegionRuleNumber;
 import javafx.geometry.Pos;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Created by fedebrasburg on 9/29/16.
@@ -19,9 +15,9 @@ import java.util.Collection;
 public class inshiNoHeyaRulesFactory {
 
     private Board board;
-    private ArrayList<RegionOfNumber> listOfRegions;
+    private ArrayList<RegionRuleNumber> listOfRegions;
 
-    inshiNoHeyaRulesFactory(Board board, ArrayList<RegionOfNumber> listOfRegions) {
+    inshiNoHeyaRulesFactory(Board board, ArrayList<RegionRuleNumber> listOfRegions) {
         this.board = board;
         this.listOfRegions = listOfRegions;
     }
@@ -31,7 +27,7 @@ public class inshiNoHeyaRulesFactory {
 
 
         RulesFactory ruleFactory = new RulesFactory();
-        for(RegionOfNumber region : listOfRegions){
+        for(RegionRuleNumber region : listOfRegions){
             rules.add(ruleFactory.createMultiplyRule(region.number(),board.getArrayOfCells(region.listOfPositions())));
         }
 
