@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -43,7 +43,7 @@ public class FactoryBoardViewFromModel implements AbstractFactoryBoard {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                Position position = new Position(i, j);
+                ClassicCoordinates position = new ClassicCoordinates(i, j);
                 DrawableCell modelCell = modelBoard.getDrawableCell(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
                 cellView.setCoordinates(i, j);

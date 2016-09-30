@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Coordinates;
 
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ public class RuleBuilder {
 
     private RuleDefinitionValidator validRuleDefinitions = new RuleDefinitionValidator();
     private String ruleDefinition;
-    private ArrayList<Position> region = new ArrayList<>();
+    private ArrayList<Coordinates> region = new ArrayList<>();
     private String value = "";
 
     public RuleBuilder(String ruleDefinition) throws Exception {
@@ -20,7 +21,7 @@ public class RuleBuilder {
     }
 
     public void addCellToRegion(int row, int col){
-        Position pos = new Position(row,col);
+        Coordinates pos = new ClassicCoordinates(row,col);
         this.region.add(pos);
     }
 

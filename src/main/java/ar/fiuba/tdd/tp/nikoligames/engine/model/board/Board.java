@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Coordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 
 /**
@@ -9,7 +9,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 public interface Board {
     int getRows();
     int getCols();
-    void setCell(int row, int column, Cell cell);
-    boolean setCellValue(Position position, String value);
-    Cell getCell(Position position);
+    void setCell(Coordinates coordinates,  Cell cell);
+    boolean setCellValue(Coordinates coordinates, String value);
+    Cell getCell(Coordinates coordinates);
 }

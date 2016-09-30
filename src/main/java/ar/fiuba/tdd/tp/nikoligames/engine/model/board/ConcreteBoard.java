@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Coordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
 
@@ -29,25 +29,24 @@ public class ConcreteBoard implements DrawableBoard, Board {
         return cols;
     }
 
-
-    private boolean outOfRange(int row, int column) {
-        return !((0 <= column) && (column < cols) && (0 <= row) && (row < rows));
+    private boolean outOfRange(Coordinates coordinates) {
+        return !((0 <= coordinates.getColumn() ) && (coordinates.getColumn() < cols) && (0 <= coordinates.getRow()) && (coordinates.getRow() < rows));
     }
 
-    private void checkRange(int row, int column) {
-        if (outOfRange(row, column)) {
+    private void checkRange(Coordinates coordinates) {
+        if (outOfRange(coordinates)) {
             throw new UnsupportedOperationException();
         }
     }
 
-    public void setCell(int row, int column, Cell cell) {
-        checkRange(row, column);
-        cells[row][column] = cell;
+    public void setCell(Coordinates coordinates, Cell cell) {
+        checkRange(coordinates);
+        cells[coordinates.getRow()][coordinates.getColumn()] = cell;
     }
 
-    public boolean setCellValue(Position position, String value) {
-        checkRange(position.getX(), position.getY());
-        Cell cell = cells[position.getX()][position.getY()];
+    public boolean setCellValue(Coordinates coordinates, String value) {
+        checkRange(coordinates);
+        Cell cell = cells[coordinates.getRow()][coordinates.getColumn()];
         if (cell.isEditable()) {
             cell.setValue(value);
             return true;
@@ -55,20 +54,20 @@ public class ConcreteBoard implements DrawableBoard, Board {
         return false;
     }
 
-    public Cell getCell(Position position) {
-        checkRange(position.getX(), position.getY());
-        return cells[position.getX()][position.getY()];
+    public Cell getCell(Coordinates coordinates) {
+        checkRange(coordinates);
+        return cells[coordinates.getRow()][coordinates.getColumn()];
     }
 
-    public ArrayList<Cell> getArrayOfCells(ArrayList<Position> positions) {
+    public ArrayList<Cell> getArrayOfCells(ArrayList<Coordinates> positions) {
         ArrayList<Cell> arrayOfCells = new ArrayList<>();
-        for (Position position : positions) {
-            arrayOfCells.add(getCell(position));
+        for (Coordinates coordinates : positions) {
+            arrayOfCells.add(getCell(coordinates));
         }
         return arrayOfCells;
     }
 
-    public DrawableCell getDrawableCell(Position position) {
+    public DrawableCell getDrawableCell(Coordinates position) {
         return getCell(position);
 
     }

@@ -2,15 +2,9 @@ package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.AbstractArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.ArgsParserHelper;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportMovesJson;
-import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
-import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
-
-import java.util.ArrayList;
-import java.util.List;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParser;
 
 /**
  * Responsabilidades:
@@ -19,26 +13,29 @@ import java.util.List;
  * 3.Crear la vista del juego
  */
 public class Main {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        AbstractArgsParserHelper argsParserHelper = new ArgsParserHelper();
         try {
-            AbstractArgsParserHelper argsParserHelper = new ArgsParserHelper();
             argsParserHelper.parseArgs(args);
 
-            GameFactory gameFactory = new GameFactory();
-            Game game = gameFactory.createGame(argsParserHelper.getArgGameType(), argsParserHelper.getArgGameDifficulty());
-            ReportMovesJson reporter = new ReportMovesJson();
-            List<Play> moves = new ArrayList<>();
-            Play move = new Play(1,"3",new Position(1,1));
-            moves.add(move);
-            System.out.print(reporter.makeReport(game,moves));
-            FactoryGameView factoryView = new FactoryGameView();
-            GameView view = factoryView.createDefaultGameView(game);
+            GameConfigParser gameConfigParser = new GameConfigParser(argsParserHelper.getArg0GameFile());
 
-            view.setVisible(true);
+            GameConfig gameConfig = gameConfigParser.parse();
+            Game game = new Game(gameConfig);
+
+            //FactoryGameView factoryView = new FactoryGameView();
+            //GameView view = factoryView.createDefaultGameView(game);
+
+            //view.setVisible(true);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+//ReportMovesJson reporter = new ReportMovesJson();
+//List<Play> moves = new ArrayList<>();
+//Play move = new Play(1,"3",new ClassicCoordinates(1,1));
+//moves.add(move);
+//System.out.print(reporter.makeReport(game,moves));

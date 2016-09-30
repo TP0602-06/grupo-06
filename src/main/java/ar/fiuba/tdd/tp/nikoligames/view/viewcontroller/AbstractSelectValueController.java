@@ -20,7 +20,7 @@ public interface AbstractSelectValueController {
 
     void notifySelectedComponent(Component component);
 
-    void notifySelectedValue(String value);
+    void notifySelectedValue(String value) throws Exception;
 
-    void notifyClearValue();
+    void notifyClearValue() throws Exception;
 }

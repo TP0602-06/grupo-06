@@ -18,7 +18,7 @@ public class SelectValueCellListener extends AbstractSelectValueListener {
         super(selectValueController);
     }
 
-    protected void notifySelectValueController(MouseEvent event) {
+    protected void notifySelectValueController(MouseEvent event) throws Exception {
         ValueToSelectCellView cellView = (ValueToSelectCellView) event.getSource();
         super.selectValueController.notifySelectedValue(cellView.getValue());
     }

@@ -6,27 +6,19 @@ package ar.fiuba.tdd.tp.nikoligames.argsparserhelper;
  */
 public class ArgsParserHelper implements AbstractArgsParserHelper {
 
-    public static final int NUMBER_ARGS = 2;
-    public static final int ARG_GAME_TYPE = 0;
-    public static final int ARG_GAME_DIFFICULTY = 1;
+    public static final int NUMBER_ARGS = 1;
+    public static final int ARG_GAME_FILE = 0;
 
-    private String arg0GameType;
-    private String arg1GameDifficulty;
+    private String arg0GameFile;
 
     public void parseArgs(String[] args) throws Exception {
-        if (args.length == NUMBER_ARGS) {
-            this.arg0GameType = (args[ARG_GAME_TYPE]).toLowerCase();
-            this.arg1GameDifficulty = args[ARG_GAME_DIFFICULTY];
+        if (args.length >= NUMBER_ARGS) {
+            this.arg0GameFile = (args[ARG_GAME_FILE]).toLowerCase();
         } else {
-            throw new Exception("Bad number of arguments, - Example: 'sudoku' 'easy' ");
+            throw new Exception("Bad number of arguments ");
         }
     }
-
-    public String getArgGameType() {
-        return arg0GameType;
-    }
-
-    public String getArgGameDifficulty() {
-        return arg1GameDifficulty;
+    public String getArg0GameFile() {
+        return arg0GameFile;
     }
 }

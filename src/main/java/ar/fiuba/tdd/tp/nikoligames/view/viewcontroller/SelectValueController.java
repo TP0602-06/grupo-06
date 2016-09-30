@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
@@ -50,18 +50,18 @@ public class SelectValueController implements AbstractSelectValueController {
         focusGridHelper.clearFocus();
     }
 
-    public void notifySelectedValue(String value) {
+    public void notifySelectedValue(String value) throws Exception {
         this.lastSelectedEditableCellView.changeValue(value);
         changeModelCellValue(value);
     }
 
-    public void notifyClearValue() {
+    public void notifyClearValue() throws Exception {
         lastSelectedEditableCellView.clearValue();
         changeModelCellValue("");
     }
 
-    private void changeModelCellValue(String value) {
-        Position celPosition = new Position(lastSelectedEditableCellView.getXIndex(), lastSelectedEditableCellView.getYIndex());
-        game.insertValueInCell(celPosition, value);
+    private void changeModelCellValue(String value) throws Exception {
+        ClassicCoordinates celPosition = new ClassicCoordinates(lastSelectedEditableCellView.getXIndex(), lastSelectedEditableCellView.getYIndex());
+        game.playMove(celPosition, value);
     }
 }

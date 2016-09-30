@@ -22,8 +22,12 @@ public abstract class AbstractSelectValueListener extends MouseAdapter {
 
     @Override
     public void mouseClicked(MouseEvent event) {
-        notifySelectValueController(event);
+        try {
+            notifySelectValueController(event);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    abstract void notifySelectValueController(MouseEvent event);
+    abstract void notifySelectValueController(MouseEvent event) throws Exception;
 }

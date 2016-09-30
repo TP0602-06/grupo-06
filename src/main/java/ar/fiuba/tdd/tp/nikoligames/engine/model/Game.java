@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
 
@@ -25,13 +24,16 @@ public class Game {
         return this.gameConfig.getRuleManager().checkRules();
     }
 
-    public void insertValueInCell(Position position, String value) throws Exception {
+    public void playMove(Coordinates position, String value) throws Exception {
         ValidInputManager validInputManager = this.gameConfig.getValidInputManager();
         if (!validInputManager.isValidInput(value)) throw new Exception("Not a valid input");
 
         Board board = this.gameConfig.getBoard();
         board.setCellValue(position, value);
+    }
 
+    public String getGameName(){
+        return this.gameConfig.getName();
     }
 
 }

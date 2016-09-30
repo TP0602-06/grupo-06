@@ -16,7 +16,7 @@ public class ClearCellListener extends AbstractSelectValueListener {
         super(selectValueController);
     }
 
-    protected void notifySelectValueController(MouseEvent event) {
+    protected void notifySelectValueController(MouseEvent event) throws Exception {
         super.selectValueController.notifyClearValue();
     }
 }

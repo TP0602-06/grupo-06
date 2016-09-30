@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -25,7 +25,7 @@ public class ReportMovesJson implements ReportMoves{
     private static final String POSITION_KEY = "position";
     private boolean valid;
 
-    public String makeReport(Game game, List<Play> gameMoves){
+    public String makeReport(Game game, List<Play> gameMoves) throws Exception {
         valid = true;
         JSONObject parser = new JSONObject();
         JSONArray plays = makePlaysJson(game,gameMoves);
@@ -35,7 +35,7 @@ public class ReportMovesJson implements ReportMoves{
         return parser.toJSONString();
     }
 
-    private JSONArray makePlaysJson(Game game, List<Play> gameMoves) {
+    private JSONArray makePlaysJson(Game game, List<Play> gameMoves) throws Exception {
         JSONArray playsArray = new JSONArray();
         for (int i = 0; i < gameMoves.size(); i++) {
             Play move = gameMoves.get(i);
@@ -54,12 +54,12 @@ public class ReportMovesJson implements ReportMoves{
         return moveJson;
     }
 
-    private JSONObject makeCellJson(DrawableCell cell, Position position) {
+    private JSONObject makeCellJson(DrawableCell cell, ClassicCoordinates position) {
         JSONObject cellJson = new JSONObject();
 
         JSONArray arrayPosition = new JSONArray();
-        arrayPosition.add(position.getX());
-        arrayPosition.add(position.getY());
+        arrayPosition.add(position.getRow());
+        arrayPosition.add(position.getColumn());
         cellJson.put(POSITION_KEY,arrayPosition);
 
         cellJson.put(VALUE_KEY,cell.getValue());
@@ -70,7 +70,7 @@ public class ReportMovesJson implements ReportMoves{
         JSONArray cellsJson = new JSONArray();
         for(int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getCols(); j++) {
-                Position position = new Position(i,j);
+                ClassicCoordinates position = new ClassicCoordinates(i,j);
                 JSONObject cell = makeCellJson(board.getDrawableCell(position),position);
                 cellsJson.add(cell);
             }

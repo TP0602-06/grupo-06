@@ -1,6 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Coordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.ValidInputManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
@@ -29,7 +31,8 @@ public class ConcreteGameConfig implements GameConfig {
     }
 
     public void addInitialCell(int row, int col, Cell cell) {
-        this.board.setCell(row, col, cell);
+        Coordinates coordinates = new ClassicCoordinates(row,col);
+        this.board.setCell(coordinates, cell);
     }
 
     public String getName() {

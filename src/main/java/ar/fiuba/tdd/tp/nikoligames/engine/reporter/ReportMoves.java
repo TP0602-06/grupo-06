@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface ReportMoves {
 
-    String makeReport(Game game, List<Play> moves);
+    String makeReport(Game game, List<Play> moves) throws Exception;
 }
