@@ -2,13 +2,11 @@ package ar.fiuba.tdd.tp.nikoligames.engine.parser.impl;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParser;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.AbstractGameConfigParser;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by mcapolupo on 24/9/16.
@@ -24,7 +22,7 @@ public class BoardGameConfigParserTest {
 
         //Setup
         FileReader fileReader = new FileReader(SUDOKU_CONFIG_PATH);
-        GameConfigParser boardGameConfigParser = new BoardGameConfigParser();
+        AbstractGameConfigParser boardGameConfigParser = new BoardGameConfigParser();
 
         //Call method
         GameConfig gameConfig = boardGameConfigParser.parse(fileReader);
@@ -42,7 +40,7 @@ public class BoardGameConfigParserTest {
 
         //Setup
         FileReader fileReader = new FileReader(KAKURO_CONFIG_PATH);
-        GameConfigParser boardGameConfigParser = new BoardGameConfigParser();
+        AbstractGameConfigParser boardGameConfigParser = new BoardGameConfigParser();
 
         //Call method
         GameConfig gameConfig = boardGameConfigParser.parse(fileReader);

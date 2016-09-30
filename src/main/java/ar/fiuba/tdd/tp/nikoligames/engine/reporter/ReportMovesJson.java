@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.GameMove.GameMove;
+import ar.fiuba.tdd.tp.nikoligames.engine.GameMove.Play;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
@@ -25,7 +25,7 @@ public class ReportMovesJson implements ReportMoves{
     private static final String POSITION_KEY = "position";
     private boolean valid;
 
-    public String makeReport(Game game, List<GameMove> gameMoves){
+    public String makeReport(Game game, List<Play> gameMoves){
         valid = true;
         JSONObject parser = new JSONObject();
         JSONArray plays = makePlaysJson(game,gameMoves);
@@ -35,10 +35,10 @@ public class ReportMovesJson implements ReportMoves{
         return parser.toJSONString();
     }
 
-    private JSONArray makePlaysJson(Game game, List<GameMove> gameMoves) {
+    private JSONArray makePlaysJson(Game game, List<Play> gameMoves) {
         JSONArray playsArray = new JSONArray();
         for (int i = 0; i < gameMoves.size(); i++) {
-            GameMove move = gameMoves.get(i);
+            Play move = gameMoves.get(i);
             boolean validMove = move.makeMove(game);
             if ( !validMove ) valid = false;
             JSONObject moveJson = makeMoveJson(move,validMove);
@@ -47,7 +47,7 @@ public class ReportMovesJson implements ReportMoves{
         return playsArray;
     }
 
-    private JSONObject makeMoveJson(GameMove move, boolean wasValid){
+    private JSONObject makeMoveJson(Play move, boolean wasValid){
         JSONObject moveJson = new JSONObject();
         moveJson.put(NUM_KEY,move.getNum());
         moveJson.put(BOARDSTATUS_KEY,wasValid);

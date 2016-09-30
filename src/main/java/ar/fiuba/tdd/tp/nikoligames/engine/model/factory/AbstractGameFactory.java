@@ -5,8 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParser;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.impl.BoardGameConfigParser;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.AbstractGameConfigParser;
 
 import java.io.FileNotFoundException;
 import java.io.Reader;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 public abstract class AbstractGameFactory {
 
     protected Board createBoard(Reader fileReader) throws FileNotFoundException {
-        GameConfigParser boardGameConfigParser = new BoardGameConfigParser();
+        AbstractGameConfigParser boardGameConfigParser = new BoardGameConfigParser();
         GameConfig gameConfig = boardGameConfigParser.parse(fileReader);
         BoardFactory boardFactory = BoardFactory.getInstance();
         Board board = boardFactory.createBoard(gameConfig.getSize(), gameConfig.getBoard());

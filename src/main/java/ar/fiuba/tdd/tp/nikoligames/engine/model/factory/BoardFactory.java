@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.factory;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.BoardConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.CellConfig;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.SizeConfig;
 
@@ -17,7 +17,7 @@ public class BoardFactory {
 
     }
 
-    public Board createBoard(SizeConfig sizeConfig, BoardConfig boardConfig) {
+    public Board createBoard(SizeConfig sizeConfig, GameConfig boardConfig) {
         Board board = new Board(sizeConfig.getRows(), sizeConfig.getCols());
         CellConfig[][] cellConfigs = boardConfig.getCells();
         CellFactory cellFactory = CellFactory.getInstance();

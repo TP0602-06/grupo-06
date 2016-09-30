@@ -7,13 +7,13 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 /**
  * Esta clase representa el movimiento de una jugada.
  */
-public class GameMove {
+public class Play {
 
     private Position position;
     private Integer num;
     private String value;
 
-    public GameMove(Integer num, String value, Position position) {
+    public Play(Integer num, String value, Position position) {
         this.position = position;
         this.num = num;
         this.value = value;

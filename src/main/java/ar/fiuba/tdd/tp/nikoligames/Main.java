@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.AbstractArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.ArgsParserHelper;
-import ar.fiuba.tdd.tp.nikoligames.engine.GameMove.GameMove;
+import ar.fiuba.tdd.tp.nikoligames.engine.GameMove.Play;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.GameFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
@@ -29,8 +29,8 @@ public class Main {
             GameFactory gameFactory = new GameFactory();
             Game game = gameFactory.createGame(argsParserHelper.getArgGameType(), argsParserHelper.getArgGameDifficulty());
             ReportMovesJson reporter = new ReportMovesJson();
-            List<GameMove> moves = new ArrayList<>();
-            GameMove move = new GameMove(1,"3",new Position(1,1));
+            List<Play> moves = new ArrayList<>();
+            Play move = new Play(1,"3",new Position(1,1));
             moves.add(move);
             System.out.print(reporter.makeReport(game,moves));
             FactoryGameView factoryView = new FactoryGameView();
