@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.BasicButtonListener;
 

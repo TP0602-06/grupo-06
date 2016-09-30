@@ -7,9 +7,9 @@ import java.io.Reader;
 
 /**
  * Created by mcapolupo on 20/9/16.
- * All implementations know how to parse any file type to create a {@link GameConfig}
+ * All implementations know how to parse any file type to create a {@link ConcreteGameConfig}
  */
 public interface AbstractGameConfigParser {
 
-    GameConfig parse(Reader fileReader) throws IOException, ParseException;
+    ConcreteGameConfig parse(Reader fileReader) throws IOException, ParseException;
 }

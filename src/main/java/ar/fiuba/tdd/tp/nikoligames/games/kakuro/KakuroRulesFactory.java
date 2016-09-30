@@ -1,9 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.games.kakuro;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.AdditionRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.impl.NoDuplicatesRule;
 
@@ -16,9 +15,9 @@ import java.util.Collection;
 public class KakuroRulesFactory {
     private static final String EMPTY_CLUE = "*";
 
-    private Board board;
+    private ConcreteBoard board;
 
-    public KakuroRulesFactory(Board board) {
+    public KakuroRulesFactory(ConcreteBoard board) {
         this.board = board;
     }
 
@@ -26,7 +25,7 @@ public class KakuroRulesFactory {
         ArrayList<Rule> rules = new ArrayList<>();
         for (int column = 0; column < this.board.getCols(); column++) {
             for (int row = 0; row < this.board.getRows(); row++) {
-                AbstractCell cell = this.getCell(column, row);
+                Cell cell = this.getCell(column, row);
                 String value = cell.getValue();
                 if (this.isClue(value)) {
                     String columnClue = this.getColumnClue(value);
@@ -53,14 +52,14 @@ public class KakuroRulesFactory {
         return this.getClueRules(clue, this.getCells(column, column, firstRow, lastRow));
     }
 
-    private Collection<Rule> getClueRules(Integer clue, ArrayList<AbstractCell> cells) {
+    private Collection<Rule> getClueRules(Integer clue, ArrayList<Cell> cells) {
         ArrayList<Rule> rules = new ArrayList<>();
         rules.add(new AdditionRule(clue, cells));
         rules.add(new NoDuplicatesRule(cells));
         return rules;
     }
 
-    private ArrayList<AbstractCell> getCells(int firstColumn, int lastColumn, int firstRow, int lastRow) {
+    private ArrayList<Cell> getCells(int firstColumn, int lastColumn, int firstRow, int lastRow) {
         ArrayList<Position> positions = new ArrayList<>();
         for (int column = firstColumn; column <= lastColumn; column++) {
             for (int row = firstRow; row <= lastRow; row++) {
@@ -73,7 +72,7 @@ public class KakuroRulesFactory {
     private int getLastEditableRowForColumnClue(int column, int firstRow) {
         for (int row = firstRow; row < this.board.getRows(); row++) {
             Position position = new Position(row, column);
-            AbstractCell cell = this.board.getCell(position);
+            Cell cell = this.board.getCell(position);
             if (!cell.isEditable()) {
                 return row - 1;
             }
@@ -83,7 +82,7 @@ public class KakuroRulesFactory {
 
     private int getLastEditableColumnForRowClue(int firstColumn, int row) {
         for (int column = firstColumn; column < this.board.getCols(); column++) {
-            AbstractCell cell = this.getCell(column, row);
+            Cell cell = this.getCell(column, row);
             if (!cell.isEditable()) {
                 return column - 1;
             }
@@ -91,7 +90,7 @@ public class KakuroRulesFactory {
         return this.board.getCols() - 1;
     }
 
-    private AbstractCell getCell(int column, int row) {
+    private Cell getCell(int column, int row) {
         Position position = new Position(row, column);
         return this.board.getCell(position);
     }

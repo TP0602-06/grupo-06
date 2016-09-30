@@ -1,20 +1,14 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.AbstractCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
 
 import java.util.ArrayList;
 
-/**
- * Rule. Provee una interfaz comun para todas las reglas
- */
-public abstract class Rule {
-    protected ArrayList<AbstractCell> cells;
+public interface Rule {
+    void addCellToRegion(int row, int col);
+    ArrayList<Position> getRegion();
+    String getValue();
 
-    public Rule(ArrayList<AbstractCell> cells) {
-        this.cells = cells;
-    }
-
-    public abstract boolean isBroken();
-
-    public abstract boolean isActualBroken();
+    boolean isBroken(ConcreteBoard board);
 }

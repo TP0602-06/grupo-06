@@ -30,7 +30,7 @@ public class GameConfigParser implements AbstractGameConfigParser {
     public static final String READONLY = "readonly";
 
     @Override
-    public GameConfig parse(Reader fileReader) throws IOException, ParseException {
+    public ConcreteGameConfig parse(Reader fileReader) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonObject = (JSONObject) jsonParser.parse(fileReader);
 

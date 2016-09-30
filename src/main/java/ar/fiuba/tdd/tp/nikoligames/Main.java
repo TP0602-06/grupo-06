@@ -2,10 +2,9 @@ package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.AbstractArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.ArgsParserHelper;
-import ar.fiuba.tdd.tp.nikoligames.engine.GameMove.Play;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.GameFactory;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportMovesJson;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;

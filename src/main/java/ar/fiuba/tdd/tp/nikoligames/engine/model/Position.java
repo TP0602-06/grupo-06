@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
+package ar.fiuba.tdd.tp.nikoligames.engine.model;
 
 /**
  * Da al modelo una forma de representar una posicion sin tener que repetir siempre (x,y).

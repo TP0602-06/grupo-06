@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.GameMove.Play;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
 
 import java.util.List;
 

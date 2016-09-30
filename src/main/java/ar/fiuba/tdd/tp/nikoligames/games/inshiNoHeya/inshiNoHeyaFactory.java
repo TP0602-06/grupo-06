@@ -1,9 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.games.inshiNoHeya;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.factory.AbstractGameFactory;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.regionrule.RegionRuleNumber;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.RuleImplementation;
 
 import java.util.ArrayList;
 
@@ -12,13 +10,13 @@ import java.util.ArrayList;
  */
 public class inshiNoHeyaFactory extends AbstractGameFactory {
 
-    private ArrayList<RegionRuleNumber> listOfRegions;
+    private ArrayList<RuleImplementation> listOfRegions;
 
-    public  inshiNoHeyaFactory( ArrayList<RegionRuleNumber> listOfRegions){
+    public  inshiNoHeyaFactory( ArrayList<RuleImplementation> listOfRegions){
         this.listOfRegions = listOfRegions;
     }
 
-    protected ArrayList<Rule> getRules(Board board) {
+    protected ArrayList<ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule> getRules(ConcreteBoard board) {
         inshiNoHeyaRulesFactory inshiRulesFactory = new inshiNoHeyaRulesFactory(board,listOfRegions);
         return inshiRulesFactory.getRules();
     }

@@ -1,14 +1,15 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import java.util.ArrayList;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
 
 /**
  * Da una interfaz para el exterior del modelo evitando que sea modificado por ese medio.
  */
 public interface DrawableBoard {
-    public DrawableCell getADrawableCell( Position position);
+    DrawableCell getDrawableCell(Position position);
 
-    public int getCols();
+    int getCols();
 
-    public int getRows();
+    int getRows();
 }

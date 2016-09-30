@@ -1,44 +1,24 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.regionrule.AbstractRegionRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.regionrule.Clue;
-import org.json.simple.JSONArray;
-
-import java.util.List;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.ValidInputManager;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 
 /**
- * Created by mcapolupo on 20/9/16.
- * It is a kind of Board DTO, totally agnostic to model.
+ * Created by german on 9/30/2016.
  */
-public class GameConfig {
-    private List<AbstractRegionRule> rules;
-    private List<Clue> clues;
+public interface GameConfig {
+    void addRule(Rule rule);
 
-    private String name;
-    private SizeConfig sizeConfig;
+    void addInitialCell(int row, int col, Cell cell);
 
-    public GameConfig(List<AbstractRegionRule> rules, List<Clue> clues, String name, SizeConfig sizeConfig) {
-        this.rules = rules;
-        this.clues = clues;
-        this.name = name;
-        this.sizeConfig = sizeConfig;
-    }
+    String getName();
 
-    public List<AbstractRegionRule> getRules() {
-        return rules;
-    }
+    ConcreteBoard getBoard();
 
-    public List<Clue> getClues() {
-        return clues;
-    }
+    RuleManager getRuleManager();
 
-    public String getName() {
-        return name;
-    }
-
-    public SizeConfig getSizeConfig() {
-        return sizeConfig;
-    }
-
+    ValidInputManager getValidInputManager();
 }
