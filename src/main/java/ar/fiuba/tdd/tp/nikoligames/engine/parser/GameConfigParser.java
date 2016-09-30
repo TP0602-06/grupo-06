@@ -1,14 +1,14 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 /**
  * Created by matias on 29/09/16.
@@ -30,35 +30,26 @@ public class GameConfigParser implements AbstractGameConfigParser {
     public static final String READONLY = "readonly";
 
     @Override
-    public ConcreteGameConfig parse(Reader fileReader) throws IOException, ParseException {
+    public GameConfig parse(Reader fileReader) throws Exception {
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonObject = (JSONObject) jsonParser.parse(fileReader);
 
-        JSONObject gameName = (JSONObject) jsonObject.get(GAME_NAME);
+        String gameName = parseGameName(jsonObject);
         SizeConfig sizeConfig = parseGridSize(jsonObject);
+        HashSet<String> validInputsList = parseValidInputList(jsonObject);
 
-        List<String> validInputsList = parseValidInputList(jsonObject);
+        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList);
 
-        JSONObject rulesObj = (JSONObject) jsonObject.get(RULES);
-        JSONArray ruleValues = (JSONArray) rulesObj.get(RULE_VALUES);
-        for (int i = 0; i < ruleValues.size(); i++) {
-            JSONObject ruleObj = (JSONObject) ruleValues.get(i);
+        parseRules(jsonObject, gameConfig);
 
-            String definition = (String) ruleObj.get(RULE_DEFINITION); //TODO: ver si es valida
-            JSONArray regionObj = (JSONArray) ruleObj.get("region");
-            for (int j = 0; i < regionObj.size(); i++) {
-                JSONArray regioCellObj = (JSONArray) ruleObj.get(j);
-                int row = (int) (long) regioCellObj.get(0);
-                int col = (int) (long) regioCellObj.get(1);
-            }
+        parseBoard(jsonObject, gameConfig);
 
-            if (ruleObj.containsKey(RULE_OPERATION_VALUE)) {
-                String ruleValue = (String) ruleObj.get(RULE_OPERATION_VALUE); //TODO: crear la rule Correspondiente
-            }
-        }
+        return gameConfig;
+    }
 
+    private void parseBoard(JSONObject jsonObject, GameConfig gameConfig) {
         JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);
-        JSONArray boardValues = (JSONArray) rulesObj.get(BOARD_VALUES);
+        JSONArray boardValues = (JSONArray) boardObj.get(BOARD_VALUES);
         for (int i = 0; i < boardValues.size(); i++) {
             JSONObject boardValueObj = (JSONObject) boardValues.get(i);
 
@@ -66,25 +57,60 @@ public class GameConfigParser implements AbstractGameConfigParser {
             int row = (int) (long) positionCellObj.get(0);
             int col = (int) (long) positionCellObj.get(1);
 
+            String boardValue = "";
             if (boardValueObj.containsKey(BOARD_VALUE)) {
-                String boardValue = (String) boardValueObj.get(BOARD_VALUE); //TODO: crear la celda correspondiente con un Builder! (paso a paso le voy diciendo que tiene)
+                boardValue = (String) boardValueObj.get(BOARD_VALUE); //TODO: crear la celda correspondiente con un Builder! (paso a paso le voy diciendo que tiene)
             }
-            String editable = (String) boardValueObj.get(EDITABLE);
+            boolean editable = (boolean) boardValueObj.get(EDITABLE);
 
-            String readonly = (String) boardValueObj.get(READONLY);
+            boolean readonly = (boolean) boardValueObj.get(READONLY);
+
+            Cell cell = new Cell(boardValue, editable, readonly);
+            gameConfig.addInitialCell(row, col, cell);
         }
-
-        return null;
     }
 
-    private List<String> parseValidInputList(JSONObject jsonObject) {
-        List<String> validInputsList = new ArrayList<>();
+    private void parseRules(JSONObject jsonObject, GameConfig gameConfig) throws Exception {
+        JSONObject rulesObj = (JSONObject) jsonObject.get(RULES);
+        JSONArray ruleValues = (JSONArray) rulesObj.get(RULE_VALUES);
+        for (int i = 0; i < ruleValues.size(); i++) {
+            JSONObject ruleObj = (JSONObject) ruleValues.get(i);
+
+
+            String definition = (String) ruleObj.get(RULE_DEFINITION);
+
+            RuleBuilder ruleBuilder = new RuleBuilder(definition);
+
+            JSONArray regionObj = (JSONArray) ruleObj.get("region");
+            for (int j = 0; i < regionObj.size(); i++) {
+                JSONArray regioCellObj = (JSONArray) ruleObj.get(j);
+                int row = (int) (long) regioCellObj.get(0);
+                int col = (int) (long) regioCellObj.get(1);
+                ruleBuilder.addCellToRegion(row, col);
+            }
+
+            if (ruleObj.containsKey(RULE_OPERATION_VALUE)) {
+                String ruleValue = (String) ruleObj.get(RULE_OPERATION_VALUE);
+                ruleBuilder.setValue(ruleValue);
+            }
+
+            Rule rule = ruleBuilder.createRule();
+            gameConfig.addRule(rule);
+        }
+    }
+
+    private String parseGameName(JSONObject jsonObject) {
+        return (String) jsonObject.get(GAME_NAME);
+    }
+
+    private HashSet<String> parseValidInputList(JSONObject jsonObject) {
+        HashSet<String> validInputsList = new HashSet<>();
         JSONArray validInputs = (JSONArray) jsonObject.get(VALID_INPUT);
         for (int i = 0; i < validInputs.size(); i++) {
             String validInput = (String) validInputs.get(i);
             validInputsList.add(validInput);
         }
-        return validInputs;
+        return validInputsList;
     }
 
     private SizeConfig parseGridSize(JSONObject jsonObject) {

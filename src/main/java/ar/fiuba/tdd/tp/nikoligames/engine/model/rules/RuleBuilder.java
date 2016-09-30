@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.Position;
 
 import java.util.ArrayList;
 
-public abstract class RuleBuilder {
+public class RuleBuilder {
 
     private RuleDefinitionValidator validRuleDefinitions = new RuleDefinitionValidator();
     private String ruleDefinition;

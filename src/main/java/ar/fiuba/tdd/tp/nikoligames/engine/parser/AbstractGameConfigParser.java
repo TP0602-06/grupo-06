@@ -11,5 +11,5 @@ import java.io.Reader;
  */
 public interface AbstractGameConfigParser {
 
-    ConcreteGameConfig parse(Reader fileReader) throws IOException, ParseException;
+    GameConfig parse(Reader fileReader) throws Exception;
 }

@@ -9,7 +9,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 
 import java.util.HashSet;
 
-public class ConcreteGameConfig {
+public class ConcreteGameConfig implements GameConfig {
 
     private ConcreteBoard board;
     RuleManager ruleManager;
