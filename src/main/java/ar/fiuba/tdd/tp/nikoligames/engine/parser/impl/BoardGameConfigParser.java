@@ -31,6 +31,6 @@ public class BoardGameConfigParser extends GameConfigParserJson {
     }
 
     private BoardConfig getBoardConfig(SizeConfig sizeConfig, JSONArray jsonArray) {
-        return new BoardConfig(sizeConfig, jsonArray);
+        return new BoardConfigJson(sizeConfig, jsonArray);
     }
 }

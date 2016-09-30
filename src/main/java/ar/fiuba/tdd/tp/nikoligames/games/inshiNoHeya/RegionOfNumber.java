@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.games.inshiNoHeya;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Position;
-import com.sun.org.apache.regexp.internal.RE;
 
 import java.util.ArrayList;
 

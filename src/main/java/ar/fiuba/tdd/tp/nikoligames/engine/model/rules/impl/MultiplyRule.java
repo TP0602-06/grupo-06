@@ -24,7 +24,7 @@ public class MultiplyRule extends Rule {
             if (cell.isEmpty()) {
                 return true;
             }
-            addition += Integer.parseInt(cell.getValue());
+            addition *= Integer.parseInt(cell.getValue());
         }
         return (!this.value.equals(addition));
     }
@@ -36,7 +36,7 @@ public class MultiplyRule extends Rule {
             if (cell.isEmpty()) {
                 return false;
             }
-            addition += Integer.parseInt(cell.getValue());
+            addition *= Integer.parseInt(cell.getValue());
         }
         return (!this.value.equals(addition));
     }
