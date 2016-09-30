@@ -10,18 +10,16 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.HashSet;
+import java.util.List;
 
 public class GameConfigParser implements AbstractGameConfigParser {
 
     public static final String GAME_NAME = "game_name";
     public static final String VALID_INPUT = "valid_input";
     public static final String GRID_SIZE = "grid_size";
-    public static final String RULES = "rules";
-    public static final String RULE_VALUES = "values";
-    public static final String BOARD = "board";
-    public static final String BOARD_VALUES = "values";
-    public static final String BOARD_POSITION = "position";
 
+    private final BoardParser boardParser = new BoardParser();
+    private final RuleParser ruleParser = new RuleParser();
     private final FileReader fileReader;
 
     public GameConfigParser(String fileName) throws FileNotFoundException {
@@ -36,49 +34,16 @@ public class GameConfigParser implements AbstractGameConfigParser {
         String gameName = parseGameName(jsonObject);
         SizeConfig sizeConfig = parseGridSize(jsonObject);
         HashSet<String> validInputsList = parseValidInputList(jsonObject);
+        List<Rule> rules = ruleParser.parseRules(jsonObject);
 
-        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList);
+        List<CellConfig> cells = boardParser.parseBoard(jsonObject);
 
-        parseRules(jsonObject, gameConfig);
+        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList,rules,cells);
 
-        parseBoard(jsonObject, gameConfig);
+
 
         return gameConfig;
     }
-
-    private void parseRules(JSONObject jsonObject, GameConfig gameConfig) throws Exception {
-        RuleParser ruleParser = new RuleParser();
-
-        JSONObject rulesObj = (JSONObject) jsonObject.get(RULES);
-        JSONArray ruleValues = (JSONArray) rulesObj.get(RULE_VALUES);
-
-        for (int i = 0; i < ruleValues.size(); i++) {
-            JSONObject ruleObj = (JSONObject) ruleValues.get(i);
-
-            Rule rule = ruleParser.parseRule(ruleObj);
-            gameConfig.addRule(rule);
-        }
-
-    }
-
-    private void parseBoard(JSONObject jsonObject, GameConfig gameConfig) {
-        CellParser cellParser = new CellParser();
-
-        JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);
-        JSONArray boardValues = (JSONArray) boardObj.get(BOARD_VALUES);
-        for (int i = 0; i < boardValues.size(); i++) {
-            JSONObject cellObj = (JSONObject) boardValues.get(i);
-            JSONArray positionCellObj = (JSONArray) cellObj.get(BOARD_POSITION);
-            int row = (int) (long) positionCellObj.get(0);
-            int col = (int) (long) positionCellObj.get(1);
-
-            Cell cell = cellParser.parseCell(cellObj);
-
-            gameConfig.addInitialCell(row, col, cell);
-        }
-    }
-
-
 
     private String parseGameName(JSONObject jsonObject) {
         return (String) jsonObject.get(GAME_NAME);

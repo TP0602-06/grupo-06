@@ -11,14 +11,13 @@ import java.util.List;
  */
 public class RuleManager {
     private final ConcreteBoard board;
-    List<Rule> rules = new ArrayList<>();
+    private final List<Rule> rules ;
 
-    public RuleManager(ConcreteBoard board) {
+    public RuleManager(ConcreteBoard board, List<Rule> rules) {
         this.board = board;
+        this.rules = rules;
     }
-    public void addRule(Rule rule){
-        this.rules.add(rule);
-    }
+
     //Return true if it is all right
     public boolean checkRules() {
         Iterator<Rule> iterator = rules.iterator();

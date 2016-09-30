@@ -1,10 +1,14 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.Coordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.CellConfig;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Tablero del juego. Representar la disposicion de celdas.
@@ -15,10 +19,16 @@ public class ConcreteBoard implements DrawableBoard, Board {
     private int cols;
     private Cell[][] cells;
 
-    public ConcreteBoard(int rows, int cols) {
+    public ConcreteBoard(int rows, int cols, List<CellConfig> initialCells) {
         this.rows = rows;
         this.cols = cols;
         this.cells = new Cell[this.rows][this.cols];
+        Iterator<CellConfig> iterator = initialCells.iterator();
+        if(iterator.hasNext()){
+            CellConfig cellConfig = iterator.next();
+            Coordinates coordinates = new ClassicCoordinates(cellConfig.getRow(),cellConfig.getCol());
+            this.setCell(coordinates,cellConfig.getCell());
+        }
     }
 
     public int getRows() {

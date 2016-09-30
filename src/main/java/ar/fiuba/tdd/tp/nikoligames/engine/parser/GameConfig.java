@@ -1,24 +1,24 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.ValidInputManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
+
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * Created by german on 9/30/2016.
  */
 public interface GameConfig {
-    void addRule(Rule rule);
-
-    void addInitialCell(int row, int col, Cell cell);
 
     String getName();
 
-    ConcreteBoard getBoard();
+    List<CellConfig> getInitialCells();
 
-    RuleManager getRuleManager();
+    List<Rule> getRules();
 
-    ValidInputManager getValidInputManager();
+    HashSet<String> getValidInputs();
+
+    SizeConfig getSizeConfig();
 }
