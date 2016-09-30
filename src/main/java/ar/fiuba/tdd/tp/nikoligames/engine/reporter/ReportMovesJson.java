@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 import java.util.List;
 
 /**
- *
+ *  Esta clase se encarga de armar el reporte de movimientos en Json.
  */
 public class ReportMovesJson implements ReportMoves{
 
