@@ -23,11 +23,13 @@ public class ReportMovesJson implements ReportMoves{
     private static final String VALUES_KEY = "values";
     private static final String VALUE_KEY = "value";
     private static final String POSITION_KEY = "position";
+    private boolean valid;
 
     public String makeReport(Game game, List<GameMove> gameMoves){
+        valid = true;
         JSONObject parser = new JSONObject();
         JSONArray plays = makePlaysJson(game,gameMoves);
-        JSONObject board = makeBoardJson(game.getDrawableBoard());
+        JSONObject board = makeBoardReportJson(game.getDrawableBoard());
         parser.put(PLAYS_KEY,plays);
         parser.put(BOARD_KEY,board);
         return parser.toJSONString();
@@ -38,6 +40,7 @@ public class ReportMovesJson implements ReportMoves{
         for (int i = 0; i < gameMoves.size(); i++) {
             GameMove move = gameMoves.get(i);
             boolean validMove = move.makeMove(game);
+            if ( !validMove ) valid = false;
             JSONObject moveJson = makeMoveJson(move,validMove);
             playsArray.add(moveJson);
         }
@@ -63,7 +66,7 @@ public class ReportMovesJson implements ReportMoves{
         return  cellJson;
     }
 
-    private JSONObject makeBoardJson(DrawableBoard board){
+    private JSONObject makeBoardReportJson(DrawableBoard board){
         JSONArray cellsJson = new JSONArray();
         for(int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getCols(); j++) {
@@ -72,8 +75,10 @@ public class ReportMovesJson implements ReportMoves{
                 cellsJson.add(cell);
             }
         }
-        JSONObject boardJson = new JSONObject();
-        boardJson.put(BOARD_KEY,cellsJson);
-        return  boardJson;
+
+        JSONObject boardStatus = new JSONObject();
+        boardStatus.put(STATUS_KEY,valid);
+        boardStatus.put(VALUES_KEY,cellsJson);
+        return boardStatus;
     }
 }
