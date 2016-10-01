@@ -10,28 +10,23 @@ import java.util.ArrayList;
 /**
  * Created by german on 9/30/2016.
  */
-public class AdditionRule extends RuleImplementation {
+public class AdditionRule extends ArithmeticRule {
     public AdditionRule(ArrayList<Position> region, String value) {
         super(region, value);
     }
 
+    private static final int defaultValue= 0;
     @Override
     public String getDefinition() {
         return RuleDefinitionValidator.SUMA;
     }
 
-    @Override
-    public boolean isBroken(Board board) {
-        int addition = 0;
-        for (Position position : super.region) {
-            Cell cell = board.getCell(position);
-            if (cell.isEmpty()) {
-                return true;
-            }
-            addition += Integer.parseInt(cell.getValue());
-        }
+    protected int arithmeticOperation(int operationAcumulator,Cell cell){
         int value = Integer.parseInt(this.value);
-        boolean result = (value == addition);
-        return (!result);
-    }
+        operationAcumulator+=value;
+        return operationAcumulator;
+    };
+    protected int defaultIntValue(){
+        return defaultValue;
+    };
 }

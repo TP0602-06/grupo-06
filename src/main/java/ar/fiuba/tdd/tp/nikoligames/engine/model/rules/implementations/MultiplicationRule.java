@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by german on 9/30/2016.
  */
-public class MultiplicationRule extends RuleImplementation {
+public class MultiplicationRule extends ArithmeticRule {
     public MultiplicationRule(ArrayList<Position> region, String value) {
         super(region, value);
     }
@@ -19,20 +19,15 @@ public class MultiplicationRule extends RuleImplementation {
     public String getDefinition() {
         return RuleDefinitionValidator.MULTIPLICATION;
     }
+    private static final int defaultValue= 1;
 
-    @Override
-    public boolean isBroken(Board board) {
-        int multiplication = 1;
-        for (Position position : super.region) {
-            Cell cell = board.getCell(position);
-            if (cell.isEmpty()) {
-                return true;
-            }
-            multiplication *= Integer.parseInt(cell.getValue());
-        }
+    protected int arithmeticOperation(int operationAcumulator,Cell cell){
         int value = Integer.parseInt(this.value);
-        boolean result = (value == multiplication);
-        return (!result);
+        operationAcumulator*=value;
+        return operationAcumulator;
+    };
 
-    }
+    protected int defaultIntValue(){
+        return defaultValue;
+    };
 }

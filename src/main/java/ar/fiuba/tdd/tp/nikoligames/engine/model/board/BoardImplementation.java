@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 /**
  * Tablero del juego. Representar la disposicion de celdas.

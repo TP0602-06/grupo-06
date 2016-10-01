@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.omg.CORBA.Object;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,15 +16,30 @@ public class BoardParser {
     public static final String BOARD_VALUES = "values";
     public static final String BOARD_POSITION = "position";
 
+    private JSONObject getJsonObject(JSONObject jsonObject,String key){
+        return (JSONObject) jsonObject.get(key);
+    }
+    private JSONArray getJsonArray(JSONObject jsonObject, String key){
+        return  (JSONArray)jsonObject.get(key);
+    }
+    private JSONArray getBoardValues(JSONObject gameObject){
+        return  (JSONArray) this.getJsonArray(this.getJsonObject(gameObject,BOARD),BOARD_VALUES);
+    }
+    private JSONObject getCellObject(JSONObject gameObject,int cellNumber){
+        return  (JSONObject) this.getBoardValues(gameObject).get(cellNumber);
+    }
+    private JSONArray getCellPosition(JSONObject gameObject,int cellNumber){
+        return  (JSONArray) this.getCellObject(gameObject,cellNumber).get(BOARD_POSITION);
+    }
     public List<CellConfig> parseBoard(JSONObject jsonObject) {
         List<CellConfig> cells = new ArrayList<>();
         CellParser cellParser = new CellParser();
 
-        JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);
-        JSONArray boardValues = (JSONArray) boardObj.get(BOARD_VALUES);
+
+        JSONArray boardValues = this.getBoardValues(jsonObject);
         for (int i = 0; i < boardValues.size(); i++) {
-            JSONObject cellObj = (JSONObject) boardValues.get(i);
-            JSONArray positionCellObj = (JSONArray) cellObj.get(BOARD_POSITION);
+            JSONObject cellObj = this.getCellObject(jsonObject,i);
+            JSONArray positionCellObj = this.getCellPosition(jsonObject,i);
             int row = (int) (long) positionCellObj.get(0);
             int col = (int) (long) positionCellObj.get(1);
 
