@@ -20,7 +20,7 @@ public class BoardFactory {
 
     private void fillBoardWithInitialValues(List<CellConfig> initialCells, Board board) {
         Iterator<CellConfig> iterator = initialCells.iterator();
-        if (iterator.hasNext()) {
+        while (iterator.hasNext()) {
             CellConfig cellConfig = iterator.next();
             Position coordinates = new ClassicPosition(cellConfig.getRow(), cellConfig.getCol());
             board.setCell(coordinates, cellConfig.getCell());

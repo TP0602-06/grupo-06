@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener;
 
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  */
 public class SelectComponentCellListener extends AbstractSelectValueListener {
 
-    public SelectComponentCellListener(AbstractSelectValueController selectValueController) {
+    public SelectComponentCellListener(SelectValueController selectValueController) {
         super(selectValueController);
     }
 

@@ -3,17 +3,18 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.InvalidCellView;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableNumberCell;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 /**
  * Esta clase define como elegir las celdas de la vista en base a las del modelo.
  */
 public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper {
 
-    private final AbstractSelectValueController controller;
+    private final SelectValueController controller;
 
-    public DrawCellFromModelHelper(AbstractSelectValueController controller) {
+    public DrawCellFromModelHelper(SelectValueController controller) {
         this.controller = controller;
     }
 
@@ -22,12 +23,12 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
 
         CellView cellView;
 
-        if (modelCell.isEmpty() && !modelCell.isEditable()) {
+        if (modelCell.isEmpty() && modelCell.isReadOnly()) {
             cellView = new InvalidCellView();
         } else if (isCellEmptyAndEditable(modelCell)) {
             cellView = new EditableNumberCell(controller);
         } else if (isCellNonEditableAndNotEmpty(modelCell)) {
-            cellView = createCell(modelCell);
+            cellView = new ClueCellView(modelCell.getValue(),controller);
         } else {
             cellView = new InvalidCellView();
         }
@@ -44,7 +45,6 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
     }
 
     private CellView createCell(DrawableCell modelCell) {
-
         return null;
     }
 }

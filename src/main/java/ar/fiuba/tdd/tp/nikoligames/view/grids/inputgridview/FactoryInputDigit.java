@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueClearerCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueToSelectCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 /**
  * Responsabilidades:
@@ -18,9 +18,9 @@ public class FactoryInputDigit implements AbstractFactoryInputGrid {
     private static final int firstDigit = 1;
     private static final int lastDigit = 9;
 
-    AbstractSelectValueController selectValueController;
+    SelectValueController selectValueController;
 
-    public FactoryInputDigit(AbstractSelectValueController controller) {
+    public FactoryInputDigit(SelectValueController controller) {
         this.selectValueController = controller;
     }
 

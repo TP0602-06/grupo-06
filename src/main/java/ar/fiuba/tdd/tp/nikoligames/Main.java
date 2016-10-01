@@ -7,6 +7,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParser;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParserImplementation;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameViewImplementation;
 
 /**
  * Responsabilidades:
@@ -28,10 +31,10 @@ public class Main {
             GameConfig gameConfig = gameConfigParser.parse();
             Game game = gameFactory.createGame(gameConfig);
 
-            //FactoryGameView factoryView = new FactoryGameView();
-            //GameView view = factoryView.createDefaultGameView(game);
+            FactoryGameView factoryView = new FactoryGameViewImplementation();
+            GameView view = factoryView.createDefaultGameView(game);
 
-            //view.setVisible(true);
+            view.setVisible(true);
 
         } catch (Exception e) {
             e.printStackTrace();

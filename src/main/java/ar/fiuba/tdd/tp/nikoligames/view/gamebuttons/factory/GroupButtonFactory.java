@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 
 import java.awt.*;
@@ -12,5 +13,5 @@ import java.awt.*;
  */
 public interface GroupButtonFactory {
 
-    Component makeGroupButton(GameImplementation game);
+    Component makeGroupButton(Game game);
 }

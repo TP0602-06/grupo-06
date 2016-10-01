@@ -9,6 +9,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
  * Patrón:
  * 1. Abstract Factory
  */
-public interface AbstractFactoryBoard {
+public interface FactoryBoard {
     GridView createBoardView(DrawableBoard modelBoard);
 }

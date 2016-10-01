@@ -3,7 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener.SelectValueCellListener;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 import java.awt.*;
 
@@ -15,7 +15,7 @@ public class ValueToSelectCellView extends CellView {
     private Color foregroundColor = ColorSet.NUMBER;
     private int value;
 
-    public ValueToSelectCellView(int value, AbstractSelectValueController selectValueController) {
+    public ValueToSelectCellView(int value, SelectValueController selectValueController) {
         setBackground(backgroundColor);
         setForeground(foregroundColor);
         this.value = value;
@@ -23,7 +23,7 @@ public class ValueToSelectCellView extends CellView {
         registerMouseHandler(selectValueController);
     }
 
-    private void registerMouseHandler(AbstractSelectValueController selectValueController) {
+    private void registerMouseHandler(SelectValueController selectValueController) {
         this.addMouseListener(new SelectValueCellListener(selectValueController));
     }
 

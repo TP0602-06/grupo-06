@@ -20,7 +20,7 @@ public class RuleManager {
     //Return true if it is all right
     public boolean checkRules() {
         Iterator<Rule> iterator = rules.iterator();
-        if (iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Rule rule = iterator.next();
             if (rule.isBroken(board)) return false;
         }

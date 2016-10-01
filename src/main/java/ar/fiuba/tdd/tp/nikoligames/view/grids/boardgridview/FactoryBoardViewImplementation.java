@@ -7,7 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.DrawCellFromModelHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 /**
  * Responsabilidades:
@@ -15,10 +15,10 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueContro
  * Patrón:
  * 1. Abstract Factory
  */
-public class FactoryBoardViewFromModel implements AbstractFactoryBoard {
-    AbstractSelectValueController selectValueController;
+public class FactoryBoardViewImplementation implements FactoryBoard {
+    SelectValueController selectValueController;
 
-    public FactoryBoardViewFromModel(AbstractSelectValueController controller) {
+    public FactoryBoardViewImplementation(SelectValueController controller) {
         selectValueController = controller;
     }
 
@@ -41,12 +41,12 @@ public class FactoryBoardViewFromModel implements AbstractFactoryBoard {
         int columns = modelBoard.getCols();
         int rows = modelBoard.getRows();
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= columns; j++) {
                 ClassicPosition position = new ClassicPosition(i, j);
                 DrawableCell modelCell = modelBoard.getDrawableCell(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
-                cellView.setCoordinates(i, j);
+                cellView.setCoordinates(position.getRow(), position.getColumn());
                 grid.addCellView(cellView);
             }
         }

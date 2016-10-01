@@ -1,11 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.AbstractFocusGridViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.FocusGridViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.AbstractEditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
@@ -13,53 +7,20 @@ import java.awt.*;
 
 /**
  * Responsabilidades:
- * 1. Implementa la clase AbstractSelectValueController
- * Patrón: OBSERVER
+ * 1. Controlar la interacción entre la grilla del juego y el panel para ingresar el valor correspondiente al casillero seleccionado
+ * Patrón de diseno: OBSERVER (cada botón conoce al observador - SelectValueController - y lo notifica ante un evento.
  */
-public class SelectValueController implements AbstractSelectValueController {
+public interface SelectValueController {
 
-    private AbstractFocusGridViewHelper focusGridHelper;
-    private GridView selectValueGridView;
-    private GameImplementation game;
-    private AbstractFocusCellViewHelper focusCellViewHelper = new FocusCellViewHelper();
-    private AbstractEditableNumberCell lastSelectedEditableCellView;
+    void addBoardView(GridView boardView);
 
-    public SelectValueController(GameImplementation game) {
-        this.game = game;
-    }
+    void addInputBoardView(GridView inputBoardView);
 
-    public void addBoardView(GridView boardView) {
-        this.focusGridHelper = new FocusGridViewHelper(boardView);
-    }
+    void notifySelectedEditableCellView(AbstractEditableNumberCell cellView);
 
-    public void addInputBoardView(GridView inputBoardView) {
-        this.selectValueGridView = inputBoardView;
-    }
+    void notifySelectedComponent(Component component);
 
-    public void notifySelectedEditableCellView(AbstractEditableNumberCell cellView) {
-        this.lastSelectedEditableCellView = cellView;
-        focusGridHelper.clearFocus();
-        focusCellViewHelper.setFocus(cellView);
-        selectValueGridView.setVisible(true);
-    }
+    void notifySelectedValue(String value) throws Exception;
 
-    public void notifySelectedComponent(Component component) {
-        selectValueGridView.setVisible(false);
-        focusGridHelper.clearFocus();
-    }
-
-    public void notifySelectedValue(String value) throws Exception {
-        this.lastSelectedEditableCellView.changeValue(value);
-        changeModelCellValue(value);
-    }
-
-    public void notifyClearValue() throws Exception {
-        lastSelectedEditableCellView.clearValue();
-        changeModelCellValue("");
-    }
-
-    private void changeModelCellValue(String value) throws Exception {
-        ClassicPosition celPosition = new ClassicPosition(lastSelectedEditableCellView.getXIndex(), lastSelectedEditableCellView.getYIndex());
-        game.playMove(celPosition, value);
-    }
+    void notifyClearValue() throws Exception;
 }

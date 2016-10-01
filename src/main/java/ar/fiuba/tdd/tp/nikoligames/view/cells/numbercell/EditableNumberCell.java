@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener.SelectEditableCellListener;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 import java.awt.*;
 
@@ -15,7 +15,7 @@ public class EditableNumberCell extends AbstractEditableNumberCell {
     private Color backgroundColor = ColorSet.NORMAL_BACKGROUND;
     private Color foregroundColor = ColorSet.NUMBER;
 
-    public EditableNumberCell(AbstractSelectValueController selectValueController) {
+    public EditableNumberCell(SelectValueController selectValueController) {
         setBackground(backgroundColor);
         setForeground(foregroundColor);
         registerMouseHandler(selectValueController);
@@ -29,7 +29,7 @@ public class EditableNumberCell extends AbstractEditableNumberCell {
         this.setText(EMPTY_STRING);
     }
 
-    private void registerMouseHandler(AbstractSelectValueController selectValueController) {
+    private void registerMouseHandler(SelectValueController selectValueController) {
         this.addMouseListener(new SelectEditableCellListener(selectValueController));
     }
 

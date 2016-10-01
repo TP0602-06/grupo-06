@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener;
 
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 import java.awt.event.MouseEvent;
 
@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
  */
 public class ClearCellListener extends AbstractSelectValueListener {
 
-    public ClearCellListener(AbstractSelectValueController selectValueController) {
+    public ClearCellListener(SelectValueController selectValueController) {
         super(selectValueController);
     }
 
