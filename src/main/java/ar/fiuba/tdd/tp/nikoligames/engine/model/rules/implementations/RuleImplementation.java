@@ -13,17 +13,10 @@ public abstract class RuleImplementation implements Rule {
 
     protected ArrayList<Position> region;
     protected String value;
-    protected String definition;
 
-    public RuleImplementation(ArrayList<Position> region, String value, String definition) {
+    public RuleImplementation(ArrayList<Position> region, String value) {
         this.value = value;
         this.region = region;
-        this.definition = definition;
-    }
-
-    @Override
-    public String getDefinition() {
-        return definition;
     }
 
     public void addCellToRegion(int row, int col) {
