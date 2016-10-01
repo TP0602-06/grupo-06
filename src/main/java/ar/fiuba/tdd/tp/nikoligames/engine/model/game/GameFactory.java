@@ -18,7 +18,8 @@ public class GameFactory {
         Board board = boardFactory.createBoard(sizeConfig.getRows(), sizeConfig.getCols(), gameConfig.getInitialCells());
         RuleManager ruleManager = new RuleManager(board, gameConfig.getRules());
         ValidInputManager validInputManager = new ValidInputManager(gameConfig.getValidInputs());
-        Game game = new GameImplementation(board, ruleManager, validInputManager);
+        String gameName = gameConfig.getName();
+        Game game = new GameImplementation(board, ruleManager, validInputManager,gameName);
         return game;
     }
 }

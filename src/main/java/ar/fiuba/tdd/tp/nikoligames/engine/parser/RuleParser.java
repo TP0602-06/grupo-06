@@ -6,6 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,9 +25,9 @@ public class RuleParser {
         JSONObject rulesObj = (JSONObject) jsonObject.get(RULES);
         JSONArray ruleValues = (JSONArray) rulesObj.get(RULE_VALUES);
 
-        for (int i = 0; i < ruleValues.size(); i++) {
-            JSONObject ruleObj = (JSONObject) ruleValues.get(i);
-
+        Iterator<JSONObject> iterator = ruleValues.iterator();
+        while (iterator.hasNext()){
+            JSONObject ruleObj = iterator.next();
             Rule rule = ruleParser.parseRule(ruleObj);
             rules.add(rule);
         }

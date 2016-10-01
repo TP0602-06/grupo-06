@@ -8,7 +8,8 @@ public class Cell implements DrawableCell {
 
     protected String value = "";
 
-    protected boolean editable, readOnly;
+    protected boolean editable;
+    protected boolean readOnly;
 
     public Cell(String value, boolean editable, boolean readOnly) {
         this.value = value;

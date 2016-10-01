@@ -28,7 +28,7 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
         } else if (isCellEmptyAndEditable(modelCell)) {
             cellView = new EditableNumberCell(controller);
         } else if (isCellNonEditableAndNotEmpty(modelCell)) {
-            cellView = new ClueCellView(modelCell.getValue(),controller);
+            cellView = new ClueCellView(modelCell.getValue(), controller);
         } else {
             cellView = new InvalidCellView();
         }

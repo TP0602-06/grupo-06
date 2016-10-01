@@ -8,8 +8,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.HashSet;
 import java.util.List;
 
@@ -21,15 +21,20 @@ public class GameConfigParserImplementation implements GameConfigParser {
 
     private final BoardParser boardParser = new BoardParser();
     private final RuleParser ruleParser = new RuleParser();
-    private final FileReader fileReader;
+    private final String fileName;
+
 
     public GameConfigParserImplementation(String fileName) throws FileNotFoundException {
-        fileReader = new FileReader(fileName);
+        this.fileName = fileName;
+
     }
 
     @Override
     public GameConfig parse() throws Exception {
         JSONParser jsonParser = new JSONParser();
+
+        Reader fileReader = new InputStreamReader(new FileInputStream(fileName), "UTF-8");
+
         JSONObject jsonObject = (JSONObject) jsonParser.parse(fileReader);
 
         String gameName = parseGameName(jsonObject);

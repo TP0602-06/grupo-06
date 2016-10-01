@@ -22,7 +22,9 @@ public class RuleManager {
         Iterator<Rule> iterator = rules.iterator();
         while (iterator.hasNext()) {
             Rule rule = iterator.next();
-            if (rule.isBroken(board)) return false;
+            if (rule.isBroken(board)) {
+                return false;
+            }
         }
         return true;
     }

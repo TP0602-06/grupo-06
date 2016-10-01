@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 /**
  * Tablero del juego. Representar la disposicion de celdas.
@@ -28,7 +28,9 @@ public class BoardImplementation implements DrawableBoard, Board {
     }
 
     private boolean outOfRange(Position coordinates) {
-        return !((0 <= coordinates.getColumn()) && (coordinates.getColumn() < cols) && (0 <= coordinates.getRow()) && (coordinates.getRow() < rows));
+        int row = coordinates.getRow();
+        int col = coordinates.getColumn();
+        return !((0 <= col) && (col < cols) && (0 <= row) && (row < rows));
     }
 
     private void checkRange(Position coordinates) {

@@ -7,7 +7,8 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
  */
 public class CellConfig {
     private Cell cell;
-    private int row, col;
+    private int row;
+    private int col;
 
     public CellConfig(Cell cell, int row, int col) {
         this.cell = cell;

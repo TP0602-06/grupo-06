@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 
 import java.util.ArrayList;
@@ -14,13 +14,17 @@ public abstract class RuleImplementation implements Rule {
     protected ArrayList<Position> region;
     protected String value;
 
-    public RuleImplementation(ArrayList<Position> region, String value) {
-        this.value = value;
-        this.region = region;
+    @Override
+    public String getDefinition() {
+        return definition;
     }
 
-    public RuleImplementation(ArrayList<Position> region) {
-        this(region, NO_VALUE_RULE);
+    protected String definition;
+
+    public RuleImplementation(ArrayList<Position> region, String value, String definition) {
+        this.value = value;
+        this.region = region;
+        this.definition = definition;
     }
 
     public void addCellToRegion(int row, int col) {

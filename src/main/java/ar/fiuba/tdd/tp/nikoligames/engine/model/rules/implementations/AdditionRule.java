@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
 
 import java.util.ArrayList;
@@ -12,14 +12,8 @@ import java.util.ArrayList;
  */
 public class AdditionRule extends RuleImplementation {
     public AdditionRule(ArrayList<Position> region, String value) {
-        super(region, value);
+        super(region, value, RuleDefinitionValidator.SUMA);
     }
-
-    @Override
-    public String getDefinition() {
-        return RuleDefinitionValidator.SUMA;
-    }
-
     @Override
     public boolean isBroken(Board board) {
         int addition = 0;

@@ -51,7 +51,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
 
     private GridView createInputPanel(SelectValueController selectValueController, GridView boardView, HashSet<String> validInputs) throws Exception {
         AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(selectValueController);
-        return inputFactory.createInputGridForBoardView(boardView,validInputs);
+        return inputFactory.createInputGridForBoardView(boardView, validInputs);
     }
 
     private GridView createBoardView(Game game, SelectValueController selectValueController) {

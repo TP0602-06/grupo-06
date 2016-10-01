@@ -8,23 +8,23 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
 
 import java.util.HashSet;
-import java.util.List;
 
 /**
  * GameImplementation. Adminstra el juego. Valida las reglas y permite que se modifiquen el valor de las celdas.
  */
 
 public class GameImplementation implements Game {
-    private GameConfig gameConfig;
+    private final String gameName;
     private RuleManager ruleManager;
     private ValidInputManager validInputManager;
     private Board board;
 
 
-    public GameImplementation(Board board, RuleManager ruleManager, ValidInputManager inputManager) {
+    public GameImplementation(Board board, RuleManager ruleManager, ValidInputManager inputManager, String gameName) {
         this.board = board;
         this.ruleManager = ruleManager;
         this.validInputManager = inputManager;
+        this.gameName = gameName;
     }
 
     public DrawableBoard getDrawableBoard() {
@@ -42,12 +42,14 @@ public class GameImplementation implements Game {
 
     public void playMove(Position position, String value) throws Exception {
         ValidInputManager validInputManager = this.validInputManager;
-        if (!validInputManager.isValidInput(value)) throw new Exception("Not a valid input");
+        if (!validInputManager.isValidInput(value)) {
+            throw new Exception("Not a valid input");
+        }
         board.changeCellValue(position, value);
     }
 
     public String getGameName() {
-        return this.gameConfig.getName();
+        return this.gameName;
     }
 
 }
