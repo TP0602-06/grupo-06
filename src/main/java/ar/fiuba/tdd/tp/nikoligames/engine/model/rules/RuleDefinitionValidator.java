@@ -12,7 +12,7 @@ import java.util.HashSet;
 public class RuleDefinitionValidator {
     public static final String DO_NOT_REPEAT = "NO_REPITE";
     public static final String SUMA = "SUMA";
-    public static final String MULTIPLICATION = "MULTIPLICATION";
+    public static final String MULTIPLICATION = "MULTIPLICACION";
 
     HashSet<String> validRules = new HashSet<>();
 

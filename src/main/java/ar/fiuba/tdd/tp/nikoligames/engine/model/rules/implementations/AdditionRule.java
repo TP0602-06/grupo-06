@@ -22,7 +22,7 @@ public class AdditionRule extends RuleImplementation {
 
     @Override
     public boolean isBroken(Board board) {
-        Integer addition = 0;
+        int addition = 0;
         for (Position position : super.region) {
             Cell cell = board.getCell(position);
             if (cell.isEmpty()) {
@@ -30,6 +30,8 @@ public class AdditionRule extends RuleImplementation {
             }
             addition += Integer.parseInt(cell.getValue());
         }
-        return (!this.value.equals(addition));
+        int value = Integer.parseInt(this.value);
+        boolean result = (value == addition);
+        return (!result);
     }
 }

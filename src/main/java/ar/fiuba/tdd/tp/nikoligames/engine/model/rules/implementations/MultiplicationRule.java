@@ -22,7 +22,7 @@ public class MultiplicationRule extends RuleImplementation {
 
     @Override
     public boolean isBroken(Board board) {
-        Integer multiplication = 1;
+        int multiplication = 1;
         for (Position position : super.region) {
             Cell cell = board.getCell(position);
             if (cell.isEmpty()) {
@@ -30,7 +30,9 @@ public class MultiplicationRule extends RuleImplementation {
             }
             multiplication *= Integer.parseInt(cell.getValue());
         }
-        return (!this.value.equals(multiplication));
+        int value = Integer.parseInt(this.value);
+        boolean result = (value == multiplication);
+        return (!result);
 
     }
 }
