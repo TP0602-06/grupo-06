@@ -59,7 +59,7 @@ public class SelectValueControllerImplementation implements SelectValueControlle
     }
 
     private void changeModelCellValue(String value) throws Exception {
-        ClassicPosition celPosition = new ClassicPosition(lastSelectedEditableCellView.getXIndex(), lastSelectedEditableCellView.getYIndex());
+        ClassicPosition celPosition = new ClassicPosition(lastSelectedEditableCellView.getXIndex()+1, lastSelectedEditableCellView.getYIndex()+1);
         game.playMove(celPosition, value);
     }
 }
