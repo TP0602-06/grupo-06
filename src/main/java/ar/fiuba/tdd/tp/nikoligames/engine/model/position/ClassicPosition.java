@@ -1,8 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.position;
 
-/**
- * La primera celda es (1,1)
- */
 public class ClassicPosition implements Position {
 
     private int row;

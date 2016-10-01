@@ -28,7 +28,9 @@ public class BoardImplementation implements DrawableBoard, Board {
     }
 
     private boolean outOfRange(Position coordinates) {
-        return !((0 <= coordinates.getColumn()) && (coordinates.getColumn() < cols) && (0 <= coordinates.getRow()) && (coordinates.getRow() < rows));
+        int row = coordinates.getRow();
+        int col = coordinates.getColumn();
+        return !((0 <= col) && (col < cols) && (0 <= row) && (row < rows));
     }
 
     private void checkRange(Position coordinates) {

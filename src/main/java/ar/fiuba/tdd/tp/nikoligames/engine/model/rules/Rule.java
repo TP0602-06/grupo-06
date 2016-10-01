@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 import java.util.ArrayList;
 

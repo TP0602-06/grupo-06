@@ -1,10 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -40,7 +40,9 @@ public class ReportMovesJson implements ReportMoves {
         for (int i = 0; i < gameMoves.size(); i++) {
             Play move = gameMoves.get(i);
             boolean validMove = move.makeMove(game);
-            if (!validMove) valid = false;
+            if (!validMove) {
+                valid = false;
+            }
             JSONObject moveJson = makeMoveJson(move, validMove);
             playsArray.add(moveJson);
         }

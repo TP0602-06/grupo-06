@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener.SelectValueCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
-import java.awt.*;
+import java.awt.Color;
 
 /**
  * Estas son celdas que proven el input para las celdas editables.

@@ -1,7 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.FlowLayout;
+import javax.swing.JFrame;
+
 
 
 /**

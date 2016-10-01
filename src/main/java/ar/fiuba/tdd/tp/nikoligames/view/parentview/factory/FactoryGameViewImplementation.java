@@ -10,9 +10,9 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInput
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImplementation;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 
-import java.awt.*;
+import java.awt.Component;
 import java.util.HashSet;
 
 /**
@@ -30,7 +30,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     public GameView createDefaultGameView(Game game) throws Exception {
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
-        SelectValueController selectValueController = new SelectValueControllerImplementation(game);
+        SelectValueController selectValueController = new SelectValueControllerImp(game);
 
         GridView boardView = createBoardView(game, selectValueController);
         GridView inputs = createInputPanel(selectValueController, boardView, game.getValidInputs());
@@ -49,9 +49,9 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return groupButtonFactory.makeGroupButton(game);
     }
 
-    private GridView createInputPanel(SelectValueController selectValueController, GridView boardView, HashSet<String> validInputs) throws Exception {
-        AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(selectValueController);
-        return inputFactory.createInputGridForBoardView(boardView,validInputs);
+    private GridView createInputPanel(SelectValueController controller, GridView boardView, HashSet<String> inputs) throws Exception {
+        AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(controller);
+        return inputFactory.createInputGridForBoardView(boardView, inputs);
     }
 
     private GridView createBoardView(Game game, SelectValueController selectValueController) {

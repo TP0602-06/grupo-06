@@ -14,7 +14,7 @@ public class RuleDefinitionValidator {
     public static final String SUMA = "SUMA";
     public static final String MULTIPLICATION = "MULTIPLICACION";
 
-    HashSet<String> validRules = new HashSet<>();
+    HashSet<String> validRules = new HashSet<String>();
 
     public RuleDefinitionValidator() {
         validRules.add(DO_NOT_REPEAT);

@@ -1,11 +1,12 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.CheckGameButton;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Component;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 
 /**
  * Responsabilidades:

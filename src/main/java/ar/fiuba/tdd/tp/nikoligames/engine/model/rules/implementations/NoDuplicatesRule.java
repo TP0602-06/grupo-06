@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
 
 import java.util.ArrayList;
@@ -13,17 +13,12 @@ import java.util.HashSet;
  */
 public class NoDuplicatesRule extends RuleImplementation {
     public NoDuplicatesRule(ArrayList<Position> region) {
-        super(region);
-    }
-
-    @Override
-    public String getDefinition() {
-        return RuleDefinitionValidator.DO_NOT_REPEAT;
+        super(region, "", RuleDefinitionValidator.DO_NOT_REPEAT);
     }
 
     @Override
     public boolean isBroken(Board board) {
-        HashSet<Integer> seenValues = new HashSet<>();
+        HashSet<Integer> seenValues = new HashSet<Integer>();
         for (Position position : super.region) {
 
             Cell cell = board.getCell(position);

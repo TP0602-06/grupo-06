@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.inputmanager.ValidInputManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
 
 import java.util.HashSet;
 
@@ -14,17 +13,17 @@ import java.util.HashSet;
  */
 
 public class GameImplementation implements Game {
-    private String gameName;
+    private final String gameName;
     private RuleManager ruleManager;
     private ValidInputManager validInputManager;
     private Board board;
 
 
-    public GameImplementation(String gameName ,Board board, RuleManager ruleManager, ValidInputManager inputManager) {
-        this.gameName=gameName;
+    public GameImplementation(Board board, RuleManager ruleManager, ValidInputManager inputManager, String gameName) {
         this.board = board;
         this.ruleManager = ruleManager;
         this.validInputManager = inputManager;
+        this.gameName = gameName;
     }
 
     public DrawableBoard getDrawableBoard() {
@@ -42,7 +41,9 @@ public class GameImplementation implements Game {
 
     public void playMove(Position position, String value) throws Exception {
         ValidInputManager validInputManager = this.validInputManager;
-        if (!validInputManager.isValidInput(value)) throw new Exception("Not a valid input");
+        if (!validInputManager.isValidInput(value)) {
+            throw new Exception("Not a valid input");
+        }
         board.changeCellValue(position, value);
     }
 

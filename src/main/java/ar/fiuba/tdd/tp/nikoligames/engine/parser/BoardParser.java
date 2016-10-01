@@ -32,7 +32,7 @@ public class BoardParser {
         return  (JSONArray) this.getCellObject(gameObject,cellNumber).get(BOARD_POSITION);
     }
     public List<CellConfig> parseBoard(JSONObject jsonObject) {
-        List<CellConfig> cells = new ArrayList<>();
+        List<CellConfig> cells = new ArrayList<CellConfig>();
         CellParser cellParser = new CellParser();
 
 

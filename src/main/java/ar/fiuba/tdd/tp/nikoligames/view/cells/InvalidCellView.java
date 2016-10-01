@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.cells;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 
-import java.awt.*;
+import java.awt.Color;
 
 /**
  * Esta clase representa las celdas invalidas.
