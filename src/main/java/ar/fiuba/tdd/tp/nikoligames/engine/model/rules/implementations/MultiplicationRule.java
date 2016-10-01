@@ -16,10 +16,7 @@ public class MultiplicationRule extends ArithmeticRule {
         super(region, value);
     }
 
-    @Override
-    public String getDefinition() {
-        return RuleDefinitionValidator.MULTIPLICATION;
-    }
+
 
     protected int arithmeticOperation(int operationAcumulator, Cell cell) {
         int value = Integer.parseInt(this.value);

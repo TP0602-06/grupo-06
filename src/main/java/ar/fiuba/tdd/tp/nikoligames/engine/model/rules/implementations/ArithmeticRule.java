@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public abstract class ArithmeticRule extends RuleImplementation {
     public ArithmeticRule(ArrayList<Position> region, String value) {
-        super(region, value,"");
+        super(region, value);
     }
 
     protected abstract int arithmeticOperation(int operationAcumulator, Cell cell);

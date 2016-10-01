@@ -16,10 +16,7 @@ public class AdditionRule extends ArithmeticRule {
         super(region, value);
     }
 
-    @Override
-    public String getDefinition() {
-        return RuleDefinitionValidator.SUMA;
-    }
+
 
     protected int arithmeticOperation(int operationAcumulator, Cell cell) {
         int value = Integer.parseInt(this.value);
