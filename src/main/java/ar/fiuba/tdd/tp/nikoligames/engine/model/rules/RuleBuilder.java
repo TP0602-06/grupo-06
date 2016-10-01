@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 public class RuleBuilder {
 
-    private RuleDefinitionValidator validRuleDefinitions = new RuleDefinitionValidator();
-    private String ruleDefinition;
+    private RuleType ruleDefinition;
     private ArrayList<Position> region = new ArrayList<Position>();
     private String value = "";
 
@@ -26,15 +25,16 @@ public class RuleBuilder {
     }
 
     public Rule createRule() throws Exception {
-        Rule rule = this.validRuleDefinitions.createRule(ruleDefinition, this.region, value);
+        Rule rule = ruleDefinition.createRule(region, value);
         return rule;
     }
 
     private void setRuleDefinition(String ruleDefinition) throws Exception {
-        if (this.validRuleDefinitions.containsRule(ruleDefinition)) {
-            this.ruleDefinition = ruleDefinition;
-        } else {
-            throw new Exception("the rule " + ruleDefinition + " is not defined! ");
+        for (RuleType ruleType : RuleType.values()) {
+            if (ruleType.isRule(ruleDefinition)) {
+                this.ruleDefinition = ruleType;
+                break;
+            }
         }
     }
 

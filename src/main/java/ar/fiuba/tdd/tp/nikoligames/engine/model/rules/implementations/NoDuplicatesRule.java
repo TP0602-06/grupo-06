@@ -3,7 +3,6 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
 
 import java.util.ArrayList;
 import java.util.HashSet;

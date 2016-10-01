@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
 
 import java.util.ArrayList;
 
@@ -24,11 +23,11 @@ public class MultiplicationRule extends ArithmeticRule {
         return operationAcumulator;
     }
 
-    ;
+
 
     protected int defaultIntValue() {
         return defaultValue;
     }
 
-    ;
+
 }
