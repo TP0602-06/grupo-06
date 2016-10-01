@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class AdditionRule extends RuleImplementation {
     public AdditionRule(ArrayList<Position> region, String value) {
-        super(region, value, RuleDefinitionValidator.SUMA);
+        super(region, value);
     }
 
     @Override

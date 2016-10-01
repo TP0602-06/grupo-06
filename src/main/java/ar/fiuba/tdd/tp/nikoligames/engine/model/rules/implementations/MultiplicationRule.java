@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MultiplicationRule extends RuleImplementation {
 
     public MultiplicationRule(ArrayList<Position> region, String value) {
-        super(region, value, RuleDefinitionValidator.MULTIPLICATION);
+        super(region, value);
     }
 
     @Override

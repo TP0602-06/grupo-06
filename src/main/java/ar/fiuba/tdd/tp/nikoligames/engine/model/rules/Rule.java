@@ -12,7 +12,5 @@ public interface Rule {
 
     String getValue();
 
-    String getDefinition();
-
     boolean isBroken(Board board);
 }

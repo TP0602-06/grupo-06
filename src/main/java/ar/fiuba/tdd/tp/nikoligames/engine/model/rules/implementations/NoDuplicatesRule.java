@@ -13,7 +13,7 @@ import java.util.HashSet;
  */
 public class NoDuplicatesRule extends RuleImplementation {
     public NoDuplicatesRule(ArrayList<Position> region) {
-        super(region, "", RuleDefinitionValidator.DO_NOT_REPEAT);
+        super(region, "");
     }
 
     @Override
