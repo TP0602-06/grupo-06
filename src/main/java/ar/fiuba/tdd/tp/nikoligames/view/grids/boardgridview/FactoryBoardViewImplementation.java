@@ -38,11 +38,8 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
     public void fillGridWithCellsFromModel(GridView grid, DrawableBoard modelBoard) {
         DrawCellFromModelHelper helper = new DrawCellFromModelHelper(selectValueController);
 
-        int columns = modelBoard.getCols();
-        int rows = modelBoard.getRows();
-
-        for (int i = 1; i <= rows; i++) {
-            for (int j = 1; j <= columns; j++) {
+        for (int i = 1; i <= modelBoard.getRows(); i++) {
+            for (int j = 1; j <= modelBoard.getCols(); j++) {
                 ClassicPosition position = new ClassicPosition(i, j);
                 DrawableCell modelCell = modelBoard.getDrawableCell(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);

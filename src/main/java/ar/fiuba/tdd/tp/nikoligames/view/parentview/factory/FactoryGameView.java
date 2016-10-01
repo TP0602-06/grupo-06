@@ -11,5 +11,5 @@ import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
  * 1. Abstract Factory
  */
 public interface FactoryGameView {
-    GameView createDefaultGameView(Game game);
+    GameView createDefaultGameView(Game game) throws Exception;
 }

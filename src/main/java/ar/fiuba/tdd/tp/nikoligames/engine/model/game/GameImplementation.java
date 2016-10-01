@@ -7,6 +7,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
 
+import java.util.HashSet;
+import java.util.List;
+
 /**
  * GameImplementation. Adminstra el juego. Valida las reglas y permite que se modifiquen el valor de las celdas.
  */
@@ -26,6 +29,11 @@ public class GameImplementation implements Game {
 
     public DrawableBoard getDrawableBoard() {
         return board;
+    }
+
+    @Override
+    public HashSet<String> getValidInputs() {
+        return validInputManager.getValidInputs();
     }
 
     public boolean checkRules() {

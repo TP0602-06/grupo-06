@@ -13,13 +13,13 @@ import java.awt.*;
 public class ValueToSelectCellView extends CellView {
     private Color backgroundColor = ColorSet.NORMAL_BACKGROUND;
     private Color foregroundColor = ColorSet.NUMBER;
-    private int value;
+    private String value;
 
-    public ValueToSelectCellView(int value, SelectValueController selectValueController) {
+    public ValueToSelectCellView(String value, SelectValueController selectValueController) {
         setBackground(backgroundColor);
         setForeground(foregroundColor);
         this.value = value;
-        this.setText(Integer.toString(value));
+        this.setText(value);
         registerMouseHandler(selectValueController);
     }
 
@@ -28,7 +28,7 @@ public class ValueToSelectCellView extends CellView {
     }
 
     public String getValue() {
-        return Integer.toString(value);
+        return value;
     }
 
     @Override

@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview;
 
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
+import java.util.HashSet;
+
 
 /**
  * Responsabilidades:
@@ -10,6 +12,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
  * 1. Abstract Factory
  */
 public interface AbstractFactoryInputGrid {
-    GridView createInputGridForBoardView(GridView board);
+    GridView createInputGridForBoardView(GridView board, HashSet<String> validInputs) throws Exception;
 
 }

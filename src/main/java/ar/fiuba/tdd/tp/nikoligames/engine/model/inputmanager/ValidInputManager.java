@@ -15,6 +15,6 @@ public class ValidInputManager {
     }
 
     public boolean isValidInput(String input) {
-        return validInputs.contains(input);
+        return (validInputs.contains(input) || input.equals(""));
     }
 }

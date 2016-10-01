@@ -3,6 +3,9 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
+import java.util.HashSet;
+import java.util.List;
+
 /**
  * Created by german on 10/1/2016.
  */
@@ -15,4 +18,6 @@ public interface Game {
     boolean checkRules();
 
     DrawableBoard getDrawableBoard();
+
+    HashSet<String> getValidInputs();
 }
