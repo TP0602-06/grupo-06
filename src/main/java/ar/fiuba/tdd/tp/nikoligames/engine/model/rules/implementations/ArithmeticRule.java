@@ -9,11 +9,13 @@ import java.util.ArrayList;
 /**
  * Created by Andres on 01/10/2016.
  */
-public abstract class  ArithmeticRule extends RuleImplementation {
+public abstract class ArithmeticRule extends RuleImplementation {
     public ArithmeticRule(ArrayList<Position> region, String value) {
-        super(region,value);
+        super(region, value,"");
     }
-    protected abstract int arithmeticOperation(int operationAcumulator,Cell cell);
+
+    protected abstract int arithmeticOperation(int operationAcumulator, Cell cell);
+
     protected abstract int defaultIntValue();
 
     @Override
@@ -24,7 +26,7 @@ public abstract class  ArithmeticRule extends RuleImplementation {
             if (cell.isEmpty()) {
                 return true;
             }
-            this.arithmeticOperation(operationAcumulator,cell);
+            this.arithmeticOperation(operationAcumulator, cell);
         }
         int value = Integer.parseInt(this.value);
         return (!(value == operationAcumulator));
