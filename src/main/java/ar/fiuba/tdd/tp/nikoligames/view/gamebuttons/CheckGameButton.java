@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.BasicButtonListener;
 
@@ -13,9 +13,9 @@ import javax.swing.*;
  *  1. Commmand
  */
 public class CheckGameButton extends JButton implements ButtonCommand {
-    private Game game;
+    private GameImplementation game;
 
-    public CheckGameButton(Game game) {
+    public CheckGameButton(GameImplementation game) {
         setText("Check");
         addMouseListener(new BasicButtonListener());
         this.game = game;

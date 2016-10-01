@@ -10,6 +10,5 @@ public interface DrawableBoard {
     DrawableCell getDrawableCell(Coordinates position);
 
     int getCols();
-
     int getRows();
 }

@@ -3,6 +3,8 @@ package ar.fiuba.tdd.tp.nikoligames;
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.AbstractArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.ArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.GameFactory;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParser;
 
@@ -16,13 +18,15 @@ public class Main {
 
     public static void main(String[] args) {
         AbstractArgsParserHelper argsParserHelper = new ArgsParserHelper();
+        GameFactory gameFactory = new GameFactory();
+
         try {
             argsParserHelper.parseArgs(args);
-
-            GameConfigParser gameConfigParser = new GameConfigParser(argsParserHelper.getArg0GameFile());
+            String gameJsonFilePath = argsParserHelper.getGameFile();
+            GameConfigParser gameConfigParser = new GameConfigParser(gameJsonFilePath);
 
             GameConfig gameConfig = gameConfigParser.parse();
-            Game game = new Game(gameConfig);
+            Game game = gameFactory.createGame(gameConfig);
 
             //FactoryGameView factoryView = new FactoryGameView();
             //GameView view = factoryView.createDefaultGameView(game);

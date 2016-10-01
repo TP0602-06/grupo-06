@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -25,7 +25,7 @@ public class ReportMovesJson implements ReportMoves{
     private static final String POSITION_KEY = "position";
     private boolean valid;
 
-    public String makeReport(Game game, List<Play> gameMoves) throws Exception {
+    public String makeReport(GameImplementation game, List<Play> gameMoves) throws Exception {
         valid = true;
         JSONObject parser = new JSONObject();
         JSONArray plays = makePlaysJson(game,gameMoves);
@@ -35,7 +35,7 @@ public class ReportMovesJson implements ReportMoves{
         return parser.toJSONString();
     }
 
-    private JSONArray makePlaysJson(Game game, List<Play> gameMoves) throws Exception {
+    private JSONArray makePlaysJson(GameImplementation game, List<Play> gameMoves) throws Exception {
         JSONArray playsArray = new JSONArray();
         for (int i = 0; i < gameMoves.size(); i++) {
             Play move = gameMoves.get(i);

@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -26,7 +26,7 @@ public class FactoryGameView implements AbstractFactoryGameView {
     private static int DEFAULT_VIEW_HEIGHT = 700;
 
     @Override
-    public GameView createDefaultGameView(Game game) {
+    public GameView createDefaultGameView(GameImplementation game) {
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
         AbstractSelectValueController selectValueController = new SelectValueController(game);
@@ -42,7 +42,7 @@ public class FactoryGameView implements AbstractFactoryGameView {
         return view;
     }
 
-    private Component createButtons(Game game) {
+    private Component createButtons(GameImplementation game) {
         GroupButtonFactory groupButtonFactory = new BasicGroupButtonFactory();
         return groupButtonFactory.makeGroupButton(game);
     }
@@ -52,7 +52,7 @@ public class FactoryGameView implements AbstractFactoryGameView {
         return inputFactory.createInputGridForBoardView(boardView);
     }
 
-    private GridView createBoardView(Game game, AbstractSelectValueController selectValueController) {
+    private GridView createBoardView(GameImplementation game, AbstractSelectValueController selectValueController) {
         AbstractFactoryBoard gridBoardFactory = new FactoryBoardViewFromModel(selectValueController);
         return gridBoardFactory.createBoardView(game.getDrawableBoard());
     }

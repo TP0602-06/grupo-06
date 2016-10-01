@@ -1,8 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.Coordinates;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,12 @@ public class AdditionRule extends RuleImplementation {
     }
 
     @Override
-    public boolean isBroken(ConcreteBoard board) {
+    public String getDefinition() {
+        return RuleDefinitionValidator.SUMA;
+    }
+
+    @Override
+    public boolean isBroken(Board board) {
         Integer addition = 0;
         for (Coordinates position : super.region) {
             Cell cell = board.getCell(position);

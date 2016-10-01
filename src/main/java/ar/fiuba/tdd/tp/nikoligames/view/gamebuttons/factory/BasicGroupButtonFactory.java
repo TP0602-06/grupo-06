@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.CheckGameButton;
 
 import java.awt.*;
@@ -14,7 +14,7 @@ import javax.swing.*;
  */
 public class BasicGroupButtonFactory implements GroupButtonFactory {
 
-    public Component makeGroupButton(Game game) {
+    public Component makeGroupButton(GameImplementation game) {
         JPanel panel = new JPanel();
         JButton checkGame = new CheckGameButton(game);
         panel.add(checkGame);

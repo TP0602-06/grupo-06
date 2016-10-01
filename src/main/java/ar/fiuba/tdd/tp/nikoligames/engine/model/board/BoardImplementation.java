@@ -14,21 +14,15 @@ import java.util.List;
  * Tablero del juego. Representar la disposicion de celdas.
  */
 
-public class ConcreteBoard implements DrawableBoard, Board {
+public class BoardImplementation implements DrawableBoard, Board {
     private int rows;
     private int cols;
     private Cell[][] cells;
 
-    public ConcreteBoard(int rows, int cols, List<CellConfig> initialCells) {
+    public BoardImplementation(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
         this.cells = new Cell[this.rows][this.cols];
-        Iterator<CellConfig> iterator = initialCells.iterator();
-        if(iterator.hasNext()){
-            CellConfig cellConfig = iterator.next();
-            Coordinates coordinates = new ClassicCoordinates(cellConfig.getRow(),cellConfig.getCol());
-            this.setCell(coordinates,cellConfig.getCell());
-        }
     }
 
     public int getRows() {
@@ -54,7 +48,7 @@ public class ConcreteBoard implements DrawableBoard, Board {
         cells[coordinates.getRow()][coordinates.getColumn()] = cell;
     }
 
-    public boolean setCellValue(Coordinates coordinates, String value) {
+    public boolean changeCellValue(Coordinates coordinates, String value) {
         checkRange(coordinates);
         Cell cell = cells[coordinates.getRow()][coordinates.getColumn()];
         if (cell.isEditable()) {
@@ -67,14 +61,6 @@ public class ConcreteBoard implements DrawableBoard, Board {
     public Cell getCell(Coordinates coordinates) {
         checkRange(coordinates);
         return cells[coordinates.getRow()][coordinates.getColumn()];
-    }
-
-    public ArrayList<Cell> getArrayOfCells(ArrayList<Coordinates> positions) {
-        ArrayList<Cell> arrayOfCells = new ArrayList<>();
-        for (Coordinates coordinates : positions) {
-            arrayOfCells.add(getCell(coordinates));
-        }
-        return arrayOfCells;
     }
 
     public DrawableCell getDrawableCell(Coordinates position) {

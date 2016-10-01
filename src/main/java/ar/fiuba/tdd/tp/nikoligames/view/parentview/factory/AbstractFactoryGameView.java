@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 
 /**
@@ -10,5 +10,5 @@ import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
  * 1. Abstract Factory
  */
 public interface AbstractFactoryGameView {
-    GameView createDefaultGameView(Game game);
+    GameView createDefaultGameView(GameImplementation game);
 }

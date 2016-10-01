@@ -18,7 +18,7 @@ public class ArgsParserHelper implements AbstractArgsParserHelper {
             throw new Exception("Bad number of arguments ");
         }
     }
-    public String getArg0GameFile() {
+    public String getGameFile() {
         return arg0GameFile;
     }
 }

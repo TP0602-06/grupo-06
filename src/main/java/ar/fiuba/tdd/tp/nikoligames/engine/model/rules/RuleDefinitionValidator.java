@@ -10,16 +10,16 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class RuleDefinitionValidator {
-    public static final String NO_REPITE = "NO_REPITE";
+    public static final String DO_NOT_REPEAT = "NO_REPITE";
     public static final String SUMA = "SUMA";
-    public static final String MULTIPLICACION = "MULTIPLICACION";
+    public static final String MULTIPLICATION = "MULTIPLICATION";
 
     HashSet<String> validRules = new HashSet<>();
 
     public RuleDefinitionValidator() {
-        validRules.add(NO_REPITE);
+        validRules.add(DO_NOT_REPEAT);
         validRules.add(SUMA);
-        validRules.add(MULTIPLICACION);
+        validRules.add(MULTIPLICATION);
     }
 
     public boolean containsRule(String ruleDefinition) {
@@ -28,11 +28,11 @@ public class RuleDefinitionValidator {
 
     public Rule createRule(String ruleDefinition, ArrayList<Coordinates> region, String value) throws Exception {
         switch (ruleDefinition) {
-            case NO_REPITE:
+            case DO_NOT_REPEAT:
                 return new NoDuplicatesRule(region);
             case SUMA:
                 return new AdditionRule(region, value);
-            case MULTIPLICACION:
+            case MULTIPLICATION:
                 return new MultiplicationRule(region, value);
             default:
                 throw new Exception("you should check valid rule definition first");

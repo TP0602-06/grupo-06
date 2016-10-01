@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.AbstractFocusGridViewHelper;
@@ -20,9 +20,9 @@ public class SelectValueController implements AbstractSelectValueController {
 
     private AbstractFocusGridViewHelper focusGridHelper;
     private GridView selectValueGridView;
-    private Game game;
+    private GameImplementation game;
 
-    public SelectValueController(Game game) {
+    public SelectValueController(GameImplementation game) {
         this.game = game;
     }
 

@@ -1,8 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,10 +9,10 @@ import java.util.List;
  * Se encarga de manejar todas las reglas y validarlas.
  */
 public class RuleManager {
-    private final ConcreteBoard board;
+    private final Board board;
     private final List<Rule> rules ;
 
-    public RuleManager(ConcreteBoard board, List<Rule> rules) {
+    public RuleManager(Board board, List<Rule> rules) {
         this.board = board;
         this.rules = rules;
     }

@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
-
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -38,8 +36,7 @@ public class GameConfigParser implements AbstractGameConfigParser {
 
         List<CellConfig> cells = boardParser.parseBoard(jsonObject);
 
-        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList,rules,cells);
-
+        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList, rules, cells);
 
 
         return gameConfig;
