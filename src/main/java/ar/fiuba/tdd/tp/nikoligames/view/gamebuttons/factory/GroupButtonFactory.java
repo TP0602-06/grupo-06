@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 
-import java.awt.*;
+import java.awt.Component;
 
 /**
  * Responsabilidades:

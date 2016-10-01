@@ -9,14 +9,14 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.F
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.AbstractEditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
-import java.awt.*;
+import java.awt.Component;
 
 /**
  * Responsabilidades:
  * 1. Implementa la clase SelectValueController
  * Patrón: OBSERVER
  */
-public class SelectValueControllerImplementation implements SelectValueController {
+public class SelectValueControllerImp implements SelectValueController {
 
     private AbstractFocusGridViewHelper focusGridHelper;
     private GridView selectValueGridView;
@@ -24,7 +24,7 @@ public class SelectValueControllerImplementation implements SelectValueControlle
     private AbstractFocusCellViewHelper focusCellViewHelper = new FocusCellViewHelper();
     private AbstractEditableNumberCell lastSelectedEditableCellView;
 
-    public SelectValueControllerImplementation(Game game) {
+    public SelectValueControllerImp(Game game) {
         this.game = game;
     }
 
@@ -59,7 +59,9 @@ public class SelectValueControllerImplementation implements SelectValueControlle
     }
 
     private void changeModelCellValue(String value) throws Exception {
-        ClassicPosition celPosition = new ClassicPosition(lastSelectedEditableCellView.getXIndex() + 1, lastSelectedEditableCellView.getYIndex() + 1);
+        int row = lastSelectedEditableCellView.getXIndex() + 1;
+        int col = lastSelectedEditableCellView.getYIndex() + 1;
+        ClassicPosition celPosition = new ClassicPosition(row , col );
         game.playMove(celPosition, value);
     }
 }

@@ -2,10 +2,11 @@ package ar.fiuba.tdd.tp.nikoligames.view.cells;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
+import javax.swing.JLabel;
+
 
 /**
  * Esta es la representacion grafica de una celda kakuro.

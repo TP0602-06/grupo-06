@@ -8,8 +8,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import java.io.*;
-import java.nio.charset.Charset;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.HashSet;
 import java.util.List;
 
@@ -55,7 +57,7 @@ public class GameConfigParserImplementation implements GameConfigParser {
     }
 
     private HashSet<String> parseValidInputList(JSONObject jsonObject) {
-        HashSet<String> validInputsList = new HashSet<>();
+        HashSet<String> validInputsList = new HashSet<String>();
         JSONArray validInputs = (JSONArray) jsonObject.get(VALID_INPUT);
         for (int i = 0; i < validInputs.size(); i++) {
             String validInput = (String) validInputs.get(i);

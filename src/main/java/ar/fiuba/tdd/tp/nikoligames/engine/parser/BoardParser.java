@@ -16,7 +16,7 @@ public class BoardParser {
     public static final String BOARD_POSITION = "position";
 
     public List<CellConfig> parseBoard(JSONObject jsonObject) {
-        List<CellConfig> cells = new ArrayList<>();
+        List<CellConfig> cells = new ArrayList<CellConfig>();
         CellParser cellParser = new CellParser();
 
         JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);

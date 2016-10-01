@@ -6,7 +6,8 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
 import java.util.List;
 
 /**
- *
+ * Responsabilidades:
+ * 1. generar reporte del juego
  */
 public interface ReportMoves {
 

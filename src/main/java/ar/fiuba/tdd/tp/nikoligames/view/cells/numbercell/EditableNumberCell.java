@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener.SelectEditableCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
-import java.awt.*;
+import java.awt.Color;
 
 /**
  * Clase que define las celdas con valores editables.

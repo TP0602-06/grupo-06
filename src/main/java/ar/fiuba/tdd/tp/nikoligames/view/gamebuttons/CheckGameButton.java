@@ -4,8 +4,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.BasicButtonListener;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import javax.swing.JButton;
+
 
 /**
  * Responsabilidades:

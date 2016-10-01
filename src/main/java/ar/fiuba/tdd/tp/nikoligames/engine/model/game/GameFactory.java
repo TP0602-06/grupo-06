@@ -19,7 +19,7 @@ public class GameFactory {
         RuleManager ruleManager = new RuleManager(board, gameConfig.getRules());
         ValidInputManager validInputManager = new ValidInputManager(gameConfig.getValidInputs());
         String gameName = gameConfig.getName();
-        Game game = new GameImplementation(board, ruleManager, validInputManager,gameName);
+        Game game = new GameImplementation(board, ruleManager, validInputManager, gameName);
         return game;
     }
 }

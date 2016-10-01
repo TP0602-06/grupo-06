@@ -9,7 +9,7 @@ public class RuleBuilder {
 
     private RuleDefinitionValidator validRuleDefinitions = new RuleDefinitionValidator();
     private String ruleDefinition;
-    private ArrayList<Position> region = new ArrayList<>();
+    private ArrayList<Position> region = new ArrayList<Position>();
     private String value = "";
 
     public RuleBuilder(String ruleDefinition) throws Exception {

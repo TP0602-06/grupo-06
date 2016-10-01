@@ -40,7 +40,9 @@ public class ReportMovesJson implements ReportMoves {
         for (int i = 0; i < gameMoves.size(); i++) {
             Play move = gameMoves.get(i);
             boolean validMove = move.makeMove(game);
-            if (!validMove) valid = false;
+            if (!validMove) {
+                valid = false;
+            }
             JSONObject moveJson = makeMoveJson(move, validMove);
             playsArray.add(moveJson);
         }

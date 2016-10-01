@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.inputmanager.ValidInputManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
 
 import java.util.HashSet;
 

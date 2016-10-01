@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells;
 
-import javax.swing.*;
+import javax.swing.JButton;
 
 /**
  * Esta clase es la claseBase de toda celda.
