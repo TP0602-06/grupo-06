@@ -3,19 +3,17 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.*;
 
 /**
  * Responsabilidades:
  * 1. Implementar una vista de grilla cuadriculada
  */
 public class GridOfSquares extends GridView {
+    List<CellView> cellViewList = new ArrayList<>();
     private Integer rows;
     private Integer cols;
-    List<CellView> cellViewList = new ArrayList<>();
 
 
     public GridOfSquares(Integer rows, Integer cols) {

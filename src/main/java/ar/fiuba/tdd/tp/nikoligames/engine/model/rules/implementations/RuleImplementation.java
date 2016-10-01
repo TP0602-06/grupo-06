@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Coordinates;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 
@@ -11,24 +11,24 @@ public abstract class RuleImplementation implements Rule {
 
     public static final String NO_VALUE_RULE = "";
 
-    protected ArrayList<Coordinates> region;
+    protected ArrayList<Position> region;
     protected String value;
 
-    public RuleImplementation(ArrayList<Coordinates> region, String value) {
+    public RuleImplementation(ArrayList<Position> region, String value) {
         this.value = value;
         this.region = region;
     }
 
-    public RuleImplementation(ArrayList<Coordinates> region) {
+    public RuleImplementation(ArrayList<Position> region) {
         this(region, NO_VALUE_RULE);
     }
 
     public void addCellToRegion(int row, int col) {
-        ClassicCoordinates pos = new ClassicCoordinates(row, col);
+        ClassicPosition pos = new ClassicPosition(row, col);
         this.region.add(pos);
     }
 
-    public ArrayList<Coordinates> getRegion() {
+    public ArrayList<Position> getRegion() {
         return region;
     }
 

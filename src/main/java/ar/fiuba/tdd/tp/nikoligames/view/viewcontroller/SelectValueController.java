@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.AbstractFocusGridViewHelper;
@@ -21,14 +21,12 @@ public class SelectValueController implements AbstractSelectValueController {
     private AbstractFocusGridViewHelper focusGridHelper;
     private GridView selectValueGridView;
     private GameImplementation game;
+    private AbstractFocusCellViewHelper focusCellViewHelper = new FocusCellViewHelper();
+    private AbstractEditableNumberCell lastSelectedEditableCellView;
 
     public SelectValueController(GameImplementation game) {
         this.game = game;
     }
-
-    private AbstractFocusCellViewHelper focusCellViewHelper = new FocusCellViewHelper();
-
-    private AbstractEditableNumberCell lastSelectedEditableCellView;
 
     public void addBoardView(GridView boardView) {
         this.focusGridHelper = new FocusGridViewHelper(boardView);
@@ -61,7 +59,7 @@ public class SelectValueController implements AbstractSelectValueController {
     }
 
     private void changeModelCellValue(String value) throws Exception {
-        ClassicCoordinates celPosition = new ClassicCoordinates(lastSelectedEditableCellView.getXIndex(), lastSelectedEditableCellView.getYIndex());
+        ClassicPosition celPosition = new ClassicPosition(lastSelectedEditableCellView.getXIndex(), lastSelectedEditableCellView.getYIndex());
         game.playMove(celPosition, value);
     }
 }

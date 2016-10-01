@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.parser;
+package ar.fiuba.tdd.tp.nikoligames.engine.parser.utils;
 
 
 /**

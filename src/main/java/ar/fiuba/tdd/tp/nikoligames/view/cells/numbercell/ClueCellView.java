@@ -13,8 +13,8 @@ import java.awt.*;
  */
 public class ClueCellView extends CellView {
 
-    private Color backgroundColor = ColorSet.NORMAL_BACKGROUND ;
-    private Color foregroundColor = ColorSet.CLUE ;
+    private Color backgroundColor = ColorSet.NORMAL_BACKGROUND;
+    private Color foregroundColor = ColorSet.CLUE;
 
 
     public ClueCellView(int clue, AbstractSelectValueController selectValueController) {

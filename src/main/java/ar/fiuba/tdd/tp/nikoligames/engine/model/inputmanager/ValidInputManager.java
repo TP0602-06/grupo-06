@@ -1,7 +1,6 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.inputmanager;
 
 import java.util.HashSet;
-import java.util.List;
 
 
 public class ValidInputManager {
@@ -15,7 +14,7 @@ public class ValidInputManager {
         return validInputs;
     }
 
-    public boolean isValidInput(String input){
+    public boolean isValidInput(String input) {
         return validInputs.contains(input);
     }
 }

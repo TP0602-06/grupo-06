@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
@@ -13,7 +13,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueContro
  * Responsabilidades:
  * 1. Implementa la abstracción para la encapsulación de la creación de una grilla para el board
  * Patrón:
- *  1. Abstract Factory
+ * 1. Abstract Factory
  */
 public class FactoryBoardViewFromModel implements AbstractFactoryBoard {
     AbstractSelectValueController selectValueController;
@@ -43,7 +43,7 @@ public class FactoryBoardViewFromModel implements AbstractFactoryBoard {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                ClassicCoordinates position = new ClassicCoordinates(i, j);
+                ClassicPosition position = new ClassicPosition(i, j);
                 DrawableCell modelCell = modelBoard.getDrawableCell(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
                 cellView.setCoordinates(i, j);

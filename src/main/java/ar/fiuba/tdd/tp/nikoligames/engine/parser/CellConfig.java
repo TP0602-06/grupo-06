@@ -6,6 +6,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
  * Created by german on 9/30/2016.
  */
 public class CellConfig {
+    private Cell cell;
+    private int row, col;
+
     public CellConfig(Cell cell, int row, int col) {
         this.cell = cell;
         this.row = row;
@@ -23,7 +26,4 @@ public class CellConfig {
     public int getCol() {
         return col;
     }
-
-    private Cell cell;
-    private int row,col;
 }

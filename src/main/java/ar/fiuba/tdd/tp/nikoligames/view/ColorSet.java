@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
  * Esta clase provee los colores del tablero.

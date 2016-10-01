@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 
 /**
@@ -17,8 +17,6 @@ public class GameView extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new FlowLayout());
     }
-
-
 
 
 }

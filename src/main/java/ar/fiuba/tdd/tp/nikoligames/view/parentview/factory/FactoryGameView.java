@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;

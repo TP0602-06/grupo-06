@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.A
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
-import java.awt.*;
 import java.util.Iterator;
 import java.util.List;
 

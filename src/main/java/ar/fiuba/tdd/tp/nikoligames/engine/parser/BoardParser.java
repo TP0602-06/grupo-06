@@ -28,7 +28,7 @@ public class BoardParser {
             int col = (int) (long) positionCellObj.get(1);
 
             Cell cell = cellParser.parseCell(cellObj);
-            CellConfig cellConfig = new CellConfig(cell,row,col);
+            CellConfig cellConfig = new CellConfig(cell, row, col);
             cells.add(cellConfig);
         }
 

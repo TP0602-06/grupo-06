@@ -2,9 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener;
 
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.AbstractSelectValueController;
 
-import java.awt.event.*;
 import javax.swing.*;
-
+import java.awt.event.MouseEvent;
 
 
 /**

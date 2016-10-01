@@ -2,11 +2,11 @@ package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.AbstractArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.ArgsParserHelper;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.GameFactory;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParser;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParserImplementation;
 
 /**
  * Responsabilidades:
@@ -23,7 +23,7 @@ public class Main {
         try {
             argsParserHelper.parseArgs(args);
             String gameJsonFilePath = argsParserHelper.getGameFile();
-            GameConfigParser gameConfigParser = new GameConfigParser(gameJsonFilePath);
+            GameConfigParser gameConfigParser = new GameConfigParserImplementation(gameJsonFilePath);
 
             GameConfig gameConfig = gameConfigParser.parse();
             Game game = gameFactory.createGame(gameConfig);
@@ -40,6 +40,6 @@ public class Main {
 }
 //ReportMovesJson reporter = new ReportMovesJson();
 //List<Play> moves = new ArrayList<>();
-//Play move = new Play(1,"3",new ClassicCoordinates(1,1));
+//Play move = new Play(1,"3",new ClassicPosition(1,1));
 //moves.add(move);
 //System.out.print(reporter.makeReport(game,moves));

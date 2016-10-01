@@ -2,17 +2,17 @@ package ar.fiuba.tdd.tp.nikoligames.view.cells;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
-import javax.swing.*;
 
 /**
  * Esta es la representacion grafica de una celda kakuro.
  */
 public class KakuroCellView extends CellView {
 
-    private Color backgroundColor = ColorSet.INVALID_BACKGROUND ;
+    private Color backgroundColor = ColorSet.INVALID_BACKGROUND;
     private Color foregroundColor = ColorSet.RULE_NUMBER;
 
     public KakuroCellView() {
@@ -22,7 +22,7 @@ public class KakuroCellView extends CellView {
         setMargin(new Insets(0, 0, 0, 0));
     }
 
-    private JLabel makeLabel(String  value) {
+    private JLabel makeLabel(String value) {
         JLabel label = new JLabel(value);
         label.setForeground(foregroundColor);
         return label;

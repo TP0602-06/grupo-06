@@ -2,11 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 
-import java.awt.*;
-
-import java.util.List;
-
 import javax.swing.*;
+import java.util.List;
 
 /**
  * Responsabilidades:

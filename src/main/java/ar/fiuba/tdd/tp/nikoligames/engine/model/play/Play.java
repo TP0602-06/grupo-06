@@ -1,19 +1,19 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.play;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.ClassicCoordinates;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
 
 /**
  * Esta clase representa el movimiento de una jugada.
  */
 public class Play {
 
-    private ClassicCoordinates position;
+    private ClassicPosition position;
     private Integer num;
     private String value;
 
-    public Play(Integer num, String value, ClassicCoordinates position) {
+    public Play(Integer num, String value, ClassicPosition position) {
         this.position = position;
         this.num = num;
         this.value = value;
@@ -26,7 +26,7 @@ public class Play {
         return actualValue.equals(value);
     }
 
-    public  Integer getNum() {
+    public Integer getNum() {
         return num;
     }
 }

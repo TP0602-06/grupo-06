@@ -1,14 +1,14 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.position;
 
 /**
  * La primera celda es (1,1)
  */
-public class ClassicCoordinates implements Coordinates {
+public class ClassicPosition implements Position {
 
     private int row;
     private int col;
 
-    public ClassicCoordinates(int row, int col) {
+    public ClassicPosition(int row, int col) {
         this.row = row - 1;
         this.col = col - 1;
     }

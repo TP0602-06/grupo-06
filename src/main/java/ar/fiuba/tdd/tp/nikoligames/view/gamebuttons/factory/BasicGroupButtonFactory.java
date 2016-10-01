@@ -1,16 +1,17 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.CheckGameButton;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
+
 /**
  * Responsabilidades:
  * 1. Es la implementacion de la factory para crear botones
  * Patrón:
- *  1. Commmand
- *  2. Abstract Factory
+ * 1. Commmand
+ * 2. Abstract Factory
  */
 public class BasicGroupButtonFactory implements GroupButtonFactory {
 

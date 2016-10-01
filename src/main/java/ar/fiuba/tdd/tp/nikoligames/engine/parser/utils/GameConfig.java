@@ -1,6 +1,7 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.parser;
+package ar.fiuba.tdd.tp.nikoligames.engine.parser.utils;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.CellConfig;
 
 import java.util.HashSet;
 import java.util.List;

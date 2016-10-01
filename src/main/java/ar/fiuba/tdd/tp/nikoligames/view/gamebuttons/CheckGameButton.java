@@ -1,16 +1,17 @@
 package ar.fiuba.tdd.tp.nikoligames.view.gamebuttons;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.GameImplementation;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.BasicButtonListener;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
+
 /**
  * Responsabilidades:
  * 1. Es la implementacion de una abstracción para la encapsulación del comando para verificar si se cumplen las reglas del juego
  * Patrón:
- *  1. Commmand
+ * 1. Commmand
  */
 public class CheckGameButton extends JButton implements ButtonCommand {
     private GameImplementation game;

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class RuleManager {
     private final Board board;
-    private final List<Rule> rules ;
+    private final List<Rule> rules;
 
     public RuleManager(Board board, List<Rule> rules) {
         this.board = board;
