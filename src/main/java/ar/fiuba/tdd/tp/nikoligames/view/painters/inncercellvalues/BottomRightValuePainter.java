@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues;
 
-import java.awt.*;
-
+import java.awt.GridBagConstraints;
 import javax.swing.JLabel;
 
 /**

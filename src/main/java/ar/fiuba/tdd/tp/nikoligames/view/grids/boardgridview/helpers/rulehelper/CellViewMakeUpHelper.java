@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.ruleHelper;
+package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.rulehelper;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;

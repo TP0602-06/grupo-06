@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues;
 
+import java.awt.GridBagConstraints;
 import javax.swing.JLabel;
-import java.awt.*;
 
 /**
  * Esta clase pinta la pista en la esquina inferior izquierda.

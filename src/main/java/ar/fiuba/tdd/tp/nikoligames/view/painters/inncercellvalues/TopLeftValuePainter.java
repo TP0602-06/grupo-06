@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 public class TopLeftValuePainter extends CellPainterWithValue {
 
     public TopLeftValuePainter(String value) {
-        super(value, JLabel.LEFT );
+        super(value, JLabel.LEFT);
     }
 
     @Override

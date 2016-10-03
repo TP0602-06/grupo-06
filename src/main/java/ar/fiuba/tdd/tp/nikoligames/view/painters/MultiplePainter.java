@@ -14,12 +14,13 @@ public class MultiplePainter implements CellPainter {
     public MultiplePainter() {
         this.painters = new ArrayList<>();
     }
+
     @Override
     public void paintCell(CellView cell) {
         painters.forEach((painter) -> painter.paintCell(cell));
     }
 
-    public void addPainter(CellPainter painter){
+    public void addPainter(CellPainter painter) {
         painters.add(painter);
     }
 }

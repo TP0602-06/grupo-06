@@ -7,6 +7,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
  */
 public interface CellPainter {
 
-    public void paintCell(CellView cell);
+    void paintCell(CellView cell);
 
 }

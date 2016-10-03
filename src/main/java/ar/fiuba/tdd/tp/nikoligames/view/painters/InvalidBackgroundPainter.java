@@ -6,7 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 /**
  * Pinta la celda marcandola como invalida.
  */
-public class InvalidBackgroundPainter implements  CellPainter{
+public class InvalidBackgroundPainter implements CellPainter {
 
     @Override
     public void paintCell(CellView cell) {

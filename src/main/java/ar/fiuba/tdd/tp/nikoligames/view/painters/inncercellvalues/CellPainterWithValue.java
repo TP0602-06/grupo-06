@@ -4,9 +4,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;
 
-import javax.swing.JLabel;
-import javax.swing.border.LineBorder;
 import java.awt.*;
+import javax.swing.JLabel;
 
 /**
  * Estos son pintores que agregan alguna pista en texto en la celda.
@@ -33,19 +32,21 @@ public abstract class CellPainterWithValue implements CellPainter {
         return allZero(marginInsets);
     }
 
-    private boolean allZero(Insets insets){
+    private boolean allZero(Insets insets) {
         boolean topZero = insets.top == 0;
         boolean leftZero = insets.left == 0;
         boolean bottomZero = insets.bottom == 0;
         boolean rightZero = insets.right == 0;
-        return  topZero && leftZero && bottomZero && rightZero;
+        return topZero && leftZero && bottomZero && rightZero;
     }
 
     public abstract Integer getAnchor();
+
     public abstract Integer getIpadx();
+
     public abstract Integer getIpady();
 
-    public  GridBagConstraints makeConstraint(){
+    private GridBagConstraints makeConstraint() {
         // src: http://stackoverflow.com/questions/18221632/put-4-jlabel-at-corners-of-a-jframe
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
@@ -56,7 +57,7 @@ public abstract class CellPainterWithValue implements CellPainter {
         constraints.weighty = 1.0;
         constraints.anchor = getAnchor();
         constraints.fill = GridBagConstraints.NONE;
-        constraints.insets = new Insets(0,0,0,0);
+        constraints.insets = new Insets(0, 0, 0, 0);
         constraints.ipadx = getIpadx();
         constraints.ipady = getIpady();
         return constraints;

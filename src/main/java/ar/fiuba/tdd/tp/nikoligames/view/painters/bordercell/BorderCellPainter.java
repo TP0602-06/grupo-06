@@ -38,23 +38,23 @@ public class BorderCellPainter implements CellPainter {
         Integer bottom = newInsets.bottom;
         Integer left = newInsets.left;
         Integer right = newInsets.right;
-        return BorderFactory.createMatteBorder(top,left,bottom,right, ColorSet.BORDER);
+        return BorderFactory.createMatteBorder(top, left, bottom, right, ColorSet.BORDER);
     }
 
     private Insets makeNewInset(Insets previousInset) {
-        Insets newInset = new Insets(0,0,0,0);
+        Insets newInset = new Insets(0, 0, 0, 0);
         newInset.top = actualSideSize(previousInset.top, PainterBuilder.TOP);
-        newInset.left = actualSideSize(previousInset.left,PainterBuilder.LEFT);
-        newInset.bottom = actualSideSize(previousInset.bottom,PainterBuilder.BOTTOM);
-        newInset.right = actualSideSize(previousInset.right,PainterBuilder.RIGHT);
+        newInset.left = actualSideSize(previousInset.left, PainterBuilder.LEFT);
+        newInset.bottom = actualSideSize(previousInset.bottom, PainterBuilder.BOTTOM);
+        newInset.right = actualSideSize(previousInset.right, PainterBuilder.RIGHT);
         return newInset;
     }
 
-    private  Integer actualSideSize(Integer previousValue, Integer side) {
+    private Integer actualSideSize(Integer previousValue, Integer side) {
         if (this.side == side) {
             return this.size;
         }
-        if (previousValue > PainterBuilder.BOLD){
+        if (previousValue > PainterBuilder.BOLD) {
             return PainterBuilder.NORMAL;
         }
         return previousValue;

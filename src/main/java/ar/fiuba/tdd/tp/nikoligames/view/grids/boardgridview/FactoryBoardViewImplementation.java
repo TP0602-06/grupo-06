@@ -7,7 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.DrawCellFromModelHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.ruleHelper.CellViewMakeUpHelper;
+import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.rulehelper.CellViewMakeUpHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 /**

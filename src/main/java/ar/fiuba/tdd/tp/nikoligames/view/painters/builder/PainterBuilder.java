@@ -26,8 +26,8 @@ public class PainterBuilder {
         painter = new MultiplePainter();
 
         if (!isEditable && isEmpty) {
-                invalidBackground();
-                disable();
+            invalidBackground();
+            disable();
         } else {
             normalBackground();
         }
@@ -42,7 +42,7 @@ public class PainterBuilder {
         painter.addPainter(new InvalidBackgroundPainter());
     }
 
-    private void disable(){
+    private void disable() {
         painter.addPainter(new DisablePainter());
     }
 
@@ -63,8 +63,9 @@ public class PainterBuilder {
     }
 
     public void border(Integer size, Integer side) {
-        painter.addPainter(new BorderCellPainter(size,side));
+        painter.addPainter(new BorderCellPainter(size, side));
     }
+
     public CellPainter end() {
         return painter;
     }
