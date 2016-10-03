@@ -15,15 +15,7 @@ public class CellViewMakeUpHelper {
         boolean isEditable = baseCell.isEditable();
         PainterBuilder painterCellBuilder = new PainterBuilder(isEmpty,isEditable);
         CellPainter painter = painterCellBuilder.end();
-        //TODO ver rules y setear builder correspondiente. Dejo example
-        if (cellView.getXIndex() > 3) {
-            painterCellBuilder.border(PainterBuilder.BOLD,PainterBuilder.RIGHT);
-            painterCellBuilder.topLeftValue("1");
-            painterCellBuilder.topRightValue("2");
-            painterCellBuilder.bottomLeftValue("3");
-            painterCellBuilder.bottomRightValue("4");
-
-        }
+        //TODO ver rules y setear builder correspondiente
         painter.paintCell(cellView);
     }
 }

@@ -11,14 +11,14 @@ import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.TopRightValueP
  * Builder para el pintor de la celda.
  */
 public class PainterBuilder {
-    public static Integer BOLD = 4;
-    public static Integer NORMAL = 1;
-    public static Integer NONE = 0;
+    public static final Integer BOLD = 4;
+    public static final Integer NORMAL = 1;
+    public static final Integer NONE = 0;
 
-    public static Integer TOP = 0;
-    public static Integer LEFT = 1;
-    public static Integer BOTTOM = 2;
-    public static Integer RIGHT = 3;
+    public static final Integer TOP = 0;
+    public static final Integer LEFT = 1;
+    public static final Integer BOTTOM = 2;
+    public static final Integer RIGHT = 3;
 
     private MultiplePainter painter;
 

@@ -13,6 +13,9 @@ import javax.swing.JLabel;
 public abstract class CellPainterWithValue implements CellPainter {
     private String value;
     private Integer alignment;
+    private Integer anchor;
+    private Integer ipadx;
+    private Integer ipady;
 
     public CellPainterWithValue(String value, Integer alignment) {
         this.value = value;
@@ -40,11 +43,17 @@ public abstract class CellPainterWithValue implements CellPainter {
         return topZero && leftZero && bottomZero && rightZero;
     }
 
-    public abstract Integer getAnchor();
+    protected void setAnchor(Integer anchor) {
+        this.anchor = anchor;
+    }
 
-    public abstract Integer getIpadx();
+    protected void setIpadx(Integer ipadx) {
+        this.ipadx = ipadx;
+    }
 
-    public abstract Integer getIpady();
+    protected void setIpady(Integer ipady) {
+        this.ipady = ipady;
+    }
 
     private GridBagConstraints makeConstraint() {
         // src: http://stackoverflow.com/questions/18221632/put-4-jlabel-at-corners-of-a-jframe
@@ -55,11 +64,11 @@ public abstract class CellPainterWithValue implements CellPainter {
         constraints.gridheight = 1;
         constraints.weightx = 1.0;
         constraints.weighty = 1.0;
-        constraints.anchor = getAnchor();
+        constraints.anchor = anchor;
         constraints.fill = GridBagConstraints.NONE;
         constraints.insets = new Insets(0, 0, 0, 0);
-        constraints.ipadx = getIpadx();
-        constraints.ipady = getIpady();
+        constraints.ipadx = ipadx;
+        constraints.ipady = ipady;
         return constraints;
     }
 

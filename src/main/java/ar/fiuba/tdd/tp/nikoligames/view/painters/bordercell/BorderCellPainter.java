@@ -51,7 +51,7 @@ public class BorderCellPainter implements CellPainter {
     }
 
     private Integer actualSideSize(Integer previousValue, Integer side) {
-        if (this.side == side) {
+        if (this.side.equals(side)) {
             return this.size;
         }
         if (previousValue > PainterBuilder.BOLD) {

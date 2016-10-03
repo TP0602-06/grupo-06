@@ -10,20 +10,8 @@ public class TopLeftValuePainter extends CellPainterWithValue {
 
     public TopLeftValuePainter(String value) {
         super(value, JLabel.LEFT);
-    }
-
-    @Override
-    public Integer getAnchor() {
-        return GridBagConstraints.NORTHWEST;
-    }
-
-    @Override
-    public Integer getIpadx() {
-        return 0;
-    }
-
-    @Override
-    public Integer getIpady() {
-        return 0;
+        setAnchor(GridBagConstraints.NORTHWEST);
+        setIpadx(0);
+        setIpady(0);
     }
 }
