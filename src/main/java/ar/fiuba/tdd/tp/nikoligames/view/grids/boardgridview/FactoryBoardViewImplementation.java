@@ -7,6 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.DrawCellFromModelHelper;
+import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.ruleHelper.CellViewMakeUpHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 /**
@@ -37,6 +38,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
 
     public void fillGridWithCellsFromModel(GridView grid, DrawableBoard modelBoard) {
         DrawCellFromModelHelper helper = new DrawCellFromModelHelper(selectValueController);
+        CellViewMakeUpHelper makeup = new CellViewMakeUpHelper();
 
         for (int i = 1; i <= modelBoard.getRows(); i++) {
             for (int j = 1; j <= modelBoard.getCols(); j++) {
@@ -44,6 +46,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
                 DrawableCell modelCell = modelBoard.getDrawableCell(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
                 cellView.setCoordinates(position.getRow(), position.getColumn());
+                makeup.beautyfy(cellView,modelCell);
                 grid.addCellView(cellView);
             }
         }

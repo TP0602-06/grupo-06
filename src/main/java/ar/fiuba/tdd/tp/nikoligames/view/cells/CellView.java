@@ -1,6 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells;
 
+import java.awt.Color;
 import javax.swing.JButton;
+
 
 /**
  * Esta clase es la claseBase de toda celda.
@@ -8,10 +10,16 @@ import javax.swing.JButton;
 public abstract class CellView extends JButton {
     private Integer indexX;
     private Integer indexY;
+    private Color backgroundColor;
 
     public void setCoordinates(Integer indexX, Integer indexY) {
         this.indexX = indexX;
         this.indexY = indexY;
+    }
+
+    public void setBaseBackground(Color color) {
+        setBackground(color);
+        backgroundColor = color;
     }
 
     public Integer getXIndex() {
@@ -22,6 +30,8 @@ public abstract class CellView extends JButton {
         return this.indexY;
     }
 
-    public abstract void clearFocus();
+    public void clearFocus() {
+        this.setBackground(backgroundColor);
+    }
 
 }

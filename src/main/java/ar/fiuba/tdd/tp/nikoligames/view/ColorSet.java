@@ -13,5 +13,6 @@ public class ColorSet {
     public static final Color CLUE = Color.BLUE;
     public static final Color ERROR = Color.RED;
     public static final Color HOVER = Color.orange;
+    public static final Color BORDER = Color.LIGHT_GRAY;
 
 }

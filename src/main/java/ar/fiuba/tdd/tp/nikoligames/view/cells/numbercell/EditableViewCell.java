@@ -9,14 +9,12 @@ import java.awt.Color;
 /**
  * Clase que define las celdas con valores editables.
  */
-public class EditableNumberCell extends AbstractEditableNumberCell {
+public class EditableViewCell extends AbstractEditableNumberCell {
 
     private static String EMPTY_STRING = "";
-    private Color backgroundColor = ColorSet.NORMAL_BACKGROUND;
     private Color foregroundColor = ColorSet.NUMBER;
 
-    public EditableNumberCell(SelectValueController selectValueController) {
-        setBackground(backgroundColor);
+    public EditableViewCell(SelectValueController selectValueController) {
         setForeground(foregroundColor);
         registerMouseHandler(selectValueController);
     }
@@ -33,8 +31,4 @@ public class EditableNumberCell extends AbstractEditableNumberCell {
         this.addMouseListener(new SelectEditableCellListener(selectValueController));
     }
 
-    @Override
-    public void clearFocus() {
-        this.setBackground(backgroundColor);
-    }
 }

@@ -2,16 +2,19 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.InvalidCellView;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableNumberCell;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.NotEditableViewCell;
+import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableViewCell;
+import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;
+import ar.fiuba.tdd.tp.nikoligames.view.painters.builder.PainterBuilder;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
+
+import javax.swing.*;
 
 /**
  * Esta clase define como elegir las celdas de la vista en base a las del modelo.
  */
 public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper {
-
+    private  int random = 0;
     private final SelectValueController controller;
 
     public DrawCellFromModelHelper(SelectValueController controller) {
@@ -22,29 +25,14 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
     public CellView drawCellFromModel(DrawableCell modelCell) {
 
         CellView cellView;
+        boolean isEditable = modelCell.isEditable();
 
-        if (modelCell.isEmpty() && modelCell.isReadOnly()) {
-            cellView = new InvalidCellView();
-        } else if (isCellEmptyAndEditable(modelCell)) {
-            cellView = new EditableNumberCell(controller);
-        } else if (isCellNonEditableAndNotEmpty(modelCell)) {
-            cellView = new ClueCellView(modelCell.getValue(), controller);
+        if (isEditable) {
+            cellView = new EditableViewCell(controller);
         } else {
-            cellView = new InvalidCellView();
+            cellView = new NotEditableViewCell(modelCell.getValue(),controller);
         }
 
         return cellView;
-    }
-
-    private boolean isCellNonEditableAndNotEmpty(DrawableCell modelCell) {
-        return !modelCell.isEmpty() && !modelCell.isEditable();
-    }
-
-    private boolean isCellEmptyAndEditable(DrawableCell modelCell) {
-        return modelCell.isEmpty() && modelCell.isEditable();
-    }
-
-    private CellView createCell(DrawableCell modelCell) {
-        return null;
     }
 }

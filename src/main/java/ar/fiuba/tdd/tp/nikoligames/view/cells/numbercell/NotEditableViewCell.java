@@ -11,15 +11,10 @@ import java.awt.Color;
  * Estas celdas son la vista de celdas que contienen numeros predeterminados.
  * Una vez creadas no puede cambiarse su valor.
  */
-public class ClueCellView extends CellView {
+public class NotEditableViewCell extends CellView {
 
-    private Color backgroundColor = ColorSet.NORMAL_BACKGROUND;
-    private Color foregroundColor = ColorSet.CLUE;
-
-
-    public ClueCellView(String clue, SelectValueController selectValueController) {
-        setBackground(backgroundColor);
-        setForeground(foregroundColor);
+    public NotEditableViewCell(String clue, SelectValueController selectValueController) {
+        setForeground(ColorSet.CLUE);
         this.setText(clue);
         registerMouseListener(selectValueController);
     }
@@ -28,10 +23,6 @@ public class ClueCellView extends CellView {
         this.addMouseListener(new SelectComponentCellListener(selectValueController));
     }
 
-    @Override
-    public void clearFocus() {
-        this.setBackground(backgroundColor);
-    }
 }
 
 
