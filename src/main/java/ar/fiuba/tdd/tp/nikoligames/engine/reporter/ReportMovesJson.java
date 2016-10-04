@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
@@ -15,17 +16,17 @@ import java.util.List;
  */
 public class ReportMovesJson implements ReportMoves {
 
-    private static final String NUM_KEY = "number";
-    private static final String BOARDSTATUS_KEY = "boardStatus";
-    private static final String PLAYS_KEY = "plays";
-    private static final String BOARD_KEY = "board";
-    private static final String STATUS_KEY = "status";
-    private static final String VALUES_KEY = "values";
-    private static final String VALUE_KEY = "value";
-    private static final String POSITION_KEY = "position";
+    public static final String NUM_KEY = "number";
+    public static final String BOARDSTATUS_KEY = "boardStatus";
+    public static final String PLAYS_KEY = "plays";
+    public static final String BOARD_KEY = "board";
+    public static final String STATUS_KEY = "status";
+    public static final String VALUES_KEY = "values";
+    public static final String VALUE_KEY = "value";
+    public static final String POSITION_KEY = "position";
     private boolean valid;
 
-    public String makeReport(GameImplementation game, List<Play> gameMoves) throws Exception {
+    public String makeReport(Game game, List<Play> gameMoves) throws Exception {
         valid = true;
         JSONObject parser = new JSONObject();
         JSONArray plays = makePlaysJson(game, gameMoves);
@@ -35,7 +36,7 @@ public class ReportMovesJson implements ReportMoves {
         return parser.toJSONString();
     }
 
-    private JSONArray makePlaysJson(GameImplementation game, List<Play> gameMoves) throws Exception {
+    private JSONArray makePlaysJson(Game game, List<Play> gameMoves) throws Exception {
         JSONArray playsArray = new JSONArray();
         for (int i = 0; i < gameMoves.size(); i++) {
             Play move = gameMoves.get(i);
@@ -70,8 +71,8 @@ public class ReportMovesJson implements ReportMoves {
 
     private JSONObject makeBoardReportJson(DrawableBoard board) {
         JSONArray cellsJson = new JSONArray();
-        for (int i = 0; i < board.getRows(); i++) {
-            for (int j = 0; j < board.getCols(); j++) {
+        for (int i = 1; i <= board.getRows(); i++) {
+            for (int j = 1; j <= board.getCols(); j++) {
                 ClassicPosition position = new ClassicPosition(i, j);
                 JSONObject cell = makeCellJson(board.getDrawableCell(position), position);
                 cellsJson.add(cell);
