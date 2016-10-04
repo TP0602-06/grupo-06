@@ -13,4 +13,6 @@ public interface Rule {
     String getValue();
 
     boolean isBroken(Board board);
+
+    boolean isActualBroken(Board board);
 }

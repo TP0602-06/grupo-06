@@ -29,4 +29,17 @@ public class AdditionRule extends RuleImplementation {
         boolean result = (value == addition);
         return (!result);
     }
+
+    @Override
+    public boolean isActualBroken(Board board) {
+        Integer addition = 0;
+        for (Position position : super.region) {
+            Cell cell = board.getCell(position);
+            if (cell.isEmpty()) {
+                return false;
+            }
+            addition += Integer.parseInt(cell.getValue());
+        }
+        return (!this.value.equals(Integer.toString(addition)));
+    }
 }

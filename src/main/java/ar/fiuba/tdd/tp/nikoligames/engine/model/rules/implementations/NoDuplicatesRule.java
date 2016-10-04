@@ -18,17 +18,29 @@ public class NoDuplicatesRule extends RuleImplementation {
 
     @Override
     public boolean isBroken(Board board) {
-        HashSet<Integer> seenValues = new HashSet<Integer>();
+        return checkRule(board,true);
+    }
+
+    @Override
+    public boolean isActualBroken(Board board) {
+        return checkRule(board,false);
+    }
+
+    private boolean checkRule(Board board,boolean emptyEqualsFail) {
+        ArrayList<Integer> values = new ArrayList<Integer>();
         for (Position position : super.region) {
 
             Cell cell = board.getCell(position);
             if (cell.isEmpty()) {
+                if (emptyEqualsFail) {
+                    return true;
+                }
+                continue;
+            }
+            if (values.contains(Integer.parseInt(cell.getValue()))) {
                 return true;
             }
-            if (seenValues.contains(Integer.parseInt(cell.getValue()))) {
-                return true;
-            }
-            seenValues.add(Integer.parseInt(cell.getValue()));
+            values.add(Integer.parseInt(cell.getValue()));
         }
         return false;
     }

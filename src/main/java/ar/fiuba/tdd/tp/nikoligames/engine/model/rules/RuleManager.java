@@ -17,16 +17,26 @@ public class RuleManager {
         this.rules = rules;
     }
 
-    //Return true if it is all right
-    public boolean checkRules() {
-        Iterator<Rule> iterator = rules.iterator();
-        while (iterator.hasNext()) {
-            Rule rule = iterator.next();
-            if (rule.isBroken(board)) {
+    // En el futuro no va a haber otras reglas a chequear
+    private boolean check(boolean actual) {
+        for (Rule rule : this.rules) {
+            if (rule.isActualBroken(this.board) && actual) {
+                return false;
+            }
+            if (rule.isBroken(this.board) && !actual) {
                 return false;
             }
         }
         return true;
+    }
+
+    //Return true if it is all right
+    public boolean checkRules() {
+        return check(false);
+    }
+
+    public boolean checkActualRules() {
+        return check(true);
     }
 
 }
