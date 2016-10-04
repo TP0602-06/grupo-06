@@ -71,9 +71,9 @@ public class ReportMovesJson implements ReportMoves {
 
     private JSONObject makeBoardReportJson(DrawableBoard board) {
         JSONArray cellsJson = new JSONArray();
-        for (int i = 1; i <= board.getRows(); i++) {
-            for (int j = 1; j <= board.getCols(); j++) {
-                ClassicPosition position = new ClassicPosition(i, j);
+        for (int i = 0; i < board.getRows(); i++) {
+            for (int j = 0; j < board.getCols(); j++) {
+                ClassicPosition position = new ClassicPosition(i + 1, j + 1);
                 JSONObject cell = makeCellJson(board.getDrawableCell(position), position);
                 cellsJson.add(cell);
             }

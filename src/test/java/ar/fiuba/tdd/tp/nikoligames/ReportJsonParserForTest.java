@@ -25,29 +25,29 @@ import java.util.List;
 public class ReportJsonParserForTest {
     private SimpleGameFactoryForTest gameFactory = new SimpleGameFactoryForTest();
 
-    public JSONObject getValidReport() throws Exception{
+    public JSONObject getValidReport() throws Exception {
         List<Play> plays = getValidPlays();
         return getReport(plays);
 
     }
 
-    public JSONObject getInvalidReport() throws Exception{
+    public JSONObject getInvalidReport() throws Exception {
         List<Play> plays = getInvalidPlays();
         return getReport(plays);
     }
 
-    private JSONObject getReport(List<Play> plays) throws Exception{
+    private JSONObject getReport(List<Play> plays) throws Exception {
         Game newGame = gameFactory.makeGame();
         ReportMoves reporter = new ReportMovesJson();
-        String reportText = reporter.makeReport(newGame,plays);
+        String reportText = reporter.makeReport(newGame, plays);
         JSONParser parser = new JSONParser();
         return (JSONObject) parser.parse(reportText);
     }
 
     public boolean allPlaysValid(JSONObject report) throws Exception {
-        JSONArray plays = (JSONArray)report.get(ReportMovesJson.PLAYS_KEY);
+        JSONArray plays = (JSONArray) report.get(ReportMovesJson.PLAYS_KEY);
         boolean allValid = true;
-        for (int i = 0; i < plays.size(); i++){
+        for (int i = 0; i < plays.size(); i++) {
             JSONObject play = (JSONObject) plays.get(i);
             boolean valid = (boolean) play.get(ReportMovesJson.BOARDSTATUS_KEY);
             allValid = valid && allValid;
@@ -60,19 +60,19 @@ public class ReportJsonParserForTest {
         return (boolean) board.get(ReportMovesJson.STATUS_KEY);
     }
 
-    private List<Play> getValidPlays(){
-        Play validSecondPlay = new Play(2,SimpleGameFactoryForTest.two,new ClassicPosition(1,2));
+    private List<Play> getValidPlays() {
+        Play validSecondPlay = new Play(2, SimpleGameFactoryForTest.two, new ClassicPosition(1, 2));
         return getPlays(validSecondPlay);
     }
 
-    private List<Play> getInvalidPlays(){
-        Play invalidSecondPlay = new Play(2,SimpleGameFactoryForTest.one,new ClassicPosition(1,2));
+    private List<Play> getInvalidPlays() {
+        Play invalidSecondPlay = new Play(2, SimpleGameFactoryForTest.one, new ClassicPosition(1, 2));
         return getPlays(invalidSecondPlay);
     }
 
     private List<Play> getPlays(Play lastPlay) {
         List<Play> plays = new ArrayList<>();
-        Play firstPlay = new Play(1,SimpleGameFactoryForTest.one,new ClassicPosition(1,1));
+        Play firstPlay = new Play(1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 1));
 
         plays.add(firstPlay);
         plays.add(lastPlay);

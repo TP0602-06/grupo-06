@@ -23,38 +23,38 @@ public class SimpleGameFactoryForTest {
     public static final String one = "1";
     public static final String two = "2";
 
-    public Game makeGame(){
-        Board board = new BoardImplementation(rows,cols);
+    public Game makeGame() {
+        Board board = new BoardImplementation(rows, cols);
         fillBoard(board);
         List<Rule> rules = new ArrayList<>();
         Rule rule = new NoDuplicatesRule(makePositions());
         rules.add(rule);
 
-        RuleManager rulesManager = new RuleManager(board,rules);
+        RuleManager rulesManager = new RuleManager(board, rules);
         HashSet<String> inputs = new HashSet<>();
         inputs.add(one);
         inputs.add(two);
         ValidInputManager inputManager = new ValidInputManager(inputs);
 
-        return new GameImplementation(board,rulesManager,inputManager,"testGame");
+        return new GameImplementation(board, rulesManager, inputManager, "testGame");
     }
 
     private void fillBoard(Board board) {
-        for (int i = 1; i <= board.getRows(); i++){
-            for (int j = 1; j <= board.getCols(); j++){
-                Cell cell = new Cell("",true,false);
-                Position position = new ClassicPosition(i,j);
-                board.setCell(position,cell);
+        for (int i = 1; i <= board.getRows(); i++) {
+            for (int j = 1; j <= board.getCols(); j++) {
+                Cell cell = new Cell("", true, false);
+                Position position = new ClassicPosition(i, j);
+                board.setCell(position, cell);
             }
         }
     }
 
-    private ArrayList<Position> makePositions(){
+    private ArrayList<Position> makePositions() {
         ArrayList<Position> positions = new ArrayList<>();
 
         for (int i = 1; i <= rows; i++) {
-            for (int j = 1; j <= cols; j++){
-                Position position1 = new ClassicPosition(i,j);
+            for (int j = 1; j <= cols; j++) {
+                Position position1 = new ClassicPosition(i, j);
                 positions.add(position1);
             }
         }
