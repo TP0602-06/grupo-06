@@ -9,11 +9,9 @@ import java.util.List;
  * Se encarga de manejar todas las reglas y validarlas.
  */
 public class RuleManager {
-    private final Board board;
     private final List<Rule> rules;
 
-    public RuleManager(Board board, List<Rule> rules) {
-        this.board = board;
+    public RuleManager(List<Rule> rules) {
         this.rules = rules;
     }
 

@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.inputmanager.ValidInputManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleFactory;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.SizeConfig;
 
@@ -24,12 +23,11 @@ public class GameFactory {
 
         RuleFactory ruleFactory = new RuleFactory(board);
         List<Rule> rules = ruleFactory.createRules(gameConfig.getRules());
-        RuleManager ruleManager = new RuleManager(board, rules);
 
         ValidInputManager validInputManager = new ValidInputManager(gameConfig.getValidInputs());
         String gameName = gameConfig.getName();
 
-        Game game = new GameImplementation(board, ruleManager, validInputManager, gameName);
+        Game game = new GameImplementation(board, rules, validInputManager, gameName);
         return game;
     }
 }
