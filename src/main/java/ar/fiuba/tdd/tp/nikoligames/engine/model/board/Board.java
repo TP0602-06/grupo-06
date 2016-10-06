@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.ConcreteNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.Node;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 /**
@@ -11,9 +11,11 @@ public interface Board extends DrawableBoard {
 
     int getCols();
 
-    void setCell(Position coordinates, ConcreteNode cell);
+    void setNode(Position position, Node cell);
 
-    boolean changeCellValue(Position coordinates, String value);
+    boolean changeNodeValue(Position position, String value);
 
-    ConcreteNode getCell(Position coordinates);
+    void createEdge(Position position1,Position position2);
+
+    Node getNode(Position position);
 }

@@ -39,12 +39,12 @@ public class GameImplementation implements Game {
         return this.ruleManager.checkRules();
     }
 
-    public void playMove(Position position, String value) throws Exception {
+    public void changeNodeValue(Position position, String value) throws Exception {
         ValidInputManager validInputManager = this.validInputManager;
         if (!validInputManager.isValidInput(value)) {
             throw new Exception("Not a valid input");
         }
-        board.changeCellValue(position, value);
+        board.changeNodeValue(position, value);
     }
 
     public String getGameName() {

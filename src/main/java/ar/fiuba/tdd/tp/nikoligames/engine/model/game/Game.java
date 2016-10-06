@@ -10,7 +10,7 @@ import java.util.HashSet;
  */
 public interface Game {
 
-    void playMove(Position position, String value) throws Exception;
+    void changeNodeValue(Position position, String value) throws Exception;
 
     String getGameName();
 

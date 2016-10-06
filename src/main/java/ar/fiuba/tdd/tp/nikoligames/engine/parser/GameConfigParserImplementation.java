@@ -1,9 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.ConcreteGameConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.SizeConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,6 +17,7 @@ public class GameConfigParserImplementation implements GameConfigParser {
     public static final String GAME_NAME = "game_name";
     public static final String VALID_INPUT = "valid_input";
     public static final String GRID_SIZE = "grid_size";
+
 
     private final BoardParser boardParser = new BoardParser();
     private final RuleParser ruleParser = new RuleParser();
@@ -42,12 +40,11 @@ public class GameConfigParserImplementation implements GameConfigParser {
         String gameName = parseGameName(jsonObject);
         SizeConfig sizeConfig = parseGridSize(jsonObject);
         HashSet<String> validInputsList = parseValidInputList(jsonObject);
-        List<Rule> rules = ruleParser.parseRules(jsonObject);
+        List<RuleConfig> rules = ruleParser.parseRules(jsonObject);
 
-        List<CellConfig> cells = boardParser.parseBoard(jsonObject);
+        List<NodeConfig> nodes = boardParser.parseBoard(jsonObject);
 
-        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList, rules, cells);
-
+        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList, rules, nodes);
 
         return gameConfig;
     }

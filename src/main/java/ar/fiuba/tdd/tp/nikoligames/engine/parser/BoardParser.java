@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.ConcreteNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.NodeConfig;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -13,25 +14,22 @@ import java.util.List;
 public class BoardParser {
     public static final String BOARD = "board";
     public static final String BOARD_VALUES = "values";
-    public static final String BOARD_POSITION = "position";
 
-    public List<CellConfig> parseBoard(JSONObject jsonObject) {
-        List<CellConfig> cells = new ArrayList<CellConfig>();
-        CellParser cellParser = new CellParser();
+
+    public List<NodeConfig> parseBoard(JSONObject jsonObject) {
+        List<NodeConfig> nodes = new ArrayList<NodeConfig>();
+        NodeParser nodeParser = new NodeParser();
 
         JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);
         JSONArray boardValues = (JSONArray) boardObj.get(BOARD_VALUES);
         for (int i = 0; i < boardValues.size(); i++) {
             JSONObject cellObj = (JSONObject) boardValues.get(i);
-            JSONArray positionCellObj = (JSONArray) cellObj.get(BOARD_POSITION);
-            int row = (int) (long) positionCellObj.get(0);
-            int col = (int) (long) positionCellObj.get(1);
 
-            ConcreteNode cell = cellParser.parseCell(cellObj);
-            CellConfig cellConfig = new CellConfig(cell, row, col);
-            cells.add(cellConfig);
+            NodeConfig nodeConfig = nodeParser.parseNode(cellObj);
+
+            nodes.add(nodeConfig);
         }
 
-        return cells;
+        return nodes;
     }
 }

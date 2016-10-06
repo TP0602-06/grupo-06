@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.board.node;
 
 import java.util.List;
 

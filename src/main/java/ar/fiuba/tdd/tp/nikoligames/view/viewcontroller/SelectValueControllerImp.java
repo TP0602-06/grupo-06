@@ -62,6 +62,6 @@ public class SelectValueControllerImp implements SelectValueController {
         int row = lastSelectedEditableCellView.getXIndex() + 1;
         int col = lastSelectedEditableCellView.getYIndex() + 1;
         ClassicPosition celPosition = new ClassicPosition(row , col );
-        game.playMove(celPosition, value);
+        game.changeNodeValue(celPosition, value);
     }
 }

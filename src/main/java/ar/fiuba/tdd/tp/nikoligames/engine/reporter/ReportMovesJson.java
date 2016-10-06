@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
@@ -73,7 +73,7 @@ public class ReportMovesJson implements ReportMoves {
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getCols(); j++) {
                 ClassicPosition position = new ClassicPosition(i, j);
-                JSONObject cell = makeCellJson(board.getDrawableCell(position), position);
+                JSONObject cell = makeCellJson(board.getDrawableNode(position), position);
                 cellsJson.add(cell);
             }
         }

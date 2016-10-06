@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Node;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.Node;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.AdditionRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.MultiplicationRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
