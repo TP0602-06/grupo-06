@@ -24,4 +24,5 @@ public abstract class Node implements DrawableNode {
 
     public abstract void addEdge(Node edge);
 
+
 }
