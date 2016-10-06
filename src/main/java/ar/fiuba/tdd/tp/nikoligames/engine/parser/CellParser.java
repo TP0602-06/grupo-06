@@ -20,9 +20,8 @@ public class CellParser {
         }
         boolean editable = (boolean) cellObj.get(EDITABLE);
 
-        boolean readonly = (boolean) cellObj.get(READONLY);
 
-        Cell cell = new Cell(boardValue, editable, readonly);
+        Cell cell = new Cell(boardValue, editable);
 
         return cell;
     }

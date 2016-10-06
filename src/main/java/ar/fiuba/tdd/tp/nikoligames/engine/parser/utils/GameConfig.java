@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.parser.utils;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.CellConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.RuleConfig;
 
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +16,7 @@ public interface GameConfig {
 
     List<CellConfig> getInitialCells();
 
-    List<Rule> getRules();
+    List<RuleConfig> getRules();
 
     HashSet<String> getValidInputs();
 

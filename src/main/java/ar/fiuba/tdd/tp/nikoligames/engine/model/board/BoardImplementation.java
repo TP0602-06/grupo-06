@@ -60,7 +60,7 @@ public class BoardImplementation implements DrawableBoard, Board {
     }
 
     public DrawableCell getDrawableCell(Position position) {
-        return getCell(position);
+        return (DrawableCell) getCell(position);
 
     }
 

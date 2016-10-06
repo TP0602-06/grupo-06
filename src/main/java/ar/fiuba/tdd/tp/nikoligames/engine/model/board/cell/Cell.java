@@ -6,7 +6,6 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell;
  */
 public class Cell extends AbstractCell {
 
-    protected String value = "";
 
     protected boolean editable;
 

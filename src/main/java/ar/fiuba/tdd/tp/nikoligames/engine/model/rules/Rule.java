@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public abstract class Rule {
 
-    protected ArrayList<AbstractCell> listOfCells;
 
     public abstract String getValue();
 

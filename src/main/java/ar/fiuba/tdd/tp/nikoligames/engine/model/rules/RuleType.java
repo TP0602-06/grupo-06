@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.AdditionRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.MultiplicationRule;
@@ -13,16 +14,16 @@ import java.util.ArrayList;
 public enum RuleType {
 
     DO_NOT_REPEAT("NO_REPITE") {
-        public Rule createRule(ArrayList<Position> region, String value) {
-            return new NoDuplicatesRule(region);
+        public Rule createRule(ArrayList<AbstractCell> cells, String value) {
+            return new NoDuplicatesRule(cells);
         }
     }, SUMA("SUMA") {
-        public Rule createRule(ArrayList<Position> region, String value) {
-            return new AdditionRule(region, value);
+        public Rule createRule(ArrayList<AbstractCell> cells, String value) {
+            return new AdditionRule(cells, value);
         }
     }, MULTIPLICATION("MULTIPLICACION") {
-        public Rule createRule(ArrayList<Position> region, String value) {
-            return new MultiplicationRule(region, value);
+        public Rule createRule(ArrayList<AbstractCell> cells, String value) {
+            return new MultiplicationRule(cells, value);
         }
 
     };
@@ -42,6 +43,6 @@ public enum RuleType {
         return this.toString().equals(string);
     }
 
-    public abstract Rule createRule(ArrayList<Position> region, String value);
+    public abstract Rule createRule(ArrayList<AbstractCell> cells, String value);
 
 }

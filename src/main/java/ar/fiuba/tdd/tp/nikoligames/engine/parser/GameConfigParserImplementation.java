@@ -42,7 +42,7 @@ public class GameConfigParserImplementation implements GameConfigParser {
         String gameName = parseGameName(jsonObject);
         SizeConfig sizeConfig = parseGridSize(jsonObject);
         HashSet<String> validInputsList = parseValidInputList(jsonObject);
-        List<Rule> rules = ruleParser.parseRules(jsonObject);
+        List<RuleConfig> rules = ruleParser.parseRules(jsonObject);
 
         List<CellConfig> cells = boardParser.parseBoard(jsonObject);
 
