@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.AbstractCell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
@@ -12,16 +13,14 @@ import java.util.HashSet;
  * Created by german on 9/30/2016.
  */
 public class NoDuplicatesRule extends RuleImplementation {
-    public NoDuplicatesRule(ArrayList<Position> region) {
-        super(region, "");
+    public NoDuplicatesRule(ArrayList<AbstractCell> listOfCells) {
+        super(listOfCells, "");
     }
 
     @Override
-    public boolean isBroken(Board board) {
+    public boolean isBroken() {
         HashSet<Integer> seenValues = new HashSet<Integer>();
-        for (Position position : super.region) {
-
-            Cell cell = board.getCell(position);
+        for (AbstractCell cell : listOfCells) {
             if (cell.isEmpty()) {
                 return true;
             }
