@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.ConcreteNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 /**
@@ -11,12 +11,12 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 public class BoardImplementation implements DrawableBoard, Board {
     private int rows;
     private int cols;
-    private Cell[][] cells;
+    private ConcreteNode[][] cells;
 
     public BoardImplementation(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
-        this.cells = new Cell[this.rows][this.cols];
+        this.cells = new ConcreteNode[this.rows][this.cols];
     }
 
     public int getRows() {
@@ -39,14 +39,14 @@ public class BoardImplementation implements DrawableBoard, Board {
         }
     }
 
-    public void setCell(Position coordinates, Cell cell) {
+    public void setCell(Position coordinates, ConcreteNode cell) {
         checkRange(coordinates);
         cells[coordinates.getRow()][coordinates.getColumn()] = cell;
     }
 
     public boolean changeCellValue(Position coordinates, String value) {
         checkRange(coordinates);
-        Cell cell = cells[coordinates.getRow()][coordinates.getColumn()];
+        ConcreteNode cell = cells[coordinates.getRow()][coordinates.getColumn()];
         if (cell.isEditable()) {
             cell.setValue(value);
             return true;
@@ -54,12 +54,12 @@ public class BoardImplementation implements DrawableBoard, Board {
         return false;
     }
 
-    public Cell getCell(Position coordinates) {
+    public ConcreteNode getCell(Position coordinates) {
         checkRange(coordinates);
         return cells[coordinates.getRow()][coordinates.getColumn()];
     }
 
-    public DrawableCell getDrawableCell(Position position) {
+    public DrawableNode getDrawableCell(Position position) {
         return getCell(position);
 
     }

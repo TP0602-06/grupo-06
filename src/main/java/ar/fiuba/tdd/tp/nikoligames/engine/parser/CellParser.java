@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.ConcreteNode;
 import org.json.simple.JSONObject;
 
 /**
@@ -12,7 +12,7 @@ public class CellParser {
     public static final String EDITABLE = "editable";
     public static final String READONLY = "readonly";
 
-    public Cell parseCell(JSONObject cellObj) {
+    public ConcreteNode parseCell(JSONObject cellObj) {
 
         String boardValue = "";
         if (cellObj.containsKey(BOARD_VALUE)) {
@@ -22,7 +22,7 @@ public class CellParser {
 
         boolean readonly = (boolean) cellObj.get(READONLY);
 
-        Cell cell = new Cell(boardValue, editable, readonly);
+        ConcreteNode cell = new ConcreteNode(boardValue, editable, readonly);
 
         return cell;
     }

@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.play;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 
@@ -21,7 +21,7 @@ public class Play {
 
     public boolean makeMove(GameImplementation game) throws Exception {
         game.playMove(position, value);
-        DrawableCell cell = game.getDrawableBoard().getDrawableCell(position);
+        DrawableNode cell = game.getDrawableBoard().getDrawableCell(position);
         String actualValue = cell.getValue();
         return actualValue.equals(value);
     }

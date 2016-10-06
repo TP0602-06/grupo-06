@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.ConcreteNode;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -27,7 +27,7 @@ public class BoardParser {
             int row = (int) (long) positionCellObj.get(0);
             int col = (int) (long) positionCellObj.get(1);
 
-            Cell cell = cellParser.parseCell(cellObj);
+            ConcreteNode cell = cellParser.parseCell(cellObj);
             CellConfig cellConfig = new CellConfig(cell, row, col);
             cells.add(cellConfig);
         }

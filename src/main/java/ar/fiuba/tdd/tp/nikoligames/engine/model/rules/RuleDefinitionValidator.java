@@ -1,8 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.AbstractCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Node;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.AdditionRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.MultiplicationRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
@@ -27,7 +26,7 @@ public class RuleDefinitionValidator {
         return this.validRules.contains(ruleDefinition);
     }
 
-    public Rule createRule(String ruleDefinition, ArrayList<AbstractCell> listOfCell, String value) throws Exception {
+    public Rule createRule(String ruleDefinition, ArrayList<Node> listOfCell, String value) throws Exception {
         switch (ruleDefinition) {
             case DO_NOT_REPEAT:
                 return new NoDuplicatesRule(listOfCell);

@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.AbstractCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Node;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
@@ -29,7 +29,7 @@ public class RuleBuilder {
     }
 
     public Rule createRule(Board board) throws Exception {
-        ArrayList<AbstractCell> listOfCells = new ArrayList<>();
+        ArrayList<Node> listOfCells = new ArrayList<>();
         for (Position pos: this.region){
             listOfCells.add(board.getCell(pos));
         }

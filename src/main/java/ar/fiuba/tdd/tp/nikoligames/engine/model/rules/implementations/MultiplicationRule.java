@@ -1,10 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.AbstractCell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Node;
 
 import java.util.ArrayList;
 
@@ -13,14 +9,14 @@ import java.util.ArrayList;
  */
 public class MultiplicationRule extends RuleImplementation {
 
-    public MultiplicationRule(ArrayList<AbstractCell> listOfCells, String value) {
+    public MultiplicationRule(ArrayList<Node> listOfCells, String value) {
         super(listOfCells, value);
     }
 
     @Override
     public boolean isBroken() {
         int multiplication = 1;
-        for (AbstractCell cell : listOfCells) {
+        for (Node cell : region) {
             if (cell.isEmpty()) {
                 return true;
             }

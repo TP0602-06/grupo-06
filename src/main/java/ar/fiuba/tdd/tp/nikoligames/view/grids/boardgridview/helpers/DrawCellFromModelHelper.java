@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.InvalidCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ClueCellView;
@@ -19,7 +19,7 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
     }
 
     @Override
-    public CellView drawCellFromModel(DrawableCell modelCell) {
+    public CellView drawCellFromModel(DrawableNode modelCell) {
 
         CellView cellView;
 
@@ -36,15 +36,15 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
         return cellView;
     }
 
-    private boolean isCellNonEditableAndNotEmpty(DrawableCell modelCell) {
+    private boolean isCellNonEditableAndNotEmpty(DrawableNode modelCell) {
         return !modelCell.isEmpty() && !modelCell.isEditable();
     }
 
-    private boolean isCellEmptyAndEditable(DrawableCell modelCell) {
+    private boolean isCellEmptyAndEditable(DrawableNode modelCell) {
         return modelCell.isEmpty() && modelCell.isEditable();
     }
 
-    private CellView createCell(DrawableCell modelCell) {
+    private CellView createCell(DrawableNode modelCell) {
         return null;
     }
 }
