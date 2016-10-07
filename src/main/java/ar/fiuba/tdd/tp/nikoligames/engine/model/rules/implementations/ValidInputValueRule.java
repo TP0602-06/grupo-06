@@ -29,6 +29,11 @@ public class ValidInputValueRule extends RuleImplementation {
         return false;
     }
 
+    @Override
+    public boolean isActualBroken() {
+        return isBroken();
+    }
+
     public boolean isValidInput(String input) {
         return (validInputs.contains(input) || input.equals(CLEAR));
     }

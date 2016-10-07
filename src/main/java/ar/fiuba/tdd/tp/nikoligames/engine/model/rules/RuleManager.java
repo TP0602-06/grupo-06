@@ -35,17 +35,17 @@ public class RuleManager {
         return true;
     }
 
-    public interface RuleCommand {
+    private interface RuleCommand {
         boolean execute(Rule rule);
     }
 
-    public class IsBrokenCommand implements RuleCommand {
+    private class IsBrokenCommand implements RuleCommand {
         public boolean execute(Rule rule) {
             return rule.isBroken();
         }
     }
 
-    public class IsActualBrokenCommand implements RuleCommand {
+    private class IsActualBrokenCommand implements RuleCommand {
         public boolean execute(Rule rule) {
             return rule.isActualBroken();
         }
