@@ -21,7 +21,6 @@ public abstract class RuleImplementation extends Rule {
         return value;
     }
 
-    public abstract boolean isBroken();
 
     public ArrayList<AbstractNode> getRegion() {
         return region;

@@ -30,4 +30,9 @@ public class AdjacentRule extends RuleImplementation {
         }
         return false;
     }
+    @Override
+    public boolean isActualBroken() {
+        return isBroken();//TODO revisar
+    }
+
 }

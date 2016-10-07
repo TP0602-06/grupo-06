@@ -43,6 +43,10 @@ public class NextNotVisitedNodesDifferentRegionRule extends RuleImplementation {
 
         return false;
     }
+    @Override
+    public boolean isActualBroken() {
+        return isBroken();//TODO revisar
+    }
 
     private boolean isVisited(AbstractNode node) {
         List<AbstractNode> edgeList = node.getEdgeList();
