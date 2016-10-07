@@ -1,6 +1,6 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.parser;
+package ar.fiuba.tdd.tp.nikoligames.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.RuleConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

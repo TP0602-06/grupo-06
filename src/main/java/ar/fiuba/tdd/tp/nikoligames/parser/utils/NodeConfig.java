@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.parser.utils;
+package ar.fiuba.tdd.tp.nikoligames.parser.utils;
 
 /**
  * Created by german on 9/30/2016.

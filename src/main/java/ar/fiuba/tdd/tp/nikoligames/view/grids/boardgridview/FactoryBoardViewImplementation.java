@@ -9,6 +9,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.DrawCellFromModelHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
+import java.util.List;
+
 /**
  * Responsabilidades:
  * 1. Implementa la abstracción para la encapsulación de la creación de una grilla para el board

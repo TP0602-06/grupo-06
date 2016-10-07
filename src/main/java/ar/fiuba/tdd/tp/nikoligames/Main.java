@@ -1,12 +1,12 @@
 package ar.fiuba.tdd.tp.nikoligames;
 
-import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.AbstractArgsParserHelper;
-import ar.fiuba.tdd.tp.nikoligames.argsparserhelper.ArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameFactory;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParser;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.GameConfigParserImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.AbstractParser;
+import ar.fiuba.tdd.tp.nikoligames.parser.ConcreteParser;
+import ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper.AbstractArgsParserHelper;
+import ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper.ArgsParserHelper;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameViewImplementation;
@@ -26,13 +26,13 @@ public class Main {
         try {
             argsParserHelper.parseArgs(args);
             String gameJsonFilePath = argsParserHelper.getGameFile();
-            GameConfigParser gameConfigParser = new GameConfigParserImplementation(gameJsonFilePath);
+            AbstractParser gameConfigParser = new ConcreteParser(gameJsonFilePath);
 
             GameConfig gameConfig = gameConfigParser.parse();
             Game game = gameFactory.createGame(gameConfig);
 
             FactoryGameView factoryView = new FactoryGameViewImplementation();
-            GameView view = factoryView.createDefaultGameView(game);
+            GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
 
             view.setVisible(true);
 

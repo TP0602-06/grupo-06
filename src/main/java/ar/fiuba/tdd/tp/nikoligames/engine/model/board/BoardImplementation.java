@@ -3,7 +3,12 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.MatrixPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import javafx.geometry.Pos;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Tablero del juego. Representar la disposicion de celdas.
@@ -57,6 +62,18 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
     public AbstractNode getNode(Position position) {
         checkRange(position);
         return nodes[position.getRow()][position.getColumn()];
+    }
+
+    public List<AbstractNode> getAllNodes(){
+        List<AbstractNode> allNodes = new ArrayList<AbstractNode>();
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                Position position = new MatrixPosition(i,j);
+                AbstractNode node = this.getNode(position);
+                allNodes.add(node);
+            }
+        }
+        return allNodes;
     }
 
     public DrawableNode getDrawableNode(Position position) {

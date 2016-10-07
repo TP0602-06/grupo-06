@@ -10,13 +10,11 @@ import java.util.HashSet;
  */
 public interface Game {
 
-    void changeNodeValue(Position position, String value) throws Exception;
+    void changeNodeValue(Position position, String value);
 
-    String getGameName();
-
-    boolean checkRules();
+    boolean run();
 
     DrawableBoard getDrawableBoard();
 
-    HashSet<String> getValidInputs();
+    void createEdge(Position position1, Position position2);
 }

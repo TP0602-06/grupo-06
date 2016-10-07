@@ -4,9 +4,11 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.RuleConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.ValidInputValueRule;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,6 +18,12 @@ public class RuleFactory {
 
     public RuleFactory(Board board) {
         this.board = board;
+    }
+
+    public Rule createValidValueRule(HashSet<String> validInputs) {
+        List<AbstractNode> allNodes = board.getAllNodes();
+        Rule validInputsRule = new ValidInputValueRule(allNodes,validInputs);
+        return null;
     }
 
     private Rule createRule(RuleConfig ruleConfig) throws NotValidRuleException {

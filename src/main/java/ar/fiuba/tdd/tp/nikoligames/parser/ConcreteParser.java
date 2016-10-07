@@ -1,6 +1,6 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.parser;
+package ar.fiuba.tdd.tp.nikoligames.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.*;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,7 +12,7 @@ import java.io.Reader;
 import java.util.HashSet;
 import java.util.List;
 
-public class GameConfigParserImplementation implements GameConfigParser {
+public class ConcreteParser implements AbstractParser {
 
     public static final String GAME_NAME = "game_name";
     public static final String VALID_INPUT = "valid_input";
@@ -23,7 +23,7 @@ public class GameConfigParserImplementation implements GameConfigParser {
     private final String fileName;
 
 
-    public GameConfigParserImplementation(String fileName) throws FileNotFoundException {
+    public ConcreteParser(String fileName) throws FileNotFoundException {
         this.fileName = fileName;
 
     }

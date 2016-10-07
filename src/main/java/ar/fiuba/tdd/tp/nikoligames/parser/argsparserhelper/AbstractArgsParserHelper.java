@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.argsparserhelper;
+package ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper;
 
 /**
  * Responsabilidades:

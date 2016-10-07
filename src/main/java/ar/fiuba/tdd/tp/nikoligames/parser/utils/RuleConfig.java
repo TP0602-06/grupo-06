@@ -1,8 +1,9 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.parser.utils;
+package ar.fiuba.tdd.tp.nikoligames.parser.utils;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public class RuleConfig {
 
-    private List<Position> regionPositions;
+    private List<Position> regionPositions = new ArrayList<Position>();
     private String ruleDefinition;
     private String value = "";
 
