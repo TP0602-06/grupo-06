@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 
 import java.util.ArrayList;
 import java.util.Iterator;
