@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.RuleConfig;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -30,14 +30,13 @@ public class RuleParser {
             RuleConfig rule = ruleParser.parseRule(ruleObj);
             rules.add(rule);
         }
-
         return rules;
     }
 
 
     private RuleConfig parseRule(JSONObject ruleObj) throws Exception {
-
         String definition = (String) ruleObj.get(RULE_DEFINITION);
+
         RuleConfig ruleConfig = new RuleConfig(definition);
 
         JSONArray regionObj = (JSONArray) ruleObj.get("region");
@@ -45,7 +44,8 @@ public class RuleParser {
             JSONArray regioCellObj = (JSONArray) regionObj.get(j);
             int row = (int) (long) regioCellObj.get(0);
             int col = (int) (long) regioCellObj.get(1);
-            ruleConfig.addPosition(new ClassicPosition(row, col));
+
+            ruleConfig.addCellToRegion(row, col);
         }
 
         if (ruleObj.containsKey(RULE_OPERATION_VALUE)) {
@@ -55,4 +55,6 @@ public class RuleParser {
 
         return ruleConfig;
     }
+
+
 }

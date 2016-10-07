@@ -1,8 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser.utils;
 
 
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.CellConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.RuleConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 
 import java.util.HashSet;
 import java.util.List;
@@ -10,13 +9,13 @@ import java.util.List;
 public class ConcreteGameConfig implements GameConfig {
 
     private String name;
-    private List<CellConfig> cells;
+    private List<NodeConfig> cells;
     private List<RuleConfig> rules;
     private HashSet<String> inputs;
 
     private SizeConfig sizeConfig;
 
-    public ConcreteGameConfig(String name,SizeConfig sizeConfig,HashSet<String> validInputs,List<RuleConfig> rules,List<CellConfig> cells) {
+    public ConcreteGameConfig(String name, SizeConfig sizeConfig, HashSet<String> validInputs, List<RuleConfig> rules, List<NodeConfig> cells) {
         this.sizeConfig = sizeConfig;
         this.name = name;
         this.rules = rules;
@@ -24,7 +23,7 @@ public class ConcreteGameConfig implements GameConfig {
         this.cells = cells;
     }
 
-    public List<CellConfig> getInitialCells() {
+    public List<NodeConfig> getInitialCells() {
         return this.cells;
     }
 

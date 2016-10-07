@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.NodeConfig;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -15,43 +16,21 @@ public class BoardParser {
     public static final String BOARD_VALUES = "values";
     public static final String BOARD_POSITION = "position";
 
-    private JSONObject getJsonObject(JSONObject jsonObject, String key) {
-        return (JSONObject) jsonObject.get(key);
-    }
 
-    private JSONArray getJsonArray(JSONObject jsonObject, String key) {
-        return (JSONArray) jsonObject.get(key);
-    }
+    public List<NodeConfig> parseBoard(JSONObject jsonObject) {
+        List<NodeConfig> nodes = new ArrayList<NodeConfig>();
+        NodeParser nodeParser = new NodeParser();
 
-    private JSONArray getBoardValues(JSONObject gameObject) {
-        return (JSONArray) this.getJsonArray(this.getJsonObject(gameObject, BOARD), BOARD_VALUES);
-    }
-
-    private JSONObject getCellObject(JSONObject gameObject, int cellNumber) {
-        return (JSONObject) this.getBoardValues(gameObject).get(cellNumber);
-    }
-
-    private JSONArray getCellPosition(JSONObject gameObject, int cellNumber) {
-        return (JSONArray) this.getCellObject(gameObject, cellNumber).get(BOARD_POSITION);
-    }
-
-    public List<CellConfig> parseBoard(JSONObject jsonObject) {
-        List<CellConfig> cells = new ArrayList<CellConfig>();
-        CellParser cellParser = new CellParser();
-
-
-        JSONArray boardValues = this.getBoardValues(jsonObject);
+        JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);
+        JSONArray boardValues = (JSONArray) boardObj.get(BOARD_VALUES);
         for (int i = 0; i < boardValues.size(); i++) {
-            JSONObject cellObj = this.getCellObject(jsonObject, i);
-            JSONArray positionCellObj = this.getCellPosition(jsonObject, i);
-            int row = (int) (long) positionCellObj.get(0);
-            int col = (int) (long) positionCellObj.get(1);
+            JSONObject cellObj = (JSONObject) boardValues.get(i);
 
-            Cell cell = cellParser.parseCell(cellObj);
-            CellConfig cellConfig = new CellConfig(cell, row, col);
-            cells.add(cellConfig);
+            NodeConfig nodeConfig = nodeParser.parseNode(cellObj);
+
+            nodes.add(nodeConfig);
         }
 
-        return cells;
+        return nodes;
     }
 }

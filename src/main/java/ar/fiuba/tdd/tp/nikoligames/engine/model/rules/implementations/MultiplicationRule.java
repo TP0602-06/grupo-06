@@ -11,7 +11,7 @@ public class MultiplicationRule extends ArithmeticRule {
 
     int value = 1;
 
-    public MultiplicationRule(ArrayList<AbstractCell> listOfCells, String value) {
+    public MultiplicationRule(ArrayList<Node> listOfCells, String value) {
         super(listOfCells, value);
     }
 
@@ -24,5 +24,4 @@ public class MultiplicationRule extends ArithmeticRule {
     protected int defaultIntValue() {
         return value;
     }
-
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public class RuleManager {
     private final List<Rule> rules;
 
-    public RuleManager( List<Rule> rules) {
+    public RuleManager(List<Rule> rules) {
         this.rules = rules;
     }
 

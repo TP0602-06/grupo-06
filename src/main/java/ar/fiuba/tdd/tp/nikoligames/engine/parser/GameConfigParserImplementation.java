@@ -1,9 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.ConcreteGameConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.SizeConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -44,10 +41,9 @@ public class GameConfigParserImplementation implements GameConfigParser {
         HashSet<String> validInputsList = parseValidInputList(jsonObject);
         List<RuleConfig> rules = ruleParser.parseRules(jsonObject);
 
-        List<CellConfig> cells = boardParser.parseBoard(jsonObject);
+        List<NodeConfig> nodes = boardParser.parseBoard(jsonObject);
 
-        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList, rules, cells);
-
+        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList, rules, nodes);
 
         return gameConfig;
     }
