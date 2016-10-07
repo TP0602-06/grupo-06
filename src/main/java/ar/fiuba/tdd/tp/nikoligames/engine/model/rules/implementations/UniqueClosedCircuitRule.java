@@ -33,6 +33,11 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
         return (!checkOnlyOneClosedCircuit(nodesInCircuit));
     }
 
+    @Override
+    public boolean isActualBroken() {
+        return isBroken();//TODO revisar
+    }
+
     private boolean checkOnlyOneClosedCircuit(List<AbstractNode> nodesInCircuit) {
 
         List<AbstractNode> seenNodes = new ArrayList<AbstractNode>();

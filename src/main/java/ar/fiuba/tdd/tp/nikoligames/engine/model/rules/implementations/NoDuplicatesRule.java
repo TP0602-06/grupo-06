@@ -15,13 +15,21 @@ public class NoDuplicatesRule extends RuleImplementation {
 
     @Override
     public boolean isBroken() {
+        return check(false);
+    }
+
+    @Override
+    public boolean isActualBroken() {
+        return check(true);
+    }
+    private boolean check(boolean isActual){
         HashSet<Integer> seenValues = new HashSet<Integer>();
         for (AbstractNode node : this.region) {
-            if (node.isEmpty()) {
+            if (node.isEmpty()&&(seenValues.contains(Integer.parseInt(node.getValue())))&&(!isActual)) {
                 return true;
             }
-            if (seenValues.contains(Integer.parseInt(node.getValue()))) {
-                return true;
+            if (isActual) {
+                continue;
             }
             seenValues.add(Integer.parseInt(node.getValue()));
         }

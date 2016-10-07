@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,14 +15,39 @@ public class RuleManager {
 
     //Return true if it is all right
     public boolean checkRules() {
+        RuleCommand ruleCommand = new IsBrokenCommand();
+        return this.check(ruleCommand);
+    }
+
+    public boolean checkActualRules() {
+        RuleCommand ruleCommand = new IsActualBrokenCommand();
+        return this.check(ruleCommand);
+    }
+
+    public boolean check(RuleCommand ruleCommand) {
         Iterator<Rule> iterator = rules.iterator();
         while (iterator.hasNext()) {
             Rule rule = iterator.next();
-            if (rule.isBroken()) {
+            if (ruleCommand.execute(rule)) {
                 return false;
             }
         }
         return true;
     }
 
+    public interface RuleCommand {
+        boolean execute(Rule rule);
+    }
+
+    public class IsBrokenCommand implements RuleCommand {
+        public boolean execute(Rule rule) {
+            return rule.isBroken();
+        }
+    }
+
+    public class IsActualBrokenCommand implements RuleCommand {
+        public boolean execute(Rule rule) {
+            return rule.isActualBroken();
+        }
+    }
 }

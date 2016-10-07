@@ -32,6 +32,11 @@ public class VisitedCountRule extends RuleImplementation {
         return true;
     }
 
+    @Override
+    public boolean isActualBroken() {
+        return isBroken();//TODO revisar
+    }
+
     private boolean isVisited(AbstractNode node) {
         List<AbstractNode> edgeList = node.getEdgeList();
         int size = edgeList.size();
