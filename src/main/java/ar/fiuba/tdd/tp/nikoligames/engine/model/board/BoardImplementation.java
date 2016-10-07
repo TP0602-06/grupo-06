@@ -1,20 +1,20 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.Node;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 /**
  * Tablero del juego. Representar la disposicion de celdas.
  * Patron de diseno:
- *  1. Template Method, la clase que implemente la abstracción debe definir la forma de crear una arista de forma dirigida o no dirigida
+ * 1. Template Method, la clase que implemente la abstracción debe definir la forma de crear una arista de forma dirigida o no dirigida
  */
 
 public abstract class BoardImplementation implements DrawableBoard, Board {
     private int rows;
     private int cols;
-    private Node[][] nodes;
+    private AbstractNode[][] nodes;
 
     public BoardImplementation(int rows, int cols) {
         this.rows = rows;
@@ -22,13 +22,13 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         this.nodes = new ConcreteNode[this.rows][this.cols];
     }
 
-    abstract void createEdge(Node node1, Node node2);
+    abstract void createEdge(AbstractNode node1, AbstractNode node2);
 
     public void createEdge(Position position1, Position position2) {
-        Node node1 = this.getNode(position1);
-        Node node2 = this.getNode(position2);
+        AbstractNode node1 = this.getNode(position1);
+        AbstractNode node2 = this.getNode(position2);
 
-        createEdge(node1,node2);
+        createEdge(node1, node2);
     }
 
     public int getRows() {
@@ -39,14 +39,14 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         return cols;
     }
 
-    public void setNode(Position position, Node node) {
+    public void setNode(Position position, AbstractNode node) {
         checkRange(position);
         nodes[position.getRow()][position.getColumn()] = node;
     }
 
     public boolean changeNodeValue(Position position, String value) {
         checkRange(position);
-        Node node = nodes[position.getRow()][position.getColumn()];
+        AbstractNode node = nodes[position.getRow()][position.getColumn()];
         if (node.isEditable()) {
             node.setValue(value);
             return true;
@@ -54,7 +54,7 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         return false;
     }
 
-    public Node getNode(Position position) {
+    public AbstractNode getNode(Position position) {
         checkRange(position);
         return nodes[position.getRow()][position.getColumn()];
     }

@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.Node;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 /**
@@ -11,11 +11,11 @@ public interface Board extends DrawableBoard {
 
     int getCols();
 
-    void setNode(Position position, Node cell);
+    void setNode(Position position, AbstractNode cell);
 
     boolean changeNodeValue(Position position, String value);
 
     void createEdge(Position position1,Position position2);
 
-    Node getNode(Position position);
+    AbstractNode getNode(Position position);
 }

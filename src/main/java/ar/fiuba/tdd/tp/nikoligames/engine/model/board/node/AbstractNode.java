@@ -5,10 +5,10 @@ import java.util.List;
 /**
  * Created by fedebrasburg on 10/6/16.
  */
-public abstract class Node implements DrawableNode {
+public abstract class AbstractNode implements DrawableNode {
 
 
-    public Node() {
+    public AbstractNode() {
 
     }
 
@@ -20,9 +20,9 @@ public abstract class Node implements DrawableNode {
 
     public abstract boolean isEditable();
 
-    public abstract List<Node> getEdgeList();
+    public abstract List<AbstractNode> getEdgeList();
 
-    public abstract void addEdge(Node edge);
+    public abstract void addEdge(AbstractNode edge);
 
 
 }

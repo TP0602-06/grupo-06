@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * ConcreteNode contiene los aspectos generales de cualquier celda de cualquier juego.
  */
-public class ConcreteNode extends Node {
+public class ConcreteNode extends AbstractNode {
 
     protected String value = "";
 
     protected boolean editable;
-    protected List<Node> edgeList = new ArrayList<Node>();
+    protected List<AbstractNode> edgeList = new ArrayList<AbstractNode>();
 
     public ConcreteNode(String value, boolean editable) {
         this.value = value;
@@ -34,11 +34,11 @@ public class ConcreteNode extends Node {
         return editable;
     }
 
-    public List<Node> getEdgeList() {
+    public List<AbstractNode> getEdgeList() {
         return edgeList;
     }
 
-    public void addEdge(Node edge) {
+    public void addEdge(AbstractNode edge) {
         edgeList.add(edge);
     }
 

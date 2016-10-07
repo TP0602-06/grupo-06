@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.AbstractCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 import java.util.ArrayList;
 
@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class AdditionRule extends ArithmeticRule {
     int value = 0;
 
-    public AdditionRule(ArrayList<AbstractCell> listOfCell, String value) {
-        super(listOfCell, value);
+    public AdditionRule(ArrayList<AbstractNode> region, String value) {
+        super(region, value);
     }
 
-    protected int arithmeticOperation(int operationAcumulator, AbstractCell cell) {
-        operationAcumulator = operationAcumulator + Integer.parseInt(cell.getValue());
+    protected int arithmeticOperation(int operationAcumulator, AbstractNode node) {
+        operationAcumulator = operationAcumulator + Integer.parseInt(node.getValue());
         return operationAcumulator;
     }
 

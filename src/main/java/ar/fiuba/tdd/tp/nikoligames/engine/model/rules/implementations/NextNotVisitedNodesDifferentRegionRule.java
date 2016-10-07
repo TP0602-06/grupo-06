@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.Node;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class NextNotVisitedNodesDifferentRegionRule extends RuleImplementation {
 
-    private final List<List<Node>> regions;
+    private final List<List<AbstractNode>> regions;
 
     //la region seria cada par de celda contiguas o adyacentes
-    public NextNotVisitedNodesDifferentRegionRule(ArrayList<Node> region, List<List<Node>> regions) {
+    public NextNotVisitedNodesDifferentRegionRule(ArrayList<AbstractNode> region, List<List<AbstractNode>> regions) {
         super(region, "");
         this.regions = regions;
     }
@@ -22,15 +22,15 @@ public class NextNotVisitedNodesDifferentRegionRule extends RuleImplementation {
     @Override
     public boolean isBroken() {
 
-        Node node1 = region.get(0);
-        Node node2 = region.get(1);
+        AbstractNode node1 = region.get(0);
+        AbstractNode node2 = region.get(1);
         if (!this.isVisited(node1) || (!this.isVisited(node2))) {
             return false;
         }
         //si ninguno esta visitado
-        Iterator<List<Node>> regionsIterator = regions.iterator();
+        Iterator<List<AbstractNode>> regionsIterator = regions.iterator();
         while (regionsIterator.hasNext()) {
-            List<Node> region = regionsIterator.next();
+            List<AbstractNode> region = regionsIterator.next();
             if (region.contains(node1) || (region.contains(node2))) {
                 //solo si son No visitadas en distintas regiones se rompe la regla
                 if (((region.contains(node1)) && (region.contains(node2)))) {
@@ -44,8 +44,8 @@ public class NextNotVisitedNodesDifferentRegionRule extends RuleImplementation {
         return false;
     }
 
-    private boolean isVisited(Node node) {
-        List<Node> edgeList = node.getEdgeList();
+    private boolean isVisited(AbstractNode node) {
+        List<AbstractNode> edgeList = node.getEdgeList();
         int size = edgeList.size();
         if (size == 0) {
             return false;

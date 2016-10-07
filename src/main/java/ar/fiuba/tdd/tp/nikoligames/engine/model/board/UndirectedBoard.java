@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.Node;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 /**
  * Created by german on 10/6/2016.
@@ -11,7 +11,7 @@ public class UndirectedBoard extends BoardImplementation {
     }
 
     @Override
-    void createEdge(Node node1, Node node2) {
+    void createEdge(AbstractNode node1, AbstractNode node2) {
         node1.addEdge(node2);
         node2.addEdge(node1);
     }

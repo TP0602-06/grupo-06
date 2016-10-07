@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.Node;
 import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.NodeConfig;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

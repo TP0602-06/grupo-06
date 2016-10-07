@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp.nikoligames.engine.parser.utils;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
 
 import java.util.List;
 
@@ -10,7 +9,6 @@ import java.util.List;
  * Created by german on 10/6/2016.
  */
 public class RuleConfig {
-    private RuleDefinitionValidator validRuleDefinitions = new RuleDefinitionValidator();
 
     private List<Position> regionPositions;
     private String ruleDefinition;
@@ -25,7 +23,6 @@ public class RuleConfig {
     }
 
     public void setRuleDefinition(String ruleDefinition) throws Exception {
-        this.ckeckRuleDefinition(ruleDefinition);
         this.ruleDefinition = ruleDefinition;
     }
 
@@ -46,9 +43,5 @@ public class RuleConfig {
         return regionPositions;
     }
 
-    private void ckeckRuleDefinition(String ruleDefinition) throws Exception {
-        if (!this.validRuleDefinitions.containsRule(ruleDefinition)) {
-            throw new Exception("the rule " + ruleDefinition + " is not defined! ");
-        }
-    }
+
 }

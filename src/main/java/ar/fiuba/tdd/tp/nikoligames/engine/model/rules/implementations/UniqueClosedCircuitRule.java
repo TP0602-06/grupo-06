@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.Node;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,18 +11,18 @@ import java.util.List;
  * Checkear que haya un sólo camino cerrado en un grafo planar
  */
 public class UniqueClosedCircuitRule extends RuleImplementation {
-    public UniqueClosedCircuitRule(ArrayList<Node> region) {
+    public UniqueClosedCircuitRule(ArrayList<AbstractNode> region) {
         super(region, "");
     }
 
     @Override
     public boolean isBroken() {
-        List<Node> nodesInCircuit = new ArrayList<Node>();
+        List<AbstractNode> nodesInCircuit = new ArrayList<AbstractNode>();
 
-        Iterator<Node> regionIterator = region.iterator();
+        Iterator<AbstractNode> regionIterator = region.iterator();
         while (regionIterator.hasNext()) {
-            Node node = regionIterator.next();
-            List<Node> edgelist = node.getEdgeList();
+            AbstractNode node = regionIterator.next();
+            List<AbstractNode> edgelist = node.getEdgeList();
             int edgeListSize = edgelist.size();
             if (!(edgeListSize == 2) || (edgeListSize == 0)) {
                 return true;
@@ -33,12 +33,12 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
         return (!checkOnlyOneClosedCircuit(nodesInCircuit));
     }
 
-    private boolean checkOnlyOneClosedCircuit(List<Node> nodesInCircuit) {
+    private boolean checkOnlyOneClosedCircuit(List<AbstractNode> nodesInCircuit) {
 
-        List<Node> seenNodes = new ArrayList<Node>();
-        Node firstNode = nodesInCircuit.get(0);
-        List<Node> edgelistFirstNode = firstNode.getEdgeList();
-        Node nextNode = edgelistFirstNode.get(0);
+        List<AbstractNode> seenNodes = new ArrayList<AbstractNode>();
+        AbstractNode firstNode = nodesInCircuit.get(0);
+        List<AbstractNode> edgelistFirstNode = firstNode.getEdgeList();
+        AbstractNode nextNode = edgelistFirstNode.get(0);
 
         seenNodes.add(firstNode);
         seenNodes.add(nextNode);
@@ -47,12 +47,12 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
 
     }
 
-    private boolean recursive(Node lastNode, Node currentNode, List<Node> seenNodes, Node firstNode, List<Node> nodesInCircuit) {
-        List<Node> edgelistCurrentNode = currentNode.getEdgeList();
-        Node node1 = edgelistCurrentNode.get(0);
-        Node node2 = edgelistCurrentNode.get(1);
+    private boolean recursive(AbstractNode lastNode, AbstractNode currentNode, List<AbstractNode> seenNodes, AbstractNode firstNode, List<AbstractNode> nodesInCircuit) {
+        List<AbstractNode> edgelistCurrentNode = currentNode.getEdgeList();
+        AbstractNode node1 = edgelistCurrentNode.get(0);
+        AbstractNode node2 = edgelistCurrentNode.get(1);
 
-        Node newCurrentNode = getNextNode(lastNode, node1, node2);
+        AbstractNode newCurrentNode = getNextNode(lastNode, node1, node2);
 
         //condicion de corte
         if (newCurrentNode == firstNode) {
@@ -63,8 +63,8 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
 
     }
 
-    private Node getNextNode(Node lastNode, Node node1, Node node2) {
-        Node newCurrentNode;
+    private AbstractNode getNextNode(AbstractNode lastNode, AbstractNode node1, AbstractNode node2) {
+        AbstractNode newCurrentNode;
         if (node1 != lastNode) {
             newCurrentNode = node1;
         } else {
