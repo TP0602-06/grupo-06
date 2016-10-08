@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
@@ -9,6 +9,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.DrawCellFromModelHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.rulehelper.CellViewMakeUpHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
+
+import java.util.List;
 
 /**
  * Responsabilidades:
@@ -43,7 +45,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
         for (int i = 1; i <= modelBoard.getRows(); i++) {
             for (int j = 1; j <= modelBoard.getCols(); j++) {
                 ClassicPosition position = new ClassicPosition(i, j);
-                DrawableCell modelCell = modelBoard.getDrawableCell(position);
+                DrawableNode modelCell = modelBoard.getDrawableNode(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
                 cellView.setCoordinates(position.getRow(), position.getColumn());
                 makeup.beautyfy(cellView,modelCell);

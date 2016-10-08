@@ -1,9 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,35 +10,30 @@ import java.util.HashSet;
  * Created by german on 9/30/2016.
  */
 public class NoDuplicatesRule extends RuleImplementation {
-    public NoDuplicatesRule(ArrayList<Position> region) {
-        super(region, "");
+    public NoDuplicatesRule(ArrayList<AbstractNode> nodes) {
+        super(nodes, "");
     }
 
     @Override
-    public boolean isBroken(Board board) {
-        return checkRule(board,true);
+    public boolean isBroken() {
+        return check(false);
     }
 
     @Override
-    public boolean isActualBroken(Board board) {
-        return checkRule(board,false);
+    public boolean isActualBroken() {
+        return check(true);
     }
 
-    private boolean checkRule(Board board,boolean emptyEqualsFail) {
-        ArrayList<Integer> values = new ArrayList<Integer>();
-        for (Position position : super.region) {
-
-            Cell cell = board.getCell(position);
-            if (cell.isEmpty()) {
-                if (emptyEqualsFail) {
-                    return true;
-                }
-                continue;
-            }
-            if (values.contains(Integer.parseInt(cell.getValue()))) {
+    private boolean check(boolean isActual) {
+        HashSet<Integer> seenValues = new HashSet<Integer>();
+        for (AbstractNode node : this.region) {
+            if (node.isEmpty() && (seenValues.contains(Integer.parseInt(node.getValue()))) && (!isActual)) {
                 return true;
             }
-            values.add(Integer.parseInt(cell.getValue()));
+            if (isActual) {
+                continue;
+            }
+            seenValues.add(Integer.parseInt(node.getValue()));
         }
         return false;
     }

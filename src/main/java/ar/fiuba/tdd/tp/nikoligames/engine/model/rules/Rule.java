@@ -1,18 +1,17 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 import java.util.ArrayList;
 
-public interface Rule {
-    void addCellToRegion(int row, int col);
+public abstract class Rule {
 
-    ArrayList<Position> getRegion();
+    public ArrayList<AbstractNode> getRegion;
 
-    String getValue();
+    public abstract String getValue();
 
-    boolean isBroken(Board board);
+    public abstract  boolean isBroken();
 
-    boolean isActualBroken(Board board);
+    public abstract  boolean isActualBroken();
+
 }

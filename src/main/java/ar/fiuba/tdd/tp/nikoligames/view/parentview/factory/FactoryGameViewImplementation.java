@@ -27,13 +27,13 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     private static int DEFAULT_VIEW_HEIGHT = 700;
 
     @Override
-    public GameView createDefaultGameView(Game game) throws Exception {
+    public GameView createDefaultGameView(Game game, HashSet<String> validInputs) throws Exception {
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
         SelectValueController selectValueController = new SelectValueControllerImp(game);
 
         GridView boardView = createBoardView(game, selectValueController);
-        GridView inputs = createInputPanel(selectValueController, boardView, game.getValidInputs());
+        GridView inputs = createInputPanel(selectValueController, boardView, validInputs);
 
         Component restartAndCheckButtons = createButtons(game);
 

@@ -1,17 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.inputmanager.ValidInputManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportMoves;
 import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportMovesJson;
 import org.json.simple.JSONArray;
@@ -19,7 +10,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class ReportJsonParserForTest {

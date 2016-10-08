@@ -1,47 +1,28 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 import java.util.ArrayList;
 
 /**
  * Created by german on 9/30/2016.
  */
-public class MultiplicationRule extends RuleImplementation {
+public class MultiplicationRule extends ArithmeticRule {
 
-    public MultiplicationRule(ArrayList<Position> region, String value) {
-        super(region, value);
+    int value = 1;
+
+    public MultiplicationRule(ArrayList<AbstractNode> nodes, String value) {
+        super(nodes, value);
     }
 
-    @Override
-    public boolean isBroken(Board board) {
-        int multiplication = 1;
-        for (Position position : super.region) {
-            Cell cell = board.getCell(position);
-            if (cell.isEmpty()) {
-                return true;
-            }
-            multiplication *= Integer.parseInt(cell.getValue());
-        }
-        int value = Integer.parseInt(this.value);
-        boolean result = (value == multiplication);
-        return (!result);
-
+    protected int arithmeticOperation(int operationAcumulator, AbstractNode node) {
+        operationAcumulator = operationAcumulator * Integer.parseInt(node.getValue());
+        return operationAcumulator;
     }
 
-    @Override
-    public boolean isActualBroken(Board board) {
-        Integer addition = 1;
-        for (Position position : super.region) {
-            Cell cell = board.getCell(position);
-            if (cell.isEmpty()) {
-                return false;
-            }
-            addition *= Integer.parseInt(cell.getValue());
-        }
-        return (!this.value.equals(Integer.toString(addition)));
+
+    protected int defaultIntValue() {
+        return value;
     }
+
 }

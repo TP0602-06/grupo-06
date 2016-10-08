@@ -2,7 +2,10 @@ package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DirectedBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.inputmanager.ValidInputManager;
@@ -24,41 +27,36 @@ public class SimpleGameFactoryForTest {
     public static final String two = "2";
 
     public Game makeGame() {
-        Board board = new BoardImplementation(rows, cols);
+        Board board = new DirectedBoard(rows, cols);
         fillBoard(board);
         List<Rule> rules = new ArrayList<>();
-        Rule rule = new NoDuplicatesRule(makePositions());
+        Rule rule = new NoDuplicatesRule(makePositions(board));
         rules.add(rule);
 
-        RuleManager rulesManager = new RuleManager(board, rules);
-        HashSet<String> inputs = new HashSet<>();
-        inputs.add(one);
-        inputs.add(two);
-        ValidInputManager inputManager = new ValidInputManager(inputs);
 
-        return new GameImplementation(board, rulesManager, inputManager, "testGame");
+        return new GameImplementation(board, rules);
     }
 
     private void fillBoard(Board board) {
         for (int i = 1; i <= board.getRows(); i++) {
             for (int j = 1; j <= board.getCols(); j++) {
-                Cell cell = new Cell("", true, false);
+                AbstractNode cell = new ConcreteNode("", true);
                 Position position = new ClassicPosition(i, j);
-                board.setCell(position, cell);
+                board.setNode(position, cell);
             }
         }
     }
 
-    private ArrayList<Position> makePositions() {
-        ArrayList<Position> positions = new ArrayList<>();
+    private ArrayList<AbstractNode> makePositions(Board board) {
+        ArrayList<AbstractNode> nodes = new ArrayList<>();
 
-        for (int i = 1; i <= rows; i++) {
-            for (int j = 1; j <= cols; j++) {
-                Position position1 = new ClassicPosition(i, j);
-                positions.add(position1);
+        for (int i = 1; i <= board.getRows(); i++) {
+            for (int j = 1; j <= board.getCols(); j++) {
+                Position position = new ClassicPosition(i, j);
+                nodes.add(board.getNode(position));
             }
         }
-        return positions;
+        return nodes;
 
     }
 }

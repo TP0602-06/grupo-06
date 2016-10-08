@@ -1,11 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -57,7 +57,7 @@ public class ReportMovesJson implements ReportMoves {
         return moveJson;
     }
 
-    private JSONObject makeCellJson(DrawableCell cell, ClassicPosition position) {
+    private JSONObject makeCellJson(DrawableNode cell, Position position) {
         JSONObject cellJson = new JSONObject();
 
         JSONArray arrayPosition = new JSONArray();
@@ -73,8 +73,8 @@ public class ReportMovesJson implements ReportMoves {
         JSONArray cellsJson = new JSONArray();
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getCols(); j++) {
-                ClassicPosition position = new ClassicPosition(i + 1, j + 1);
-                JSONObject cell = makeCellJson(board.getDrawableCell(position), position);
+                Position position = new ClassicPosition(i + 1, j + 1);
+                JSONObject cell = makeCellJson(board.getDrawableNode(position), position);
                 cellsJson.add(cell);
             }
         }

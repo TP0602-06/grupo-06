@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,34 +7,47 @@ import java.util.List;
  * Se encarga de manejar todas las reglas y validarlas.
  */
 public class RuleManager {
-    private final Board board;
     private final List<Rule> rules;
 
-    public RuleManager(Board board, List<Rule> rules) {
-        this.board = board;
+    public RuleManager(List<Rule> rules) {
         this.rules = rules;
     }
 
-    // En el futuro no va a haber otras reglas a chequear
-    private boolean check(boolean actual) {
-        for (Rule rule : this.rules) {
-            if (rule.isActualBroken(this.board) && actual) {
-                return false;
-            }
-            if (rule.isBroken(this.board) && !actual) {
+    //Return true if it is all right
+    public boolean checkRules() {
+        RuleCommand ruleCommand = new IsBrokenCommand();
+        return this.check(ruleCommand);
+    }
+
+    public boolean checkActualRules() {
+        RuleCommand ruleCommand = new IsActualBrokenCommand();
+        return this.check(ruleCommand);
+    }
+
+    public boolean check(RuleCommand ruleCommand) {
+        Iterator<Rule> iterator = rules.iterator();
+        while (iterator.hasNext()) {
+            Rule rule = iterator.next();
+            if (ruleCommand.execute(rule)) {
                 return false;
             }
         }
         return true;
     }
 
-    //Return true if it is all right
-    public boolean checkRules() {
-        return check(false);
+    private interface RuleCommand {
+        boolean execute(Rule rule);
     }
 
-    public boolean checkActualRules() {
-        return check(true);
+    private class IsBrokenCommand implements RuleCommand {
+        public boolean execute(Rule rule) {
+            return rule.isBroken();
+        }
     }
 
+    private class IsActualBrokenCommand implements RuleCommand {
+        public boolean execute(Rule rule) {
+            return rule.isActualBroken();
+        }
+    }
 }

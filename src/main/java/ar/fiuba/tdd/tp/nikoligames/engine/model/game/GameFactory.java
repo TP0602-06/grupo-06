@@ -2,10 +2,14 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.game;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardFactory;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.inputmanager.ValidInputManager;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.GameConfig;
-import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.SizeConfig;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.NotValidRuleException;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleFactory;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfig;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by german on 10/1/2016.
@@ -13,13 +17,30 @@ import ar.fiuba.tdd.tp.nikoligames.engine.parser.utils.SizeConfig;
 public class GameFactory {
     private BoardFactory boardFactory = new BoardFactory();
 
-    public Game createGame(GameConfig gameConfig) {
-        SizeConfig sizeConfig = gameConfig.getSizeConfig();
-        Board board = boardFactory.createBoard(sizeConfig.getRows(), sizeConfig.getCols(), gameConfig.getInitialCells());
-        RuleManager ruleManager = new RuleManager(board, gameConfig.getRules());
-        ValidInputManager validInputManager = new ValidInputManager(gameConfig.getValidInputs());
-        String gameName = gameConfig.getName();
-        Game game = new GameImplementation(board, ruleManager, validInputManager, gameName);
+    public Game createGame(GameConfig gameConfig) throws NotValidRuleException {
+
+        Board board = makeBoard(gameConfig);
+        List<Rule> rules = makeRules(gameConfig, board);
+
+        Game game = new GameImplementation(board, rules);
         return game;
+    }
+
+    private List<Rule> makeRules(GameConfig gameConfig, Board board) throws NotValidRuleException {
+        RuleFactory ruleFactory = new RuleFactory(board);
+        List<Rule> rules = new ArrayList<Rule>();
+
+        Rule validInpusRule = ruleFactory.createValidValueRule(gameConfig.getValidInputs());
+        rules.add(validInpusRule);//La pongo primera esta regla para que sea la primera que rompa
+
+        List<Rule> otherRules = ruleFactory.createRules(gameConfig.getRules());
+
+        rules.addAll(otherRules);
+        return rules;
+    }
+
+    private Board makeBoard(GameConfig gameConfig) {
+        SizeConfig sizeConfig = gameConfig.getSizeConfig();
+        return boardFactory.createBoard(sizeConfig, gameConfig.getInitialCells());
     }
 }

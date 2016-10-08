@@ -1,45 +1,27 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.Cell;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleDefinitionValidator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 import java.util.ArrayList;
 
 /**
  * Created by german on 9/30/2016.
  */
-public class AdditionRule extends RuleImplementation {
-    public AdditionRule(ArrayList<Position> region, String value) {
+public class AdditionRule extends ArithmeticRule {
+    int value = 0;
+
+    public AdditionRule(ArrayList<AbstractNode> region, String value) {
         super(region, value);
     }
 
-    @Override
-    public boolean isBroken(Board board) {
-        int addition = 0;
-        for (Position position : super.region) {
-            Cell cell = board.getCell(position);
-            if (cell.isEmpty()) {
-                return true;
-            }
-            addition += Integer.parseInt(cell.getValue());
-        }
-        int value = Integer.parseInt(this.value);
-        boolean result = (value == addition);
-        return (!result);
+    protected int arithmeticOperation(int operationAcumulator, AbstractNode node) {
+        operationAcumulator = operationAcumulator + Integer.parseInt(node.getValue());
+        return operationAcumulator;
     }
 
-    @Override
-    public boolean isActualBroken(Board board) {
-        Integer addition = 0;
-        for (Position position : super.region) {
-            Cell cell = board.getCell(position);
-            if (cell.isEmpty()) {
-                return false;
-            }
-            addition += Integer.parseInt(cell.getValue());
-        }
-        return (!this.value.equals(Integer.toString(addition)));
+
+    protected int defaultIntValue() {
+        return value;
     }
+
 }

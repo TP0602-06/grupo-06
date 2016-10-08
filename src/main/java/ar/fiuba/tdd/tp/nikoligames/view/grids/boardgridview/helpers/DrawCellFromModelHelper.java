@@ -1,12 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.cell.DrawableCell;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableViewCell;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.NotEditableViewCell;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
-
-import javax.swing.*;
 
 /**
  * Esta clase define como elegir las celdas de la vista en base a las del modelo.
@@ -19,7 +17,7 @@ public class DrawCellFromModelHelper implements AbstractDrawCellFromModelHelper 
     }
 
     @Override
-    public CellView drawCellFromModel(DrawableCell modelCell) {
+    public CellView drawCellFromModel(DrawableNode modelCell) {
 
         CellView cellView;
         boolean isEditable = modelCell.isEditable();
