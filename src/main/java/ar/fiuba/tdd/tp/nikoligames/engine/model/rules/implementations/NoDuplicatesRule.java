@@ -27,12 +27,14 @@ public class NoDuplicatesRule extends RuleImplementation {
     private boolean check(boolean isActual) {
         HashSet<Integer> seenValues = new HashSet<Integer>();
         for (AbstractNode node : this.region) {
-            if (node.isEmpty() && (seenValues.contains(Integer.parseInt(node.getValue()))) && (!isActual)) {
-                return true;
-            }
-            if (isActual) {
+            if (node.isEmpty() && isActual) {
                 continue;
             }
+
+            if ((node.isEmpty() && (!isActual)) || (seenValues.contains(Integer.parseInt(node.getValue()))) ) {
+                return true;
+            }
+
             seenValues.add(Integer.parseInt(node.getValue()));
         }
         return false;

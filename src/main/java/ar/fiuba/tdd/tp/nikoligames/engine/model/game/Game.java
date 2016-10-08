@@ -10,7 +10,7 @@ import java.util.HashSet;
  */
 public interface Game {
 
-    void changeNodeValue(Position position, String value);
+    boolean changeNodeValue(Position position, String value);
 
     boolean run();
 

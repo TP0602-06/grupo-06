@@ -32,9 +32,16 @@ public class GameImplementation implements Game {
         return this.ruleManager.checkRules();
     }
 
-    public void changeNodeValue(Position position, String value) {
+    public boolean changeNodeValue(Position position, String value) {
+        String previousValue = board.getDrawableNode(position).getValue();
         board.changeNodeValue(position, value);
-        //TODO verificar movimiento valido
+        if (ruleManager.checkActualRules()){
+            return true;
+        } else {
+            board.changeNodeValue(position, previousValue);
+            return false;
+        }
+
     }
 
     public void createEdge(Position position1, Position position2){

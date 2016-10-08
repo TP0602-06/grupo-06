@@ -22,10 +22,7 @@ public class Play {
     }
 
     public boolean makeMove(Game game) throws Exception {
-        game.changeNodeValue(position, value);
-        DrawableNode cell = game.getDrawableBoard().getDrawableNode(position);
-        String actualValue = cell.getValue();
-        return actualValue.equals(value);
+        return game.changeNodeValue(position, value);
     }
 
     public Integer getNum() {
