@@ -32,8 +32,12 @@ public class RuleFactory {
             region.add(board.getNode(pos));
         }
 
+        ArrayList<AbstractNode> adjacents = new ArrayList<>();
+        for (Position pos : ruleConfig.getAdjacentPosition()) {
+            adjacents.add(board.getNode(pos));
+        }
         RuleType ruleDefinition = RuleType.getRuleType(ruleConfig.getRuleDefinition());
-        Rule rule = ruleDefinition.createRule(region, ruleConfig.getValue());
+        Rule rule = ruleDefinition.createRule(region,adjacents, ruleConfig.getValue());
         return rule;
     }
 

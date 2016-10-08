@@ -12,6 +12,7 @@ import java.util.List;
 public class RuleConfig {
 
     private List<Position> regionPositions = new ArrayList<Position>();
+    private List<Position> adjacentPosition = new ArrayList<Position>();
     private String ruleDefinition;
     private String value = "";
 
@@ -36,7 +37,11 @@ public class RuleConfig {
     }
 
     public void addCellToRegion(int row, int col) {
-        this.regionPositions.add( new ClassicPosition(row, col));
+        this.regionPositions.add(new ClassicPosition(row, col));
+    }
+
+    public void addCellToAdjacentRegion(int row, int col) {
+        this.adjacentPosition.add(new ClassicPosition(row, col));
     }
 
     public List<Position> getRegionPositions() {
@@ -44,4 +49,11 @@ public class RuleConfig {
     }
 
 
+    public List<Position> getAdjacentPosition() {
+        return adjacentPosition;
+    }
+
+    public void setAdjacentPosition(List<Position> adjacentPosition) {
+        this.adjacentPosition = adjacentPosition;
+    }
 }
