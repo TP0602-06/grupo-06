@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * GameImplementation. Adminstra el juego. Valida las reglas y permite que se modifiquen el valor de las celdas.
  * patron de diseno:
- *  Mediador
+ * Mediador
  */
 
 public class GameImplementation implements Game {
@@ -35,7 +35,7 @@ public class GameImplementation implements Game {
     public boolean changeNodeValue(Position position, String value) {
         String previousValue = board.getDrawableNode(position).getValue();
         board.changeNodeValue(position, value);
-        if (ruleManager.checkActualRules()){
+        if (ruleManager.checkActualRules()) {
             return true;
         } else {
             board.changeNodeValue(position, previousValue);
@@ -44,8 +44,8 @@ public class GameImplementation implements Game {
 
     }
 
-    public void createEdge(Position position1, Position position2){
-        board.createEdge(position1,position2);
+    public void createEdge(Position position1, Position position2) {
+        board.createEdge(position1, position2);
         // TODO verificar que sea una conexion valida
     }
 

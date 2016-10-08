@@ -31,7 +31,7 @@ public class NoDuplicatesRule extends RuleImplementation {
                 continue;
             }
 
-            if ((node.isEmpty() && (!isActual)) || (seenValues.contains(Integer.parseInt(node.getValue()))) ) {
+            if ((node.isEmpty() && (!isActual)) || (seenValues.contains(Integer.parseInt(node.getValue())))) {
                 return true;
             }
 

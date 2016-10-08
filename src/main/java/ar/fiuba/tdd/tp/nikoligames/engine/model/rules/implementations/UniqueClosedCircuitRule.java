@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Responsabilidades:
- * Checkear que haya un sólo camino cerrado en un grafo planar
+ * Checkear que haya un sólo camino cerrado en un grafo planar.
  */
 public class UniqueClosedCircuitRule extends RuleImplementation {
     public UniqueClosedCircuitRule(ArrayList<AbstractNode> region) {

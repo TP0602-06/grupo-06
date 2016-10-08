@@ -44,6 +44,7 @@ public class NextNotVisitedNodesDifferentRegionRule extends RuleImplementation {
 
         return false;
     }
+
     @Override
     public boolean isActualBroken() {
         return isBroken();//TODO revisar
