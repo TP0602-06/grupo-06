@@ -8,9 +8,9 @@ import java.util.List;
 /**
  * Created by Andres on 08/10/2016.
  */
-public abstract class VisitRule extends RuleImplementation {
+public abstract class AbstractVisitRule extends RuleImplementation {
 
-    public VisitRule(List<AbstractNode> region, String value) {
+    public AbstractVisitRule(List<AbstractNode> region, String value) {
         super(region, value);
     }
 

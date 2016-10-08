@@ -8,7 +8,7 @@ import java.util.Iterator;
 /**
  * Created by german on 10/6/2016.
  */
-public class VisitedCountRule extends VisitRule {
+public class VisitedCountRule extends AbstractVisitRule {
 
     public VisitedCountRule(ArrayList<AbstractNode> region, String value) {
         super(region, value);

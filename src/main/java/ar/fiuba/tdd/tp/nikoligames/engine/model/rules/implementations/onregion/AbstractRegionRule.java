@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.regionrules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * Created by Andres on 08/10/2016.
  */
-public abstract class RegionRule extends RuleImplementation {
-    public RegionRule(List<AbstractNode> region, String value) {
+public abstract class AbstractRegionRule extends RuleImplementation {
+    public AbstractRegionRule(List<AbstractNode> region, String value) {
         super(region, value);
     }
 

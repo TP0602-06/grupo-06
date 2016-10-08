@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 /**
  * Created by Andres on 01/10/2016.
  */
-public abstract class ArithmeticRule extends RuleImplementation {
-    public ArithmeticRule(ArrayList<AbstractNode> region, String value) {
+public abstract class AbstractArithmeticRule extends RuleImplementation {
+    public AbstractArithmeticRule(ArrayList<AbstractNode> region, String value) {
         super(region, value);
     }
 

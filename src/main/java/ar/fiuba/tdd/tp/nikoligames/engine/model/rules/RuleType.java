@@ -2,8 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules.AdditionRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules.MultiplicationRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.AdditionRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.MultiplicationRule;
 
 import java.util.ArrayList;
 

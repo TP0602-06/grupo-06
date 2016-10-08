@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by german on 9/30/2016.
  */
-public class AdditionRule extends ArithmeticRule {
+public class AdditionRule extends AbstractArithmeticRule {
     int value = 0;
 
     public AdditionRule(ArrayList<AbstractNode> region, String value) {

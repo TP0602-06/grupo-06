@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by german on 9/30/2016.
  */
-public class MultiplicationRule extends ArithmeticRule {
+public class MultiplicationRule extends AbstractArithmeticRule {
 
     int value = 1;
 

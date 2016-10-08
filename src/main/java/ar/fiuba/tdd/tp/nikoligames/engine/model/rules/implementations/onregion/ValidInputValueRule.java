@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.regionrules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by german on 10/7/2016.
  */
-public class ValidInputValueRule extends RegionRule {
+public class ValidInputValueRule extends AbstractRegionRule {
     public static final String CLEAR = "";
     private HashSet<String> validInputs;
 

@@ -1,14 +1,13 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.regionrules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by german on 10/6/2016.
  */
-public class AdjacentRule extends RegionRule {
+public class AdjacentRule extends AbstractRegionRule {
 
     private List<AbstractNode> adjacentNodes;
 
