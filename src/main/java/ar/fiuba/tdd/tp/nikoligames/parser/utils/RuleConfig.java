@@ -36,8 +36,7 @@ public class RuleConfig {
     }
 
     public void addCellToRegion(int row, int col) {
-        Position pos = new ClassicPosition(row, col);
-        this.regionPositions.add(pos);
+        this.regionPositions.add( new ClassicPosition(row, col));
     }
 
     public List<Position> getRegionPositions() {

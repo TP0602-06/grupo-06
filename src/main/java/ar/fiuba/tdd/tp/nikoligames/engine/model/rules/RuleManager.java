@@ -39,14 +39,14 @@ public class RuleManager {
         boolean execute(Rule rule);
     }
 
-    private class IsBrokenCommand implements RuleCommand {
+    private static class IsBrokenCommand implements RuleCommand {
         public boolean execute(Rule rule) {
             return rule.isBroken();
         }
     }
 
-    private class IsActualBrokenCommand implements RuleCommand {
-        public boolean execute(Rule rule) {
+    private static class IsActualBrokenCommand implements RuleCommand {
+        public  boolean execute(Rule rule) {
             return rule.isActualBroken();
         }
     }

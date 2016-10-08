@@ -33,7 +33,6 @@ public class GameImplementation implements Game {
     }
 
     public void changeNodeValue(Position position, String value) {
-        String previousValue = board.getDrawableNode(position).getValue();
         board.changeNodeValue(position, value);
     }
 
