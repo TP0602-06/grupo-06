@@ -16,6 +16,11 @@ public class VisitedCountRule extends VisitRule {
 
     @Override
     public boolean isBroken() {
+        int count = getCount();
+        return compareEqualsCount(count);
+    }
+
+    private int getCount() {
         int count = 0;
 
         Iterator<AbstractNode> regionIterator = region.iterator();
@@ -25,16 +30,29 @@ public class VisitedCountRule extends VisitRule {
                 count++;
             }
         }
+        return count;
+    }
+
+    private boolean compareEqualsCount(int count) {
         if (count == Integer.parseInt(value)) {
             return false;
+        } else {
+            return true;
         }
-        return true;
     }
+
 
     @Override
     public boolean isActualBroken() {
-        return isBroken();//TODO revisar
+        int count = getCount();
+        return compareLessOrEqualsCount(count);//TODO revisar
     }
 
-
+    private boolean compareLessOrEqualsCount(int count) {
+        if (count <= Integer.parseInt(value)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
