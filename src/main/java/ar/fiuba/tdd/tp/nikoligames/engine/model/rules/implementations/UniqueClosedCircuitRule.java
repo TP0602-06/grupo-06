@@ -24,7 +24,7 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
             AbstractNode node = regionIterator.next();
             List<AbstractNode> edgelist = node.getEdgeList();
             int edgeListSize = edgelist.size();
-            if (!(edgeListSize == 2) || (edgeListSize == 0)) {
+            if (!((edgeListSize == 2) || (edgeListSize == 0))) {
                 return true;
             } else if (edgeListSize == 2) {
                 nodesInCircuit.add(node);

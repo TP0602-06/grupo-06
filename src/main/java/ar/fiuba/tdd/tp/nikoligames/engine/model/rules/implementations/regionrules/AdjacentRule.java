@@ -12,7 +12,7 @@ public class AdjacentRule extends RegionRule {
 
     private List<AbstractNode> adjacentNodes;
 
-    public AdjacentRule(ArrayList<AbstractNode> region, ArrayList<AbstractNode> adjacentNodes) {
+    public AdjacentRule(List<AbstractNode> region, List<AbstractNode> adjacentNodes) {
         super(region, "");
         this.adjacentNodes = adjacentNodes;
     }
