@@ -16,8 +16,6 @@ public abstract class RuleImplementation extends Rule {
         this.region = region;
     }
 
-
-
     public String getValue() {
         return value;
     }

@@ -23,7 +23,7 @@ public class RuleFactory {
     public Rule createValidValueRule(HashSet<String> validInputs) {
         List<AbstractNode> allNodes = board.getAllNodes();
         Rule validInputsRule = new ValidInputValueRule(allNodes,validInputs);
-        return null;
+        return validInputsRule;
     }
 
     private Rule createRule(RuleConfig ruleConfig) throws NotValidRuleException {
