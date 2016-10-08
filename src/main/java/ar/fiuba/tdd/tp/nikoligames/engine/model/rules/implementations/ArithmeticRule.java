@@ -19,24 +19,19 @@ public abstract class ArithmeticRule extends RuleImplementation {
 
     @Override
     public boolean isBroken() {
-        return check(false);
-
+        return check();
     }
 
     @Override
     public boolean isActualBroken() {
-        return check(true);
+        return check();
     }
 
-    private boolean check(boolean isActual) {
+    private boolean check() {
         int operationAcumulator = this.defaultIntValue();
         for (AbstractNode node : super.region) {
             if (node.isEmpty()) {
-                if (isActual) {
                     continue;
-                } else {
-                    return true;
-                }
             }
             operationAcumulator = this.arithmeticOperation(operationAcumulator, node);
         }

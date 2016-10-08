@@ -16,6 +16,7 @@ public class ValidInputValueRule extends RuleImplementation {
 
     public ValidInputValueRule(List<AbstractNode> region, HashSet<String> validInputs) {
         super(region, "");
+        this.validInputs = validInputs;
     }
 
     @Override
