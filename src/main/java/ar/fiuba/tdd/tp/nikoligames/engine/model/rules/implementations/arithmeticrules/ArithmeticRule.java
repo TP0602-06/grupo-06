@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
@@ -31,7 +31,7 @@ public abstract class ArithmeticRule extends RuleImplementation {
         int operationAcumulator = this.defaultIntValue();
         for (AbstractNode node : super.region) {
             if (node.isEmpty()) {
-                    continue;
+                continue;
             }
             operationAcumulator = this.arithmeticOperation(operationAcumulator, node);
         }

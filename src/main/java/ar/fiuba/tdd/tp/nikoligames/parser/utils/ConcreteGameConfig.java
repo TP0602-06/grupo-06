@@ -13,7 +13,7 @@ public class ConcreteGameConfig implements GameConfig {
 
     private SizeConfig sizeConfig;
 
-    public ConcreteGameConfig(String name, SizeConfig sizeConfig, HashSet<String> validInputs,List<RuleConfig> rules,List<NodeConfig> node) {
+    public ConcreteGameConfig(String name,SizeConfig sizeConfig,HashSet<String> validInputs,List<RuleConfig> rules, List<NodeConfig> node) {
         this.sizeConfig = sizeConfig;
         this.name = name;
         this.rules = rules;

@@ -28,25 +28,24 @@ public class GameImplementation implements Game {
         return board;
     }
 
-    public boolean run() {
+    public boolean checkWin() {
         return this.ruleManager.checkRules();
     }
 
-    public boolean changeNodeValue(Position position, String value) {
-        String previousValue = board.getDrawableNode(position).getValue();
+    public void changeNodeValue(Position position, String value) {
         board.changeNodeValue(position, value);
-        if (ruleManager.checkActualRules()) {
-            return true;
-        } else {
-            board.changeNodeValue(position, previousValue);
-            return false;
-        }
-
     }
 
     public void createEdge(Position position1, Position position2) {
         board.createEdge(position1, position2);
         // TODO verificar que sea una conexion valida
     }
+
+    public boolean checkActualBoard() {
+        return this.ruleManager.checkActualRules();
+    }
+
+    ;
+
 
 }

@@ -63,11 +63,11 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         return nodes[position.getRow()][position.getColumn()];
     }
 
-    public List<AbstractNode> getAllNodes(){
+    public List<AbstractNode> getAllNodes() {
         List<AbstractNode> allNodes = new ArrayList<AbstractNode>();
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                Position position = new MatrixPosition(i,j);
+                Position position = new MatrixPosition(i, j);
                 AbstractNode node = this.getNode(position);
                 allNodes.add(node);
             }

@@ -1,16 +1,14 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by german on 10/6/2016.
  */
-public class VisitedCountRule extends RuleImplementation {
+public class VisitedCountRule extends VisitRule {
 
     public VisitedCountRule(ArrayList<AbstractNode> region, String value) {
         super(region, value);
@@ -38,13 +36,5 @@ public class VisitedCountRule extends RuleImplementation {
         return isBroken();//TODO revisar
     }
 
-    private boolean isVisited(AbstractNode node) {
-        List<AbstractNode> edgeList = node.getEdgeList();
-        int size = edgeList.size();
-        if (size == 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+
 }

@@ -19,7 +19,6 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
     @Override
     public boolean isBroken() {
         List<AbstractNode> nodesInCircuit = new ArrayList<AbstractNode>();
-
         Iterator<AbstractNode> regionIterator = region.iterator();
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();

@@ -25,7 +25,7 @@ public class CheckGameButton extends JButton implements ButtonCommand {
 
     public void execute() {
 
-        if (game.run()) {
+        if (game.checkWin()) {
             setBackground(Color.GREEN);
         } else {
             setBackground(ColorSet.ERROR);

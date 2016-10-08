@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public abstract class Rule {
 
-    public ArrayList<AbstractNode> getRegion;
 
     public abstract String getValue();
 

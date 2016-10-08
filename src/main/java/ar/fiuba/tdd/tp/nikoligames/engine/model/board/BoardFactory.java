@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class BoardFactory {
 
-    public Board createBoard(SizeConfig sizeConfig,List<NodeConfig> initialNodes ){
-        return this.createBoard(sizeConfig.getRows(),sizeConfig.getCols(),initialNodes);
+    public Board createBoard(SizeConfig sizeConfig, List<NodeConfig> initialNodes) {
+        return this.createBoard(sizeConfig.getRows(), sizeConfig.getCols(), initialNodes);
     }
 
     public Board createBoard(int rows, int cols, List<NodeConfig> initialNodes) {

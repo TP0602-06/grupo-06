@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 

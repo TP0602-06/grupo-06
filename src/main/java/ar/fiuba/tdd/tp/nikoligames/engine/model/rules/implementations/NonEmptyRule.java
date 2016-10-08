@@ -19,7 +19,7 @@ public class NonEmptyRule extends RuleImplementation {
         Iterator<AbstractNode> regionIterator = region.iterator();
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
-            if(node.isEmpty()){
+            if (node.isEmpty()) {
                 return true;
             }
         }

@@ -22,7 +22,8 @@ public class Play {
     }
 
     public boolean makeMove(Game game) throws Exception {
-        return game.changeNodeValue(position, value);
+        game.changeNodeValue(position, value);
+        return game.checkActualBoard();
     }
 
     public Integer getNum() {

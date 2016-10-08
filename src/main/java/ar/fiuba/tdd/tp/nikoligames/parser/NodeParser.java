@@ -17,8 +17,8 @@ public class NodeParser {
     public NodeConfig parseNode(JSONObject cellObj) {
 
         JSONArray positionCellObj = (JSONArray) cellObj.get(BOARD_POSITION);
-        int row = (int) (long) positionCellObj.get(0);
         int col = (int) (long) positionCellObj.get(1);
+        int row = (int) (long) positionCellObj.get(0);
 
         String boardValue = "";
         if (cellObj.containsKey(BOARD_VALUE)) {
