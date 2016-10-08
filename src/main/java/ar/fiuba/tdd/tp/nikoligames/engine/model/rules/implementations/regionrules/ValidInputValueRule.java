@@ -1,16 +1,14 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.regionrules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by german on 10/7/2016.
  */
-public class ValidInputValueRule extends RuleImplementation {
+public class ValidInputValueRule extends RegionRule {
     public static final String CLEAR = "";
     private HashSet<String> validInputs;
 
@@ -19,16 +17,11 @@ public class ValidInputValueRule extends RuleImplementation {
         this.validInputs = validInputs;
     }
 
+
+
     @Override
-    public boolean isBroken() {
-        Iterator<AbstractNode> nodeIterator = region.iterator();
-        while (nodeIterator.hasNext()) {
-            AbstractNode node = nodeIterator.next();
-            if (!isValidInput(node.getValue())) {
-                return true;
-            }
-        }
-        return false;
+    protected boolean nodeCondition(AbstractNode node) {
+        return (!isValidInput(node.getValue()));
     }
 
     @Override

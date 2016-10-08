@@ -1,7 +1,6 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,7 +9,7 @@ import java.util.List;
 /**
  * Created by german on 10/6/2016.
  */
-public class NextNotVisitedNodesDifferentRegionRule extends RuleImplementation {
+public class NextNotVisitedNodesDifferentRegionRule extends VisitRule {
 
     private final List<List<AbstractNode>> regions;
 
@@ -50,13 +49,5 @@ public class NextNotVisitedNodesDifferentRegionRule extends RuleImplementation {
         return isBroken();//TODO revisar
     }
 
-    private boolean isVisited(AbstractNode node) {
-        List<AbstractNode> edgeList = node.getEdgeList();
-        int size = edgeList.size();
-        if (size == 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+
 }
