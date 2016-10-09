@@ -17,7 +17,7 @@ import java.util.Iterator;
  * 1. Abstract Factory
  */
 public class FactoryInputDigit implements AbstractFactoryInputGrid {
-    
+
     SelectValueController selectValueController;
     private HashSet<String> validInputs;
 

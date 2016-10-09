@@ -5,15 +5,15 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 
 /**
- * Created by tobias on 09/10/16.
+ * Esta clase se encarga de dibujar lineas.
  */
-public class LineGraphicDraw implements GraphicDraw{
+public class LineGraphicDraw implements GraphicDraw {
 
     private Color color;
     private LinePosition start;
     private LinePosition end;
 
-    public LineGraphicDraw(Color color, LinePosition start, LinePosition end ) {
+    public LineGraphicDraw(Color color, LinePosition start, LinePosition end) {
         this.color = color;
         this.start = start;
         this.end = end;
@@ -28,13 +28,14 @@ public class LineGraphicDraw implements GraphicDraw{
         g2.draw(createLine(bounds));
     }
 
-    private Line2D createLine(Rectangle2D bounds){
+    private Line2D createLine(Rectangle2D bounds) {
         double width = bounds.getWidth();
         double height = bounds.getHeight();
-        double startX = width * start.getXEscalator();
-        double startY = height * start.getYEscalator();
-        double endX = width * end.getXEscalator();
-        double endY = height * end.getYEscalator();
-        return  new Line2D.Double(startX,startY,endX,endY);
+        double startX = start.getWidth(width);
+        double startY = start.getHeight(height);
+        double endX = end.getWidth(width);
+        double endY = end.getHeight(height);
+
+        return new Line2D.Double(startX, startY, endX, endY);
     }
 }

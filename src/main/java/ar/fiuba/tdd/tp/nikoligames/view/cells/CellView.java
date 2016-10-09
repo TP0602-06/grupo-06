@@ -21,6 +21,7 @@ public abstract class CellView extends JButton {
     public CellView() {
         this.graphics = new ArrayList<>();
     }
+
     public void setCoordinates(Integer indexX, Integer indexY) {
         this.indexX = indexX;
         this.indexY = indexY;
@@ -43,8 +44,8 @@ public abstract class CellView extends JButton {
         this.setBackground(backgroundColor);
     }
 
-    public void addGraphic(GraphicDraw p) {
-        graphics.add(p);
+    public void addGraphic(GraphicDraw graphicDrawer) {
+        graphics.add(graphicDrawer);
     }
 
     public void resetGraphics() {
@@ -52,8 +53,8 @@ public abstract class CellView extends JButton {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        graphics.forEach((painter) -> painter.paint(g));
+    protected void paintComponent(Graphics graphic) {
+        super.paintComponent(graphic);
+        graphics.forEach((painter) -> painter.paint(graphic));
     }
 }
