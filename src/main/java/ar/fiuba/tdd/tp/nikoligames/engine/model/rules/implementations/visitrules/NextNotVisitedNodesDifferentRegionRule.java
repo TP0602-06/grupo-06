@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by german on 10/6/2016.
  */
-public class NextNotVisitedNodesDifferentRegionRule extends VisitRule {
+public class NextNotVisitedNodesDifferentRegionRule extends AbstractVisitRule {
 
     private final List<List<AbstractNode>> regions;
 

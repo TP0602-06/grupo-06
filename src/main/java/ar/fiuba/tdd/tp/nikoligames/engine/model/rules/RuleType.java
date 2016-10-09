@@ -2,12 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NonEmptyRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.UniqueClosedCircuitRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules.AdditionRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeticrules.MultiplicationRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.regionrules.AdjacentRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules.VisitedCountRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.AdditionRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.MultiplicationRule;
 
 import java.util.ArrayList;
 
@@ -15,37 +11,22 @@ import java.util.ArrayList;
  * Created by Andres on 01/10/2016.
  */
 public enum RuleType {
-    @SuppressWarnings("CPD-START")
+
     DO_NOT_REPEAT("NO_REPITE") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
+        public Rule createRule(ArrayList<AbstractNode> nodes, String value) {
             return new NoDuplicatesRule(nodes);
         }
     }, SUMA("SUMA") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
+        public Rule createRule(ArrayList<AbstractNode> nodes, String value) {
             return new AdditionRule(nodes, value);
         }
     }, MULTIPLICATION("MULTIPLICACION") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
+        public Rule createRule(ArrayList<AbstractNode> nodes, String value) {
             return new MultiplicationRule(nodes, value);
         }
-    }, ADJACENT("ADYACENTE") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new AdjacentRule(nodes, adjacentNodes);
-        }
-    }, VISITEDDCOUNTRULE("CUENTAVISITADOS") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new VisitedCountRule(nodes, value);
-        }
-    }, NONEMPTY("NOVACIO") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new NonEmptyRule(nodes);
-        }
-    }, UniqueClosedCircuitRule("UNICOCIRCUITOCERRADO") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new UniqueClosedCircuitRule(nodes);
-        }
+
     };
-    @SuppressWarnings("CPD-END")
+
     private final String text;
 
     private RuleType(final String text) {
@@ -70,5 +51,5 @@ public enum RuleType {
         return this.toString().equals(string);
     }
 
-    public abstract Rule createRule(ArrayList<AbstractNode> cells, ArrayList<AbstractNode> adjacentNodes, String value);
+    public abstract Rule createRule(ArrayList<AbstractNode> cells, String value);
 }
