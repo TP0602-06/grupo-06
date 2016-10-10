@@ -12,9 +12,11 @@ import java.util.Map;
  * Created by german on 10/9/2016.
  */
 public class ValidEdgesRules extends AbstractAdjacentRulesGenerator {
+
     public ValidEdgesRules(Map<AbstractNode, List<AbstractNode>> adjacentList) {
         super(adjacentList);
     }
+
     void createRule(AbstractNode node, List<AbstractNode> nodeAdjacentList, List<Rule> rulesGenerated) {
         List<AbstractNode> ruleRegion = new ArrayList<AbstractNode>();
         ruleRegion.add(node);

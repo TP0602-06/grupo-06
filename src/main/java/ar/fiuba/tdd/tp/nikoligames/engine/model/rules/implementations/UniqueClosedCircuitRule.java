@@ -52,7 +52,8 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
 
     }
 
-    private boolean recursive(AbstractNode lastNode, AbstractNode currentNode, List<AbstractNode> seenNodes, AbstractNode firstNode, List<AbstractNode> nodesInCircuit) {
+    private boolean recursive(AbstractNode lastNode, AbstractNode currentNode, List<AbstractNode> seenNodes,
+                              AbstractNode firstNode, List<AbstractNode> nodesInCircuit) {
         List<AbstractNode> edgelistCurrentNode = currentNode.getEdgeList();
         AbstractNode node1 = edgelistCurrentNode.get(0);
         AbstractNode node2 = edgelistCurrentNode.get(1);

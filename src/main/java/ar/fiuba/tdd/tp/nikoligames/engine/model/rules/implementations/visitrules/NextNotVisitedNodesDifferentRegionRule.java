@@ -33,11 +33,7 @@ public class NextNotVisitedNodesDifferentRegionRule extends AbstractVisitRule {
             List<AbstractNode> region = regionsIterator.next();
             if (region.contains(node1) || (region.contains(node2))) {
                 //solo si son No visitadas en distintas regiones se rompe la regla
-                if (((region.contains(node1)) && (region.contains(node2)))) {
-                    return false;
-                } else {
-                    return true;
-                }
+                return !((region.contains(node1)) && (region.contains(node2)));
             }
         }
 

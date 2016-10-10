@@ -9,5 +9,5 @@ import java.util.Map;
  * Created by german on 10/9/2016.
  */
 public interface AdjacentListGenerator {
-    Map<AbstractNode, List<AbstractNode>> getAjacentList();
+    Map<AbstractNode, List<AbstractNode>> getAdjacentList();
 }
