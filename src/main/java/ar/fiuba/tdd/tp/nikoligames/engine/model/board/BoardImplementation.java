@@ -80,8 +80,8 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         return getNode(position);
     }
 
-    public Iterator getPositionIterator(){
-        return  new BoardPositionIterator(this);
+    public Iterator getPositionIterator() {
+        return new BoardPositionIterator(this);
     }
 
     private boolean outOfRange(Position position) {

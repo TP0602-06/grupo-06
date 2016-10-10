@@ -14,7 +14,7 @@ public class NextNotVisitedNodesDifferentRegionRule extends AbstractVisitRule {
     private final List<List<AbstractNode>> regions;
 
     //la region seria cada par de celda contiguas o adyacentes
-    public NextNotVisitedNodesDifferentRegionRule(ArrayList<AbstractNode> region, List<List<AbstractNode>> regions) {
+    public NextNotVisitedNodesDifferentRegionRule(List<AbstractNode> region, List<List<AbstractNode>> regions) {
         super(region, "");
         this.regions = regions;
     }
@@ -46,7 +46,7 @@ public class NextNotVisitedNodesDifferentRegionRule extends AbstractVisitRule {
 
     @Override
     public boolean isActualBroken() {
-        return isBroken();//TODO revisar
+        return false;//TODO revisar
     }
 
 
