@@ -7,6 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.position.MatrixPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -77,6 +78,10 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
 
     public DrawableNode getDrawableNode(Position position) {
         return getNode(position);
+    }
+
+    public Iterator getPositionIterator() {
+        return new BoardPositionIterator(this);
     }
 
     private boolean outOfRange(Position position) {

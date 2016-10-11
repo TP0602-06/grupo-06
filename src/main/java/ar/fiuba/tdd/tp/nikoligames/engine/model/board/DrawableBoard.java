@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -14,4 +15,6 @@ public interface DrawableBoard {
     int getCols();
 
     int getRows();
+
+    Iterator getPositionIterator();
 }

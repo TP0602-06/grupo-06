@@ -9,6 +9,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -71,12 +72,12 @@ public class ReportMovesJson implements ReportMoves {
 
     private JSONObject makeBoardReportJson(DrawableBoard board) {
         JSONArray cellsJson = new JSONArray();
-        for (int i = 0; i < board.getRows(); i++) {
-            for (int j = 0; j < board.getCols(); j++) {
-                Position position = new ClassicPosition(i + 1, j + 1);
-                JSONObject cell = makeCellJson(board.getDrawableNode(position), position);
-                cellsJson.add(cell);
-            }
+        Iterator boardIterator = board.getPositionIterator();
+        while (boardIterator.hasNext()) {
+            Position position = (Position) boardIterator.next();
+            JSONObject cell = makeCellJson(board.getDrawableNode(position), position);
+            cellsJson.add(cell);
+
         }
 
         JSONObject boardStatus = new JSONObject();

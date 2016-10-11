@@ -18,9 +18,6 @@ import java.util.Iterator;
  */
 public class FactoryInputDigit implements AbstractFactoryInputGrid {
 
-    private static final int firstDigit = 1;
-    private static final int lastDigit = 9;
-
     SelectValueController selectValueController;
     private HashSet<String> validInputs;
 
