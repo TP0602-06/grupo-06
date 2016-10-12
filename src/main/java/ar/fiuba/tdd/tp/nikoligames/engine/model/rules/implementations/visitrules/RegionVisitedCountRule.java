@@ -9,9 +9,9 @@ import java.util.Iterator;
 /**
  * Created by german on 10/6/2016.
  */
-public class VisitedCountRule extends RuleImplementation {
+public class RegionVisitedCountRule extends RuleImplementation {
 
-    public VisitedCountRule(ArrayList<AbstractNode> region, String value) {
+    public RegionVisitedCountRule(ArrayList<AbstractNode> region, String value) {
         super(region, value);
     }
 
@@ -46,7 +46,7 @@ public class VisitedCountRule extends RuleImplementation {
     @Override
     public boolean isActualBroken() {
         int count = getCount();
-        return compareLessOrEqualsCount(count);//TODO revisar
+        return compareLessOrEqualsCount(count);
     }
 
     private boolean compareLessOrEqualsCount(int count) {

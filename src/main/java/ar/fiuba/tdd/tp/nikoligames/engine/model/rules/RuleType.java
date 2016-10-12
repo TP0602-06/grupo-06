@@ -7,7 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.UniqueClos
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.AdditionRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.MultiplicationRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion.AdjacentRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules.VisitedCountRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules.RegionVisitedCountRule;
 
 import java.util.ArrayList;
 
@@ -34,7 +34,7 @@ public enum RuleType {
         }
     }, VISITEDDCOUNTRULE("CUENTAVISITADOS") {
         public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new VisitedCountRule(nodes, value);
+            return new RegionVisitedCountRule(nodes, value);
         }
     }, NONEMPTY("NOVACIO") {
         public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
