@@ -16,7 +16,6 @@ public class AdjacentRule extends AbstractRegionRule {
         this.adjacentNodes = adjacentNodes;
     }
 
-
     @Override
     protected boolean nodeCondition(AbstractNode node) {
         List<AbstractNode> edgeList = node.getEdgeList();
@@ -25,7 +24,7 @@ public class AdjacentRule extends AbstractRegionRule {
 
     @Override
     public boolean isActualBroken() {
-        return isBroken();//TODO revisar
+        return isBroken();
     }
 
 }

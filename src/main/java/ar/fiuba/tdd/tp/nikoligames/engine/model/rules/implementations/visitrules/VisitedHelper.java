@@ -8,13 +8,9 @@ import java.util.List;
 /**
  * Created by Andres on 08/10/2016.
  */
-public abstract class AbstractVisitRule extends RuleImplementation {
+public class VisitedHelper {
 
-    public AbstractVisitRule(List<AbstractNode> region, String value) {
-        super(region, value);
-    }
-
-    protected boolean isVisited(AbstractNode node) {
+    public static boolean isVisited(AbstractNode node) {
         List<AbstractNode> edgeList = node.getEdgeList();
         int size = edgeList.size();
         if (size == 0) {
