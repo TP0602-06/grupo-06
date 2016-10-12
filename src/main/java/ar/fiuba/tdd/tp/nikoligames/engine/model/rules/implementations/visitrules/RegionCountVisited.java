@@ -6,7 +6,8 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion.A
 import java.util.List;
 
 /**
- * Created by german on 10/8/2016.
+ * Responsabilidades:
+ * regla para contar cuantos nodos de la region están visitados
  */
 public class RegionCountVisited extends AbstractRegionRule {
 
