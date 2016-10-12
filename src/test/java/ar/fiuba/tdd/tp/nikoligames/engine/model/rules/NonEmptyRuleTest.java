@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NonEmptyRule;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,9 +11,9 @@ import java.util.ArrayList;
 /**
  * Created by matias on 11/10/16.
  */
-public class NoDuplicatesRuleTest {
+public class NonEmptyRuleTest {
     @Test
-    public void ruleWithoutNoDuplicates() throws Exception {
+    public void ruleWithoutEmptyNodes() throws Exception {
         ConcreteNode node1 = new ConcreteNode("1", false);
         ConcreteNode node2 = new ConcreteNode("2", false);
         ConcreteNode node3 = new ConcreteNode("3", false);
@@ -25,14 +25,14 @@ public class NoDuplicatesRuleTest {
         nodes.add(node3);
         nodes.add(node4);
 
-        NoDuplicatesRule rule = new NoDuplicatesRule(nodes);
+        NonEmptyRule rule = new NonEmptyRule(nodes);
         Assert.assertEquals(false, rule.isBroken());
     }
 
     @Test
-    public void ruleWithDuplicates() throws Exception {
+    public void ruleWithEmptyNodes() throws Exception {
         ConcreteNode node1 = new ConcreteNode("1", false);
-        ConcreteNode node2 = new ConcreteNode("2", false);
+        ConcreteNode node2 = new ConcreteNode("", false);
         ConcreteNode node3 = new ConcreteNode("2", false);
         ConcreteNode node4 = new ConcreteNode("4", false);
 
@@ -42,7 +42,7 @@ public class NoDuplicatesRuleTest {
         nodes.add(node3);
         nodes.add(node4);
 
-        NoDuplicatesRule rule = new NoDuplicatesRule(nodes);
+        NonEmptyRule rule = new NonEmptyRule(nodes);
         Assert.assertEquals(true, rule.isBroken());
     }
 }
