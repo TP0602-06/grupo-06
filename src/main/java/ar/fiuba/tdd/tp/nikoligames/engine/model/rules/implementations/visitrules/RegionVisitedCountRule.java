@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Created by german on 10/6/2016.
+ * Responsabilidades: Verificar que hayan X cantidad de nodos visitados por el circuito en una region dada.
  */
 public class RegionVisitedCountRule extends RuleImplementation {
 

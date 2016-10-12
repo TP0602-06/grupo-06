@@ -2,48 +2,35 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrule
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.edgecounthelper.EdgeCountHelper;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.edgecounthelper.InOrOutOfRegionEdgeCountHelper;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by german on 10/8/2016.
+ * Responsabilidades: verifica que cada nodo de la region sea visitado como mucho una vez por el circuito.
  */
 public class RegionVisitedAtMostOnce extends RuleImplementation {
 
+    private final EdgeCountHelper edgeCountHelper;
+
     public RegionVisitedAtMostOnce(List<AbstractNode> region) {
         super(region, "");
+        edgeCountHelper = new InOrOutOfRegionEdgeCountHelper(region);
     }
 
     @Override
     public boolean isBroken() {
-        int inOrOutEdgesCount = getInOrOutEdgesCount();
+        int inOrOutEdgesCount = edgeCountHelper.getCount();
         if ((inOrOutEdgesCount == 2) || (inOrOutEdgesCount == 0)) {
             return false;
         }
         return true;
     }
 
-    private int getInOrOutEdgesCount() {
-        int inOrOutEdgesCount = 0;
-        Iterator<AbstractNode> nodeIterator = region.iterator();
-        while (nodeIterator.hasNext()) {
-            AbstractNode node = nodeIterator.next();
-            List<AbstractNode> edgeList = node.getEdgeList();
-            Iterator<AbstractNode> edgeListIterator = edgeList.iterator();
-            while (edgeListIterator.hasNext()) {
-                AbstractNode edgeListNextNode = edgeListIterator.next();
-                if (!region.contains(edgeListNextNode)) {
-                    inOrOutEdgesCount++;
-                }
-            }
-        }
-        return inOrOutEdgesCount;
-    }
-
     @Override
     public boolean isActualBroken() {
-        int inOrOutEdgesCount = getInOrOutEdgesCount();
+        int inOrOutEdgesCount = edgeCountHelper.getCount();
         if ((inOrOutEdgesCount <= 2) && (inOrOutEdgesCount >= 0)) {
             return false;
         }
