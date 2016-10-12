@@ -11,6 +11,7 @@ import java.util.List;
 public class VisitedHelper {
 
     public static boolean isVisited(AbstractNode node) {
+        //OJo que sirve solo para un grafo NO dirigido
         List<AbstractNode> edgeList = node.getEdgeList();
         int size = edgeList.size();
         if (size == 0) {

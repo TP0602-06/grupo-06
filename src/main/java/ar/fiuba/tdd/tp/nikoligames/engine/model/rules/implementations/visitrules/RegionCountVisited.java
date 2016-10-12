@@ -6,8 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion.A
 import java.util.List;
 
 /**
- * Responsabilidades:
- * regla para contar cuantos nodos de la region están visitados
+ * Responsabilidades: regla para contar cuantos nodos de la region están visitados.
  */
 public class RegionCountVisited extends AbstractRegionRule {
 
@@ -27,7 +26,7 @@ public class RegionCountVisited extends AbstractRegionRule {
     @Override
     public boolean isBroken() {
         boolean visitedMoreThanCountRule = super.isBroken();
-        if (visitedMoreThanCountRule = true) {
+        if (visitedMoreThanCountRule == true) {
             return true;
         }
         if (count == countRule) {
