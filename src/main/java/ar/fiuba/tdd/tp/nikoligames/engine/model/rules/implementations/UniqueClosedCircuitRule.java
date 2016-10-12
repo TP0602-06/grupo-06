@@ -28,14 +28,14 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
             if (!closedIsVisitedAtMostOnce(edgeListSize)) {
                 return true;
             }
-            if (isInCircuit(edgeListSize)) {
+            if (isInSomeCircuit(edgeListSize)) {
                 nodesInCircuit.add(node);
             }
         }
         return (!checkOnlyOneClosedCircuit(nodesInCircuit));
     }
 
-    private boolean isInCircuit(int edgeListSize) {
+    private boolean isInSomeCircuit(int edgeListSize) {
         if (edgeListSize == 2) {
             return true;
         }
