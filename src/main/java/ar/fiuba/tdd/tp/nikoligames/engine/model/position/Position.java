@@ -24,7 +24,7 @@ public abstract class Position {
             return false;
         }
 
-        MatrixPosition that = (MatrixPosition) otherObj;
+        Position that = (Position) otherObj;
 
         return (row == that.row) && (col == that.col);
 

@@ -42,9 +42,12 @@ public class ConcreteNode extends AbstractNode {
         edgeList.add(edge);
     }
 
+    @Override
+    public void removeEdge(AbstractNode node) {
+        edgeList.remove(node);
+    }
+
     public boolean isReadOnly() {
         return (!editable);
     }
-
-
 }

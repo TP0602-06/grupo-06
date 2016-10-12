@@ -23,7 +23,6 @@ public class RegionVisitedCountRule extends RuleImplementation {
 
     private int getCount() {
         int count = 0;
-
         Iterator<AbstractNode> regionIterator = region.iterator();
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
