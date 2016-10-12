@@ -24,14 +24,29 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
             int edgeListSize = getEdgeListSize(node);
-            if (!((edgeListSize == 2) || (edgeListSize == 0))) {
+
+            if (!closedIsVisitedAtMostOnce(edgeListSize)) {
                 return true;
             }
-            if (edgeListSize == 2) {
+            if (isInCircuit(edgeListSize)) {
                 nodesInCircuit.add(node);
             }
         }
         return (!checkOnlyOneClosedCircuit(nodesInCircuit));
+    }
+
+    private boolean isInCircuit(int edgeListSize) {
+        if (edgeListSize == 2) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean closedIsVisitedAtMostOnce(int edgeListSize) {
+        if ((edgeListSize == 2) || (edgeListSize == 0)) {
+            return true;
+        }
+        return false;
     }
 
     private int getEdgeListSize(AbstractNode node) {
