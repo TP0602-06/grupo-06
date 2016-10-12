@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class NoDuplicatesRuleTest {
     @Test
-    public void ruleWithoutNoDuplicates() throws Exception {
+    public void ruleWithoutNoDuplicates() {
         ConcreteNode node1 = new ConcreteNode("1", false);
         ConcreteNode node2 = new ConcreteNode("2", false);
         ConcreteNode node3 = new ConcreteNode("3", false);
@@ -30,7 +30,7 @@ public class NoDuplicatesRuleTest {
     }
 
     @Test
-    public void ruleWithDuplicates() throws Exception {
+    public void ruleWithDuplicates() {
         ConcreteNode node1 = new ConcreteNode("1", false);
         ConcreteNode node2 = new ConcreteNode("2", false);
         ConcreteNode node3 = new ConcreteNode("2", false);

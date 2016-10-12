@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class NonEmptyRuleTest {
     @Test
-    public void ruleWithoutEmptyNodes() throws Exception {
+    public void ruleWithoutEmptyNodes() {
         ConcreteNode node1 = new ConcreteNode("1", false);
         ConcreteNode node2 = new ConcreteNode("2", false);
         ConcreteNode node3 = new ConcreteNode("3", false);
@@ -30,7 +30,7 @@ public class NonEmptyRuleTest {
     }
 
     @Test
-    public void ruleWithEmptyNodes() throws Exception {
+    public void ruleWithEmptyNodes() {
         ConcreteNode node1 = new ConcreteNode("1", false);
         ConcreteNode node2 = new ConcreteNode("", false);
         ConcreteNode node3 = new ConcreteNode("2", false);
