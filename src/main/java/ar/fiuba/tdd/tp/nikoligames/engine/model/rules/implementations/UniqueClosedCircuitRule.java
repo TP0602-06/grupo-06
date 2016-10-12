@@ -45,9 +45,14 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
             int edgeListSize = getEdgeListSize(node);
-            if (!((edgeListSize >= 0) && (edgeListSize <= 2))) {
-                return true;
-            }
+            if (!nodeVisitedAtMostOnce(edgeListSize)) return true;
+        }
+        return false;
+    }
+
+    private boolean nodeVisitedAtMostOnce(int edgeListSize) {
+        if (((edgeListSize >= 0) && (edgeListSize <= 2))) {
+            return true;
         }
         return false;
     }
