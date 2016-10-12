@@ -16,26 +16,30 @@ import java.util.Map;
 public abstract class BoardAdjacentList implements AdjacentListGenerator {
     protected final Board board;
 
-    public BoardAdjacentList(Board board){
+    public BoardAdjacentList(Board board) {
         this.board = board;
     }
 
     public Map<AbstractNode, List<AbstractNode>> getAdjacentList() {
-        Map<AbstractNode,List<AbstractNode>> adjacentList = new HashMap<AbstractNode,List<AbstractNode>>();
+        Map<AbstractNode, List<AbstractNode>> adjacentList = new HashMap<AbstractNode, List<AbstractNode>>();
         Iterator<Position> boardPositionIterator = board.getPositionIterator();
-        while (boardPositionIterator.hasNext()){
+        while (boardPositionIterator.hasNext()) {
             Position position = boardPositionIterator.next();
             List<AbstractNode> nodeAdjacentList = getAjacentListForNode(position);
             AbstractNode node = board.getNode(position);
-            adjacentList.put(node,nodeAdjacentList);
+            adjacentList.put(node, nodeAdjacentList);
         }
         return adjacentList;
     }
 
     public void addNode(List<AbstractNode> adjacentList, int row, int col) {
-        ClassicPosition positionAdjacentBottomRight = new ClassicPosition(row, col);
-        AbstractNode adjacentNode = board.getNode(positionAdjacentBottomRight);
-        adjacentList.add(adjacentNode);
+        if ((row > 0) && (col > 0)) {
+            ClassicPosition positionAdjacentBottomRight = new ClassicPosition(row, col);
+            AbstractNode adjacentNode = board.getNode(positionAdjacentBottomRight);
+            adjacentList.add(adjacentNode);
+        }
+
     }
+
     abstract List<AbstractNode> getAjacentListForNode(Position position);
 }
