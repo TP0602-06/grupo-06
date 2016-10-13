@@ -1,7 +1,8 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper.VisitedHelper;
 
 import java.util.Iterator;
 import java.util.List;
@@ -9,12 +10,12 @@ import java.util.List;
 /**
  * Created by german on 10/6/2016.
  */
-public class NextNotVisitedNodesDifferentRegionRule extends RuleImplementation {
+public class NoNotVisitedAdjacentNodesInSameRegionRule extends RuleImplementation {
 
     private final List<List<AbstractNode>> regions;
 
     //la region seria cada par de celda contiguas o adyacentes
-    public NextNotVisitedNodesDifferentRegionRule(List<AbstractNode> region, List<List<AbstractNode>> regions) {
+    public NoNotVisitedAdjacentNodesInSameRegionRule(List<AbstractNode> region, List<List<AbstractNode>> regions) {
         super(region, "");
         this.regions = regions;
     }

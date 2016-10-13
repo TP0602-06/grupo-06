@@ -1,8 +1,7 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules.VisitedHelper;
-import org.w3c.dom.ls.LSException;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper.VisitedHelper;
 
 import java.util.ArrayList;
 import java.util.Iterator;

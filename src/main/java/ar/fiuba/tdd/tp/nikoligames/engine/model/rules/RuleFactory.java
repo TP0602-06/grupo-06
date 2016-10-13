@@ -4,7 +4,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion.ValidInputValueRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition.ValidInputValueRule;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 
 import java.util.ArrayList;

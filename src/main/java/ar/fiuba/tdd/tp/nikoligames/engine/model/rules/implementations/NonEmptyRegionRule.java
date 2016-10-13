@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * Created by german on 10/8/2016.
  */
-public class NonEmptyRule extends RuleImplementation {
-    public NonEmptyRule(List<AbstractNode> region) {
+public class NonEmptyRegionRule extends RuleImplementation {
+    public NonEmptyRegionRule(List<AbstractNode> region) {
         super(region, "");
     }
 

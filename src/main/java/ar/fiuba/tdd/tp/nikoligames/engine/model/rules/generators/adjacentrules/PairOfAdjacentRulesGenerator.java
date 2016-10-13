@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.generators.adjacentrules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules.NextNotVisitedNodesDifferentRegionRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.NoNotVisitedAdjacentNodesInSameRegionRule;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -30,7 +30,7 @@ public class PairOfAdjacentRulesGenerator extends AbstractAdjacentRulesGenerator
             AbstractNode nextNode = iterator.next();
             ruleRegion.add(node);
             ruleRegion.add(nextNode);
-            Rule rule = new NextNotVisitedNodesDifferentRegionRule(ruleRegion, regions);
+            Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(ruleRegion, regions);
             rulesGenerated.add(rule);
         }
 

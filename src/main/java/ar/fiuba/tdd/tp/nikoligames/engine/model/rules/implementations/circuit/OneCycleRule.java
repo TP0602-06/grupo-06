@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
@@ -11,8 +11,8 @@ import java.util.List;
  * Responsabilidades:
  * Checkear que haya un sólo camino cerrado en un grafo planar.
  */
-public class UniqueClosedCircuitRule extends RuleImplementation {
-    public UniqueClosedCircuitRule(ArrayList<AbstractNode> region) {
+public class OneCycleRule extends RuleImplementation {
+    public OneCycleRule(ArrayList<AbstractNode> region) {
         super(region, "");
     }
 

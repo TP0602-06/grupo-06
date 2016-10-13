@@ -2,12 +2,12 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NonEmptyRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.UniqueClosedCircuitRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NonEmptyRegionRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.OneCycleRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.AdditionRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.MultiplicationRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion.AdjacentRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules.RegionVisitedCountRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition.AdjacentRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.RegionVisitedCountRule;
 
 import java.util.ArrayList;
 
@@ -38,11 +38,11 @@ public enum RuleType {
         }
     }, NONEMPTY("NOVACIO") {
         public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new NonEmptyRule(nodes);
+            return new NonEmptyRegionRule(nodes);
         }
     }, UniqueClosedCircuitRule("UNICOCIRCUITOCERRADO") {
         public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new UniqueClosedCircuitRule(nodes);
+            return new OneCycleRule(nodes);
         }
     };
     @SuppressWarnings("CPD-END")
