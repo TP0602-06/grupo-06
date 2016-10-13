@@ -1,14 +1,14 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.AbstractEdge;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.MatrixPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Tablero del juego. Representar la disposicion de celdas.
@@ -20,6 +20,7 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
     private int rows;
     private int cols;
     private AbstractNode[][] nodes;
+    private Map<EdgePosition, AbstractEdge> edges = new HashMap<EdgePosition, AbstractEdge>();
 
     public BoardImplementation(int rows, int cols) {
         this.rows = rows;
@@ -27,13 +28,23 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         this.nodes = new ConcreteNode[this.rows][this.cols];
     }
 
-    abstract void createEdge(AbstractNode node1, AbstractNode node2);
-
     public void createEdge(Position position1, Position position2) {
-        AbstractNode node1 = this.getNode(position1);
-        AbstractNode node2 = this.getNode(position2);
+        EdgePosition edgePosition = new EdgePosition(position1, position2);
+        if (edges.containsKey(edgePosition)) {
+            return;
+        }
+        AbstractEdge edge = getEdge(position1, position2);
+        edges.put(edgePosition, edge);
+    }
 
-        createEdge(node1, node2);
+    abstract AbstractEdge getEdge(Position position1, Position position2);
+
+    public void eraseEdge(Position position1, Position position2) {
+        EdgePosition edgePosition = new EdgePosition(position1, position2);
+        if (edges.containsKey(edgePosition)) {
+            AbstractEdge edge = edges.get(edgePosition);
+            edge.erase();
+        }
     }
 
     public int getRows() {

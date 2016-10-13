@@ -1,22 +1,17 @@
 package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DirectedBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.UndirectedBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.inputmanager.ValidInputManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class SimpleGameFactoryForTest {
@@ -27,7 +22,7 @@ public class SimpleGameFactoryForTest {
     public static final String two = "2";
 
     public Game makeGame() {
-        Board board = new DirectedBoard(rows, cols);
+        Board board = new UndirectedBoard(rows, cols);
         fillBoard(board);
         List<Rule> rules = new ArrayList<>();
         Rule rule = new NoDuplicatesRule(makePositions(board));

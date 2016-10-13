@@ -11,8 +11,8 @@ public abstract class Position {
     protected int col;
 
     public Position(int row, int col) {
-        this.row = row - 1;
-        this.col = col - 1;
+        this.row = row;
+        this.col = col;
     }
 
     @Override
@@ -24,7 +24,7 @@ public abstract class Position {
             return false;
         }
 
-        MatrixPosition that = (MatrixPosition) otherObj;
+        Position that = (Position) otherObj;
 
         return (row == that.row) && (col == that.col);
 

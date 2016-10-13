@@ -16,4 +16,16 @@ public abstract class HorizontalVerticalAdjacentListGen extends BoardAdjacentLis
         super(board);
     }
 
+    public List<AbstractNode> getAjacentListForNode(Position position) {
+        List<AbstractNode> adjacentList = new ArrayList<AbstractNode>();
+        int row = position.getRow();
+        int column = position.getColumn();
+
+        super.addNode(adjacentList, row - 1, column);
+        super.addNode(adjacentList, row + 1, column);
+        super.addNode(adjacentList, row, column - 1);
+        super.addNode(adjacentList, row, column + 1);
+
+        return adjacentList;
+    }
 }

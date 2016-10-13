@@ -19,23 +19,44 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
     @Override
     public boolean isBroken() {
         List<AbstractNode> nodesInCircuit = new ArrayList<AbstractNode>();
+
         Iterator<AbstractNode> regionIterator = region.iterator();
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
-            List<AbstractNode> edgelist = node.getEdgeList();
-            int edgeListSize = edgelist.size();
+            int edgeListSize = getEdgeListSize(node);
             if (!((edgeListSize == 2) || (edgeListSize == 0))) {
                 return true;
-            } else if (edgeListSize == 2) {
+            }
+            if (edgeListSize == 2) {
                 nodesInCircuit.add(node);
             }
         }
         return (!checkOnlyOneClosedCircuit(nodesInCircuit));
     }
 
+    private int getEdgeListSize(AbstractNode node) {
+        List<AbstractNode> edgelist = node.getEdgeList();
+        return edgelist.size();
+    }
+
     @Override
     public boolean isActualBroken() {
-        return isBroken();//TODO revisar
+        Iterator<AbstractNode> regionIterator = region.iterator();
+        while (regionIterator.hasNext()) {
+            AbstractNode node = regionIterator.next();
+            int edgeListSize = getEdgeListSize(node);
+            if (!nodeVisitedAtMostOnce(edgeListSize)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean nodeVisitedAtMostOnce(int edgeListSize) {
+        if (((edgeListSize >= 0) && (edgeListSize <= 2))) {
+            return true;
+        }
+        return false;
     }
 
     private boolean checkOnlyOneClosedCircuit(List<AbstractNode> nodesInCircuit) {

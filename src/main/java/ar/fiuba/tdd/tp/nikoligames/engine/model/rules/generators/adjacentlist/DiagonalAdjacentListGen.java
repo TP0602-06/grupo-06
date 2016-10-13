@@ -15,4 +15,18 @@ public class DiagonalAdjacentListGen extends BoardAdjacentList {
     public DiagonalAdjacentListGen(Board board) {
         super(board);
     }
+
+    @Override
+    List<AbstractNode> getAjacentListForNode(Position position) {
+        List<AbstractNode> adjacentList = new ArrayList<AbstractNode>();
+        int row = position.getRow();
+        int column = position.getColumn();
+
+        super.addNode(adjacentList, row + 1, column - 1);
+        super.addNode(adjacentList, row - 1, column - 1);
+        super.addNode(adjacentList, row + 1, column + 1);
+        super.addNode(adjacentList, row - 1, column + 1);
+
+        return adjacentList;
+    }
 }

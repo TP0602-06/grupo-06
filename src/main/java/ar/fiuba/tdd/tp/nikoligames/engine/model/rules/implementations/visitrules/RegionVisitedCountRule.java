@@ -1,16 +1,17 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Created by german on 10/6/2016.
+ * Responsabilidades: Verificar que hayan X cantidad de nodos visitados por el circuito en una region dada.
  */
-public class VisitedCountRule extends AbstractVisitRule {
+public class RegionVisitedCountRule extends RuleImplementation {
 
-    public VisitedCountRule(ArrayList<AbstractNode> region, String value) {
+    public RegionVisitedCountRule(ArrayList<AbstractNode> region, String value) {
         super(region, value);
     }
 
@@ -22,11 +23,10 @@ public class VisitedCountRule extends AbstractVisitRule {
 
     private int getCount() {
         int count = 0;
-
         Iterator<AbstractNode> regionIterator = region.iterator();
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
-            if (!this.isVisited(node)) {
+            if (!VisitedHelper.isVisited(node)) {
                 count++;
             }
         }
@@ -45,7 +45,7 @@ public class VisitedCountRule extends AbstractVisitRule {
     @Override
     public boolean isActualBroken() {
         int count = getCount();
-        return compareLessOrEqualsCount(count);//TODO revisar
+        return compareLessOrEqualsCount(count);
     }
 
     private boolean compareLessOrEqualsCount(int count) {
