@@ -10,8 +10,8 @@ import java.util.List;
  * Created by german on 10/8/2016.
  */
 public class NoCycleRule extends RuleImplementation {
-    public NoCycleRule(List<AbstractNode> region, String value) {
-        super(region, value);
+    public NoCycleRule(List<AbstractNode> region) {
+        super(region, "");
     }
 
     @Override
