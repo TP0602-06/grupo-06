@@ -12,7 +12,7 @@ import java.util.List;
  * Checkear que haya un sólo camino cerrado en un grafo planar.
  */
 public class OneCycleRule extends RuleImplementation {
-    public OneCycleRule(ArrayList<AbstractNode> region) {
+    public OneCycleRule(List<AbstractNode> region) {
         super(region, "");
     }
 
