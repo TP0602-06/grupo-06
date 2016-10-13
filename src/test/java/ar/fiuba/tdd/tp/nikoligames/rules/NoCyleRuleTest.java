@@ -45,13 +45,35 @@ public class NoCyleRuleTest {
         AbstractNode node3 = new ConcreteNode("", true);
         region.add(node3);
 
-        this.addEdge(node1,node2);
+        this.addEdge(node1, node2);
+        this.addEdge(node2, node3);
 
         Rule rule = new NoCycleRule(region);
         Assert.assertFalse(rule.isBroken());
     }
 
-    public void addEdge(AbstractNode node1, AbstractNode node2){
+    @Test
+    public void nodesWithEdgesOneCycleTest() {
+        List<AbstractNode> region = new ArrayList<AbstractNode>();
+        AbstractNode node1 = new ConcreteNode("", true);
+        region.add(node1);
+        AbstractNode node2 = new ConcreteNode("", true);
+        region.add(node2);
+        AbstractNode node3 = new ConcreteNode("", true);
+        region.add(node3);
+        AbstractNode node4 = new ConcreteNode("", true);
+        region.add(node4);
+
+        this.addEdge(node1, node2);
+        this.addEdge(node2, node3);
+        this.addEdge(node3, node4);
+        this.addEdge(node3, node1);
+
+        Rule rule = new NoCycleRule(region);
+        Assert.assertTrue(rule.isBroken());
+    }
+
+    public void addEdge(AbstractNode node1, AbstractNode node2) {
         node1.addEdge(node2);
         node2.addEdge(node1);
     }
