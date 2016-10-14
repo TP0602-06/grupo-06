@@ -3,10 +3,13 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.circuit;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.OneCycleRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.ChainEdgeCreator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.DefaultRegionCreator;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by matias on 13/10/16.
@@ -14,7 +17,7 @@ import java.util.ArrayList;
 public class OneCycleRuleTest {
     @Test
     public void ruleWithOneCycle() {
-        ArrayList<AbstractNode> region = this.createRegion(5);
+        List<AbstractNode> region = DefaultRegionCreator.createRegion(5);
 
         this.createCycle(region, 1, 3);
 
@@ -25,9 +28,9 @@ public class OneCycleRuleTest {
 
     @Test
     public void ruleWithoutAnyCycle() {
-        ArrayList<AbstractNode> region = this.createRegion(5);
+        List<AbstractNode> region = DefaultRegionCreator.createRegion(5);
 
-        this.createChain(region, 0, 4);
+        ChainEdgeCreator.createChain(region, 0, 4);
 
         OneCycleRule rule = new OneCycleRule(region);
 
@@ -36,7 +39,7 @@ public class OneCycleRuleTest {
 
     @Test
     public void ruleWithTwoCycles() {
-        ArrayList<AbstractNode> region = this.createRegion(10);
+        List<AbstractNode> region = DefaultRegionCreator.createRegion(10);
 
         this.createCycle(region, 0, 4);
         this.createCycle(region, 5, 9);
@@ -46,15 +49,8 @@ public class OneCycleRuleTest {
         Assert.assertEquals(true, rule.isBroken());
     }
 
-    private ArrayList<AbstractNode> createRegion(int size) {
-        ArrayList<AbstractNode> region = new ArrayList<>();
-        for (int count = 0; count < size; count++) {
-            region.add(new ConcreteNode("", false));
-        }
-        return region;
-    }
 
-    private void createCycle(ArrayList<AbstractNode> region, int firstIndex, int lastIndex) {
+    private void createCycle(List<AbstractNode> region, int firstIndex, int lastIndex) {
         for (int currentIndex = firstIndex; currentIndex <= lastIndex; currentIndex++) {
             AbstractNode node = region.get(currentIndex);
             AbstractNode edge = this.getNextNodeInCycle(region, firstIndex, currentIndex,lastIndex);
@@ -62,15 +58,7 @@ public class OneCycleRuleTest {
         }
     }
 
-    private void createChain(ArrayList<AbstractNode> region, int firstIndex, int lastIndex) {
-        for (int currentIndex = firstIndex; currentIndex <= lastIndex - 1; currentIndex++) {
-            AbstractNode node = region.get(currentIndex);
-            AbstractNode edge = region.get(currentIndex + 1);
-            this.addEdge(node, edge);
-        }
-    }
-
-    private AbstractNode getNextNodeInCycle(ArrayList<AbstractNode> region, int firstIndex, int currentIndex, int lastIndex) {
+    private AbstractNode getNextNodeInCycle(List<AbstractNode> region, int firstIndex, int currentIndex, int lastIndex) {
         if (currentIndex == lastIndex) {
             return region.get(firstIndex);
         } else {

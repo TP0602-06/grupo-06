@@ -2,9 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper.edgecounthelper.EdgeCountHelper;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper.edgecounthelper.InOrOutOfRegionEdgeCountHelper;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -12,16 +11,13 @@ import java.util.List;
  */
 public class RegionVisitedAtMostOnceRule extends RuleImplementation {
 
-    private final EdgeCountHelper edgeCountHelper;
-
     public RegionVisitedAtMostOnceRule(List<AbstractNode> region) {
         super(region, "");
-        edgeCountHelper = new InOrOutOfRegionEdgeCountHelper(region);
     }
 
     @Override
     public boolean isBroken() {
-        int inOrOutEdgesCount = edgeCountHelper.getCount();
+        int inOrOutEdgesCount = getExternalEdgesCount();
         if ((inOrOutEdgesCount == 2) || (inOrOutEdgesCount == 0)) {
             return false;
         }
@@ -30,10 +26,31 @@ public class RegionVisitedAtMostOnceRule extends RuleImplementation {
 
     @Override
     public boolean isActualBroken() {
-        int inOrOutEdgesCount = edgeCountHelper.getCount();
+        int inOrOutEdgesCount = getExternalEdgesCount();
         if ((inOrOutEdgesCount <= 2) && (inOrOutEdgesCount >= 0)) {
             return false;
         }
         return true;
+    }
+
+    public int getExternalEdgesCount() {
+        int externalEdgesCount = 0;
+        Iterator<AbstractNode> nodeIterator = region.iterator();
+        while (nodeIterator.hasNext()) {
+            AbstractNode node = nodeIterator.next();
+            List<AbstractNode> edgeList = node.getEdgeList();
+            Iterator<AbstractNode> edgeListIterator = edgeList.iterator();
+            while (edgeListIterator.hasNext()) {
+                AbstractNode edgeListNextNode = edgeListIterator.next();
+                if (hasToCount(edgeListNextNode)) {
+                    externalEdgesCount++;
+                }
+            }
+        }
+        return externalEdgesCount;
+    }
+
+    boolean hasToCount(AbstractNode node) {
+        return (!(super.region.contains(node)));
     }
 }
