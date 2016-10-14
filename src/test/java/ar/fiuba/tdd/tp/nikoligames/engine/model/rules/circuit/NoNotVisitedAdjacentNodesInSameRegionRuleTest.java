@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.NoNotVisitedAdjacentNodesInSameRegionRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.DefaultRegionCreator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.ExternalEdgeCreator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -38,6 +39,27 @@ public class NoNotVisitedAdjacentNodesInSameRegionRuleTest {
         Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region,allRegions);
 
         Assert.assertTrue(rule.isBroken());
+
+    }
+    @Test
+    public void nodeVisitedEdgesTestTrue() {
+        setup();
+        region = board.subList(0,2);
+        ExternalEdgeCreator.addExternalEdge(region.get(0));
+
+        Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region,allRegions);
+
+        Assert.assertFalse(rule.isBroken());
+
+    }
+    @Test
+    public void nodeEdgesTestTrue() {
+        setup();
+        region = board.subList(1,3);
+
+        Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region,allRegions);
+
+        Assert.assertFalse(rule.isBroken());
 
     }
 
