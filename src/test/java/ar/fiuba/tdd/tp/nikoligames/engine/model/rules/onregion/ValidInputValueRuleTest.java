@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.onregion;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion.ValidInputValueRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition.ValidInputValueRule;
 import org.junit.Assert;
 import org.junit.Test;
 

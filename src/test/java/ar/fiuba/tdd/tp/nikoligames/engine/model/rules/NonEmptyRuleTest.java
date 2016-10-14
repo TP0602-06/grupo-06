@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NonEmptyRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NonEmptyRegionRule;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,7 +25,7 @@ public class NonEmptyRuleTest {
         nodes.add(node3);
         nodes.add(node4);
 
-        NonEmptyRule rule = new NonEmptyRule(nodes);
+        NonEmptyRegionRule rule = new NonEmptyRegionRule(nodes);
         Assert.assertEquals(false, rule.isBroken());
     }
 
@@ -42,7 +42,7 @@ public class NonEmptyRuleTest {
         nodes.add(node3);
         nodes.add(node4);
 
-        NonEmptyRule rule = new NonEmptyRule(nodes);
+        NonEmptyRegionRule rule = new NonEmptyRegionRule(nodes);
         Assert.assertEquals(true, rule.isBroken());
     }
 }
