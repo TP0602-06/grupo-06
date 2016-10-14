@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition.ValidInputValueRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.NodeWithValueCreator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,21 +17,10 @@ public class ValidInputValueRuleTest {
 
 
     private Rule setup(List<String> nodeValues, List<String> validValues) {
-        List<AbstractNode> nodes = this.createNodesWithValues(nodeValues);
+        List<AbstractNode> nodes = NodeWithValueCreator.createNodesWithValues(nodeValues, false);
         Set<String> validValuesSet = getValidValuesSet(validValues);
 
         return new ValidInputValueRule(nodes, validValuesSet);
-    }
-
-    private List<AbstractNode> createNodesWithValues(List<String> values) {
-        List<AbstractNode> nodes = new ArrayList<AbstractNode>();
-        Iterator<String> valueIterator = values.iterator();
-        while (valueIterator.hasNext()) {
-            String value = valueIterator.next();
-            AbstractNode node = new ConcreteNode(value, false);
-            nodes.add(node);
-        }
-        return nodes;
     }
 
     private Set<String> getValidValuesSet(List<String> validValues) {
