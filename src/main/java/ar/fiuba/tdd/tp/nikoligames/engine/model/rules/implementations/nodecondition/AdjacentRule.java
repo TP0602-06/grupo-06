@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.onregion;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
@@ -19,7 +19,7 @@ public class AdjacentRule extends AbstractRegionRule {
     @Override
     protected boolean nodeCondition(AbstractNode node) {
         List<AbstractNode> edgeList = node.getEdgeList();
-        return (!adjacentNodes.containsAll(edgeList));
+        return (!edgeList.containsAll(this.adjacentNodes));
     }
 
     @Override

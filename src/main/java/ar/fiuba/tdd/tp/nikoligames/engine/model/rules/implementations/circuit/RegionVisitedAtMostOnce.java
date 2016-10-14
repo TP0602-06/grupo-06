@@ -1,9 +1,9 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.visitrules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.edgecounthelper.EdgeCountHelper;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.edgecounthelper.InOrOutOfRegionEdgeCountHelper;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper.edgecounthelper.EdgeCountHelper;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper.edgecounthelper.InOrOutOfRegionEdgeCountHelper;
 
 import java.util.List;
 
