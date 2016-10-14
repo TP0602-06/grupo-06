@@ -18,4 +18,6 @@ public interface Game {
     DrawableBoard getDrawableBoard();
 
     void createEdge(Position position1, Position position2);
+
+    void eraseEdge(Position position1, Position position2);
 }
