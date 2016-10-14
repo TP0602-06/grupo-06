@@ -6,72 +6,62 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondit
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * Created by matias on 13/10/16.
  */
 public class ValidInputValueRuleTest {
+
+    private List<AbstractNode> createNodesWithValues(List<String> values){
+        List<AbstractNode> nodes = new ArrayList<AbstractNode>();
+        Iterator<String> valueIterator = values.iterator();
+        while (valueIterator.hasNext()){
+            String value = valueIterator.next();
+            AbstractNode node = new ConcreteNode(value,false);
+            nodes.add(node);
+        }
+        return nodes;
+    }
+
+    private Set<String> getValidValuesSet(List<String> validValues) {
+        return new HashSet<String>(validValues);
+    }
+
     @Test
     public void ruleWithAllValidValues() {
-        ConcreteNode node1 = new ConcreteNode("1", false);
-        ConcreteNode node2 = new ConcreteNode("2", false);
-        ConcreteNode node3 = new ConcreteNode("3", false);
 
-        ArrayList<AbstractNode> nodes = new ArrayList<>();
-        nodes.add(node1);
-        nodes.add(node2);
-        nodes.add(node3);
+        List<String> nodeValues = Arrays.asList("1", "2", "3");
+        List<AbstractNode> nodes =this.createNodesWithValues(nodeValues);
 
-        HashSet<String> values = new HashSet<>();
-        values.add("1");
-        values.add("2");
-        values.add("3");
+        Set<String> validValuesSet = getValidValuesSet(Arrays.asList("1", "2", "3"));
 
-        ValidInputValueRule rule = new ValidInputValueRule(nodes, values);
+        ValidInputValueRule rule = new ValidInputValueRule(nodes, validValuesSet);
 
         Assert.assertEquals(false, rule.isBroken());
     }
 
     @Test
     public void ruleWithInvalidValue() {
-        ConcreteNode node1 = new ConcreteNode("1", false);
-        ConcreteNode node2 = new ConcreteNode("5", false);
-        ConcreteNode node3 = new ConcreteNode("3", false);
 
-        ArrayList<AbstractNode> nodes = new ArrayList<>();
-        nodes.add(node1);
-        nodes.add(node2);
-        nodes.add(node3);
+        List<String> nodeValues = Arrays.asList("1", "5", "3");
+        List<AbstractNode> nodes =this.createNodesWithValues(nodeValues);
 
-        HashSet<String> values = new HashSet<>();
-        values.add("1");
-        values.add("2");
-        values.add("3");
+        Set<String> validValuesSet = getValidValuesSet(Arrays.asList("1", "2", "3"));
 
-        ValidInputValueRule rule = new ValidInputValueRule(nodes, values);
+        ValidInputValueRule rule = new ValidInputValueRule(nodes, validValuesSet);
 
         Assert.assertEquals(true, rule.isBroken());
     }
 
     @Test
     public void ruleWithEmptyValidValue() {
-        ConcreteNode node1 = new ConcreteNode("1", false);
-        ConcreteNode node2 = new ConcreteNode("", false);
-        ConcreteNode node3 = new ConcreteNode("3", false);
+        List<String> nodeValues = Arrays.asList("1", "", "3");
+        List<AbstractNode> nodes =this.createNodesWithValues(nodeValues);
 
-        ArrayList<AbstractNode> nodes = new ArrayList<>();
-        nodes.add(node1);
-        nodes.add(node2);
-        nodes.add(node3);
+        Set<String> validValuesSet = getValidValuesSet(Arrays.asList("1", "2", "3"));
 
-        HashSet<String> values = new HashSet<>();
-        values.add("1");
-        values.add("");
-        values.add("3");
-
-        ValidInputValueRule rule = new ValidInputValueRule(nodes, values);
+        ValidInputValueRule rule = new ValidInputValueRule(nodes, validValuesSet);
 
         Assert.assertEquals(false, rule.isBroken());
     }

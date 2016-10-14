@@ -17,7 +17,13 @@ public class UndirectedEdge implements AbstractEdge {
         this.create();
     }
 
-    public void create() {
+    public UndirectedEdge(AbstractNode node1, AbstractNode node2){
+        this.node1 = node1;
+        this.node2 = node2;
+        this.create();
+    }
+
+    private void create() {
         node1.addEdge(node2);
         node2.addEdge(node1);
     }
