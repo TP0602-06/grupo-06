@@ -10,11 +10,11 @@ import java.util.List;
 /**
  * Responsabilidades: verifica que cada nodo de la region sea visitado como mucho una vez por el circuito.
  */
-public class RegionVisitedAtMostOnce extends RuleImplementation {
+public class RegionVisitedAtMostOnceRule extends RuleImplementation {
 
     private final EdgeCountHelper edgeCountHelper;
 
-    public RegionVisitedAtMostOnce(List<AbstractNode> region) {
+    public RegionVisitedAtMostOnceRule(List<AbstractNode> region) {
         super(region, "");
         edgeCountHelper = new InOrOutOfRegionEdgeCountHelper(region);
     }

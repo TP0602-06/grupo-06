@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.NotValidRuleException;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleFactory;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RulesFactory;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfig;
 
@@ -27,13 +27,13 @@ public class GameFactory {
     }
 
     private List<Rule> makeRules(GameConfig gameConfig, Board board) throws NotValidRuleException {
-        RuleFactory ruleFactory = new RuleFactory(board);
+        RulesFactory rulesFactory = new RulesFactory(board);
         List<Rule> rules = new ArrayList<Rule>();
 
-        Rule validInpusRule = ruleFactory.createValidValueRule(gameConfig.getValidInputs());
+        Rule validInpusRule = rulesFactory.createValidValueRule(gameConfig.getValidInputs());
         rules.add(validInpusRule);//La pongo primera esta regla para que sea la primera que rompa
 
-        List<Rule> otherRules = ruleFactory.createRules(gameConfig.getRules());
+        List<Rule> otherRules = rulesFactory.createRules(gameConfig.getRules());
 
         rules.addAll(otherRules);
         return rules;

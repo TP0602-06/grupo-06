@@ -1,51 +1,15 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NonEmptyRegionRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.AdditionRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmetic.MultiplicationRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.OneCycleRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.RegionVisitedCountRule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition.AdjacentRule;
-
-import java.util.ArrayList;
-
 /**
  * Created by Andres on 01/10/2016.
  */
 public enum RuleType {
-    @SuppressWarnings("CPD-START")
-    DO_NOT_REPEAT("NO_REPITE") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new NoDuplicatesRule(nodes);
-        }
-    }, SUMA("SUMA") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new AdditionRule(nodes, value);
-        }
-    }, MULTIPLICATION("MULTIPLICACION") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new MultiplicationRule(nodes, value);
-        }
-    }, ADJACENT("ADYACENTE") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new AdjacentRule(nodes, adjacentNodes);
-        }
-    }, VISITEDDCOUNTRULE("CUENTAVISITADOS") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new RegionVisitedCountRule(nodes, value);
-        }
-    }, NONEMPTY("NOVACIO") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new NonEmptyRegionRule(nodes);
-        }
-    }, UniqueClosedCircuitRule("UNICOCIRCUITOCERRADO") {
-        public Rule createRule(ArrayList<AbstractNode> nodes, ArrayList<AbstractNode> adjacentNodes, String value) {
-            return new OneCycleRule(nodes);
-        }
-    };
-    @SuppressWarnings("CPD-END")
+    DO_NOT_REPEAT("DO_NOT_REPEAT"), ADDITION("ADDITION"), MULTIPLICATION("MULTIPLICACION"), ADJACENT("ADYACENTE"),
+    EDGES_INTERNAL_TO_REGION_COUNT("EDGES_INTERNAL_TO_REGION_COUNT"),NO_CYCLE("NO_CYCLE"),NODE_EDGE_LIST_COUNT("NODE_EDGE_LIST_COUNT"),
+    NO_DUPLICATES("NO_DUPLICATES"),NON_EMPTY_REGION("NON_EMPTY_REGION"),
+    NO_NOT_VISITED_ADJACENT_NODES_IN_SAME_REGION("NO_NOT_VISITED_ADJACENT_NODES_IN_SAME_REGION"),
+    ONE_CYCLE("ONE_CYCLE"),REGION_VISITED_AT_MOST_ONCE("REGION_VISITED_AT_MOST_ONCE"),REGION_VISITED_COUNT("REGION_VISITED_COUNT"),
+    VALID_INPUT("VALID_INPUT");
     private final String text;
 
     private RuleType(final String text) {
@@ -70,5 +34,4 @@ public enum RuleType {
         return this.toString().equals(string);
     }
 
-    public abstract Rule createRule(ArrayList<AbstractNode> cells, ArrayList<AbstractNode> adjacentNodes, String value);
 }
