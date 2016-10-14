@@ -1,11 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.RegionVisitedAtMostOnceRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.ChainEdgeCreator;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.DefaultRegionCreator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.ExternalEdgeCreator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,11 +42,11 @@ public class RegionVisitedAtMostOnceRuleTest {
 
         AbstractNode nodeInRegion = region.get(0);
 
-        addExternalEdge(nodeInRegion);
+        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
 
         AbstractNode nodeInRegion2 = region.get(3);
 
-        addExternalEdge(nodeInRegion2);
+        ExternalEdgeCreator.addExternalEdge(nodeInRegion2);
 
         Rule rule = new RegionVisitedAtMostOnceRule(region);
 
@@ -60,7 +60,7 @@ public class RegionVisitedAtMostOnceRuleTest {
 
         AbstractNode nodeInRegion = region.get(0);
 
-        addExternalEdge(nodeInRegion);
+        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
 
         Rule rule = new RegionVisitedAtMostOnceRule(region);
 
@@ -74,13 +74,13 @@ public class RegionVisitedAtMostOnceRuleTest {
         ChainEdgeCreator.createChain(region, 0, 2);
 
         AbstractNode nodeInRegion = region.get(0);
-        addExternalEdge(nodeInRegion);
+        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
 
         AbstractNode nodeInRegion2 = region.get(1);
-        addExternalEdge(nodeInRegion2);
+        ExternalEdgeCreator.addExternalEdge(nodeInRegion2);
 
         AbstractNode nodeInRegion3 = region.get(2);
-        addExternalEdge(nodeInRegion);
+        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
 
         Rule rule = new RegionVisitedAtMostOnceRule(region);
 
@@ -88,8 +88,5 @@ public class RegionVisitedAtMostOnceRuleTest {
         Assert.assertTrue(rule.isBroken());
     }
 
-    private void addExternalEdge(AbstractNode nodeInRegion2) {
-        AbstractNode externalNode2 = new ConcreteNode("", false);
-        nodeInRegion2.addEdge(externalNode2);
-    }
+
 }
