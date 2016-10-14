@@ -19,7 +19,7 @@ public class AdjacentRule extends AbstractRegionRule {
     @Override
     protected boolean nodeCondition(AbstractNode node) {
         List<AbstractNode> edgeList = node.getEdgeList();
-        return (!edgeList.containsAll(this.adjacentNodes));
+        return (!adjacentNodes.containsAll(edgeList));
     }
 
     @Override

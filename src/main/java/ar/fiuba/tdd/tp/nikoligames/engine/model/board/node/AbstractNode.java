@@ -7,11 +7,6 @@ import java.util.List;
  */
 public abstract class AbstractNode implements DrawableNode {
 
-
-    public AbstractNode() {
-
-    }
-
     public abstract String getValue();
 
     public abstract void setValue(String value);

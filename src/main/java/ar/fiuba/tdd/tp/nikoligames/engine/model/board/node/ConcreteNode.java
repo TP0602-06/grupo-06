@@ -8,7 +8,9 @@ import java.util.List;
  */
 public class ConcreteNode extends AbstractNode {
 
-    protected String value = "";
+    protected static final String EMPTY_STRING = "";
+
+    protected String value = EMPTY_STRING;
 
     protected boolean editable;
     protected List<AbstractNode> edgeList = new ArrayList<AbstractNode>();

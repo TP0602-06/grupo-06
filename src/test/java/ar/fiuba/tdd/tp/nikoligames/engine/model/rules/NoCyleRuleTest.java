@@ -1,8 +1,7 @@
-package ar.fiuba.tdd.tp.nikoligames.rules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.NoCycleRule;
 import org.junit.Assert;
 import org.junit.Test;

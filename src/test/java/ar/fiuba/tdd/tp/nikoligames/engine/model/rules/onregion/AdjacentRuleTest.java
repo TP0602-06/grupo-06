@@ -2,67 +2,85 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.onregion;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition.AdjacentRule;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by matias on 12/10/16.
  */
 public class AdjacentRuleTest {
-    @Test
-    public void ruleWithAllAdjacentEdges() {
-        ArrayList<AbstractNode> region = new ArrayList<>();
+    List<AbstractNode> region = new ArrayList<AbstractNode>();
+    List<AbstractNode> adjacentList = new ArrayList<AbstractNode>();
+    List<AbstractNode> edgeList = new ArrayList<AbstractNode>();
+    private AbstractNode rootNode;
+    private Rule rule;
 
-        ConcreteNode rootNode = new ConcreteNode("1", false);
+    public void setupRegionAndAdjacentList(int sizeAdjacentList) {
+        region.clear();
+        adjacentList.clear();
+
+        rootNode = new ConcreteNode("1", false);
         region.add(rootNode);
 
-        ArrayList<AbstractNode> adjacentNodes = this.createAdjacentNodes(2);
-        this.addEdges(rootNode, adjacentNodes);
+        adjacentList = this.createAdjacentList(sizeAdjacentList);
 
-        AdjacentRule rule = new AdjacentRule(region, adjacentNodes);
+        rule = new AdjacentRule(region, adjacentList);
 
-        Assert.assertEquals(false, rule.isBroken());
+    }
+
+    @Test
+    public void ruleWithNoEdges() {
+        setupRegionAndAdjacentList(2);
+
+        Assert.assertFalse(rule.isBroken());
+    }
+
+    @Test
+    public void ruleWithAllAdjacentEdges() {
+        setupRegionAndAdjacentList(2);
+
+        edgeList.addAll(adjacentList);
+
+        addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
+
+        Assert.assertFalse(rule.isBroken());
     }
 
     @Test
     public void ruleWithoutAllAdjacentEdges() {
-        ArrayList<AbstractNode> region = new ArrayList<>();
 
-        ConcreteNode rootNode = new ConcreteNode("1", false);
-        region.add(rootNode);
+        setupRegionAndAdjacentList(2);
 
-        ArrayList<AbstractNode> adjacentNodes = this.createAdjacentNodes(2);
+        edgeList.addAll(adjacentList.subList(0, 1));
 
-        this.addEdges(rootNode, adjacentNodes.subList(0, 1));
+        addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
 
-        AdjacentRule rule = new AdjacentRule(region, adjacentNodes);
-
-        Assert.assertEquals(true, rule.isBroken());
+        Assert.assertFalse(rule.isBroken());
     }
 
     @Test
     public void ruleWithExtraEdges() {
-        ArrayList<AbstractNode> region = new ArrayList<>();
 
-        ConcreteNode rootNode = new ConcreteNode("1", false);
-        region.add(rootNode);
-
-        ArrayList<AbstractNode> adjacentNodes = this.createAdjacentNodes(2);
-        this.addEdges(rootNode, adjacentNodes);
+        setupRegionAndAdjacentList(2);
 
         ConcreteNode extraEdge = new ConcreteNode("4", false);
-        rootNode.addEdge(extraEdge);
 
-        AdjacentRule rule = new AdjacentRule(region, adjacentNodes);
+        edgeList.addAll(adjacentList);
 
-        Assert.assertEquals(false, rule.isBroken());
+        edgeList.add(extraEdge);
+
+        addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
+
+        Assert.assertTrue(rule.isBroken());
     }
 
-    private ArrayList<AbstractNode> createAdjacentNodes(int size) {
+    private ArrayList<AbstractNode> createAdjacentList(int size) {
         ArrayList<AbstractNode> adjacentNodes = new ArrayList<>();
         for (int count = 0; count < size; count++) {
             adjacentNodes.add(new ConcreteNode("", false));
@@ -70,7 +88,16 @@ public class AdjacentRuleTest {
         return adjacentNodes;
     }
 
-    private void addEdges(AbstractNode node, List<AbstractNode> edges) {
-        edges.forEach(edge -> node.addEdge(edge));
+    private void addUndirectedEdgesBetweenNodeAndEachNodeFromList(AbstractNode node, List<AbstractNode> edges) {
+        Iterator<AbstractNode> iterator = edges.iterator();
+        while (iterator.hasNext()) {
+            AbstractNode connectedNode = iterator.next();
+            addUndirectedEdge(node, connectedNode);
+        }
+    }
+
+    private void addUndirectedEdge(AbstractNode node, AbstractNode connectedNode) {
+        node.addEdge(connectedNode);
+        connectedNode.addEdge(node);
     }
 }
