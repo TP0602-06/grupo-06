@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.rules;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
