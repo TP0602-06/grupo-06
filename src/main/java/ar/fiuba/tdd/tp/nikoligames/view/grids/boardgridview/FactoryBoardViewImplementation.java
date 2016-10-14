@@ -44,6 +44,8 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
         DrawCellFromModelHelper helper = new DrawCellFromModelHelper(selectValueController);
         CellViewMakeUpHelper makeup = new CellViewMakeUpHelper();
 
+        //TODO agarrar celdas que se van a ver como tales nada mas
+        //TODO beatuyfy deberia estar fuera o dentro?? tiene q sacar info del json
         Iterator positionIterator = modelBoard.getPositionIterator();
         while (positionIterator.hasNext()) {
             Position position = (Position) positionIterator.next();

@@ -41,8 +41,8 @@ public class GameImplementation implements Game {
         // TODO verificar que sea una conexion valida
     }
 
-    public void eraseEdge(Position position1, Position position2){
-        board.eraseEdge(position1,position2);
+    public void eraseEdge(Position position1, Position position2) {
+        board.eraseEdge(position1, position2);
     }
 
     public boolean checkActualBoard() {

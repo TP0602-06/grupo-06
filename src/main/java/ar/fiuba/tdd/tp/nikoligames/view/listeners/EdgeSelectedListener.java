@@ -8,7 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Esta clase es la escuchadora de la seleccion de lasa aristas;
+ * Esta clase es la escuchadora de la seleccion de lasa aristas.
  */
 public class EdgeSelectedListener extends MouseAdapter {
 

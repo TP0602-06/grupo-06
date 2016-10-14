@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
+import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -10,11 +11,15 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.FactoryBoardViewImpl
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 
 import java.awt.Component;
+import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * Responsabilidades:
@@ -29,17 +34,21 @@ public class FactoryGameViewImplementation implements FactoryGameView {
 
     @Override
     public GameView createDefaultGameView(Game game, HashSet<String> validInputs) throws Exception {
+        //TODO take information from a json
+        //TODO create edges
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
         SelectValueController selectValueController = new SelectValueControllerImp(game);
 
         GridView gridView = createBoardView(game, selectValueController);
-        GridView inputs = createInputPanel(selectValueController, gridView, validInputs);
+        List<DrawableEdge> edges = createEdges(game);
 
-        BoardView boardView = new BoardView();
+        BoardView boardView = new BoardView(new Dimension(300, 300));
         boardView.addGrid(gridView);
+        boardView.addDrawbleEdges(edges);
 
         Component restartAndCheckButtons = createButtons(game);
+        GridView inputs = createInputPanel(selectValueController, gridView, validInputs);
 
         view.add(restartAndCheckButtons);
         view.add(boardView);
@@ -61,5 +70,10 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     private GridView createBoardView(Game game, SelectValueController selectValueController) {
         FactoryBoard gridBoardFactory = new FactoryBoardViewImplementation(selectValueController);
         return gridBoardFactory.createBoardView(game.getDrawableBoard());
+    }
+
+    private List<DrawableEdge> createEdges(Game game) {
+        //Todo create drawableEdges
+        return new ArrayList<>();
     }
 }

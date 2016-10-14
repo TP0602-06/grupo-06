@@ -5,10 +5,8 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.EdgeSelectedListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Esta clase representa la visualizacion de una arista.
@@ -18,26 +16,26 @@ public class DrawableEdge extends JButton {
     private EdgePosition edgePositions;
     private boolean selected = false;
 
-    public DrawableEdge(EdgePosition joiner, SelectEdgeController controller){
+    public DrawableEdge(EdgePosition joiner, SelectEdgeController controller) {
         edgePositions = joiner;
         addMouseListener(new EdgeSelectedListener(controller));
     }
 
-    public void select(){
+    public void select() {
         setBackground(ColorSet.EDGE);
         selected = true;
     }
 
-    public void deselect(){
+    public void deselect() {
         setBackground(ColorSet.TRANSPARENT);
         selected = false;
     }
 
-    public boolean isSelected(){
+    public boolean isSelected() {
         return selected;
     }
 
-    public EdgePosition getEdgePositions(){
-        return  edgePositions;
+    public EdgePosition getEdgePositions() {
+        return edgePositions;
     }
 }

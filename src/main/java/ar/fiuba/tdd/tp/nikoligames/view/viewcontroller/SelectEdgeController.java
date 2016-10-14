@@ -12,10 +12,10 @@ import java.awt.*;
 /**
  * Es el controlador que se ocupa de crear aristas.
  */
-public class SelectEdgeController{
+public class SelectEdgeController {
     private Game game;
 
-    public SelectEdgeController(Game game){
+    public SelectEdgeController(Game game) {
         game = game;
     }
 
@@ -24,11 +24,11 @@ public class SelectEdgeController{
         Position firstPositon = edgePositions.getPosition1();
         Position secondPositon = edgePositions.getPosition2();
 
-        if (edge.isSelected()){
-            game.eraseEdge(firstPositon,secondPositon);
+        if (edge.isSelected()) {
+            game.eraseEdge(firstPositon, secondPositon);
             edge.deselect();
-        }else{
-            game.createEdge(firstPositon,secondPositon);
+        } else {
+            game.createEdge(firstPositon, secondPositon);
             edge.select();
         }
     }
