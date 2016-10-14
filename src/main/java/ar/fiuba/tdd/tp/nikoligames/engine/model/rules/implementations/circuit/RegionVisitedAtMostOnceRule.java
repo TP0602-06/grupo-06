@@ -18,7 +18,7 @@ public class RegionVisitedAtMostOnceRule extends RuleImplementation {
     @Override
     public boolean isBroken() {
         int inOrOutEdgesCount = getExternalEdgesCount();
-        if ((inOrOutEdgesCount == 2) || (inOrOutEdgesCount == 0)) {
+        if ((inOrOutEdgesCount == 0) || (inOrOutEdgesCount == 2)) {
             return false;
         }
         return true;
@@ -27,7 +27,7 @@ public class RegionVisitedAtMostOnceRule extends RuleImplementation {
     @Override
     public boolean isActualBroken() {
         int inOrOutEdgesCount = getExternalEdgesCount();
-        if ((inOrOutEdgesCount <= 2) && (inOrOutEdgesCount >= 0)) {
+        if ((inOrOutEdgesCount >= 0) && (inOrOutEdgesCount <= 2)) {
             return false;
         }
         return true;
@@ -41,8 +41,8 @@ public class RegionVisitedAtMostOnceRule extends RuleImplementation {
             List<AbstractNode> edgeList = node.getEdgeList();
             Iterator<AbstractNode> edgeListIterator = edgeList.iterator();
             while (edgeListIterator.hasNext()) {
-                AbstractNode edgeListNextNode = edgeListIterator.next();
-                if (hasToCount(edgeListNextNode)) {
+                AbstractNode nextNode = edgeListIterator.next();
+                if (isExternalToRegion(nextNode)) {
                     externalEdgesCount++;
                 }
             }
@@ -50,7 +50,7 @@ public class RegionVisitedAtMostOnceRule extends RuleImplementation {
         return externalEdgesCount;
     }
 
-    boolean hasToCount(AbstractNode node) {
+    boolean isExternalToRegion(AbstractNode node) {
         return (!(super.region.contains(node)));
     }
 }
