@@ -34,7 +34,7 @@ public class NoNotVisitedAdjacentNodesInSameRegionRule extends RuleImplementatio
 
             List<AbstractNode> currentRegion = regionsIterator.next();
             if (this.regionContainsAnyNode(node1, node2, currentRegion)) {
-                return !(regionContainsBothNodes(node1, node2, currentRegion));
+                return (regionContainsBothNodes(node1, node2, currentRegion));
             }
         }
 

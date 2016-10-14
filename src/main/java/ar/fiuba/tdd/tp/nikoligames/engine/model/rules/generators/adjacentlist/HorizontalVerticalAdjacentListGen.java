@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by german on 10/8/2016.
  */
-public abstract class HorizontalVerticalAdjacentListGen extends BoardAdjacentList {
+public class HorizontalVerticalAdjacentListGen extends BoardAdjacentList {
 
     public HorizontalVerticalAdjacentListGen(Board board) {
         super(board);
