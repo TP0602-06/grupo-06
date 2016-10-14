@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeti
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by german on 9/30/2016.
@@ -11,7 +12,7 @@ public class MultiplicationRule extends AbstractArithmeticRule {
 
     int value = 1;
 
-    public MultiplicationRule(ArrayList<AbstractNode> nodes, String value) {
+    public MultiplicationRule(List<AbstractNode> nodes, String value) {
         super(nodes, value);
     }
 
