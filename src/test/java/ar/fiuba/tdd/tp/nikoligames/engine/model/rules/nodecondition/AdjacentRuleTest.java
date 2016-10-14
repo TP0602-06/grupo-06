@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.onregion;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.nodecondition;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
@@ -32,6 +32,26 @@ public class AdjacentRuleTest {
 
         rule = new AdjacentRule(region, adjacentList);
 
+    }
+    private ArrayList<AbstractNode> createAdjacentList(int size) {
+        ArrayList<AbstractNode> adjacentNodes = new ArrayList<>();
+        for (int count = 0; count < size; count++) {
+            adjacentNodes.add(new ConcreteNode("", false));
+        }
+        return adjacentNodes;
+    }
+
+    private void addUndirectedEdgesBetweenNodeAndEachNodeFromList(AbstractNode node, List<AbstractNode> edges) {
+        Iterator<AbstractNode> iterator = edges.iterator();
+        while (iterator.hasNext()) {
+            AbstractNode connectedNode = iterator.next();
+            addUndirectedEdge(node, connectedNode);
+        }
+    }
+
+    private void addUndirectedEdge(AbstractNode node, AbstractNode connectedNode) {
+        node.addEdge(connectedNode);
+        connectedNode.addEdge(node);
     }
 
     @Test
@@ -80,24 +100,4 @@ public class AdjacentRuleTest {
         Assert.assertTrue(rule.isBroken());
     }
 
-    private ArrayList<AbstractNode> createAdjacentList(int size) {
-        ArrayList<AbstractNode> adjacentNodes = new ArrayList<>();
-        for (int count = 0; count < size; count++) {
-            adjacentNodes.add(new ConcreteNode("", false));
-        }
-        return adjacentNodes;
-    }
-
-    private void addUndirectedEdgesBetweenNodeAndEachNodeFromList(AbstractNode node, List<AbstractNode> edges) {
-        Iterator<AbstractNode> iterator = edges.iterator();
-        while (iterator.hasNext()) {
-            AbstractNode connectedNode = iterator.next();
-            addUndirectedEdge(node, connectedNode);
-        }
-    }
-
-    private void addUndirectedEdge(AbstractNode node, AbstractNode connectedNode) {
-        node.addEdge(connectedNode);
-        connectedNode.addEdge(node);
-    }
 }
