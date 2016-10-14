@@ -18,7 +18,6 @@ public class GridOfSquares extends GridView {
     private Integer rows;
     private Integer cols;
 
-
     public GridOfSquares(Integer rows, Integer cols) {
         setLayout(new GridLayout(rows, cols));
         setBackground(Color.white);
