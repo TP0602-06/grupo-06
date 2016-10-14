@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -32,8 +33,11 @@ public class FactoryGameViewImplementation implements FactoryGameView {
 
         SelectValueController selectValueController = new SelectValueControllerImp(game);
 
-        GridView boardView = createBoardView(game, selectValueController);
-        GridView inputs = createInputPanel(selectValueController, boardView, validInputs);
+        GridView gridView = createBoardView(game, selectValueController);
+        GridView inputs = createInputPanel(selectValueController, gridView, validInputs);
+
+        BoardView boardView = new BoardView();
+        boardView.addGrid(gridView);
 
         Component restartAndCheckButtons = createButtons(game);
 

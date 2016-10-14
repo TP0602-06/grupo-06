@@ -63,7 +63,7 @@ public class GridOfSquares extends GridView {
         int width = (int) dimension.getWidth();
         int height = (int) dimension.getHeight();
         int cellSide = calculateCellSide(width, height);
-
+        System.out.println(cellSide);
         return new Dimension(cellSide * cols, cellSide * rows);
     }
 }
