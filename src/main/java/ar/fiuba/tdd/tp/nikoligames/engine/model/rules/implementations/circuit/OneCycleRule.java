@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
@@ -11,8 +11,8 @@ import java.util.List;
  * Responsabilidades:
  * Checkear que haya un sólo camino cerrado en un grafo planar.
  */
-public class UniqueClosedCircuitRule extends RuleImplementation {
-    public UniqueClosedCircuitRule(ArrayList<AbstractNode> region) {
+public class OneCycleRule extends RuleImplementation {
+    public OneCycleRule(List<AbstractNode> region) {
         super(region, "");
     }
 
@@ -24,14 +24,29 @@ public class UniqueClosedCircuitRule extends RuleImplementation {
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
             int edgeListSize = getEdgeListSize(node);
-            if (!((edgeListSize == 2) || (edgeListSize == 0))) {
+
+            if (!closedIsVisitedAtMostOnce(edgeListSize)) {
                 return true;
             }
-            if (edgeListSize == 2) {
+            if (isInSomeCircuit(edgeListSize)) {
                 nodesInCircuit.add(node);
             }
         }
         return (!checkOnlyOneClosedCircuit(nodesInCircuit));
+    }
+
+    private boolean isInSomeCircuit(int edgeListSize) {
+        if (edgeListSize == 2) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean closedIsVisitedAtMostOnce(int edgeListSize) {
+        if ((edgeListSize == 2) || (edgeListSize == 0)) {
+            return true;
+        }
+        return false;
     }
 
     private int getEdgeListSize(AbstractNode node) {
