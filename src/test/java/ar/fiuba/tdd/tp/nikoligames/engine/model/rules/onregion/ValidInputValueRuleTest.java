@@ -56,27 +56,6 @@ public class ValidInputValueRuleTest {
     }
 
     @Test
-    public void ruleWithEmptyInvalidValue() {
-        ConcreteNode node1 = new ConcreteNode("1", false);
-        ConcreteNode node2 = new ConcreteNode("", false);
-        ConcreteNode node3 = new ConcreteNode("3", false);
-
-        ArrayList<AbstractNode> nodes = new ArrayList<>();
-        nodes.add(node1);
-        nodes.add(node2);
-        nodes.add(node3);
-
-        HashSet<String> values = new HashSet<>();
-        values.add("1");
-        values.add("2");
-        values.add("3");
-
-        ValidInputValueRule rule = new ValidInputValueRule(nodes, values);
-
-        Assert.assertEquals(true, rule.isBroken());
-    }
-
-    @Test
     public void ruleWithEmptyValidValue() {
         ConcreteNode node1 = new ConcreteNode("1", false);
         ConcreteNode node2 = new ConcreteNode("", false);

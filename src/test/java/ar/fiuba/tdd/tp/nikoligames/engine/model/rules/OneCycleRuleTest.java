@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class OneCycleRuleTest {
     @Test
-    public void ruleWithUniqueCycle() {
+    public void ruleWithOneCycle() {
         ArrayList<AbstractNode> region = this.createRegion(5);
 
         this.createCycle(region, 0, 4);

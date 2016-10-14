@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by matias on 12/10/16.
@@ -14,19 +15,13 @@ import java.util.ArrayList;
 public class AdjacentRuleTest {
     @Test
     public void ruleWithAllAdjacentEdges() {
-        ConcreteNode rootNode = new ConcreteNode("1", false);
-        ConcreteNode adjacentNode1 = new ConcreteNode("2", false);
-        ConcreteNode adjacentNode2 = new ConcreteNode("3", false);
-
         ArrayList<AbstractNode> region = new ArrayList<>();
+
+        ConcreteNode rootNode = new ConcreteNode("1", false);
         region.add(rootNode);
 
-        ArrayList<AbstractNode> adjacentNodes = new ArrayList<>();
-        adjacentNodes.add(adjacentNode1);
-        adjacentNodes.add(adjacentNode2);
-
-        rootNode.addEdge(adjacentNode1);
-        rootNode.addEdge(adjacentNode2);
+        ArrayList<AbstractNode> adjacentNodes = this.createAdjacentNodes(2);
+        this.addEdges(rootNode, adjacentNodes);
 
         AdjacentRule rule = new AdjacentRule(region, adjacentNodes);
 
@@ -35,18 +30,14 @@ public class AdjacentRuleTest {
 
     @Test
     public void ruleWithoutAllAdjacentEdges() {
-        ConcreteNode rootNode = new ConcreteNode("1", false);
-        ConcreteNode adjacentNode1 = new ConcreteNode("2", false);
-        ConcreteNode adjacentNode2 = new ConcreteNode("3", false);
-
         ArrayList<AbstractNode> region = new ArrayList<>();
+
+        ConcreteNode rootNode = new ConcreteNode("1", false);
         region.add(rootNode);
 
-        ArrayList<AbstractNode> adjacentNodes = new ArrayList<>();
-        adjacentNodes.add(adjacentNode1);
-        adjacentNodes.add(adjacentNode2);
+        ArrayList<AbstractNode> adjacentNodes = this.createAdjacentNodes(2);
 
-        rootNode.addEdge(adjacentNode1);
+        this.addEdges(rootNode, adjacentNodes.subList(0, 1));
 
         AdjacentRule rule = new AdjacentRule(region, adjacentNodes);
 
@@ -55,24 +46,31 @@ public class AdjacentRuleTest {
 
     @Test
     public void ruleWithExtraEdges() {
-        ConcreteNode rootNode = new ConcreteNode("1", false);
-        ConcreteNode adjacentNode1 = new ConcreteNode("2", false);
-        ConcreteNode adjacentNode2 = new ConcreteNode("3", false);
-        ConcreteNode adjacentNode3 = new ConcreteNode("4", false);
-
         ArrayList<AbstractNode> region = new ArrayList<>();
+
+        ConcreteNode rootNode = new ConcreteNode("1", false);
         region.add(rootNode);
 
-        ArrayList<AbstractNode> adjacentNodes = new ArrayList<>();
-        adjacentNodes.add(adjacentNode1);
-        adjacentNodes.add(adjacentNode2);
+        ArrayList<AbstractNode> adjacentNodes = this.createAdjacentNodes(2);
+        this.addEdges(rootNode, adjacentNodes);
 
-        rootNode.addEdge(adjacentNode1);
-        rootNode.addEdge(adjacentNode2);
-        rootNode.addEdge(adjacentNode3);
+        ConcreteNode extraEdge = new ConcreteNode("4", false);
+        rootNode.addEdge(extraEdge);
 
         AdjacentRule rule = new AdjacentRule(region, adjacentNodes);
 
         Assert.assertEquals(false, rule.isBroken());
+    }
+
+    private ArrayList<AbstractNode> createAdjacentNodes(int size) {
+        ArrayList<AbstractNode> adjacentNodes = new ArrayList<>();
+        for (int count = 0; count < size; count++) {
+            adjacentNodes.add(new ConcreteNode("", false));
+        }
+        return adjacentNodes;
+    }
+
+    private void addEdges(AbstractNode node, List<AbstractNode> edges) {
+        edges.forEach(edge -> node.addEdge(edge));
     }
 }
