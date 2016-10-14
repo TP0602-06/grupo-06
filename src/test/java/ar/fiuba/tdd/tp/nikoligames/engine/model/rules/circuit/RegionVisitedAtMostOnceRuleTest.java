@@ -80,7 +80,7 @@ public class RegionVisitedAtMostOnceRuleTest {
         ExternalEdgeCreator.addExternalEdge(nodeInRegion2);
 
         AbstractNode nodeInRegion3 = region.get(2);
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
+        ExternalEdgeCreator.addExternalEdge(nodeInRegion3);
 
         Rule rule = new RegionVisitedAtMostOnceRule(region);
 

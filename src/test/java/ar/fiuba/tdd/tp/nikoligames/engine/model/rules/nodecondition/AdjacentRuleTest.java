@@ -77,7 +77,7 @@ public class AdjacentRuleTest {
 
         setupRegionAndAdjacentList(2);
 
-        edgeList.addAll(adjacentList.subList(0, 1));
+        edgeList.addAll(adjacentList.subList(0, 2));
 
         addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
 
