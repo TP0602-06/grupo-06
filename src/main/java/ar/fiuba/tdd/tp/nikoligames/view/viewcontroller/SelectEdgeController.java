@@ -19,13 +19,13 @@ public class SelectEdgeController{
         game = game;
     }
 
-    public void notifySelectedComponent(Component component) {
-        DrawableEdge edge = (DrawableEdge) component;
+    public void notifySelectedEdge(DrawableEdge edge) {
         EdgePosition edgePositions = edge.getEdgePositions();
         Position firstPositon = edgePositions.getPosition1();
         Position secondPositon = edgePositions.getPosition2();
+
         if (edge.isSelected()){
-            //ERASE EDGE IN GAME
+            game.eraseEdge(firstPositon,secondPositon);
             edge.deselect();
         }else{
             game.createEdge(firstPositon,secondPositon);
