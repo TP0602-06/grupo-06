@@ -18,20 +18,22 @@ public class NodeEdgelistCountRuleTest {
     @Test
     public void ruleWithNoEdges() {
         List<AbstractNode> board = DefaultRegionCreator.createRegion(4);
-        List<AbstractNode> region = board.subList(0,1);//just rootNode
-        Rule rule = new NodeEdgelistCountRule(region,"0");
+        List<AbstractNode> region = board.subList(0, 1);//just rootNode
+        Rule rule = new NodeEdgelistCountRule(region, "0");
 
         Assert.assertFalse(rule.isBroken());
         Assert.assertFalse(rule.isActualBroken());
-    }@Test
+    }
+
+    @Test
     public void ruleWithEdges() {
         List<AbstractNode> board = DefaultRegionCreator.createRegion(4);
-        List<AbstractNode> region = board.subList(0,1);//just rootNode
+        List<AbstractNode> region = board.subList(0, 1);//just rootNode
 
-        List<AbstractNode> connectedToFirstNode = board.subList(1,4);
+        List<AbstractNode> connectedToFirstNode = board.subList(1, 4);
         EdgeCreator.addUndirectedEdgesBetweenNodeAndEachNodeFromList(region.get(0), connectedToFirstNode);
 
-        Rule rule = new NodeEdgelistCountRule(region,"3");
+        Rule rule = new NodeEdgelistCountRule(region, "3");
 
         Assert.assertFalse(rule.isBroken());
         Assert.assertFalse(rule.isActualBroken());

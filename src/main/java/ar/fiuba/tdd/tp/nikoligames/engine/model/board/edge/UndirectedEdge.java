@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 /**
- * Created by german on 10/12/2016.
+ * Responsabilidades: Crear una arista NO DIRIGIDA entre 2 nodos y poder borrarla
  */
 public class UndirectedEdge implements AbstractEdge {
     private AbstractNode node1;

@@ -9,7 +9,9 @@ public abstract class AbstractNode implements DrawableNode {
 
     public abstract String getValue();
 
-    public abstract void setValue(String value);
+    public abstract int getIntValue();
+
+    public abstract void changeValue(String value);
 
     public abstract boolean isEmpty();
 

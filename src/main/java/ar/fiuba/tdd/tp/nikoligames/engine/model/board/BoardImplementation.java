@@ -38,23 +38,25 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         }
     }
 
-    public void createEdge(Position position1, Position position2) {
+    public boolean createEdge(Position position1, Position position2) {
         EdgePosition edgePosition = new EdgePosition(position1, position2);
         if (edges.containsKey(edgePosition)) {
-            return;
+            return true;
         }
         AbstractEdge edge = getEdge(position1, position2);
         edges.put(edgePosition, edge);
+        return true;
     }
 
     abstract AbstractEdge getEdge(Position position1, Position position2);
 
-    public void eraseEdge(Position position1, Position position2) {
+    public boolean eraseEdge(Position position1, Position position2) {
         EdgePosition edgePosition = new EdgePosition(position1, position2);
         if (edges.containsKey(edgePosition)) {
             AbstractEdge edge = edges.get(edgePosition);
             edge.erase();
         }
+        return true;
     }
 
     public int getRows() {
@@ -74,7 +76,7 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         checkRange(position);
         AbstractNode node = nodes[position.getRow()][position.getColumn()];
         if (node.isEditable()) {
-            node.setValue(value);
+            node.changeValue(value);
             return true;
         }
         return false;

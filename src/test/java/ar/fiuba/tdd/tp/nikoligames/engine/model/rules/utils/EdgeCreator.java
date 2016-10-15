@@ -14,6 +14,7 @@ public class EdgeCreator {
         AbstractNode externalNode2 = new ConcreteNode("", false);
         nodeInRegion2.addEdge(externalNode2);
     }
+
     public static void addUndirectedEdgesBetweenNodeAndEachNodeFromList(AbstractNode node, List<AbstractNode> edges) {
         Iterator<AbstractNode> iterator = edges.iterator();
         while (iterator.hasNext()) {
