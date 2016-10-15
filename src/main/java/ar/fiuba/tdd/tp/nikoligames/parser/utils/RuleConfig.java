@@ -9,30 +9,27 @@ import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by german on 10/6/2016.
  */
 public class RuleConfig {
 
-    private List<Position> regionPositions = new ArrayList<Position>();
+    private List<Position> regionPositions = new ArrayList();
+    private List<List<Position>> regionListPositions = new ArrayList();
 
-
-
-    private List<List<Position>> regionListPositions = new ArrayList<List<Position>>();
-
-    private List<Position> adjacentPosition = new ArrayList<Position>();
+    private List<Position> adjacentPosition = new ArrayList();
     private RuleType ruleDefinition;
     private String value = "";
-    private HashSet<String> validInputs = new HashSet<String>();
+    private Set<String> validInputs = new HashSet();
 
     public RuleConfig(String ruleDefinition) throws Exception {
         this.setRuleDefinition(ruleDefinition);
     }
 
 
-
-    public HashSet<String> getValidInputs() {
+    public Set<String> getValidInputs() {
         return validInputs;
     }
 

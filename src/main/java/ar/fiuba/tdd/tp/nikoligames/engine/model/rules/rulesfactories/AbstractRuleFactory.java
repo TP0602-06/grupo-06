@@ -9,6 +9,7 @@ import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Andres on 14/10/2016.
@@ -34,7 +35,7 @@ public abstract class AbstractRuleFactory {
         return getNodesFromPositionList(ruleConfig.getAdjacentPositions(), board);
     }
 
-    protected HashSet<String> getValidInputs(RuleConfig ruleConfig) {
+    protected Set<String> getValidInputs(RuleConfig ruleConfig) {
         return ruleConfig.getValidInputs();
     }
 

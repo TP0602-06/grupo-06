@@ -8,6 +8,7 @@ import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Andres on 14/10/2016.
@@ -17,7 +18,7 @@ public class ValidInputValueRuleFactory extends AbstractRuleFactory {
     @Override
     public Rule createRule(RuleConfig ruleConfig, Board board) {
         ArrayList<AbstractNode> region = this.getRegion(ruleConfig, board);
-        HashSet<String> validInputs = this.getValidInputs(ruleConfig);
+        Set<String> validInputs = this.getValidInputs(ruleConfig);
         return new ValidInputValueRule(region, validInputs);
     }
 }
