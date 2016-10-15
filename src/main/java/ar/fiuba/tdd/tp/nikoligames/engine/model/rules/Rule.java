@@ -1,11 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-
-import java.util.ArrayList;
 
 public abstract class Rule {
-
 
     public abstract String getValue();
 

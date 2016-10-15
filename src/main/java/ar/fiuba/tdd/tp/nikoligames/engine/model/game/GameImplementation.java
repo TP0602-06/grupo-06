@@ -45,7 +45,4 @@ public class GameImplementation implements Game {
         return this.ruleManager.checkActualRules();
     }
 
-    ;
-
-
 }

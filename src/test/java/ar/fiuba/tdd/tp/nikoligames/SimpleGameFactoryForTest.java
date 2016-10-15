@@ -28,7 +28,6 @@ public class SimpleGameFactoryForTest {
         Rule rule = new NoDuplicatesRule(makePositions(board));
         rules.add(rule);
 
-
         return new GameImplementation(board, rules);
     }
 

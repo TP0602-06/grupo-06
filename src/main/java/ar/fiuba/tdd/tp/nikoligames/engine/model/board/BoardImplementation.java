@@ -25,11 +25,11 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
     public BoardImplementation(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
-        initialiceNodes();
+        initializeNodes();
 
     }
 
-    private void initialiceNodes() {
+    private void initializeNodes() {
         this.nodes = new ConcreteNode[this.rows][this.cols];
         for (int row = 0; row < this.rows; row++) {
             for (int col = 0; col < this.cols; col++) {
