@@ -27,8 +27,8 @@ public class NoDuplicatesRule extends RuleImplementation {
 
     private boolean check() {
         List<String> values = region.stream().map(n -> n.getValue()).collect(Collectors.toList());
-        return values.stream().
-                filter(v -> !v.equals(Constants.EMPTY_STRING))
+        return values.stream()
+                .filter(v -> !v.equals(Constants.EMPTY_STRING))
                 .anyMatch(nodeValue -> Collections.frequency(values, nodeValue) > 1);
     }
 }

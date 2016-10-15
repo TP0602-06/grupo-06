@@ -39,16 +39,16 @@ public class CycleDetectorHelper {
         marked.put(rootNode, true);
 
         rootNode.getEdgeList().forEach(nextNode -> {
-            if (nextNode != previusNode) {
-                if (!marked.get(nextNode)) {
-                    marked.put(nextNode, true);
-                    findCycle(nextNode, rootNode);
-                } else if (rootNode != previusNode) {
-                    hasCycle = true;
-                    return;
+                if (nextNode != previusNode) {
+                    if (!marked.get(nextNode)) {
+                        marked.put(nextNode, true);
+                        findCycle(nextNode, rootNode);
+                    } else if (rootNode != previusNode) {
+                        hasCycle = true;
+                        return;
+                    }
                 }
-            }
-        });
+            });
     }
 
 }

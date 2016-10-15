@@ -16,7 +16,7 @@ public class RulesFactory {
 
     public RulesFactory(Board board) {
         this.board = board;
-        this.hashFactory = new HashMap<RuleType, AbstractRuleFactory>();
+        this.hashFactory = new HashMap();
         hashFactory.put(RuleType.ADDITION, new AdditionRuleFactory());
         hashFactory.put(RuleType.ADJACENT, new AdjacentRuleFactory());
         hashFactory.put(RuleType.EDGES_INTERNAL_TO_REGION_COUNT, new EdgesInternalToRegionCountRuleFactory());
@@ -40,15 +40,14 @@ public class RulesFactory {
 
 
     public List<Rule> createRules(List<RuleConfig> ruleConfigs) throws NotValidRuleException {
-        List<Rule> rules = new ArrayList<Rule>();
+        List<Rule> rules = new ArrayList();
 
-        Iterator<RuleConfig> ruleConfigIterator = ruleConfigs.iterator();
-        while (ruleConfigIterator.hasNext()) {
-            RuleConfig ruleConfig = ruleConfigIterator.next();
-            AbstractRuleFactory ruleFactory = this.getRuleFactory(ruleConfig);
-            Rule rule = ruleFactory.createRule(ruleConfig, board);
-            rules.add(rule);
-        }
+        ruleConfigs.forEach(ruleConfig -> {
+                AbstractRuleFactory ruleFactory = getRuleFactory(ruleConfig);
+                Rule rule = ruleFactory.createRule(ruleConfig, board);
+                rules.add(rule);
+            });
+
         return rules;
     }
 

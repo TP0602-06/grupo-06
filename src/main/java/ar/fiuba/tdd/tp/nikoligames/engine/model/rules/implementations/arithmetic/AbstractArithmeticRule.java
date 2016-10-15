@@ -36,10 +36,10 @@ public abstract class AbstractArithmeticRule extends RuleImplementation {
     private boolean check() {
 
         region.forEach(node -> {
-            if (!node.isEmpty()) {
-                arithmeticValue = arithmeticOperation(arithmeticValue, node);
-            }
-        });
+                if (!node.isEmpty()) {
+                    arithmeticValue = arithmeticOperation(arithmeticValue, node);
+                }
+            });
 
         int value = Integer.parseInt(this.value);
         return value != arithmeticValue;

@@ -31,9 +31,9 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
 
     private void initialiceNodes() {
         this.nodes = new ConcreteNode[this.rows][this.cols];
-        for (int row = 0; row < this.rows; row ++){
-            for (int col = 0; col < this.cols; col++){
-                this.nodes[row][col] = new ConcreteNode("",false);
+        for (int row = 0; row < this.rows; row++) {
+            for (int col = 0; col < this.cols; col++) {
+                this.nodes[row][col] = new ConcreteNode("", false);
             }
         }
     }
