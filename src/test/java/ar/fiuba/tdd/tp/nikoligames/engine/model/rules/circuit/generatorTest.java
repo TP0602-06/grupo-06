@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.UndirectedBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
@@ -39,7 +39,7 @@ public class generatorTest {
         putAdjacentList(adjacentList, 2 , Arrays.asList(0,3));
         putAdjacentList(adjacentList, 3 , Arrays.asList(1,2));
 
-        Board board = new UndirectedBoard(4, 4);
+        Board board = new BoardImplementation(4, 4);
 
         AdjacentListGenerator adjacentListGenerator = new HorizontalVerticalAdjacentListGen(board);
 

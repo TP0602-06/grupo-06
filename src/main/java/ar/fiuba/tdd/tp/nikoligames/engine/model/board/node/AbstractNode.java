@@ -13,9 +13,13 @@ public abstract class AbstractNode implements DrawableNode {
 
     public abstract void changeValue(String value);
 
+    public abstract boolean isInvalid();
+
     public abstract boolean isEmpty();
 
     public abstract boolean isEditable();
+
+    public abstract void setEditable(boolean editable);
 
     public abstract List<AbstractNode> getEdgeList();
 

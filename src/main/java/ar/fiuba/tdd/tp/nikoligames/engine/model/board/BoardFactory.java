@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.NodeConfig;
@@ -20,7 +18,7 @@ public class BoardFactory {
     }
 
     public Board createBoard(int rows, int cols, List<NodeConfig> initialNodes) {
-        Board board = new UndirectedBoard(rows, cols);
+        Board board = new BoardImplementation(rows, cols);
         setInitialValues(initialNodes, board);
         return board;
     }
@@ -29,11 +27,9 @@ public class BoardFactory {
         Iterator<NodeConfig> iterator = initialCells.iterator();
         while (iterator.hasNext()) {
             NodeConfig nodeConfig = iterator.next();
-            Position coordinates = new ClassicPosition(nodeConfig.getRow(), nodeConfig.getCol());
-
-            AbstractNode node = new ConcreteNode(nodeConfig.getValue(), nodeConfig.isEditable());
-
-            board.setNode(coordinates, node);
+            Position position = new ClassicPosition(nodeConfig.getRow(), nodeConfig.getCol());
+            board.setEditable(position, nodeConfig.isEditable());
+            board.changeNodeValue(position, nodeConfig.getValue());
         }
     }
 }

@@ -14,15 +14,16 @@ public interface Board extends DrawableBoard {
 
     int getCols();
 
-    void setNode(Position position, AbstractNode cell);
+    void setEditable(Position position, boolean editable);
 
     boolean changeNodeValue(Position position, String value);
 
     boolean createEdge(Position position1, Position position2);
 
-    boolean eraseEdge(Position position1, Position position2);
+    boolean removeEdge(Position position1, Position position2);
 
     AbstractNode getNode(Position position);
 
     List<AbstractNode> getAllNodes();
+
 }

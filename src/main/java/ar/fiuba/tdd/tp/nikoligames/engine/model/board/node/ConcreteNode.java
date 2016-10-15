@@ -12,6 +12,7 @@ import java.util.List;
 public class ConcreteNode extends AbstractNode {
 
     protected AbstractNodeValue value;
+
     protected boolean editable = false;
 
     protected List<AbstractNode> edgeList = new ArrayList<AbstractNode>();
@@ -38,6 +39,11 @@ public class ConcreteNode extends AbstractNode {
         value.setValue(newValue);
     }
 
+    @Override
+    public boolean isInvalid() {
+        return (!isEditable() && (isEmpty()));
+    }
+
     public boolean isEmpty() {
         return value.isEmpty();
     }
@@ -57,6 +63,10 @@ public class ConcreteNode extends AbstractNode {
     @Override
     public void removeEdge(AbstractNode node) {
         edgeList.remove(node);
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable = editable;
     }
 
     @Override

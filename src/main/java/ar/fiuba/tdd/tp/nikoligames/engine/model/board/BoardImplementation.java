@@ -1,11 +1,12 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.AbstractEdge;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.UndirectedEdge;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.MatrixPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 
 import java.util.*;
@@ -16,26 +17,16 @@ import java.util.*;
  * 1. Template Method, la clase que implemente la abstracción debe definir la forma de crear una arista de forma dirigida o no dirigida
  */
 
-public abstract class BoardImplementation implements DrawableBoard, Board {
-    private int rows;
-    private int cols;
-    private AbstractNode[][] nodes;
+public class BoardImplementation implements DrawableBoard, Board {
+    private Size boardSize;
+
+    private Map<Position, AbstractNode> nodeMap = new HashMap<Position, AbstractNode>();
+
     private Map<EdgePosition, AbstractEdge> edges = new HashMap<EdgePosition, AbstractEdge>();
 
     public BoardImplementation(int rows, int cols) {
-        this.rows = rows;
-        this.cols = cols;
+        boardSize = new Size(rows, cols);
         initializeNodes();
-
-    }
-
-    private void initializeNodes() {
-        this.nodes = new ConcreteNode[this.rows][this.cols];
-        for (int row = 0; row < this.rows; row++) {
-            for (int col = 0; col < this.cols; col++) {
-                this.nodes[row][col] = new ConcreteNode("", false);
-            }
-        }
     }
 
     public boolean createEdge(Position position1, Position position2) {
@@ -43,14 +34,12 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         if (edges.containsKey(edgePosition)) {
             return true;
         }
-        AbstractEdge edge = getEdge(position1, position2);
+        AbstractEdge edge = new UndirectedEdge(this, position1, position2);
         edges.put(edgePosition, edge);
         return true;
     }
 
-    abstract AbstractEdge getEdge(Position position1, Position position2);
-
-    public boolean eraseEdge(Position position1, Position position2) {
+    public boolean removeEdge(Position position1, Position position2) {
         EdgePosition edgePosition = new EdgePosition(position1, position2);
         if (edges.containsKey(edgePosition)) {
             AbstractEdge edge = edges.get(edgePosition);
@@ -60,21 +49,23 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
     }
 
     public int getRows() {
-        return rows;
+        return boardSize.getRows();
     }
 
     public int getCols() {
-        return cols;
+        return boardSize.getCols();
     }
 
-    public void setNode(Position position, AbstractNode node) {
+    @Override
+    public void setEditable(Position position, boolean editable) {
         checkRange(position);
-        nodes[position.getRow()][position.getColumn()] = node;
+        AbstractNode node = this.nodeMap.get(position);
+        node.setEditable(editable);
     }
 
     public boolean changeNodeValue(Position position, String value) {
         checkRange(position);
-        AbstractNode node = nodes[position.getRow()][position.getColumn()];
+        AbstractNode node = nodeMap.get(position);
         if (node.isEditable()) {
             node.changeValue(value);
             return true;
@@ -84,19 +75,13 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
 
     public AbstractNode getNode(Position position) {
         checkRange(position);
-        return nodes[position.getRow()][position.getColumn()];
+        return this.nodeMap.get(position);
     }
 
     public List<AbstractNode> getAllNodes() {
-        List<AbstractNode> allNodes = new ArrayList<AbstractNode>();
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                Position position = new MatrixPosition(i, j);
-                AbstractNode node = this.getNode(position);
-                allNodes.add(node);
-            }
-        }
-        return allNodes;
+        Collection<AbstractNode> nodes = this.nodeMap.values();
+        List<AbstractNode> nodeList = new ArrayList(nodes);
+        return nodeList;
     }
 
     public DrawableNode getDrawableNode(Position position) {
@@ -107,19 +92,20 @@ public abstract class BoardImplementation implements DrawableBoard, Board {
         return new BoardPositionIterator(this);
     }
 
-    private boolean outOfRange(Position position) {
-        int row = position.getRow();
-        int col = position.getColumn();
-        return !((0 <= col) && (col < cols) && (0 <= row) && (row < rows));
-    }
-
     private void checkRange(Position position) {
-        if (outOfRange(position)) {
+        if (!this.nodeMap.containsKey(position)) {
             throw new UnsupportedOperationException();
         }
     }
 
-
+    private void initializeNodes() {
+        for (int row = 1; row <= this.boardSize.getRows(); row++) {
+            for (int col = 1; col <= this.boardSize.getCols(); col++) {
+                Position newPosition = new ClassicPosition(row, col);
+                this.nodeMap.put(newPosition, new ConcreteNode());
+            }
+        }
+    }
 }
 
 
