@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.RegionVisitedCountRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.ChainEdgeCreator;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.DefaultRegionCreator;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.ExternalEdgeCreator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.EdgeCreator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -43,10 +43,10 @@ public class RegionVisitedCountRuleTest {
         ChainEdgeCreator.createChain(region, 1, 2);
 
         AbstractNode nodeInRegion = region.get(0);
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
+        EdgeCreator.addExternalEdge(nodeInRegion);
 
         AbstractNode nodeInRegion2 = region.get(3);
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion2);
+        EdgeCreator.addExternalEdge(nodeInRegion2);
 
         Rule rule = new RegionVisitedCountRule(region, "4");
 

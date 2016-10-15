@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.RegionVisitedAtMostOnceRule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.ChainEdgeCreator;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.DefaultRegionCreator;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.ExternalEdgeCreator;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.EdgeCreator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,11 +42,11 @@ public class RegionVisitedAtMostOnceRuleTest {
 
         AbstractNode nodeInRegion = region.get(0);
 
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
+        EdgeCreator.addExternalEdge(nodeInRegion);
 
         AbstractNode nodeInRegion2 = region.get(3);
 
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion2);
+        EdgeCreator.addExternalEdge(nodeInRegion2);
 
         Rule rule = new RegionVisitedAtMostOnceRule(region);
 
@@ -60,7 +60,7 @@ public class RegionVisitedAtMostOnceRuleTest {
 
         AbstractNode nodeInRegion = region.get(0);
 
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
+        EdgeCreator.addExternalEdge(nodeInRegion);
 
         Rule rule = new RegionVisitedAtMostOnceRule(region);
 
@@ -74,13 +74,13 @@ public class RegionVisitedAtMostOnceRuleTest {
         ChainEdgeCreator.createChain(region, 0, 2);
 
         AbstractNode nodeInRegion = region.get(0);
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion);
+        EdgeCreator.addExternalEdge(nodeInRegion);
 
         AbstractNode nodeInRegion2 = region.get(1);
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion2);
+        EdgeCreator.addExternalEdge(nodeInRegion2);
 
         AbstractNode nodeInRegion3 = region.get(2);
-        ExternalEdgeCreator.addExternalEdge(nodeInRegion3);
+        EdgeCreator.addExternalEdge(nodeInRegion3);
 
         Rule rule = new RegionVisitedAtMostOnceRule(region);
 

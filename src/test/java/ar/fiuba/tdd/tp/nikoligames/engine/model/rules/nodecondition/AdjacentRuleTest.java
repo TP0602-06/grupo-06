@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition.AdjacentRule;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.utils.EdgeCreator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -41,19 +42,6 @@ public class AdjacentRuleTest {
         return adjacentNodes;
     }
 
-    private void addUndirectedEdgesBetweenNodeAndEachNodeFromList(AbstractNode node, List<AbstractNode> edges) {
-        Iterator<AbstractNode> iterator = edges.iterator();
-        while (iterator.hasNext()) {
-            AbstractNode connectedNode = iterator.next();
-            addUndirectedEdge(node, connectedNode);
-        }
-    }
-
-    private void addUndirectedEdge(AbstractNode node, AbstractNode connectedNode) {
-        node.addEdge(connectedNode);
-        connectedNode.addEdge(node);
-    }
-
     @Test
     public void ruleWithNoEdges() {
         setupRegionAndAdjacentList(2);
@@ -67,7 +55,7 @@ public class AdjacentRuleTest {
 
         edgeList.addAll(adjacentList);
 
-        addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
+        EdgeCreator.addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
 
         Assert.assertFalse(rule.isBroken());
     }
@@ -79,7 +67,7 @@ public class AdjacentRuleTest {
 
         edgeList.addAll(adjacentList.subList(0, 2));
 
-        addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
+        EdgeCreator.addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
 
         Assert.assertFalse(rule.isBroken());
     }
@@ -95,7 +83,7 @@ public class AdjacentRuleTest {
 
         edgeList.add(extraEdge);
 
-        addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
+        EdgeCreator.addUndirectedEdgesBetweenNodeAndEachNodeFromList(rootNode, edgeList);
 
         Assert.assertTrue(rule.isBroken());
     }
