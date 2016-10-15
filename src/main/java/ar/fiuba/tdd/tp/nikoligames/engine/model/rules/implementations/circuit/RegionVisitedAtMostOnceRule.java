@@ -18,30 +18,19 @@ public class RegionVisitedAtMostOnceRule extends RuleImplementation {
     @Override
     public boolean isBroken() {
         int inOrOutEdgesCount = getExternalEdgesCount();
-        if ((inOrOutEdgesCount == 0) || (inOrOutEdgesCount == 2)) {
-            return false;
-        }
-        return true;
+        return !((inOrOutEdgesCount == 0) || (inOrOutEdgesCount == 2));
     }
 
     @Override
     public boolean isActualBroken() {
         int inOrOutEdgesCount = getExternalEdgesCount();
-        if ((inOrOutEdgesCount >= 0) && (inOrOutEdgesCount <= 2)) {
-            return false;
-        }
-        return true;
+        return !((inOrOutEdgesCount >= 0) && (inOrOutEdgesCount <= 2));
     }
 
     public int getExternalEdgesCount() {
         int externalEdgesCount = 0;
-        Iterator<AbstractNode> nodeIterator = region.iterator();
-        while (nodeIterator.hasNext()) {
-            AbstractNode node = nodeIterator.next();
-            List<AbstractNode> edgeList = node.getEdgeList();
-            Iterator<AbstractNode> edgeListIterator = edgeList.iterator();
-            while (edgeListIterator.hasNext()) {
-                AbstractNode nextNode = edgeListIterator.next();
+        for (AbstractNode node : region) {
+            for (AbstractNode nextNode : node.getEdgeList()) {
                 if (isExternalToRegion(nextNode)) {
                     externalEdgesCount++;
                 }

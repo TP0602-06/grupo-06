@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper.VisitedHelper;
+import utils.Constants;
 
 import java.util.Iterator;
 import java.util.List;
@@ -16,7 +17,7 @@ public class NoNotVisitedAdjacentNodesInSameRegionRule extends RuleImplementatio
 
     //la region seria cada par de celda contiguas o adyacentes
     public NoNotVisitedAdjacentNodesInSameRegionRule(List<AbstractNode> region, List<List<AbstractNode>> regions) {
-        super(region, "");
+        super(region, Constants.EMPTY_STRING);
         this.regions = regions;
     }
 
@@ -42,24 +43,15 @@ public class NoNotVisitedAdjacentNodesInSameRegionRule extends RuleImplementatio
     }
 
     private boolean regionContainsAnyNode(AbstractNode node1, AbstractNode node2, List<AbstractNode> currentRegion) {
-        if (currentRegion.contains(node1) || (currentRegion.contains(node2))) {
-            return true;
-        }
-        return false;
+        return (currentRegion.contains(node1) || (currentRegion.contains(node2)));
     }
 
     private boolean regionContainsBothNodes(AbstractNode node1, AbstractNode node2, List<AbstractNode> currentRegion) {
-        if ((currentRegion.contains(node1)) && (currentRegion.contains(node2))) {
-            return true;
-        }
-        return false;
+        return ((currentRegion.contains(node1)) && (currentRegion.contains(node2)));
     }
 
     private boolean areBothNotVisited(AbstractNode node1, AbstractNode node2) {
-        if (!VisitedHelper.isVisited(node1) && (!VisitedHelper.isVisited(node2))) {
-            return true;
-        }
-        return false;
+        return (!VisitedHelper.isVisited(node1) && (!VisitedHelper.isVisited(node2)));
     }
 
     @Override

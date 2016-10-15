@@ -16,14 +16,7 @@ public abstract class AbstractRegionRule extends RuleImplementation {
 
     @Override
     public boolean isBroken() {
-        Iterator<AbstractNode> nodeIterator = region.iterator();
-        while (nodeIterator.hasNext()) {
-            AbstractNode node = nodeIterator.next();
-            if (nodeCondition(node)) {
-                return true;
-            }
-        }
-        return false;
+        return region.stream().anyMatch(node -> nodeCondition(node));
     }
 
     protected abstract boolean nodeCondition(AbstractNode node);

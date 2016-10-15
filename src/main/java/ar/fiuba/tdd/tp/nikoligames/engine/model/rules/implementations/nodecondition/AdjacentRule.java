@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
+import utils.Constants;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class AdjacentRule extends AbstractRegionRule {
     private List<AbstractNode> adjacentNodes;
 
     public AdjacentRule(List<AbstractNode> region, List<AbstractNode> adjacentNodes) {
-        super(region, "");
+        super(region, Constants.EMPTY_STRING);
         this.adjacentNodes = adjacentNodes;
     }
 

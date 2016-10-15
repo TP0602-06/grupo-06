@@ -10,20 +10,15 @@ import java.util.List;
  */
 public class MultiplicationRule extends AbstractArithmeticRule {
 
-    int value = 1;
+    private static int DEFAULT_OPERATION_VALUE = 1;
 
     public MultiplicationRule(List<AbstractNode> nodes, String value) {
-        super(nodes, value);
+        super(nodes, value, DEFAULT_OPERATION_VALUE);
     }
 
-    protected int arithmeticOperation(int operationAcumulator, AbstractNode node) {
-        operationAcumulator = operationAcumulator * Integer.parseInt(node.getValue());
-        return operationAcumulator;
-    }
-
-
-    protected int defaultIntValue() {
-        return value;
+    protected int arithmeticOperation(int operationAccumulator, AbstractNode node) {
+        operationAccumulator = operationAccumulator * Integer.parseInt(node.getValue());
+        return operationAccumulator;
     }
 
 }
