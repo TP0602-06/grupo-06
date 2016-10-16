@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.game;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 

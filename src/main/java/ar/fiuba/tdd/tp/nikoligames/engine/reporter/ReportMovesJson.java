@@ -4,8 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

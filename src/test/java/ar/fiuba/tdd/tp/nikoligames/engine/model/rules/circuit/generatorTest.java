@@ -3,7 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.circuit;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.generators.adjacentlist.AdjacentListGenerator;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.generators.adjacentlist.HorizontalVerticalAdjacentListGen;

@@ -2,12 +2,11 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.rulesfactories;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 

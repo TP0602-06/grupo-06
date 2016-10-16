@@ -3,7 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.playtest;
 import ar.fiuba.tdd.tp.nikoligames.SimpleGameFactoryForTest;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
 import org.junit.Assert;
 import org.junit.Test;
 

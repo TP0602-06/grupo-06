@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.play;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
 /**
  * Esta clase representa el movimiento de una jugada.

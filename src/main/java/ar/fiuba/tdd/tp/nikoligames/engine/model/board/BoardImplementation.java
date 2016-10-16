@@ -5,9 +5,9 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.UndirectedEdge;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.EdgePosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
 import java.util.*;
 

@@ -1,9 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**

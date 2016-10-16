@@ -2,8 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.generators.adjacentlist;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
 import java.util.HashMap;
 import java.util.Iterator;

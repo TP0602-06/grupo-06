@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.NodeConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfig;
 

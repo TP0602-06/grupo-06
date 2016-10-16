@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.position;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.board.position;
 
 public class ClassicPosition extends Position {
 

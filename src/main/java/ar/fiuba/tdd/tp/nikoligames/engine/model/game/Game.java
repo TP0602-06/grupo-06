@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.game;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
 /**
  * Created by german on 10/1/2016.

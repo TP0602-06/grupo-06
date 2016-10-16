@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportMoves;
 import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportMovesJson;
 import org.json.simple.JSONArray;

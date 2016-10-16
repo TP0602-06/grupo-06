@@ -1,11 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.parser.utils;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.NotValidRuleException;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleType;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

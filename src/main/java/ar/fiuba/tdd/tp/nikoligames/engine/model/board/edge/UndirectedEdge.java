@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
 /**
  * Responsabilidades: Crear una arista NO DIRIGIDA entre 2 nodos y poder borrarla.
