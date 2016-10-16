@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -15,16 +16,23 @@ public class RuleManager {
     //Return true if it is all right
     public boolean checkRules() {
         RuleCommand ruleCommand = new IsBrokenCommand();
-        return check(ruleCommand);
+        return this.check(ruleCommand);
     }
 
     public boolean checkActualRules() {
         RuleCommand ruleCommand = new IsActualBrokenCommand();
-        return check(ruleCommand);
+        return this.check(ruleCommand);
     }
 
     public boolean check(RuleCommand ruleCommand) {
-        return !rules.stream().anyMatch(rule -> ruleCommand.execute(rule));
+        Iterator<Rule> iterator = rules.iterator();
+        while (iterator.hasNext()) {
+            Rule rule = iterator.next();
+            if (ruleCommand.execute(rule)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private interface RuleCommand {
@@ -38,7 +46,7 @@ public class RuleManager {
     }
 
     private static class IsActualBrokenCommand implements RuleCommand {
-        public boolean execute(Rule rule) {
+        public  boolean execute(Rule rule) {
             return rule.isActualBroken();
         }
     }

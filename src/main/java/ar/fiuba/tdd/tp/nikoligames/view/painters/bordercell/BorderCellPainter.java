@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.bordercell;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;

@@ -14,8 +14,13 @@ public interface Game {
 
     boolean checkActualBoard();
 
-
     DrawableBoard getDrawableBoard();
 
-    void createEdge(Position position1, Position position2);
+    void createDirectedEdge(Position position1, Position position2);
+
+    void createUndirectedEdge(Position position1, Position position2);
+
+    void removeUndirectedEdge(Position position1, Position position2);
+
+    void removeDirectedEdge(Position position1, Position position2);
 }
