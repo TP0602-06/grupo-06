@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.AbstractFocusGridViewHelper;
@@ -9,7 +9,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.F
 import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.AbstractEditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
-import java.awt.Component;
+import java.awt.*;
 
 /**
  * Responsabilidades:
@@ -61,7 +61,7 @@ public class SelectValueControllerImp implements SelectValueController {
     private void changeModelCellValue(String value) throws Exception {
         int row = lastSelectedEditableCellView.getXIndex() + 1;
         int col = lastSelectedEditableCellView.getYIndex() + 1;
-        ClassicPosition celPosition = new ClassicPosition(row , col );
+        ClassicPosition celPosition = new ClassicPosition(row, col);
         game.changeNodeValue(celPosition, value);
     }
 }

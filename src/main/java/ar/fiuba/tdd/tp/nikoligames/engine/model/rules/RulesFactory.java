@@ -47,11 +47,11 @@ public class RulesFactory {
     public List<Rule> createRules(List<RuleConfig> ruleConfigs) throws NotValidRuleException {
         List<Rule> rules = new ArrayList();
 
-        ruleConfigs.forEach(ruleConfig -> {
+        for (RuleConfig ruleConfig : ruleConfigs) {
             AbstractRuleFactory ruleFactory = getRuleFactory(ruleConfig);
             Rule rule = ruleFactory.createRule(ruleConfig, board);
             rules.add(rule);
-        });
+        }
 
         return rules;
     }

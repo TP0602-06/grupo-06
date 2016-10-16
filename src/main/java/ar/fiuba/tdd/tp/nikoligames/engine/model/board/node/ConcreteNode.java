@@ -52,6 +52,10 @@ public class ConcreteNode extends AbstractNode {
         return editable;
     }
 
+    public void setEditable(boolean editable) {
+        this.editable = editable;
+    }
+
     public List<AbstractNode> getEdgeList() {
         return edgeList;
     }
@@ -65,27 +69,22 @@ public class ConcreteNode extends AbstractNode {
         edgeList.remove(node);
     }
 
-    public void setEditable(boolean editable) {
-        this.editable = editable;
-    }
-
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object object) {
+        if (object == null || this.getClass() != object.getClass()) {
+            return false;
+        }
+        if (this == object) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+
+
+        ConcreteNode that = (ConcreteNode) object;
+
+        if ((editable != that.editable) || (value != null ? !value.equals(that.value) : that.value != null)) {
             return false;
         }
 
-        ConcreteNode that = (ConcreteNode) obj;
-
-        if (editable != that.editable) {
-            return false;
-        }
-        if (value != null ? !value.equals(that.value) : that.value != null) {
-            return false;
-        }
         return edgeList != null ? edgeList.equals(that.edgeList) : that.edgeList == null;
 
     }
