@@ -16,7 +16,7 @@ public interface Game {
 
     DrawableBoard getDrawableBoard();
 
-    void changeNodeValue(Position position, String value);
+    boolean changeNodeValue(Position position, String value);
 
     boolean createDirectedEdge(Position position1, Position position2);
 

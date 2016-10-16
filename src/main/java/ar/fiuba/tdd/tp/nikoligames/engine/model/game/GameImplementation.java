@@ -23,7 +23,7 @@ public abstract class GameImplementation implements Game {
         this.ruleManager = new RuleManager(rules);
     }
 
-    public abstract void changeNodeValue(Position position, String value);
+    public abstract boolean changeNodeValue(Position position, String value);
 
     public abstract boolean createDirectedEdge(Position position1, Position position2);
 

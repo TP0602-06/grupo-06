@@ -16,4 +16,5 @@ public abstract class AbstractChangeEdgePlay extends AbstractPlay {
         this.position1 = position1;
         this.position2 = position2;
     }
+
 }

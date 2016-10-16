@@ -14,15 +14,22 @@ public class ConcreteGameAdmitsNoInvalidPlays extends GameImplementation {
         super(board, rules);
     }
 
-    public void changeNodeValue(Position position, String value) {
+    @Override
+    public boolean changeNodeValue(Position position, String value) {
+        String oldValue = board.getNodeValue(position);
         board.changeNodeValue(position, value);
+        if (!super.getBoardStatus()) {
+            board.changeNodeValue(position, oldValue);
+            return false;
+        }
+        return true;
     }
 
     @Override
     public boolean createDirectedEdge(Position position1, Position position2) {
         board.createDirectedEdge(position1, position2);
-        if (!super.getBoardStatus()){
-            board.removeDirectedEdge(position1,position2);
+        if (!super.getBoardStatus()) {
+            board.removeDirectedEdge(position1, position2);
             return false;
         }
         return true;
@@ -31,8 +38,8 @@ public class ConcreteGameAdmitsNoInvalidPlays extends GameImplementation {
     @Override
     public boolean createUndirectedEdge(Position position1, Position position2) {
         board.createUndirectedEdge(position1, position2);
-        if (!super.getBoardStatus()){
-            board.removeUndirectedEdge(position1,position2);
+        if (!super.getBoardStatus()) {
+            board.removeUndirectedEdge(position1, position2);
             return false;
         }
         return true;
@@ -41,8 +48,8 @@ public class ConcreteGameAdmitsNoInvalidPlays extends GameImplementation {
     @Override
     public boolean removeUndirectedEdge(Position position1, Position position2) {
         board.removeUndirectedEdge(position1, position2);
-        if (!super.getBoardStatus()){
-            board.createUndirectedEdge(position1,position2);
+        if (!super.getBoardStatus()) {
+            board.createUndirectedEdge(position1, position2);
             return false;
         }
         return true;
@@ -51,8 +58,8 @@ public class ConcreteGameAdmitsNoInvalidPlays extends GameImplementation {
     @Override
     public boolean removeDirectedEdge(Position position1, Position position2) {
         board.removeDirectedEdge(position1, position2);
-        if (!super.getBoardStatus()){
-            board.createDirectedEdge(position1,position2);
+        if (!super.getBoardStatus()) {
+            board.createDirectedEdge(position1, position2);
             return false;
         }
         return true;

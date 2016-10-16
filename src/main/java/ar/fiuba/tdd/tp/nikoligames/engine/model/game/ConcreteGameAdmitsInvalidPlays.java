@@ -14,8 +14,10 @@ public class ConcreteGameAdmitsInvalidPlays extends GameImplementation {
         super(board, rules);
     }
 
-    public void changeNodeValue(Position position, String value) {
+    @Override
+    public boolean changeNodeValue(Position position, String value) {
         board.changeNodeValue(position, value);
+        return true;
     }
 
     @Override
