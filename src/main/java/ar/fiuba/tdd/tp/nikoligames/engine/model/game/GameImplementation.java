@@ -33,7 +33,11 @@ public class GameImplementation implements Game {
     }
 
     public void changeNodeValue(Position position, String value) {
+        String oldValue= board.getNodeValue(position);
         board.changeNodeValue(position, value);
+        if (!checkActualBoard()){
+            board.changeNodeValue(position,oldValue);
+        }
     }
 
     public void createEdge(Position position1, Position position2) {

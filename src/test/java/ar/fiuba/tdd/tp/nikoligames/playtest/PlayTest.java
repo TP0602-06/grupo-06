@@ -21,8 +21,8 @@ public class PlayTest {
     public void makeInvalidPlay() throws Exception {
         Game newGame = gameFactory.makeGame();
         Play play = new Play(1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 1));
-        Play invalidPlay = new Play(2, SimpleGameFactoryForTest.one, new ClassicPosition(1, 2));
-        play.makeMove(newGame);
+        Play invalidPlay = new Play(1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 2));
+        Assert.assertTrue(play.makeMove(newGame));
         Assert.assertFalse(invalidPlay.makeMove(newGame));
     }
 

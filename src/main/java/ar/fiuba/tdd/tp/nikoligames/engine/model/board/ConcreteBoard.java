@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.AbstractEdge;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgeInterface;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.DirectedEdge;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
@@ -22,7 +22,7 @@ public class ConcreteBoard implements DrawableBoard, Board {
 
     private Map<Position, AbstractNode> nodeMap = new HashMap<Position, AbstractNode>();
 
-    private Map<EdgePosition, AbstractEdge> edges = new HashMap<EdgePosition, AbstractEdge>();
+    private Map<EdgePosition, EdgeInterface> edges = new HashMap<EdgePosition, EdgeInterface>();
 
     public ConcreteBoard(int rows, int cols) throws Exception {
         validateSize(rows, cols);
@@ -47,7 +47,7 @@ public class ConcreteBoard implements DrawableBoard, Board {
         if (edges.containsKey(edgePosition)) {
             return;
         }
-        AbstractEdge edge1 = new DirectedEdge(this, position1, position2);
+        EdgeInterface edge1 = new DirectedEdge(this, position1, position2);
         edges.put(edgePosition, edge1);
     }
 
@@ -56,16 +56,16 @@ public class ConcreteBoard implements DrawableBoard, Board {
         checkRange(position2);
     }
 
-    public void removeUndirectedEdge(Position position1, Position position2) {
-        removeDirectedEdge(position1, position2);
-        removeDirectedEdge(position2, position1);
+    public void removeUndirectedEdge(Position pos1, Position pos2) {
+        removeDirectedEdge(pos2, pos1);
+        removeDirectedEdge(pos1, pos2);
     }
 
     public void removeDirectedEdge(Position position1, Position position2) {
         checkBothPositions(position1, position2);
         EdgePosition edgePosition = new EdgePosition(position1, position2);
         if (edges.containsKey(edgePosition)) {
-            AbstractEdge edge = edges.get(edgePosition);
+            EdgeInterface edge = edges.get(edgePosition);
             edge.erase();
         }
     }
@@ -98,6 +98,12 @@ public class ConcreteBoard implements DrawableBoard, Board {
     public AbstractNode getNode(Position position) {
         checkRange(position);
         return this.nodeMap.get(position);
+    }
+
+    @Override
+    public String getNodeValue(Position position) {
+        AbstractNode node = this.getNode(position);
+        return node.getValue();
     }
 
     public List<AbstractNode> getAllNodes() {

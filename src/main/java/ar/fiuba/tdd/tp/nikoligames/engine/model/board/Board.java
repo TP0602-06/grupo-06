@@ -27,6 +27,9 @@ public interface Board extends DrawableBoard {
 
     AbstractNode getNode(Position position);
 
+    String getNodeValue(Position position);
+
+
     List<AbstractNode> getAllNodes();
 
 }
