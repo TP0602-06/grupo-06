@@ -33,31 +33,31 @@ public class GameImplementation implements Game {
     }
 
     public void changeNodeValue(Position position, String value) {
-        String oldValue= board.getNodeValue(position);
+        String oldValue = board.getNodeValue(position);
         board.changeNodeValue(position, value);
-        if (!checkActualBoard()){
-            board.changeNodeValue(position,oldValue);
+        if (!checkActualBoard()) {
+            board.changeNodeValue(position, oldValue);
         }
     }
 
     @Override
     public void createDirectedEdge(Position position1, Position position2) {
-        board.createDirectedEdge(position1,position2);
+        board.createDirectedEdge(position1, position2);
     }
 
     @Override
     public void createUndirectedEdge(Position position1, Position position2) {
-        board.createUndirectedEdge(position1,position2);
+        board.createUndirectedEdge(position1, position2);
     }
 
     @Override
     public void removeUndirectedEdge(Position position1, Position position2) {
-        board.removeUndirectedEdge(position1,position2);
+        board.removeUndirectedEdge(position1, position2);
     }
 
     @Override
     public void removeDirectedEdge(Position position1, Position position2) {
-        board.removeDirectedEdge(position1,position2);
+        board.removeDirectedEdge(position1, position2);
     }
 
     public boolean checkActualBoard() {

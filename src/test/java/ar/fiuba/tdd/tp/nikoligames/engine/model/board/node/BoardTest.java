@@ -10,7 +10,7 @@ import org.junit.Test;
 /**
  * Created by german on 10/16/2016.
  */
-public class boardTest {
+public class BoardTest {
     @Test
     public void nodePositionTest() throws Exception {
         Board board = new ConcreteBoard(2, 2);

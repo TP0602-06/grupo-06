@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgeInterface;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.DirectedEdge;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgeInterface;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
@@ -41,6 +41,11 @@ public class ConcreteBoard implements DrawableBoard, Board {
         createDirectedEdge(position2, position1);
     }
 
+    public void removeUndirectedEdge(Position pos1, Position pos2) {
+        removeDirectedEdge(pos2, pos1);
+        removeDirectedEdge(pos1, pos2);
+    }
+
     public void createDirectedEdge(Position position1, Position position2) {
         checkBothPositions(position1, position2);
         EdgePosition edgePosition = new EdgePosition(position1, position2);
@@ -56,11 +61,6 @@ public class ConcreteBoard implements DrawableBoard, Board {
         checkRange(position2);
     }
 
-    public void removeUndirectedEdge(Position pos1, Position pos2) {
-        removeDirectedEdge(pos2, pos1);
-        removeDirectedEdge(pos1, pos2);
-    }
-
     public void removeDirectedEdge(Position position1, Position position2) {
         checkBothPositions(position1, position2);
         EdgePosition edgePosition = new EdgePosition(position1, position2);
@@ -69,6 +69,7 @@ public class ConcreteBoard implements DrawableBoard, Board {
             edge.erase();
         }
     }
+
 
     public int getRows() {
         return boardSize.getRows();

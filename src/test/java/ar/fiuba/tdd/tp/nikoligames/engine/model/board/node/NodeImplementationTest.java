@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by german on 10/15/2016.
  */
-public class nodeImplementationTest {
+public class NodeImplementationTest {
     @Test
     public void isEmptyNodeTest() {
         AbstractNode node = new ConcreteNode();
@@ -23,7 +23,7 @@ public class nodeImplementationTest {
     }
 
     @Test
-    public void AddAndRemoveNodeTest() {
+    public void addRemoveNodeTest() {
         AbstractNode node = new ConcreteNode();
         AbstractNode node1 = new ConcreteNode();
         AbstractNode node2 = new ConcreteNode();
