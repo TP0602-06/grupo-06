@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -34,6 +33,7 @@ public class AdjacentRuleTest {
         rule = new AdjacentRule(region, adjacentList);
 
     }
+
     private ArrayList<AbstractNode> createAdjacentList(int size) {
         ArrayList<AbstractNode> adjacentNodes = new ArrayList<>();
         for (int count = 0; count < size; count++) {

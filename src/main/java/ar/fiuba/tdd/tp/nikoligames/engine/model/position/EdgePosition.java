@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.position;
 
 /**
- * Responsabilidades: objeto que se usa para identificar rapidamente un Edge en el board
+ * Responsabilidades: objeto que se usa para identificar rapidamente un Edge en el board.
  */
 public class EdgePosition {
     public EdgePosition(Position position1, Position position2) {

@@ -15,10 +15,6 @@ public class NoCycleRule extends RuleImplementation {
         super(region, Constants.EMPTY_STRING);
     }
 
-    @Override
-    public boolean isBroken() {
-        return hasCycle();
-    }
 
     @Override
     public boolean isActualBroken() {
@@ -28,5 +24,10 @@ public class NoCycleRule extends RuleImplementation {
     public boolean hasCycle() {
         CycleDetectorHelper cycleDetectorHelper = new CycleDetectorHelper(region);
         return cycleDetectorHelper.hasCycle();
+    }
+
+    @Override
+    public boolean isBroken() {
+        return hasCycle();
     }
 }

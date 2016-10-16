@@ -14,6 +14,8 @@ public class RulesFactory {
     private final Board board;
     private Map<RuleType, AbstractRuleFactory> hashFactory;
 
+    @SuppressWarnings("CPD-START")
+
     public RulesFactory(Board board) {
         this.board = board;
         this.hashFactory = new HashMap();
@@ -32,6 +34,9 @@ public class RulesFactory {
         hashFactory.put(RuleType.VALID_INPUT, new ValidInputValueRuleFactory());
     }
 
+    @SuppressWarnings("CPD-END")
+
+
     public Rule createValidValueRule(HashSet<String> validInputs) {
         List<AbstractNode> allNodes = board.getAllNodes();
         Rule validInputsRule = new ValidInputValueRule(allNodes, validInputs);
@@ -43,10 +48,10 @@ public class RulesFactory {
         List<Rule> rules = new ArrayList();
 
         ruleConfigs.forEach(ruleConfig -> {
-                AbstractRuleFactory ruleFactory = getRuleFactory(ruleConfig);
-                Rule rule = ruleFactory.createRule(ruleConfig, board);
-                rules.add(rule);
-            });
+            AbstractRuleFactory ruleFactory = getRuleFactory(ruleConfig);
+            Rule rule = ruleFactory.createRule(ruleConfig, board);
+            rules.add(rule);
+        });
 
         return rules;
     }

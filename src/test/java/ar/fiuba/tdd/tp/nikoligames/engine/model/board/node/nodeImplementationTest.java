@@ -10,19 +10,20 @@ import java.util.List;
  */
 public class nodeImplementationTest {
     @Test
-    public void isEmptyNodeTest(){
+    public void isEmptyNodeTest() {
         AbstractNode node = new ConcreteNode();
         Assert.assertTrue(node.isEmpty());
         Assert.assertFalse(node.isEditable());
     }
+
     @Test
-    public void isEmptyGetIntValueNodeTest(){
+    public void isEmptyGetIntValueNodeTest() {
         AbstractNode node = new ConcreteNode();
         Assert.assertTrue(node.getIntValue() == 0);
     }
 
     @Test
-    public void AddAndRemoveNodeTest(){
+    public void AddAndRemoveNodeTest() {
         AbstractNode node = new ConcreteNode();
         AbstractNode node1 = new ConcreteNode();
         AbstractNode node2 = new ConcreteNode();

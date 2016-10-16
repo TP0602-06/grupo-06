@@ -12,11 +12,15 @@ import java.util.List;
 public class EdgesInternalToRegionCountRule extends RuleImplementation {
     private final int countRule;
 
+    @SuppressWarnings("CPD-START")
+
     public EdgesInternalToRegionCountRule(List<AbstractNode> region, String value) {
         super(region, value);
         countRule = Integer.parseInt(value);
 
     }
+
+    @SuppressWarnings("CPD-END")
 
     @Override
     public boolean isBroken() {

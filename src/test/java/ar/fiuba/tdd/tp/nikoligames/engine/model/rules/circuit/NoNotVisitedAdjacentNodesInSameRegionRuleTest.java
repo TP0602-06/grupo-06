@@ -16,9 +16,9 @@ import java.util.List;
  */
 public class NoNotVisitedAdjacentNodesInSameRegionRuleTest {
 
+    List<List<AbstractNode>> allRegions;
     private List<AbstractNode> region;
     private List<AbstractNode> board;
-    List<List<AbstractNode>> allRegions;
 
     private void setup() {
         board = DefaultRegionCreator.createRegion(4);
@@ -30,34 +30,35 @@ public class NoNotVisitedAdjacentNodesInSameRegionRuleTest {
     }
 
 
-
     @Test
     public void nodeNoEdgesTestTrue() {
         setup();
-        region = board.subList(0,2);
+        region = board.subList(0, 2);
 
-        Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region,allRegions);
+        Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region, allRegions);
 
         Assert.assertTrue(rule.isBroken());
 
     }
+
     @Test
     public void nodeVisitedEdgesTestTrue() {
         setup();
-        region = board.subList(0,2);
+        region = board.subList(0, 2);
         EdgeCreator.addExternalEdge(region.get(0));
 
-        Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region,allRegions);
+        Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region, allRegions);
 
         Assert.assertFalse(rule.isBroken());
 
     }
+
     @Test
     public void nodeEdgesTestTrue() {
         setup();
-        region = board.subList(1,3);
+        region = board.subList(1, 3);
 
-        Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region,allRegions);
+        Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region, allRegions);
 
         Assert.assertFalse(rule.isBroken());
 

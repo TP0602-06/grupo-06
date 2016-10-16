@@ -21,23 +21,25 @@ public class generatorTest {
 
     private List<AbstractNode> region;
     private List<AbstractNode> board;
-    private void putAdjacentList(Map<AbstractNode, List<AbstractNode>> adjacentList , int indexNode, List<Integer> adjacentNodes) {
+
+    private void putAdjacentList(Map<AbstractNode, List<AbstractNode>> adjacentList, int indexNode, List<Integer> adjacentNodes) {
         List<AbstractNode> adjacentListNode = new ArrayList<AbstractNode>();
 
         Iterator<Integer> adjacentNodesIterator = adjacentNodes.iterator();
-        while (adjacentNodesIterator.hasNext()){
+        while (adjacentNodesIterator.hasNext()) {
             Integer adjacentNodeIndex = adjacentNodesIterator.next();
             adjacentListNode.add(board.get(adjacentNodeIndex));
-            adjacentList.put(board.get(indexNode),adjacentListNode);
+            adjacentList.put(board.get(indexNode), adjacentListNode);
         }
     }
+
     private List<Rule> setup() {
 
         Map<AbstractNode, List<AbstractNode>> adjacentList = new HashMap<AbstractNode, List<AbstractNode>>();
-        putAdjacentList(adjacentList, 0 , Arrays.asList(1,2));
-        putAdjacentList(adjacentList, 1 , Arrays.asList(0,3));
-        putAdjacentList(adjacentList, 2 , Arrays.asList(0,3));
-        putAdjacentList(adjacentList, 3 , Arrays.asList(1,2));
+        putAdjacentList(adjacentList, 0, Arrays.asList(1, 2));
+        putAdjacentList(adjacentList, 1, Arrays.asList(0, 3));
+        putAdjacentList(adjacentList, 2, Arrays.asList(0, 3));
+        putAdjacentList(adjacentList, 3, Arrays.asList(1, 2));
 
         Board board = new BoardImplementation(4, 4);
 

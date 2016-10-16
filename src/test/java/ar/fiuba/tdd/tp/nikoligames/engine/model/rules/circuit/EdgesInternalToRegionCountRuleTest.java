@@ -23,6 +23,7 @@ public class EdgesInternalToRegionCountRuleTest {
 
         Assert.assertTrue(rule.isBroken());
     }
+
     @Test
     public void nodeNoEdgesTestFalse() {
         List<AbstractNode> region = DefaultRegionCreator.createRegion(4);
@@ -42,6 +43,7 @@ public class EdgesInternalToRegionCountRuleTest {
 
         Assert.assertTrue(rule.isBroken());
     }
+
     @Test
     public void nodeWithInternalEdgesTestFalse() {
         List<AbstractNode> region = DefaultRegionCreator.createRegion(4);
@@ -60,7 +62,7 @@ public class EdgesInternalToRegionCountRuleTest {
         ChainEdgeCreator.createChain(region, 0, 3);
         AbstractNode nodeInRegion = region.get(0);
 
-        AbstractNode externalNode = new ConcreteNode("",false);
+        AbstractNode externalNode = new ConcreteNode("", false);
         nodeInRegion.addEdge(externalNode);
 
         Rule rule = new EdgesInternalToRegionCountRule(region, "3");
@@ -75,7 +77,7 @@ public class EdgesInternalToRegionCountRuleTest {
         ChainEdgeCreator.createChain(region, 0, 3);
         AbstractNode nodeInRegion = region.get(0);
 
-        AbstractNode externalNode = new ConcreteNode("",false);
+        AbstractNode externalNode = new ConcreteNode("", false);
         nodeInRegion.addEdge(externalNode);
 
         Rule rule = new EdgesInternalToRegionCountRule(region, "4");

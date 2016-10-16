@@ -12,10 +12,14 @@ public class AdjacentRule extends AbstractRegionRule {
 
     private List<AbstractNode> adjacentNodes;
 
+    @SuppressWarnings("CPD-START")
+
     public AdjacentRule(List<AbstractNode> region, List<AbstractNode> adjacentNodes) {
         super(region, Constants.EMPTY_STRING);
         this.adjacentNodes = adjacentNodes;
     }
+
+    @SuppressWarnings("CPD-END")
 
     @Override
     protected boolean nodeCondition(AbstractNode node) {
@@ -27,5 +31,4 @@ public class AdjacentRule extends AbstractRegionRule {
     public boolean isActualBroken() {
         return isBroken();
     }
-
 }
