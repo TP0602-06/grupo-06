@@ -14,15 +14,24 @@ import java.util.List;
  * Mediador
  */
 
-public class GameImplementation implements Game {
-    private RuleManager ruleManager;
-    private Board board;
-
+public abstract class GameImplementation implements Game {
+    protected RuleManager ruleManager;
+    protected Board board;
 
     public GameImplementation(Board board, List<Rule> rules) {
         this.board = board;
         this.ruleManager = new RuleManager(rules);
     }
+
+    public abstract void changeNodeValue(Position position, String value);
+
+    public abstract boolean createDirectedEdge(Position position1, Position position2);
+
+    public abstract boolean createUndirectedEdge(Position position1, Position position2);
+
+    public abstract boolean removeUndirectedEdge(Position position1, Position position2);
+
+    public abstract boolean removeDirectedEdge(Position position1, Position position2);
 
     public DrawableBoard getDrawableBoard() {
         return board;
@@ -32,35 +41,7 @@ public class GameImplementation implements Game {
         return this.ruleManager.checkRules();
     }
 
-    public void changeNodeValue(Position position, String value) {
-        String oldValue = board.getNodeValue(position);
-        board.changeNodeValue(position, value);
-        if (!checkActualBoard()) {
-            board.changeNodeValue(position, oldValue);
-        }
-    }
-
-    @Override
-    public void createDirectedEdge(Position position1, Position position2) {
-        board.createDirectedEdge(position1, position2);
-    }
-
-    @Override
-    public void createUndirectedEdge(Position position1, Position position2) {
-        board.createUndirectedEdge(position1, position2);
-    }
-
-    @Override
-    public void removeUndirectedEdge(Position position1, Position position2) {
-        board.removeUndirectedEdge(position1, position2);
-    }
-
-    @Override
-    public void removeDirectedEdge(Position position1, Position position2) {
-        board.removeDirectedEdge(position1, position2);
-    }
-
-    public boolean checkActualBoard() {
+    public boolean getBoardStatus() {
         return this.ruleManager.checkActualRules();
     }
 

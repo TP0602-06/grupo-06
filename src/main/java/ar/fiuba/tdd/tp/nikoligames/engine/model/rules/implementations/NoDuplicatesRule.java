@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * Created by german on 9/30/2016.
  */
 public class NoDuplicatesRule extends RuleImplementation {
-    public NoDuplicatesRule(ArrayList<AbstractNode> nodes) {
+    public NoDuplicatesRule(List<AbstractNode> nodes) {
         super(nodes, Constants.EMPTY_STRING);
     }
 

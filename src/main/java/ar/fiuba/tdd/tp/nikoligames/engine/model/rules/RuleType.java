@@ -12,7 +12,7 @@ public enum RuleType {
     VALID_INPUT("VALID_INPUT");
     private final String text;
 
-    private RuleType(final String text) {
+    RuleType(final String text) {
         this.text = text;
     }
 

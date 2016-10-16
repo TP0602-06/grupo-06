@@ -5,6 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.ConcreteGameAdmitsInvalidPlays;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
@@ -24,22 +25,10 @@ public class SimpleGameFactoryForTest {
         Board board = new ConcreteBoard(rows, cols);
 
         List<Rule> rules = new ArrayList<>();
-        Rule rule = new NoDuplicatesRule(makePositions(board));
+        Rule rule = new NoDuplicatesRule(board.getAllNodes());
         rules.add(rule);
 
-        return new GameImplementation(board, rules);
+        return new ConcreteGameAdmitsInvalidPlays(board, rules);
     }
 
-    private ArrayList<AbstractNode> makePositions(Board board) {
-        ArrayList<AbstractNode> nodes = new ArrayList<>();
-
-        for (int i = 1; i <= board.getRows(); i++) {
-            for (int j = 1; j <= board.getCols(); j++) {
-                Position position = new ClassicPosition(i, j);
-                nodes.add(board.getNode(position));
-            }
-        }
-        return nodes;
-
-    }
 }
