@@ -17,9 +17,13 @@ public interface Board extends DrawableBoard {
 
     boolean changeNodeValue(Position position, String value);
 
-    boolean createEdge(Position position1, Position position2);
+    void createDirectedEdge(Position position1, Position position2);
 
-    boolean removeEdge(Position position1, Position position2);
+    void createUndirectedEdge(Position position1, Position position2);
+
+    void removeUndirectedEdge(Position position1, Position position2);
+
+    void removeDirectedEdge(Position position1, Position position2);
 
     AbstractNode getNode(Position position);
 

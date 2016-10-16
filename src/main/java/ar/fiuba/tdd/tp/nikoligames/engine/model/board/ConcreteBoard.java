@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.AbstractEdge;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.UndirectedEdge;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.DirectedEdge;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
@@ -17,35 +17,57 @@ import java.util.*;
  * 1. Template Method, la clase que implemente la abstracción debe definir la forma de crear una arista de forma dirigida o no dirigida
  */
 
-public class BoardImplementation implements DrawableBoard, Board {
+public class ConcreteBoard implements DrawableBoard, Board {
     private Size boardSize;
 
     private Map<Position, AbstractNode> nodeMap = new HashMap<Position, AbstractNode>();
 
     private Map<EdgePosition, AbstractEdge> edges = new HashMap<EdgePosition, AbstractEdge>();
 
-    public BoardImplementation(int rows, int cols) {
+    public ConcreteBoard(int rows, int cols) throws Exception {
+        validateSize(rows, cols);
         boardSize = new Size(rows, cols);
         initializeNodes();
     }
 
-    public boolean createEdge(Position position1, Position position2) {
-        EdgePosition edgePosition = new EdgePosition(position1, position2);
-        if (edges.containsKey(edgePosition)) {
-            return true;
+    private void validateSize(int rows, int cols) throws Exception {
+        if ((rows <= 0) && (cols <= 0)) {
+            throw new Exception("not a valid size");
         }
-        AbstractEdge edge = new UndirectedEdge(this, position1, position2);
-        edges.put(edgePosition, edge);
-        return true;
     }
 
-    public boolean removeEdge(Position position1, Position position2) {
+    public void createUndirectedEdge(Position position1, Position position2) {
+        createDirectedEdge(position1, position2);
+        createDirectedEdge(position2, position1);
+    }
+
+    public void createDirectedEdge(Position position1, Position position2) {
+        checkBothPositions(position1, position2);
+        EdgePosition edgePosition = new EdgePosition(position1, position2);
+        if (edges.containsKey(edgePosition)) {
+            return;
+        }
+        AbstractEdge edge1 = new DirectedEdge(this, position1, position2);
+        edges.put(edgePosition, edge1);
+    }
+
+    public void checkBothPositions(Position position1, Position position2) {
+        checkRange(position1);
+        checkRange(position2);
+    }
+
+    public void removeUndirectedEdge(Position position1, Position position2) {
+        removeDirectedEdge(position1, position2);
+        removeDirectedEdge(position2, position1);
+    }
+
+    public void removeDirectedEdge(Position position1, Position position2) {
+        checkBothPositions(position1, position2);
         EdgePosition edgePosition = new EdgePosition(position1, position2);
         if (edges.containsKey(edgePosition)) {
             AbstractEdge edge = edges.get(edgePosition);
             edge.erase();
         }
-        return true;
     }
 
     public int getRows() {

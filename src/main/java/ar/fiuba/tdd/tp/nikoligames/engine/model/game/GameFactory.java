@@ -17,7 +17,7 @@ import java.util.List;
 public class GameFactory {
     private BoardFactory boardFactory = new BoardFactory();
 
-    public Game createGame(GameConfig gameConfig) throws NotValidRuleException {
+    public Game createGame(GameConfig gameConfig) throws Exception {
 
         Board board = makeBoard(gameConfig);
         List<Rule> rules = makeRules(gameConfig, board);
@@ -39,7 +39,7 @@ public class GameFactory {
         return rules;
     }
 
-    private Board makeBoard(GameConfig gameConfig) {
+    private Board makeBoard(GameConfig gameConfig) throws Exception {
         SizeConfig sizeConfig = gameConfig.getSizeConfig();
         return boardFactory.createBoard(sizeConfig, gameConfig.getInitialCells());
     }

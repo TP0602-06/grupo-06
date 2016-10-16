@@ -37,7 +37,7 @@ public class GameImplementation implements Game {
     }
 
     public void createEdge(Position position1, Position position2) {
-        board.createEdge(position1, position2);
+        board.createUndirectedEdge(position1, position2);
         // TODO verificar que sea una conexion valida
     }
 

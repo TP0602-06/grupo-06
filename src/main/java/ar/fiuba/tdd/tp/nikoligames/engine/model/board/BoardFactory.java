@@ -13,12 +13,12 @@ import java.util.List;
  */
 public class BoardFactory {
 
-    public Board createBoard(SizeConfig sizeConfig, List<NodeConfig> initialNodes) {
+    public Board createBoard(SizeConfig sizeConfig, List<NodeConfig> initialNodes) throws Exception {
         return this.createBoard(sizeConfig.getRows(), sizeConfig.getCols(), initialNodes);
     }
 
-    public Board createBoard(int rows, int cols, List<NodeConfig> initialNodes) {
-        Board board = new BoardImplementation(rows, cols);
+    public Board createBoard(int rows, int cols, List<NodeConfig> initialNodes) throws Exception {
+        Board board = new ConcreteBoard(rows, cols);
         setInitialValues(initialNodes, board);
         return board;
     }

@@ -11,9 +11,10 @@ import java.util.List;
  */
 public class ConcreteNode extends AbstractNode {
 
+    public static final boolean DEFAULT_EDITABLE = true;
     protected AbstractNodeValue value;
 
-    protected boolean editable = false;
+    protected boolean editable = DEFAULT_EDITABLE;
 
     protected List<AbstractNode> edgeList = new ArrayList<AbstractNode>();
 
