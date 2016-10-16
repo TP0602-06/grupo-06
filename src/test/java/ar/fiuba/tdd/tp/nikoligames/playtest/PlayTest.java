@@ -26,5 +26,4 @@ public class PlayTest {
         Assert.assertFalse(invalidPlay.makeMove(newGame));
     }
 
-
 }

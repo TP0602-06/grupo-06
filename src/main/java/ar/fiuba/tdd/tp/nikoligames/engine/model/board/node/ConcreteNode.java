@@ -69,31 +69,4 @@ public class ConcreteNode extends AbstractNode {
         edgeList.remove(node);
     }
 
-    @Override
-    public boolean equals(Object object) {
-        if (object == null || this.getClass() != object.getClass()) {
-            return false;
-        }
-        if (this == object) {
-            return true;
-        }
-
-
-        ConcreteNode that = (ConcreteNode) object;
-
-        if ((editable != that.editable) || (value != null ? !value.equals(that.value) : that.value != null)) {
-            return false;
-        }
-
-        return edgeList != null ? edgeList.equals(that.edgeList) : that.edgeList == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = value != null ? value.hashCode() : 0;
-        result = 31 * result + (editable ? 1 : 0);
-        result = 31 * result + (edgeList != null ? edgeList.hashCode() : 0);
-        return result;
-    }
 }

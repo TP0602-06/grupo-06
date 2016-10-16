@@ -31,24 +31,31 @@ public class CycleDetectorHelper {
     }
 
     private void initMarkedMap(List<AbstractNode> region) {
-        marked = new HashMap();
-        region.forEach(node -> marked.put(node, false));
+        marked = new HashMap<AbstractNode, Boolean>();
+        Iterator<AbstractNode> iterator = region.iterator();
+        while (iterator.hasNext()) {
+            AbstractNode nextNode = iterator.next();
+            marked.put(nextNode, false);
+        }
     }
 
     private void findCycle(AbstractNode rootNode, AbstractNode previusNode) {
         marked.put(rootNode, true);
 
-        rootNode.getEdgeList().forEach(nextNode -> {
-                if (nextNode != previusNode) {
-                    if (!marked.get(nextNode)) {
-                        marked.put(nextNode, true);
-                        findCycle(nextNode, rootNode);
-                    } else if (rootNode != previusNode) {
-                        hasCycle = true;
-                        return;
-                    }
+        List<AbstractNode> edgelist = rootNode.getEdgeList();
+        Iterator<AbstractNode> iterator = edgelist.iterator();
+        while (iterator.hasNext()) {
+            AbstractNode nextNode = iterator.next();
+            if (previusNode != nextNode) {
+                if (!marked.get(nextNode)) {
+                    marked.put(nextNode, true);
+                    findCycle(nextNode, rootNode);
+                } else if (rootNode != previusNode) {
+                    hasCycle = true;
+                    return;
                 }
-            });
+            }
+        }
     }
 
 }
