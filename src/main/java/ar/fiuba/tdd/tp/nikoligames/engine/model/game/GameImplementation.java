@@ -40,9 +40,24 @@ public class GameImplementation implements Game {
         }
     }
 
-    public void createEdge(Position position1, Position position2) {
-        board.createUndirectedEdge(position1, position2);
-        // TODO verificar que sea una conexion valida
+    @Override
+    public void createDirectedEdge(Position position1, Position position2) {
+        board.createDirectedEdge(position1,position2);
+    }
+
+    @Override
+    public void createUndirectedEdge(Position position1, Position position2) {
+        board.createUndirectedEdge(position1,position2);
+    }
+
+    @Override
+    public void removeUndirectedEdge(Position position1, Position position2) {
+        board.removeUndirectedEdge(position1,position2);
+    }
+
+    @Override
+    public void removeDirectedEdge(Position position1, Position position2) {
+        board.removeDirectedEdge(position1,position2);
     }
 
     public boolean checkActualBoard() {

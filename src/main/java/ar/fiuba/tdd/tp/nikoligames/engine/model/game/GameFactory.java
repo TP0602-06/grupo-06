@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.game;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardFactory;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.factory.BoardFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.NotValidRuleException;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RulesFactory;

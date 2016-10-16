@@ -1,5 +1,7 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
+package ar.fiuba.tdd.tp.nikoligames.engine.model.board.factory;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.NodeConfig;
