@@ -1,6 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
@@ -36,15 +39,16 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     public GameView createDefaultGameView(Game game, HashSet<String> validInputs) throws Exception {
         //TODO take information from a json
         //TODO create edges
+        //TODO take dimension from json
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
         SelectValueController selectValueController = new SelectValueControllerImp(game);
+        SelectEdgeController selectEdgeController = new SelectEdgeController(game);
 
         GridView gridView = createBoardView(game, selectValueController);
-        List<DrawableEdge> edges = createEdges(game);
+        List<DrawableEdge> edges = createEdges(game, selectEdgeController);
 
-        BoardView boardView = new BoardView(new Dimension(300, 300));
-        boardView.addGrid(gridView);
+        BoardView boardView = new BoardView(new Dimension(300, 300),gridView);
         boardView.addDrawbleEdges(edges);
 
         Component restartAndCheckButtons = createButtons(game);
@@ -72,8 +76,13 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return gridBoardFactory.createBoardView(game.getDrawableBoard());
     }
 
-    private List<DrawableEdge> createEdges(Game game) {
+    private List<DrawableEdge> createEdges(Game game, SelectEdgeController edgeController) {
         //Todo create drawableEdges
-        return new ArrayList<>();
+        List<DrawableEdge> edges = new ArrayList<>();
+        Position first = new ClassicPosition(1,1);
+        Position second = new ClassicPosition(1,2);
+        EdgePosition testEdge = new EdgePosition(first,second);
+        edges.add(new DrawableEdge(testEdge,edgeController));
+        return edges;
     }
 }

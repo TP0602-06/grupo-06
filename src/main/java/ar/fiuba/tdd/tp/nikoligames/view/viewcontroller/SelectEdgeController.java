@@ -16,7 +16,7 @@ public class SelectEdgeController {
     private Game game;
 
     public SelectEdgeController(Game game) {
-        game = game;
+        this.game = game;
     }
 
     public void notifySelectedEdge(DrawableEdge edge) {

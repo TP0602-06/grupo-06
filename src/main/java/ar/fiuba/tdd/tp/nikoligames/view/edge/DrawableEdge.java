@@ -19,6 +19,8 @@ public class DrawableEdge extends JButton {
     public DrawableEdge(EdgePosition joiner, SelectEdgeController controller) {
         edgePositions = joiner;
         addMouseListener(new EdgeSelectedListener(controller));
+        setBackground(ColorSet.TRANSPARENT);
+        setBorder(null);
     }
 
     public void select() {

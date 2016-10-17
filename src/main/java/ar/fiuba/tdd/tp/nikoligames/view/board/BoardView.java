@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.view.board;
 
-import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
@@ -20,18 +19,18 @@ public class BoardView extends JPanel {
     private GridView cellgrid;
     private JLayeredPane pane;
 
-    public BoardView(Dimension size) {
+    public BoardView(Dimension size, GridView gridLayer) {
         super();
         pane = new JLayeredPane();
         pane.setPreferredSize(size);
         add(pane);
+        addGrid(gridLayer, size);
     }
 
-    public void addGrid(GridView gridLayer) {
+    private void addGrid(GridView gridLayer, Dimension size) {
         cellgrid = gridLayer;
         addInLayer(gridLayer, backLayer);
-        gridLayer.setBounds(0, 0, 300, 300);
-
+        gridLayer.setBounds(0, 0, size.width, size.height);
     }
 
     public void addDrawbleEdges(List<DrawableEdge> edges) {
@@ -49,8 +48,9 @@ public class BoardView extends JPanel {
     }
 
     private void setBoundsOfEdge(DrawableEdge edge) {
-        //TODO compare with grid and view where to set
-        //Know width or height
+        DrawableEdgePositionSolver edgeSolver = new DrawableEdgePositionSolver(cellgrid);
+        Rectangle edgeBounds = edgeSolver.getRectangleFor(edge.getEdgePositions());
+        edge.setBounds(edgeBounds);
     }
 
 }
