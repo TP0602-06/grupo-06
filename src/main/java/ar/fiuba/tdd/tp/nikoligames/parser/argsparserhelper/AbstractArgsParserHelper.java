@@ -7,5 +7,9 @@ package ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper;
 public interface AbstractArgsParserHelper {
     void parseArgs(String[] args) throws Exception;
 
-    String getGameFile();
+    String getGameFileName();
+
+    String getInputPlaysFileName();
+
+    boolean hasInputPlaysFile();
 }

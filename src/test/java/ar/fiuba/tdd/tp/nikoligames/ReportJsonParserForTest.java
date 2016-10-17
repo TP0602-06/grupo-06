@@ -4,11 +4,11 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.AbstractPlay;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.ChangeNodeValuePlay;
-import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportMoves;
-import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportMovesJson;
+import ar.fiuba.tdd.tp.nikoligames.engine.reporter.AbstractPlaysReporter;
+import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportPlaysJson;
+import ar.fiuba.tdd.tp.nikoligames.parser.PlayParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,27 +33,24 @@ public class ReportJsonParserForTest {
     }
 
     private JSONObject getReport(List<AbstractPlay> plays) throws Exception {
-
-        ReportMoves reporter = new ReportMovesJson();
-        String reportText = reporter.makeReport(game, plays);
-        JSONParser parser = new JSONParser();
-        return (JSONObject) parser.parse(reportText);
+        AbstractPlaysReporter reporter = new ReportPlaysJson();
+        return reporter.makeJsonReport(game, plays);
     }
 
     public boolean allPlaysValid(JSONObject report) throws Exception {
-        JSONArray plays = (JSONArray) report.get(ReportMovesJson.PLAYS_KEY);
+        JSONArray plays = (JSONArray) report.get(ReportPlaysJson.PLAYS_KEY);
         boolean allValid = true;
         for (int i = 0; i < plays.size(); i++) {
             JSONObject play = (JSONObject) plays.get(i);
-            boolean valid = (boolean) play.get(ReportMovesJson.BOARDSTATUS_KEY);
+            boolean valid = (boolean) play.get(PlayParser.BOARDSTATUS_KEY);
             allValid = valid && allValid;
         }
         return allValid;
     }
 
     public boolean getBoardStatus(JSONObject report) {
-        JSONObject board = (JSONObject) report.get(ReportMovesJson.BOARD_KEY);
-        return (boolean) board.get(ReportMovesJson.STATUS_KEY);
+        JSONObject board = (JSONObject) report.get(ReportPlaysJson.BOARD_KEY);
+        return (boolean) board.get(ReportPlaysJson.STATUS_KEY);
     }
 
     private List<AbstractPlay> getValidPlays() {
