@@ -10,7 +10,7 @@ public class ArgsParserHelper implements AbstractArgsParserHelper {
     public static final int NUMBER_ARGS_WITH_PLAYS = 2;
 
     public static final int ARG_GAME_FILE = 0;
-    public static final int ARG_INPUT_PLAYS_FILE = 0;
+    public static final int ARG_INPUT_PLAYS_FILE = 1;
 
     private String arg0GameFileName = "";
     private String arg1InputPlaysFileName = "";
@@ -35,7 +35,7 @@ public class ArgsParserHelper implements AbstractArgsParserHelper {
     }
 
     public boolean hasInputPlaysFile() {
-        return this.arg1InputPlaysFileName.equals("");
+        return (!this.arg1InputPlaysFileName.equals(""));
     }
 
     public String getInputPlaysFileName() {

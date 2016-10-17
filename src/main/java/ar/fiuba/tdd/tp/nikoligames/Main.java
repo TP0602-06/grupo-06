@@ -46,6 +46,7 @@ public class Main {
 
                 AbstractPlaysReporter reporter = new ReportPlaysJson();
                 reporter.writeReport(game, plays, OUTPUT_JSON);
+                return;
             }
             FactoryGameView factoryView = new FactoryGameViewImplementation();
             GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
