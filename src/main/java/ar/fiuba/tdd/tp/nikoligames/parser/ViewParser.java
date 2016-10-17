@@ -12,7 +12,7 @@ public class ViewParser {
 
     public ViewConfig parseView(JSONObject jsonObject) {
         JSONObject viewObj = (JSONObject) jsonObject.get(VIEW);
-        boolean is_cell_board = (boolean) viewObj.get(IS_CELL_BOARD);
-        return new ViewConfig(is_cell_board);
+        boolean isCellBoard = (boolean) viewObj.get(IS_CELL_BOARD);
+        return new ViewConfig(isCellBoard);
     }
 }

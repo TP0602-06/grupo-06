@@ -52,6 +52,7 @@ public class RuleParser {
         }
         return positionsList;
     }
+
     @SuppressWarnings("CPD-END")
 
     private RuleConfig parseRule(JSONObject ruleObj) throws Exception {
