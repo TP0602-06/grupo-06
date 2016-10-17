@@ -15,9 +15,8 @@ import java.util.List;
 /**
  * Esta clase se encarga de armar el reporte de movimientos en Json.
  */
-public class ReportMovesJson implements ReportMoves {
+public class ReportPlaysJson implements AbstractPlaysReporter {
 
-    public static final String NUM_KEY = "number";
     public static final String BOARDSTATUS_KEY = "boardStatus";
     public static final String PLAYS_KEY = "plays";
     public static final String BOARD_KEY = "board";
@@ -26,13 +25,17 @@ public class ReportMovesJson implements ReportMoves {
     public static final String VALUE_KEY = "value";
     public static final String POSITION_KEY = "position";
 
-    public String makeReport(Game game, List<AbstractPlay> gameMoves) throws Exception {
+    public String makeStringReport(Game game, List<AbstractPlay> gameMoves) throws Exception {
+        return this.makeJSONReport(game,gameMoves).toString();
+    }
+
+    public JSONObject makeJSONReport(Game game,List<AbstractPlay> gameMoves) throws Exception {
         JSONObject parser = new JSONObject();
         JSONArray plays = makePlaysJson(gameMoves);
         JSONObject board = makeBoardReportJson(game.getDrawableBoard(),game.checkWin());
         parser.put(PLAYS_KEY, plays);
         parser.put(BOARD_KEY, board);
-        return parser.toJSONString();
+        return parser;
     }
 
     private JSONArray makePlaysJson(List<AbstractPlay> gameMoves) throws Exception {

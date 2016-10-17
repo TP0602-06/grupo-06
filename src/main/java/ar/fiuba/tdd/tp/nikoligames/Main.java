@@ -41,7 +41,7 @@ public class Main {
         }
     }
 }
-//ReportMovesJson reporter = new ReportMovesJson();
+//ReportPlaysJson reporter = new ReportPlaysJson();
 //List<ChangeNodeValuePlay> moves = new ArrayList<>();
 //ChangeNodeValuePlay move = new ChangeNodeValuePlay(1,"3",new ClassicPosition(1,1));
 //moves.add(move);

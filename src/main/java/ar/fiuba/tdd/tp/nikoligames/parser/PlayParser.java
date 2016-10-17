@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
  */
 public class PlayParser {
     public static final String NUM_KEY = "number";
-    private static final String BOARDSTATUS_KEY = "boardstatus";
+    public static final String BOARDSTATUS_KEY = "boardStatus";
 
     public static JSONObject toJson(AbstractPlay play) {
         JSONObject moveJson = new JSONObject();
