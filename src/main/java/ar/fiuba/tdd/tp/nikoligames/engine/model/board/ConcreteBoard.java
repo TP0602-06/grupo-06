@@ -70,7 +70,6 @@ public class ConcreteBoard implements DrawableBoard, Board {
         }
     }
 
-
     public int getRows() {
         return boardSize.getRows();
     }

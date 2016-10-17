@@ -13,7 +13,7 @@ public class NodeImplementationTest {
     public void isEmptyNodeTest() {
         AbstractNode node = new ConcreteNode();
         Assert.assertTrue(node.isEmpty());
-        Assert.assertFalse(node.isEditable());
+        Assert.assertTrue(node.isEditable());
     }
 
     @Test

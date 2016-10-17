@@ -8,19 +8,19 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
  */
 public interface Game {
 
-    void changeNodeValue(Position position, String value);
-
     boolean checkWin();
 
-    boolean checkActualBoard();
+    boolean getBoardStatus();
 
     DrawableBoard getDrawableBoard();
 
-    void createDirectedEdge(Position position1, Position position2);
+    boolean changeNodeValue(Position position, String value);
 
-    void createUndirectedEdge(Position position1, Position position2);
+    boolean createDirectedEdge(Position position1, Position position2);
 
-    void removeUndirectedEdge(Position position1, Position position2);
+    boolean createUndirectedEdge(Position position1, Position position2);
 
-    void removeDirectedEdge(Position position1, Position position2);
+    boolean removeUndirectedEdge(Position position1, Position position2);
+
+    boolean removeDirectedEdge(Position position1, Position position2);
 }

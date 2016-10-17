@@ -42,7 +42,7 @@ public class Main {
     }
 }
 //ReportMovesJson reporter = new ReportMovesJson();
-//List<Play> moves = new ArrayList<>();
-//Play move = new Play(1,"3",new ClassicPosition(1,1));
+//List<ChangeNodeValuePlay> moves = new ArrayList<>();
+//ChangeNodeValuePlay move = new ChangeNodeValuePlay(1,"3",new ClassicPosition(1,1));
 //moves.add(move);
 //System.out.print(reporter.makeReport(game,moves));

@@ -3,7 +3,8 @@ package ar.fiuba.tdd.tp.nikoligames.playtest;
 import ar.fiuba.tdd.tp.nikoligames.SimpleGameFactoryForTest;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.play.AbstractPlay;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.play.ChangeNodeValuePlay;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,18 +13,18 @@ public class PlayTest {
 
     @Test
     public void makeValidPlay() throws Exception {
-        Game newGame = gameFactory.makeGame();
-        Play play = new Play(1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 1));
-        Assert.assertTrue(play.makeMove(newGame));
+        Game game = gameFactory.makeGame();
+        AbstractPlay play = new ChangeNodeValuePlay(game, 1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 1));
+        Assert.assertTrue(play.process());
     }
 
     @Test
     public void makeInvalidPlay() throws Exception {
         Game newGame = gameFactory.makeGame();
-        Play play = new Play(1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 1));
-        Play invalidPlay = new Play(1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 2));
-        Assert.assertTrue(play.makeMove(newGame));
-        Assert.assertFalse(invalidPlay.makeMove(newGame));
+        ChangeNodeValuePlay play = new ChangeNodeValuePlay(newGame, 1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 1));
+        ChangeNodeValuePlay invalidPlay = new ChangeNodeValuePlay(newGame, 1, SimpleGameFactoryForTest.one, new ClassicPosition(1, 2));
+        Assert.assertTrue(play.process());
+        Assert.assertFalse(invalidPlay.process());
     }
 
 }
