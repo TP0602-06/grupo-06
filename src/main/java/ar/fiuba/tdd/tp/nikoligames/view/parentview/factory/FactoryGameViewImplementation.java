@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
@@ -81,8 +81,11 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         List<DrawableEdge> edges = new ArrayList<>();
         Position first = new ClassicPosition(1,1);
         Position second = new ClassicPosition(1,2);
+        Position third = new ClassicPosition(2,1);
         EdgePosition testEdge = new EdgePosition(first,second);
+        EdgePosition testEdge2 = new EdgePosition(third,first);
         edges.add(new DrawableEdge(testEdge,edgeController));
+        edges.add(new DrawableEdge(testEdge2,edgeController));
         return edges;
     }
 }

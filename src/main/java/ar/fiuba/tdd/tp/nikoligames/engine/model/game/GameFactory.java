@@ -1,10 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.game;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.BoardFactory;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.factory.BoardFactory;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.NotValidRuleException;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleFactory;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RulesFactory;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfig;
 
@@ -17,29 +17,29 @@ import java.util.List;
 public class GameFactory {
     private BoardFactory boardFactory = new BoardFactory();
 
-    public Game createGame(GameConfig gameConfig) throws NotValidRuleException {
+    public Game createGame(GameConfig gameConfig) throws Exception {
 
         Board board = makeBoard(gameConfig);
         List<Rule> rules = makeRules(gameConfig, board);
 
-        Game game = new GameImplementation(board, rules);
+        Game game = new ConcreteGameAdmitsInvalidPlays(board, rules);
         return game;
     }
 
     private List<Rule> makeRules(GameConfig gameConfig, Board board) throws NotValidRuleException {
-        RuleFactory ruleFactory = new RuleFactory(board);
+        RulesFactory rulesFactory = new RulesFactory(board);
         List<Rule> rules = new ArrayList<Rule>();
 
-        Rule validInpusRule = ruleFactory.createValidValueRule(gameConfig.getValidInputs());
+        Rule validInpusRule = rulesFactory.createValidValueRule(gameConfig.getValidInputs());
         rules.add(validInpusRule);//La pongo primera esta regla para que sea la primera que rompa
 
-        List<Rule> otherRules = ruleFactory.createRules(gameConfig.getRules());
+        List<Rule> otherRules = rulesFactory.createRules(gameConfig.getRules());
 
         rules.addAll(otherRules);
         return rules;
     }
 
-    private Board makeBoard(GameConfig gameConfig) {
+    private Board makeBoard(GameConfig gameConfig) throws Exception {
         SizeConfig sizeConfig = gameConfig.getSizeConfig();
         return boardFactory.createBoard(sizeConfig, gameConfig.getInitialCells());
     }

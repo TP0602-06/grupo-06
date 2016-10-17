@@ -2,8 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.generators.adjacentlist;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,8 +32,8 @@ public abstract class BoardAdjacentList implements AdjacentListGenerator {
         return adjacentList;
     }
 
-    public void addNode(List<AbstractNode> adjacentList, int row, int col) {
-        if ((row > 0) && (col > 0)) {
+    protected void addNode(List<AbstractNode> adjacentList, int row, int col) {
+        if ((row > 0) && (col > 0) && (col <= board.getCols()) && (row <= board.getRows())) {
             ClassicPosition positionAdjacentBottomRight = new ClassicPosition(row, col);
             AbstractNode adjacentNode = board.getNode(positionAdjacentBottomRight);
             adjacentList.add(adjacentNode);
@@ -41,5 +41,5 @@ public abstract class BoardAdjacentList implements AdjacentListGenerator {
 
     }
 
-    abstract List<AbstractNode> getAjacentListForNode(Position position);
+    protected abstract List<AbstractNode> getAjacentListForNode(Position position);
 }

@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.view.listeners;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 

@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.generators.adjacentlist;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class DiagonalAdjacentListGen extends BoardAdjacentList {
     }
 
     @Override
-    List<AbstractNode> getAjacentListForNode(Position position) {
+    protected List<AbstractNode> getAjacentListForNode(Position position) {
         List<AbstractNode> adjacentList = new ArrayList<AbstractNode>();
         int row = position.getRow();
         int column = position.getColumn();

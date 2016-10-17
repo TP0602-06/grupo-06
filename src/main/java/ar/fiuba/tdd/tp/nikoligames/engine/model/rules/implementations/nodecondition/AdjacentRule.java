@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondition;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
+import utils.Constants;
 
 import java.util.List;
 
@@ -11,20 +12,23 @@ public class AdjacentRule extends AbstractRegionRule {
 
     private List<AbstractNode> adjacentNodes;
 
+    @SuppressWarnings("CPD-START")
+
     public AdjacentRule(List<AbstractNode> region, List<AbstractNode> adjacentNodes) {
-        super(region, "");
+        super(region, Constants.EMPTY_STRING);
         this.adjacentNodes = adjacentNodes;
     }
+
+    @SuppressWarnings("CPD-END")
 
     @Override
     protected boolean nodeCondition(AbstractNode node) {
         List<AbstractNode> edgeList = node.getEdgeList();
-        return (!edgeList.containsAll(this.adjacentNodes));
+        return (!adjacentNodes.containsAll(edgeList));
     }
 
     @Override
     public boolean isActualBroken() {
         return isBroken();
     }
-
 }

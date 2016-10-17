@@ -3,19 +3,25 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeti
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Andres on 01/10/2016.
  */
 public abstract class AbstractArithmeticRule extends RuleImplementation {
-    public AbstractArithmeticRule(ArrayList<AbstractNode> region, String value) {
+
+    protected int arithmeticValue;
+
+    public AbstractArithmeticRule(List<AbstractNode> region, String value) {
         super(region, value);
     }
 
-    protected abstract int arithmeticOperation(int operationAcumulator, AbstractNode cell);
+    public AbstractArithmeticRule(List<AbstractNode> region, String value, int arithmeticValue) {
+        super(region, value);
+        this.arithmeticValue = arithmeticValue;
+    }
 
-    protected abstract int defaultIntValue();
+    protected abstract int arithmeticOperation(int operationAccumulator, AbstractNode cell);
 
     @Override
     public boolean isBroken() {
@@ -28,14 +34,14 @@ public abstract class AbstractArithmeticRule extends RuleImplementation {
     }
 
     private boolean check() {
-        int operationAcumulator = this.defaultIntValue();
-        for (AbstractNode node : super.region) {
-            if (node.isEmpty()) {
-                continue;
-            }
-            operationAcumulator = this.arithmeticOperation(operationAcumulator, node);
-        }
+
+        region.forEach(node -> {
+                if (!node.isEmpty()) {
+                    arithmeticValue = arithmeticOperation(arithmeticValue, node);
+                }
+            });
+
         int value = Integer.parseInt(this.value);
-        return (!(value == operationAcumulator));
+        return value != arithmeticValue;
     }
 }

@@ -1,37 +1,60 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board.node;
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.value.AbstractNodeValue;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.value.NodeValue;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ConcreteNode contiene los aspectos generales de cualquier celda de cualquier juego.
+ * Responsabilidades: contiene los aspectos generales de cualquier nodo de cualquier juego.
  */
 public class ConcreteNode extends AbstractNode {
 
-    protected String value = "";
+    public static final boolean DEFAULT_EDITABLE = true;
+    protected AbstractNodeValue value;
 
-    protected boolean editable;
+    protected boolean editable = DEFAULT_EDITABLE;
+
     protected List<AbstractNode> edgeList = new ArrayList<AbstractNode>();
 
     public ConcreteNode(String value, boolean editable) {
-        this.value = value;
+        this.value = new NodeValue(value);
         this.editable = editable;
     }
 
-    public String getValue() {
-        return value;
+    public ConcreteNode() {
+        this.value = new NodeValue();
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public String getValue() {
+        return value.getValue();
+    }
+
+    @Override
+    public int getIntValue() {
+        return value.getIntValue();
+    }
+
+    public void changeValue(String newValue) {
+        value.setValue(newValue);
+    }
+
+    @Override
+    public boolean isInvalid() {
+        return (!isEditable() && (isEmpty()));
     }
 
     public boolean isEmpty() {
-        return (this.value.equals(""));
+        return value.isEmpty();
     }
 
     public boolean isEditable() {
         return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable = editable;
     }
 
     public List<AbstractNode> getEdgeList() {
@@ -47,7 +70,4 @@ public class ConcreteNode extends AbstractNode {
         edgeList.remove(node);
     }
 
-    public boolean isReadOnly() {
-        return (!editable);
-    }
 }

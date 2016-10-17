@@ -20,10 +20,7 @@ public class NodeEdgelistCountRule extends RuleImplementation {
     @Override
     public boolean isBroken() {
         int edgeListSize = getEdgeListSize();
-        if (edgeListSize != countRule) {
-            return true;
-        }
-        return false;
+        return (edgeListSize != countRule);
     }
 
     private int getEdgeListSize() {
@@ -36,8 +33,8 @@ public class NodeEdgelistCountRule extends RuleImplementation {
     public boolean isActualBroken() {
         int edgeListSize = getEdgeListSize();
         if (edgeListSize <= countRule) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 }

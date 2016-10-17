@@ -1,9 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.board;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -14,15 +13,23 @@ public interface Board extends DrawableBoard {
 
     int getCols();
 
-    void setNode(Position position, AbstractNode cell);
+    void setEditable(Position position, boolean editable);
 
     boolean changeNodeValue(Position position, String value);
 
-    void createEdge(Position position1, Position position2);
+    void createDirectedEdge(Position position1, Position position2);
 
-    void eraseEdge(Position position1, Position position2);
+    void createUndirectedEdge(Position position1, Position position2);
+
+    void removeUndirectedEdge(Position position1, Position position2);
+
+    void removeDirectedEdge(Position position1, Position position2);
 
     AbstractNode getNode(Position position);
 
+    String getNodeValue(Position position);
+
+
     List<AbstractNode> getAllNodes();
+
 }

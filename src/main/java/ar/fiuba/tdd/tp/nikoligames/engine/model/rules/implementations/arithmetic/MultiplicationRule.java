@@ -3,26 +3,22 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.arithmeti
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by german on 9/30/2016.
  */
 public class MultiplicationRule extends AbstractArithmeticRule {
 
-    int value = 1;
+    private static int DEFAULT_OPERATION_VALUE = 1;
 
-    public MultiplicationRule(ArrayList<AbstractNode> nodes, String value) {
-        super(nodes, value);
+    public MultiplicationRule(List<AbstractNode> nodes, String value) {
+        super(nodes, value, DEFAULT_OPERATION_VALUE);
     }
 
-    protected int arithmeticOperation(int operationAcumulator, AbstractNode node) {
-        operationAcumulator = operationAcumulator * Integer.parseInt(node.getValue());
-        return operationAcumulator;
-    }
-
-
-    protected int defaultIntValue() {
-        return value;
+    protected int arithmeticOperation(int operationAccumulator, AbstractNode node) {
+        operationAccumulator = operationAccumulator * Integer.parseInt(node.getValue());
+        return operationAccumulator;
     }
 
 }

@@ -9,8 +9,6 @@ public interface DrawableNode {
 
     boolean isEditable();
 
-    boolean isReadOnly();
-
     String getValue();
 
 }

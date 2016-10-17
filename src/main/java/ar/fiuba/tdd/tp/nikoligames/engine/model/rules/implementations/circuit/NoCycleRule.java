@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleImplementation;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.helper.CycleDetectorHelper;
+import utils.Constants;
 
 import java.util.List;
 
@@ -11,13 +12,9 @@ import java.util.List;
  */
 public class NoCycleRule extends RuleImplementation {
     public NoCycleRule(List<AbstractNode> region) {
-        super(region, "");
+        super(region, Constants.EMPTY_STRING);
     }
 
-    @Override
-    public boolean isBroken() {
-        return hasCycle();
-    }
 
     @Override
     public boolean isActualBroken() {
@@ -27,5 +24,10 @@ public class NoCycleRule extends RuleImplementation {
     public boolean hasCycle() {
         CycleDetectorHelper cycleDetectorHelper = new CycleDetectorHelper(region);
         return cycleDetectorHelper.hasCycle();
+    }
+
+    @Override
+    public boolean isBroken() {
+        return hasCycle();
     }
 }

@@ -1,13 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.AbstractEdge;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.AbstractEditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
-
-import java.awt.*;
 
 /**
  * Es el controlador que se ocupa de crear aristas.
@@ -25,10 +22,10 @@ public class SelectEdgeController {
         Position secondPositon = edgePositions.getPosition2();
 
         if (edge.isSelected()) {
-            game.eraseEdge(firstPositon, secondPositon);
+            game.removeUndirectedEdge(firstPositon, secondPositon);
             edge.deselect();
         } else {
-            game.createEdge(firstPositon, secondPositon);
+            game.removeUndirectedEdge(firstPositon, secondPositon);
             edge.select();
         }
     }

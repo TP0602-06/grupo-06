@@ -2,8 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -12,7 +11,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.rulehelper.C
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Responsabilidades:

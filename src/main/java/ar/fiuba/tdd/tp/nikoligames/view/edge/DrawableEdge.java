@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.edge;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.EdgePosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.EdgeSelectedListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
@@ -20,7 +19,7 @@ public class DrawableEdge extends JButton {
         edgePositions = joiner;
         addMouseListener(new EdgeSelectedListener(controller));
         setBackground(ColorSet.TRANSPARENT);
-        setBorder(null);
+
     }
 
     public void select() {

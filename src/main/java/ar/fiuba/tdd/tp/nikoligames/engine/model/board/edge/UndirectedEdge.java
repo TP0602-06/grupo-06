@@ -2,22 +2,23 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
 /**
- * Created by german on 10/12/2016.
+ * Responsabilidades: Crear una arista NO DIRIGIDA entre 2 nodos y poder borrarla.
  */
-public class UndirectedEdge implements AbstractEdge {
-    private AbstractNode node1;
-    private AbstractNode node2;
+public class UndirectedEdge extends AbstractEdge {
+
 
     public UndirectedEdge(Board board, Position position1, Position position2) {
-        node1 = board.getNode(position1);
-        node2 = board.getNode(position2);
-        this.create();
+        super(board,position1,position2);
     }
 
-    public void create() {
+    public UndirectedEdge(AbstractNode node1, AbstractNode node2) {
+        super(node1,node2);
+    }
+
+    protected void create() {
         node1.addEdge(node2);
         node2.addEdge(node1);
     }

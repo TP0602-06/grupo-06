@@ -6,13 +6,14 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.he
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Responsabilidades: Verificar que hayan X cantidad de nodos visitados por el circuito en una region dada.
  */
 public class RegionVisitedCountRule extends RuleImplementation {
 
-    public RegionVisitedCountRule(ArrayList<AbstractNode> region, String value) {
+    public RegionVisitedCountRule(List<AbstractNode> region, String value) {
         super(region, value);
     }
 
@@ -27,7 +28,7 @@ public class RegionVisitedCountRule extends RuleImplementation {
         Iterator<AbstractNode> regionIterator = region.iterator();
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
-            if (!VisitedHelper.isVisited(node)) {
+            if (VisitedHelper.isVisited(node)) {
                 count++;
             }
         }

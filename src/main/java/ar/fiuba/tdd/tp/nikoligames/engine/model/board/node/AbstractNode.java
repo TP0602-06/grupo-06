@@ -7,18 +7,19 @@ import java.util.List;
  */
 public abstract class AbstractNode implements DrawableNode {
 
-
-    public AbstractNode() {
-
-    }
-
     public abstract String getValue();
 
-    public abstract void setValue(String value);
+    public abstract int getIntValue();
+
+    public abstract void changeValue(String value);
+
+    public abstract boolean isInvalid();
 
     public abstract boolean isEmpty();
 
     public abstract boolean isEditable();
+
+    public abstract void setEditable(boolean editable);
 
     public abstract List<AbstractNode> getEdgeList();
 

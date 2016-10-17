@@ -10,6 +10,9 @@ import org.junit.Test;
 public class JsonReporterTest {
     private ReportJsonParserForTest parser = new ReportJsonParserForTest();
 
+    public JsonReporterTest() throws Exception {
+    }
+
     @Test
     public void validMoveRegisteredHasInitialKeys() throws Exception {
         JSONObject report = parser.getValidReport();

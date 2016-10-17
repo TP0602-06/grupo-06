@@ -46,7 +46,7 @@ public class CycleDetectorHelper {
         Iterator<AbstractNode> iterator = edgelist.iterator();
         while (iterator.hasNext()) {
             AbstractNode nextNode = iterator.next();
-            if (nextNode != previusNode) {
+            if (previusNode != nextNode) {
                 if (!marked.get(nextNode)) {
                     marked.put(nextNode, true);
                     findCycle(nextNode, rootNode);
@@ -55,7 +55,6 @@ public class CycleDetectorHelper {
                     return;
                 }
             }
-
         }
     }
 

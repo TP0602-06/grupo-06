@@ -1,13 +1,13 @@
 package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.UndirectedBoard;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.ConcreteBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.ConcreteNode;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.game.ConcreteGameAdmitsInvalidPlays;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameImplementation;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.NoDuplicatesRule;
 
@@ -21,37 +21,14 @@ public class SimpleGameFactoryForTest {
     public static final String one = "1";
     public static final String two = "2";
 
-    public Game makeGame() {
-        Board board = new UndirectedBoard(rows, cols);
-        fillBoard(board);
+    public Game makeGame() throws Exception {
+        Board board = new ConcreteBoard(rows, cols);
+
         List<Rule> rules = new ArrayList<>();
-        Rule rule = new NoDuplicatesRule(makePositions(board));
+        Rule rule = new NoDuplicatesRule(board.getAllNodes());
         rules.add(rule);
 
-
-        return new GameImplementation(board, rules);
+        return new ConcreteGameAdmitsInvalidPlays(board, rules);
     }
 
-    private void fillBoard(Board board) {
-        for (int i = 1; i <= board.getRows(); i++) {
-            for (int j = 1; j <= board.getCols(); j++) {
-                AbstractNode cell = new ConcreteNode("", true);
-                Position position = new ClassicPosition(i, j);
-                board.setNode(position, cell);
-            }
-        }
-    }
-
-    private ArrayList<AbstractNode> makePositions(Board board) {
-        ArrayList<AbstractNode> nodes = new ArrayList<>();
-
-        for (int i = 1; i <= board.getRows(); i++) {
-            for (int j = 1; j <= board.getCols(); j++) {
-                Position position = new ClassicPosition(i, j);
-                nodes.add(board.getNode(position));
-            }
-        }
-        return nodes;
-
-    }
 }

@@ -1,7 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.play.Play;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.play.AbstractPlay;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.play.ChangeNodeValuePlay;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ import java.util.List;
  */
 public interface ReportMoves {
 
-    String makeReport(Game game, List<Play> moves) throws Exception;
+    String makeReport(Game game, List<AbstractPlay> moves) throws Exception;
 }
