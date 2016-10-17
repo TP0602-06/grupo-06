@@ -9,7 +9,6 @@ import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportPlaysJson;
 import ar.fiuba.tdd.tp.nikoligames.parser.PlayParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,7 @@ public class ReportJsonParserForTest {
 
     private JSONObject getReport(List<AbstractPlay> plays) throws Exception {
         AbstractPlaysReporter reporter = new ReportPlaysJson();
-        return reporter.makeJSONReport(game, plays);
+        return reporter.makeJsonReport(game, plays);
     }
 
     public boolean allPlaysValid(JSONObject report) throws Exception {
