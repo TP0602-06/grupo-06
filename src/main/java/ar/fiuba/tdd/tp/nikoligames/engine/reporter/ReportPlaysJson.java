@@ -17,17 +17,12 @@ import java.util.List;
  */
 public class ReportPlaysJson implements AbstractPlaysReporter {
 
-    public static final String BOARDSTATUS_KEY = "boardStatus";
     public static final String PLAYS_KEY = "plays";
     public static final String BOARD_KEY = "board";
     public static final String STATUS_KEY = "status";
     public static final String VALUES_KEY = "values";
     public static final String VALUE_KEY = "value";
     public static final String POSITION_KEY = "position";
-
-    public String makeStringReport(Game game, List<AbstractPlay> gameMoves) throws Exception {
-        return this.makeJsonReport(game,gameMoves).toString();
-    }
 
     public JSONObject makeJsonReport(Game game, List<AbstractPlay> gameMoves) throws Exception {
         JSONObject parser = new JSONObject();

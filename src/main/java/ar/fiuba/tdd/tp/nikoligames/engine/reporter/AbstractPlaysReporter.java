@@ -12,7 +12,5 @@ import java.util.List;
  */
 public interface AbstractPlaysReporter {
 
-    String makeStringReport(Game game, List<AbstractPlay> moves) throws Exception;
-
     JSONObject makeJsonReport(Game game, List<AbstractPlay> gameMoves) throws Exception;
 }
