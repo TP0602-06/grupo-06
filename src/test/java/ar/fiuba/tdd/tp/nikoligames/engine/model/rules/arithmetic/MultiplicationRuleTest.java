@@ -50,4 +50,13 @@ public class MultiplicationRuleTest {
         MultiplicationRule rule = new MultiplicationRule(nodes, "4");
         Assert.assertEquals(true, rule.isBroken());
     }
+
+    @Test
+    public void checkActualBrokenRule() {
+        List<String> nodeValues = Arrays.asList("1", "", "3", "4");
+        List<AbstractNode> nodes = NodeWithValueCreator.createNodesWithValues(nodeValues, false);
+
+        MultiplicationRule rule = new MultiplicationRule(nodes, "24");
+        Assert.assertEquals(false, rule.isActualBroken());
+    }
 }
