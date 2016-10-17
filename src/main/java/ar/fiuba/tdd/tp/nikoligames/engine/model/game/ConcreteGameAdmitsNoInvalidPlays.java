@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.engine.model.game;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.boardcommandaction.*;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 
@@ -27,41 +28,31 @@ public class ConcreteGameAdmitsNoInvalidPlays extends GameImplementation {
 
     @Override
     public boolean createDirectedEdge(Position position1, Position position2) {
-        board.createDirectedEdge(position1, position2);
-        if (!super.getBoardStatus()) {
-            board.removeDirectedEdge(position1, position2);
-            return false;
-        }
-        return true;
+        return this.boardAction(position1, position2, new CreateDirectedEdgeCommand(), new RemoveDirectedEdgeCommand());
     }
 
     @Override
     public boolean createUndirectedEdge(Position position1, Position position2) {
-        board.createUndirectedEdge(position1, position2);
-        if (!super.getBoardStatus()) {
-            board.removeUndirectedEdge(position1, position2);
-            return false;
-        }
-        return true;
+        return this.boardAction(position1, position2, new CreateUndirectedEdgeCommand(), new RemoveUndirectedEdgeCommand());
     }
 
     @Override
     public boolean removeUndirectedEdge(Position position1, Position position2) {
-        board.removeUndirectedEdge(position1, position2);
-        if (!super.getBoardStatus()) {
-            board.createUndirectedEdge(position1, position2);
-            return false;
-        }
-        return true;
+        return this.boardAction(position1, position2, new RemoveUndirectedEdgeCommand(), new CreateUndirectedEdgeCommand());
     }
 
     @Override
     public boolean removeDirectedEdge(Position position1, Position position2) {
-        board.removeDirectedEdge(position1, position2);
+        return this.boardAction(position1, position2, new RemoveDirectedEdgeCommand(), new CreateDirectedEdgeCommand());
+    }
+
+    protected boolean boardAction(Position pos1, Position pos2, BoardCommandAction boardAction, BoardCommandAction reverseAction) {
+        boardAction.execute(board, pos1, pos2);
         if (!super.getBoardStatus()) {
-            board.createDirectedEdge(position1, position2);
+            reverseAction.execute(board, pos1, pos2);
             return false;
         }
         return true;
     }
 }
+

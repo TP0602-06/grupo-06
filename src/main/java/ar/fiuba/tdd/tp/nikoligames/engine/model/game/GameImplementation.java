@@ -17,7 +17,6 @@ import java.util.List;
 
 public abstract class GameImplementation implements Game {
     protected RuleManager ruleManager;
-    public List<AbstractPlay> playHistory;
 
     protected Board board;
 

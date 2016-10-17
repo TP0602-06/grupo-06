@@ -24,8 +24,8 @@ public class RulesFactory {
         hashFactory.put(RuleType.DIAGONAL_PAIR_OF_ADJECENT_GENERATOR, new DiagonalPairOfAdjacentRulesGeneratorFactory());
         hashFactory.put(RuleType.DIAGONAL_VALID_EDGES_GENERATOR, new DiagonalValidEdgesRulesGeneratorFactory());
         hashFactory.put(RuleType.EDGES_INTERNAL_TO_REGION_COUNT, new EdgesInternalToRegionCountRuleFactory());
-        hashFactory.put(RuleType.HORIZONTAL_VERTICAL_PAIR_OF_ADJECENT_GENERATOR, new HorizontalVerticalPairOfAdjacentRulesGeneratorFactory());
-        hashFactory.put(RuleType.HORIZONTAL_VERTICAL_VALID_EDGES_GENERATOR, new HorizontalVerticalValidEdgesRulesGeneratorFactory());
+        hashFactory.put(RuleType.HOR_VER_PAIR_OF_ADJECENT_GENERATOR,new HorizontalVerticalPairOfAdjacentRulesGeneratorFactory());
+        hashFactory.put(RuleType.HOR_VER_VALID_EDGES_GENERATOR,new HorizontalVerticalValidEdgesRulesGeneratorFactory());
         hashFactory.put(RuleType.MULTIPLICATION, new MultiplicationRuleFactory());
         hashFactory.put(RuleType.NO_CYCLE, new NoCycleRuleFactory());
         hashFactory.put(RuleType.NODE_EDGE_LIST_COUNT, new NodeEdgeListCountRuleFactory());
@@ -52,7 +52,7 @@ public class RulesFactory {
         List<Rule> rules = new ArrayList();
         for (RuleConfig ruleConfig : ruleConfigs) {
             AbstractRuleFactory ruleFactory = getRuleFactory(ruleConfig);
-            ruleFactory.createRule(ruleConfig, board,rules);
+            ruleFactory.createRule(ruleConfig, board, rules);
         }
         return rules;
     }
