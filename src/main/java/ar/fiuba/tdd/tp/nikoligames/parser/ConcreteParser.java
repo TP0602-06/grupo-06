@@ -3,12 +3,9 @@ package ar.fiuba.tdd.tp.nikoligames.parser;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import utils.JsonObjectFilePathParser;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.HashSet;
 import java.util.List;
 
@@ -25,16 +22,11 @@ public class ConcreteParser implements AbstractParser {
 
     public ConcreteParser(String fileName) throws FileNotFoundException {
         this.fileName = fileName;
-
     }
 
     @Override
     public GameConfig parse() throws Exception {
-        JSONParser jsonParser = new JSONParser();
-
-        Reader fileReader = new InputStreamReader(new FileInputStream(fileName), "UTF-8");
-
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(fileReader);
+        JSONObject jsonObject = JsonObjectFilePathParser.getJsonObject(fileName);
 
         String gameName = parseGameName(jsonObject);
         SizeConfig sizeConfig = parseGridSize(jsonObject);
@@ -64,10 +56,7 @@ public class ConcreteParser implements AbstractParser {
 
     private SizeConfig parseGridSize(JSONObject jsonObject) {
         JSONArray gridSize = (JSONArray) jsonObject.get(GRID_SIZE);
-        int rows = (int) (long) gridSize.get(0);
-        int cols = (int) (long) gridSize.get(1);
-
-        SizeConfig sizeConfig = new SizeConfig(rows, cols);
+        SizeConfig sizeConfig = SizeConfigParser.parse(gridSize);
         return sizeConfig;
     }
 }

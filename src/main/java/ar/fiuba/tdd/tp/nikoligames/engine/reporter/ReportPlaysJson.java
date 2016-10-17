@@ -26,10 +26,10 @@ public class ReportPlaysJson implements AbstractPlaysReporter {
     public static final String POSITION_KEY = "position";
 
     public String makeStringReport(Game game, List<AbstractPlay> gameMoves) throws Exception {
-        return this.makeJSONReport(game,gameMoves).toString();
+        return this.makeJsonReport(game,gameMoves).toString();
     }
 
-    public JSONObject makeJSONReport(Game game,List<AbstractPlay> gameMoves) throws Exception {
+    public JSONObject makeJsonReport(Game game, List<AbstractPlay> gameMoves) throws Exception {
         JSONObject parser = new JSONObject();
         JSONArray plays = makePlaysJson(gameMoves);
         JSONObject board = makeBoardReportJson(game.getDrawableBoard(),game.checkWin());

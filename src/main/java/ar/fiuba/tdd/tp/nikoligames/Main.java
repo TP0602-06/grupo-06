@@ -2,14 +2,24 @@ package ar.fiuba.tdd.tp.nikoligames;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameFactory;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.play.AbstractPlay;
+import ar.fiuba.tdd.tp.nikoligames.engine.reporter.AbstractPlaysReporter;
+import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportPlaysJson;
 import ar.fiuba.tdd.tp.nikoligames.parser.AbstractParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.ConcreteParser;
+import ar.fiuba.tdd.tp.nikoligames.parser.PlayParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper.AbstractArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper.ArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameViewImplementation;
+import org.json.simple.JSONObject;
+
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.List;
 
 /**
  * Responsabilidades:
@@ -25,24 +35,31 @@ public class Main {
 
         try {
             argsParserHelper.parseArgs(args);
-            String gameJsonFilePath = argsParserHelper.getGameFile();
+            String gameJsonFilePath = argsParserHelper.getGameFileName();
             AbstractParser gameConfigParser = new ConcreteParser(gameJsonFilePath);
 
             GameConfig gameConfig = gameConfigParser.parse();
             Game game = gameFactory.createGame(gameConfig);
 
-            FactoryGameView factoryView = new FactoryGameViewImplementation();
-            GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
+            if (argsParserHelper.hasInputPlaysFile()) {
+                String inputFileName = argsParserHelper.getInputPlaysFileName();
+                List<AbstractPlay> plays = PlayParser.parse(inputFileName, game);
 
-            view.setVisible(true);
+                AbstractPlaysReporter reporter = new ReportPlaysJson();
+                JSONObject report = reporter.makeJsonReport(game, plays);
+
+                Writer fileWriter = new OutputStreamWriter(new FileOutputStream("output.txt"), "UTF-8");
+                fileWriter.write(report.toJSONString());
+                fileWriter.flush();
+                fileWriter.close();
+            } else {
+                FactoryGameView factoryView = new FactoryGameViewImplementation();
+                GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
+                view.setVisible(true);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
-//ReportPlaysJson reporter = new ReportPlaysJson();
-//List<ChangeNodeValuePlay> moves = new ArrayList<>();
-//ChangeNodeValuePlay move = new ChangeNodeValuePlay(1,"3",new ClassicPosition(1,1));
-//moves.add(move);
-//System.out.print(reporter.makeReport(game,moves));
