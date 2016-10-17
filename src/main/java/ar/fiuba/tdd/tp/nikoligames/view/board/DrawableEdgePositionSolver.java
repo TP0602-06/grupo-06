@@ -25,7 +25,7 @@ public class DrawableEdgePositionSolver {
         Position start = getViewCoordinates(mostTopLeftPosition);
         Position end = getViewCoordinates(mostBottomRightPosition);
 
-        return makeEdgeRectangle(start,end);
+        return makeEdgeRectangle(start, end);
     }
 
     private Rectangle makeEdgeRectangle(Position start, Position end) {
@@ -34,19 +34,19 @@ public class DrawableEdgePositionSolver {
         int width = getEdgeWidth(horizontal);
         int height = getEdgeHeight(horizontal);
 
-        int modifierX =0;
+        int modifierX = 0;
         int modifierY = 0;
 
         if (horizontal) {
-            modifierY = (int)Math.floor(-(double)height/2);
+            modifierY = (int) Math.floor(-(double) height / 2);
         } else {
-            modifierX = (int)Math.floor(-(double)width/2);
+            modifierX = (int) Math.floor(-(double) width / 2);
         }
 
         int positionX = start.getRow() + modifierX;
         int positionY = start.getColumn() + modifierY;
 
-        return new Rectangle(positionX,positionY,width,height);
+        return new Rectangle(positionX, positionY, width, height);
     }
 
     private Position getViewCoordinates(Position position) {
@@ -56,12 +56,12 @@ public class DrawableEdgePositionSolver {
         int coordinateX = getCoordinateOf(cellWidth, position.getColumn());
         int coordinateY = getCoordinateOf(celHeight, position.getRow());
 
-        return new ClassicPosition(coordinateX,coordinateY);
+        return new ClassicPosition(coordinateX, coordinateY);
     }
 
     private int getEdgeHeight(boolean horizontal) {
         if (horizontal) {
-            return (int) Math.floor(getGridCellHeight()*edgeProportion);
+            return (int) Math.floor(getGridCellHeight() * edgeProportion);
         }
         return getGridCellHeight();
 
@@ -71,21 +71,21 @@ public class DrawableEdgePositionSolver {
         if (horizontal) {
             return getGridCellWidth();
         }
-        return (int) Math.floor(getGridCellWidth()*edgeProportion);
+        return (int) Math.floor(getGridCellWidth() * edgeProportion);
     }
 
     private int getGridCellWidth() {
         Rectangle gridSize = grid.getBounds();
-        return (int) Math.floor(gridSize.width / grid.getCols());
+        return (int) Math.floor((double)gridSize.width / grid.getCols());
     }
 
     private int getGridCellHeight() {
         Rectangle gridSize = grid.getBounds();
-        return (int) Math.floor(gridSize.height / grid.getRows());
+        return (int) Math.floor((double)gridSize.height / grid.getRows());
     }
 
     private int getCoordinateOf(Integer celSize, Integer position) {
         //with all existant
-        return (int) (celSize * position + Math.floor(celSize / 2));
+        return (int) (celSize * position + Math.floor((double) celSize / 2));
     }
 }

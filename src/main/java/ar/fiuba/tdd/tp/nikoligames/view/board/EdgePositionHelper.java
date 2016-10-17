@@ -30,16 +30,14 @@ public class EdgePositionHelper {
     }
 
     private static Integer compare(Position position1, Position position2) {
-        if (position1.getRow() < position2.getRow()) {
+        if (position1.getRow() < position2.getRow()
+                || (position1.getRow() == position2.getRow()
+                && position1.getColumn() < position2.getColumn())) {
             return 1;
         }
-        if (position1.getRow() == position2.getRow()) {
-            if (position1.getColumn() < position2.getColumn()) {
-                return 1;
-            }
-            if (position1.getColumn() == position2.getColumn()) {
-                return 0;
-            }
+        if (position1.getRow() == position2.getRow()
+                && position1.getColumn() == position2.getColumn()) {
+            return 0;
         }
         return -1;
     }

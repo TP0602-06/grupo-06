@@ -4,10 +4,10 @@ import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
 import java.awt.*;
-import javax.swing.*;
-
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.*;
+
 
 /**
  * Created by tobias on 14/10/16.
