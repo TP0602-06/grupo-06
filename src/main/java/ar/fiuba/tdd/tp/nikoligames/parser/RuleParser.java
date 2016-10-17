@@ -3,6 +3,8 @@ package ar.fiuba.tdd.tp.nikoligames.parser;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfigParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -14,7 +16,6 @@ import java.util.List;
  * Created by german on 9/30/2016.
  */
 public class RuleParser {
-    @SuppressWarnings("CPD-START")
 
     public static final String RULES = "rules";
     public static final String RULE_VALUES = "values";
@@ -40,50 +41,66 @@ public class RuleParser {
         return rules;
     }
 
+    @SuppressWarnings("CPD-START")
     private List<Position> getRegion(JSONObject regionObject, String regionKey) {
         ArrayList<Position> positionsList = new ArrayList<Position>();
         JSONArray regionObj = (JSONArray) regionObject.get(regionKey);
         for (int j = 0; j < regionObj.size(); j++) {
             JSONArray regioCellObj = (JSONArray) regionObj.get(j);
-            int row = (int) (long) regioCellObj.get(0);
-            int col = (int) (long) regioCellObj.get(1);
-            positionsList.add(new ClassicPosition(row, col));
+            SizeConfig position = SizeConfigParser.parse(regioCellObj);
+            positionsList.add(new ClassicPosition(position.getRows(), position.getCols()));
         }
         return positionsList;
     }
 
+    @SuppressWarnings("CPD-END")
     private RuleConfig parseRule(JSONObject ruleObj) throws Exception {
         String definition = (String) ruleObj.get(RULE_DEFINITION);
 
         RuleConfig ruleConfig = new RuleConfig(definition);
 
-        List<Position> regionListPosition = getRegion(ruleObj, RULE_REGION);
-        for (Position pos : regionListPosition) {
-            ruleConfig.addCellToRegion(pos.getRow(), pos.getColumn());
-        }
-        if (ruleObj.containsKey(RULE_OPERATION_VALUE)) {
-            String ruleValue = (String) ruleObj.get(RULE_OPERATION_VALUE);
-            ruleConfig.setValue(ruleValue);
-        }
+        parseRuleRegionParameter(ruleObj, ruleConfig);
+        parseRuleValueParameter(ruleObj, ruleConfig);
+        parseListOfRegionsParameter(ruleObj, ruleConfig);
+        parseAdjacentListPositionsList(ruleObj, ruleConfig);
 
-        if (ruleObj.containsKey(RULE_REGION_lIST)) {
-            JSONArray regionsObjs = (JSONArray) ruleObj.get(RULE_REGION_lIST);
-            for (int j = 0; j < regionsObjs.size(); j++) {
-                JSONObject regionObjs = (JSONObject) regionsObjs.get(j);
-                regionListPosition = getRegion(ruleObj, RULE_REGION);
-                ruleConfig.addRegionToRegionListPosition(regionListPosition);
-            }
-        }
-
-        if (ruleObj.containsKey(RULE_ADJACENT)) {
-            List<Position> adjacentListPosition = getRegion(ruleObj, RULE_ADJACENT);
-            for (Position pos : adjacentListPosition) {
-                ruleConfig.addCellToAdjacentRegion(pos.getRow(), pos.getColumn());
-            }
-        }
         return ruleConfig;
 
     }
 
+    private void parseAdjacentListPositionsList(JSONObject ruleObj, RuleConfig ruleConfig) {
+        if (ruleObj.containsKey(RULE_ADJACENT)) {
+            List<Position> adjacentListPosition = getRegion(ruleObj, RULE_ADJACENT);
+            for (Position pos : adjacentListPosition) {
+                ruleConfig.addNodePositionToAdjacentRegion(pos.getRow(), pos.getColumn());
+            }
+        }
+    }
 
+    private void parseListOfRegionsParameter(JSONObject ruleObj, RuleConfig ruleConfig) {
+        if (ruleObj.containsKey(RULE_REGION_lIST)) {
+            List<Position> regionListPosition;
+
+            JSONArray regionsObjs = (JSONArray) ruleObj.get(RULE_REGION_lIST);
+            for (int j = 0; j < regionsObjs.size(); j++) {
+                JSONObject regionObjs = (JSONObject) regionsObjs.get(j);
+                regionListPosition = getRegion(regionObjs, RULE_REGION);
+                ruleConfig.addRegionToRegionListPosition(regionListPosition);
+            }
+        }
+    }
+
+    private void parseRuleValueParameter(JSONObject ruleObj, RuleConfig ruleConfig) {
+        if (ruleObj.containsKey(RULE_OPERATION_VALUE)) {
+            String ruleValue = (String) ruleObj.get(RULE_OPERATION_VALUE);
+            ruleConfig.setValue(ruleValue);
+        }
+    }
+
+    private void parseRuleRegionParameter(JSONObject ruleObj, RuleConfig ruleConfig) {
+        List<Position> regionListPosition = getRegion(ruleObj, RULE_REGION);
+        for (Position pos : regionListPosition) {
+            ruleConfig.addCellToRegion(pos.getRow(), pos.getColumn());
+        }
+    }
 }

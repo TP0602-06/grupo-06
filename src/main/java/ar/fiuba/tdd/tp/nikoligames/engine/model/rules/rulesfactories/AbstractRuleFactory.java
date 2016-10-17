@@ -34,10 +34,6 @@ public abstract class AbstractRuleFactory {
         return getNodesFromPositionList(ruleConfig.getAdjacentPositions(), board);
     }
 
-    protected Set<String> getValidInputs(RuleConfig ruleConfig) {
-        return ruleConfig.getValidInputs();
-    }
-
     private ArrayList<AbstractNode> getNodesFromPositionList(List<Position> positions, Board board) {
         ArrayList<AbstractNode> region = new ArrayList<>();
         for (Position pos : positions) {

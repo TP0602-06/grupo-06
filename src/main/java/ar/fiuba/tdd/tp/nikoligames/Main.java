@@ -14,11 +14,7 @@ import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameViewImplementation;
-import org.json.simple.JSONObject;
 
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.List;
 
 /**
@@ -29,7 +25,10 @@ import java.util.List;
  */
 public class Main {
 
+    public static final String OUTPUT_JSON = "output.json";
+
     public static void main(String[] args) {
+
         AbstractArgsParserHelper argsParserHelper = new ArgsParserHelper();
         GameFactory gameFactory = new GameFactory();
 
@@ -46,17 +45,11 @@ public class Main {
                 List<AbstractPlay> plays = PlayParser.parse(inputFileName, game);
 
                 AbstractPlaysReporter reporter = new ReportPlaysJson();
-                JSONObject report = reporter.makeJsonReport(game, plays);
-
-                Writer fileWriter = new OutputStreamWriter(new FileOutputStream("output.txt"), "UTF-8");
-                fileWriter.write(report.toJSONString());
-                fileWriter.flush();
-                fileWriter.close();
-            } else {
-                FactoryGameView factoryView = new FactoryGameViewImplementation();
-                GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
-                view.setVisible(true);
+                reporter.writeReport(game, plays, OUTPUT_JSON);
             }
+            FactoryGameView factoryView = new FactoryGameViewImplementation();
+            GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
+            view.setVisible(true);
 
         } catch (Exception e) {
             e.printStackTrace();
