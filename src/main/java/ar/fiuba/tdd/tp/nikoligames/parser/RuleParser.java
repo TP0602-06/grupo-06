@@ -52,8 +52,8 @@ public class RuleParser {
         }
         return positionsList;
     }
-
     @SuppressWarnings("CPD-END")
+
     private RuleConfig parseRule(JSONObject ruleObj) throws Exception {
         String definition = (String) ruleObj.get(RULE_DEFINITION);
 
@@ -65,7 +65,6 @@ public class RuleParser {
         parseAdjacentListPositionsList(ruleObj, ruleConfig);
 
         return ruleConfig;
-
     }
 
     private void parseAdjacentListPositionsList(JSONObject ruleObj, RuleConfig ruleConfig) {
@@ -97,10 +96,14 @@ public class RuleParser {
         }
     }
 
+    @SuppressWarnings("CPD-START")
     private void parseRuleRegionParameter(JSONObject ruleObj, RuleConfig ruleConfig) {
-        List<Position> regionListPosition = getRegion(ruleObj, RULE_REGION);
-        for (Position pos : regionListPosition) {
-            ruleConfig.addCellToRegion(pos.getRow(), pos.getColumn());
+
+        if (ruleObj.containsKey(RULE_REGION)) {
+            List<Position> regionListPosition = getRegion(ruleObj, RULE_REGION);
+            for (Position pos : regionListPosition) {
+                ruleConfig.addCellToRegion(pos.getRow(), pos.getColumn());
+            }
         }
     }
 }

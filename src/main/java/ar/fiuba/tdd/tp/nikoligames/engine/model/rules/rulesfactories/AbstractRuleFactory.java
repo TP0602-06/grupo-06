@@ -8,15 +8,17 @@ import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Andres on 14/10/2016.
  */
 public abstract class AbstractRuleFactory {
-    public abstract void createRule(RuleConfig ruleConfig, Board board,List<Rule> rules);
+    public abstract void createRule(RuleConfig ruleConfig, Board board, List<Rule> rules);
 
-    protected ArrayList<AbstractNode> getRegion(RuleConfig ruleConfig, Board board) {
+    protected List<AbstractNode> getRegion(RuleConfig ruleConfig, Board board) {
+        if (ruleConfig.getRegionPositions().size() == 0) {
+            return board.getAllNodes();
+        }
         return getNodesFromPositionList(ruleConfig.getRegionPositions(), board);
     }
 

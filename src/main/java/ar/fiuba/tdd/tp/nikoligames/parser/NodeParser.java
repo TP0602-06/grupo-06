@@ -26,11 +26,8 @@ public class NodeParser {
         }
         boolean editable = (boolean) cellObj.get(EDITABLE);
 
-        boolean readonly = (boolean) cellObj.get(READONLY);
-
         NodeConfig node = new NodeConfig(boardValue, row, col);
         node.setEditable(editable);
-        node.setReadonly(readonly);
 
         return node;
     }

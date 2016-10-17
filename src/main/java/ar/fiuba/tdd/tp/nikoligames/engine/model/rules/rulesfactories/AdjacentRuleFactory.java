@@ -7,6 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.nodecondit
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Andres on 14/10/2016.
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 public class AdjacentRuleFactory extends AbstractSingleRuleFactory {
     @Override
     protected Rule createRule(RuleConfig ruleConfig, Board board) {
-        ArrayList<AbstractNode> region = this.getRegion(ruleConfig, board);
-        ArrayList<AbstractNode> adjacents = this.getAdjacents(ruleConfig, board);
+        List<AbstractNode> region = this.getRegion(ruleConfig, board);
+        List<AbstractNode> adjacents = this.getAdjacents(ruleConfig, board);
         return new AdjacentRule(region, adjacents);
     }
 
