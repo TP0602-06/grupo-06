@@ -8,6 +8,9 @@
 	"rules": {
 		"values": [
 			{
+				"definition": "NON_EMPTY_REGION"
+			},
+			{
 				"definition": "MULTIPLICACION",
 				"value" : "6",
 				"region": [ [ 1 , 1 ],[ 2 , 1 ] ]
@@ -68,43 +71,43 @@
 				"region": [ [ 5 , 4 ],[ 5 , 5 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 1 , 1 ],[ 1 , 2 ], [ 1 , 3 ], [ 1 , 4 ], [ 1 , 5 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 2 , 1 ],[ 2 , 2 ], [ 2 , 3 ], [ 2 , 4 ], [ 2 , 5 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 3 , 1 ],[ 3 , 2 ], [ 3 , 3 ], [ 3 , 4 ], [ 3 , 5 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 4 , 1 ],[ 4 , 2 ], [ 4 , 3 ], [ 4 , 4 ], [ 4 , 5 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 5 , 1 ],[ 5 , 2 ], [ 5 , 3 ], [ 5 , 4 ], [ 5 , 5 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 1 , 1 ],[ 2 , 1 ], [ 3 , 1 ], [ 4 , 1 ], [ 5 , 1 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 1 , 2 ],[ 2 , 2 ], [ 3 , 2 ], [ 4 , 2 ], [ 5 , 2 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 1 , 3 ],[ 2 , 3 ], [ 3 , 3 ], [ 4 , 3 ], [ 5 , 3 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 1 , 4 ],[ 2 , 4 ], [ 3 , 4 ], [ 4 , 4 ], [ 5 , 4 ] ]
 			},
 			{
-				"definition": "NO_REPITE",
+				"definition": "NO_DUPLICATES",
 				"region": [ [ 1 , 5 ],[ 2 , 5 ], [ 3 , 5 ], [ 4 , 5 ], [ 5 , 5 ] ]
 			}
 		]
@@ -114,128 +117,103 @@
 		"values": [
 			{
 				"position": [1, 1],
-				"editable": true,
-				"readonly": false
+				"editable": true
 			},
 			{
 				"position": [1, 2],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [1, 3],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [1, 4],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 		
 			{
 				"position": [1, 5],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [2, 1],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			},
 			{
 				"position": [2, 2],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [2, 3],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [2, 4],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 		
 			{
 				"position": [2, 5],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 {
 				"position": [3, 1],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			},
 			{
 				"position": [3, 2],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [3, 3],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [3, 4],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 		
 			{
 				"position": [3, 5],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 {
 				"position": [4, 1],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			},
 			{
 				"position": [4, 2],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [4, 3],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [4, 4],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 		
 			{
 				"position": [4, 5],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 {
 				"position": [5, 1],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			},
 			{
 				"position": [5, 2],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [5, 3],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 
 			{
 				"position": [5, 4],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}, 		
 			{
 				"position": [5, 5],
-				"editable": true, 
-				"readonly": false
+				"editable": true
 			}			
 		]
 	}
