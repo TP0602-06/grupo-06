@@ -11,9 +11,9 @@ import java.util.ArrayList;
 /**
  * Created by Andres on 14/10/2016.
  */
-public class RegionVisitedCountRuleFactory extends AbstractRuleFactory {
+public class RegionVisitedCountRuleFactory extends AbstractSingleRuleFactory {
     @Override
-    public Rule createRule(RuleConfig ruleConfig, Board board) {
+    protected Rule createRule(RuleConfig ruleConfig, Board board) {
         ArrayList<AbstractNode> region = getRegion(ruleConfig, board);
         String value = getValue(ruleConfig);
         return new RegionVisitedCountRule(region, value);

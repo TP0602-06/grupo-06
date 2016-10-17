@@ -11,11 +11,10 @@ import java.util.ArrayList;
 /**
  * Created by Andres on 14/10/2016.
  */
-public class AdditionRuleFactory extends AbstractRuleFactory {
+public class AdditionRuleFactory extends AbstractSingleRuleFactory {
 
-    public Rule createRule(RuleConfig ruleConfig, Board board) {
-        String value = this.getValue(ruleConfig);
-        ArrayList<AbstractNode> region = this.getRegion(ruleConfig, board);
-        return new AdditionRule(region, value);
+    @Override
+    protected Rule createRule(RuleConfig ruleConfig, Board board) {
+        return new AdditionRule(this.getRegion(ruleConfig, board), this.getValue(ruleConfig));
     }
 }

@@ -14,7 +14,7 @@ import java.util.Set;
  * Created by Andres on 14/10/2016.
  */
 public abstract class AbstractRuleFactory {
-    public abstract Rule createRule(RuleConfig ruleConfig, Board board);
+    public abstract void createRule(RuleConfig ruleConfig, Board board,List<Rule> rules);
 
     protected ArrayList<AbstractNode> getRegion(RuleConfig ruleConfig, Board board) {
         return getNodesFromPositionList(ruleConfig.getRegionPositions(), board);

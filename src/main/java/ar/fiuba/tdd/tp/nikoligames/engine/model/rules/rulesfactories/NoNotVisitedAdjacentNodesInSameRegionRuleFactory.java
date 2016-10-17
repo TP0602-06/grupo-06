@@ -12,9 +12,9 @@ import java.util.List;
 /**
  * Created by Andres on 14/10/2016.
  */
-public class NoNotVisitedAdjacentNodesInSameRegionRuleFactory extends AbstractRuleFactory {
+public class NoNotVisitedAdjacentNodesInSameRegionRuleFactory extends AbstractSingleRuleFactory {
     @Override
-    public Rule createRule(RuleConfig ruleConfig, Board board) {
+    protected Rule createRule(RuleConfig ruleConfig, Board board) {
         ArrayList<List<AbstractNode>> regionList = this.getRegionList(ruleConfig, board);
         ArrayList<AbstractNode> region = this.getRegion(ruleConfig, board);
         return new NoNotVisitedAdjacentNodesInSameRegionRule(region, regionList);

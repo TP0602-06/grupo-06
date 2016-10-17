@@ -11,9 +11,9 @@ import java.util.ArrayList;
 /**
  * Created by Andres on 14/10/2016.
  */
-public class NonEmptyRegionRuleFactory extends AbstractRuleFactory {
+public class NonEmptyRegionRuleFactory extends AbstractSingleRuleFactory {
     @Override
-    public Rule createRule(RuleConfig ruleConfig, Board board) {
+    protected Rule createRule(RuleConfig ruleConfig, Board board) {
         ArrayList<AbstractNode> region = this.getRegion(ruleConfig, board);
         return new NonEmptyRegionRule(region);
     }

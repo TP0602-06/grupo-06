@@ -11,11 +11,13 @@ import java.util.ArrayList;
 /**
  * Created by Andres on 14/10/2016.
  */
-public class AdjacentRuleFactory extends AbstractRuleFactory {
+public class AdjacentRuleFactory extends AbstractSingleRuleFactory {
     @Override
-    public Rule createRule(RuleConfig ruleConfig, Board board) {
+    protected Rule createRule(RuleConfig ruleConfig, Board board) {
         ArrayList<AbstractNode> region = this.getRegion(ruleConfig, board);
         ArrayList<AbstractNode> adjacents = this.getAdjacents(ruleConfig, board);
         return new AdjacentRule(region, adjacents);
     }
+
+
 }

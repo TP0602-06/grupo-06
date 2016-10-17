@@ -21,7 +21,11 @@ public class RulesFactory {
         this.hashFactory = new HashMap();
         hashFactory.put(RuleType.ADDITION, new AdditionRuleFactory());
         hashFactory.put(RuleType.ADJACENT, new AdjacentRuleFactory());
+        hashFactory.put(RuleType.DIAGONAL_PAIR_OF_ADJECENT_GENERATOR, new DiagonalPairOfAdjacentRulesGeneratorFactory());
+        hashFactory.put(RuleType.DIAGONAL_VALID_EDGES_GENERATOR, new DiagonalValidEdgesRulesGeneratorFactory());
         hashFactory.put(RuleType.EDGES_INTERNAL_TO_REGION_COUNT, new EdgesInternalToRegionCountRuleFactory());
+        hashFactory.put(RuleType.HORIZONTAL_VERTICAL_PAIR_OF_ADJECENT_GENERATOR, new HorizontalVerticalPairOfAdjacentRulesGeneratorFactory());
+        hashFactory.put(RuleType.HORIZONTAL_VERTICAL_VALID_EDGES_GENERATOR, new HorizontalVerticalValidEdgesRulesGeneratorFactory());
         hashFactory.put(RuleType.MULTIPLICATION, new MultiplicationRuleFactory());
         hashFactory.put(RuleType.NO_CYCLE, new NoCycleRuleFactory());
         hashFactory.put(RuleType.NODE_EDGE_LIST_COUNT, new NodeEdgeListCountRuleFactory());
@@ -46,13 +50,10 @@ public class RulesFactory {
 
     public List<Rule> createRules(List<RuleConfig> ruleConfigs) throws NotValidRuleException {
         List<Rule> rules = new ArrayList();
-
         for (RuleConfig ruleConfig : ruleConfigs) {
             AbstractRuleFactory ruleFactory = getRuleFactory(ruleConfig);
-            Rule rule = ruleFactory.createRule(ruleConfig, board);
-            rules.add(rule);
+            ruleFactory.createRule(ruleConfig, board,rules);
         }
-
         return rules;
     }
 

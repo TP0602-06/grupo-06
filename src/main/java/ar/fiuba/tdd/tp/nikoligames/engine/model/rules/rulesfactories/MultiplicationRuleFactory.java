@@ -11,8 +11,8 @@ import java.util.ArrayList;
 /**
  * Created by Andres on 14/10/2016.
  */
-public class MultiplicationRuleFactory extends AbstractRuleFactory {
-    public Rule createRule(RuleConfig ruleConfig, Board board) {
+public class MultiplicationRuleFactory extends AbstractSingleRuleFactory {
+    protected Rule createRule(RuleConfig ruleConfig, Board board) {
         ArrayList<AbstractNode> region = this.getRegion(ruleConfig, board);
         String value = this.getValue(ruleConfig);
         return new MultiplicationRule(region, value);
