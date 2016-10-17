@@ -39,7 +39,7 @@ public class ReportMovesJson implements ReportMoves {
         JSONArray playsArray = new JSONArray();
         for (int i = 0; i < gameMoves.size(); i++) {
             AbstractPlay move = gameMoves.get(i);
-            //move.process();
+            move.process();
             JSONObject playJson = PlayParser.toJson(move);
             playsArray.add(playJson);
         }
