@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.engine.reporter;
+package ar.fiuba.tdd.tp.nikoligames.parser;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.AbstractPlay;
 import org.json.simple.JSONObject;

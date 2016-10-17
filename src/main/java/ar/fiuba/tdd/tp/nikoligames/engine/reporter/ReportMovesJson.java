@@ -5,6 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.play.AbstractPlay;
+import ar.fiuba.tdd.tp.nikoligames.parser.PlayParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -26,27 +27,24 @@ public class ReportMovesJson implements ReportMoves {
     public static final String POSITION_KEY = "position";
 
     public String makeReport(Game game, List<AbstractPlay> gameMoves) throws Exception {
-
         JSONObject parser = new JSONObject();
-        JSONArray plays = makePlaysJson(game, gameMoves);
-        JSONObject board = makeBoardReportJson(game.getDrawableBoard(),game.getBoardStatus());
+        JSONArray plays = makePlaysJson(gameMoves);
+        JSONObject board = makeBoardReportJson(game.getDrawableBoard(),game.checkWin());
         parser.put(PLAYS_KEY, plays);
         parser.put(BOARD_KEY, board);
         return parser.toJSONString();
     }
 
-    private JSONArray makePlaysJson(Game game, List<AbstractPlay> gameMoves) throws Exception {
+    private JSONArray makePlaysJson(List<AbstractPlay> gameMoves) throws Exception {
         JSONArray playsArray = new JSONArray();
         for (int i = 0; i < gameMoves.size(); i++) {
             AbstractPlay move = gameMoves.get(i);
-            boolean validMove = move.process();
-
+            //move.process();
             JSONObject playJson = PlayParser.toJson(move);
             playsArray.add(playJson);
         }
         return playsArray;
     }
-
 
     private JSONObject makeCellJson(DrawableNode cell, Position position) {
         JSONObject cellJson = new JSONObject();

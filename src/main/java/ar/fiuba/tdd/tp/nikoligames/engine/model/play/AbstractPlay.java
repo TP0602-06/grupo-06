@@ -7,8 +7,6 @@ import org.json.simple.JSONObject;
  * Created by german on 10/16/2016.
  */
 public abstract class AbstractPlay {
-    public static final String NUM_KEY = "number";
-
     protected final int number;
 
     private boolean boardStatus = true;

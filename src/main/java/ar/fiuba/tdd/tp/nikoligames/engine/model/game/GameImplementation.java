@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.engine.model.game;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.play.AbstractPlay;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleManager;
 
@@ -16,6 +17,8 @@ import java.util.List;
 
 public abstract class GameImplementation implements Game {
     protected RuleManager ruleManager;
+    public List<AbstractPlay> playHistory;
+
     protected Board board;
 
     public GameImplementation(Board board, List<Rule> rules) {

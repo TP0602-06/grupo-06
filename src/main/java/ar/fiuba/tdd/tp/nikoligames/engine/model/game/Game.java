@@ -8,8 +8,6 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
  */
 public interface Game {
 
-
-
     boolean checkWin();
 
     boolean getBoardStatus();
