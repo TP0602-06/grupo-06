@@ -41,17 +41,16 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     @Override
     public GameView createDefaultGameView(Game game, GameConfig gameConfig) throws Exception {
         //TODO take information from a json
-        //TODO create edges
         //TODO take dimension from json
         Dimension boardDimension = new Dimension(300, 300);
-        boolean cellViewMatchesNodeView = false;
+        boolean cellViewMatchesNodeView = true;
 
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
-        SelectValueController selectValueController = new SelectValueControllerImp(game);
+        FactoryBoard factoryGridView = new FactoryBoardViewImplementation(game);
         ViewEdgeFactory viewEdgeFactory = new ViewEdgeFactory(game);
 
-        GridView gridView = createBoardView(game, selectValueController);
+        GridView gridView = factoryGridView.createGridView(cellViewMatchesNodeView);
         List<EdgePosition> edges = getPosibleEdges(game,gameConfig);
 
         BoardView boardView = new BoardView(boardDimension,gridView, viewEdgeFactory, cellViewMatchesNodeView);
@@ -61,12 +60,8 @@ public class FactoryGameViewImplementation implements FactoryGameView {
 
         view.add(restartAndCheckButtons);
         view.add(boardView);
-        try {
-            GridView inputs = createInputPanel(selectValueController, gridView, gameConfig.getValidInputs());
-            view.add(inputs);
-        }catch (Exception e){
 
-        }
+        factoryGridView.addInputs(view, gameConfig.getValidInputs());
 
         return view;
     }
@@ -76,18 +71,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return groupButtonFactory.makeGroupButton(game);
     }
 
-    private GridView createInputPanel(SelectValueController controller, GridView boardView, HashSet<String> inputs) throws Exception {
-        AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(controller);
-        return inputFactory.createInputGridForBoardView(boardView, inputs);
-    }
-
-    private GridView createBoardView(Game game, SelectValueController selectValueController) {
-        FactoryBoard gridBoardFactory = new FactoryBoardViewImplementation(selectValueController);
-        return gridBoardFactory.createBoardView(game.getDrawableBoard());
-    }
-
     private List<EdgePosition> getPosibleEdges(Game game, GameConfig gameConfig) {
-        //Todo getEdges
         Board board = (Board) game.getDrawableBoard();
         EdgePositionGeneratorFactory factory = new EdgePositionGeneratorFactory();
         EdgePositionGenerator generator = factory.getPositionGenerator(board, gameConfig.getRules());

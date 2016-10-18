@@ -12,6 +12,6 @@ import java.util.HashSet;
  * 1. Abstract Factory
  */
 public interface AbstractFactoryInputGrid {
-    GridView createInputGridForBoardView(GridView board, HashSet<String> validInputs) throws Exception;
+    GridView createInputGridForBoardView(HashSet<String> validInputs) throws Exception;
 
 }
