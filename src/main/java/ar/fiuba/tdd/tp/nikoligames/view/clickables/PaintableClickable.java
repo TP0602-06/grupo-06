@@ -2,10 +2,11 @@ package ar.fiuba.tdd.tp.nikoligames.view.clickables;
 
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicDraw;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
+
 
 /**
  * Created by tobias on 17/10/16.

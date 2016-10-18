@@ -18,21 +18,22 @@ public class EdgePositionHelper {
         return getComparedPosition(edgePosition, false);
     }
 
-    public static boolean isDiagonal(EdgePosition edgePosition){
+    public static boolean isDiagonal(EdgePosition edgePosition) {
         Position pos1 = edgePosition.getPosition1();
         Position pos2 = edgePosition.getPosition2();
         return differentRowAndColum(pos1, pos2);
     }
 
-    public static boolean areDiagonalsOfSameCell(EdgePosition edgePosition1,EdgePosition edgePosition2) {
+    public static boolean areDiagonalsOfSameCell(EdgePosition edgePosition1, EdgePosition edgePosition2) {
         Position topLeft = mostTopLeftPosition(edgePosition1);
         Position bottomRight = mostBottomRightPosition(edgePosition1);
         Position invertedTop = new ClassicPosition(topLeft.getRow(), bottomRight.getColumn());
-        Position invertedBottom = new ClassicPosition(bottomRight.getRow(),topLeft.getColumn());
-        Integer equalsTop =  compare(invertedTop,mostTopLeftPosition(edgePosition2));
-        Integer equalsBottom =  compare(invertedBottom,mostBottomRightPosition(edgePosition2));
+        Position invertedBottom = new ClassicPosition(bottomRight.getRow(), topLeft.getColumn());
+        Integer equalsTop = compare(invertedTop, mostTopLeftPosition(edgePosition2));
+        Integer equalsBottom = compare(invertedBottom, mostBottomRightPosition(edgePosition2));
         return equalsTop == 0 && equalsBottom == 0;
     }
+
     private static boolean differentRowAndColum(Position pos1, Position pos2) {
         return pos1.getColumn() != pos2.getColumn()
                 && pos1.getRow() != pos2.getRow();
@@ -68,7 +69,7 @@ public class EdgePositionHelper {
 
     private static boolean sameRowButColumLower(Position position1, Position position2) {
         return position1.getRow() == position2.getRow()
-        && position1.getColumn() < position2.getColumn();
+                && position1.getColumn() < position2.getColumn();
     }
 
     private static boolean rowIsLower(Position position1, Position position2) {

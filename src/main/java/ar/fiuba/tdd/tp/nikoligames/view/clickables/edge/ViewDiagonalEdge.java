@@ -32,8 +32,8 @@ public class ViewDiagonalEdge extends ViewEdge {
 
 
     public EdgePosition getDisplayedPosition() {
-        if (actualIndex < 0 ){
-            return  null;
+        if (actualIndex < 0) {
+            return null;
         } else {
             return diagonals.get(actualIndex);
         }
@@ -52,7 +52,7 @@ public class ViewDiagonalEdge extends ViewEdge {
     @Override
     protected void updateView() {
         resetGraphics();
-        if (actualIndex >= diagonals.size()){
+        if (actualIndex >= diagonals.size()) {
             restartSequence();
         } else {
             paintEdge(diagonals.get(actualIndex));
@@ -67,7 +67,7 @@ public class ViewDiagonalEdge extends ViewEdge {
     private void paintEdge(EdgePosition actualDiagonal) {
         LinePosition start = startCorner(actualDiagonal);
         LinePosition end = endCorner(actualDiagonal);
-        LineGraphicDraw graphicDraw = new LineGraphicDraw(ColorSet.EDGE,start,end);
+        LineGraphicDraw graphicDraw = new LineGraphicDraw(ColorSet.EDGE, start, end);
         addGraphic(graphicDraw);
     }
 
@@ -82,7 +82,7 @@ public class ViewDiagonalEdge extends ViewEdge {
     private LinePosition getLinePosition(EdgePosition actualDiagonal, LinePosition rightLeftDiagonl, LinePosition leftRightDiagonl) {
         Position topLeft = EdgePositionHelper.mostTopLeftPosition(actualDiagonal);
         Position bottomRight = EdgePositionHelper.mostBottomRightPosition(actualDiagonal);
-        if (topLeft.getColumn() > bottomRight.getColumn()){
+        if (topLeft.getColumn() > bottomRight.getColumn()) {
             return rightLeftDiagonl;
         }
         return leftRightDiagonl;

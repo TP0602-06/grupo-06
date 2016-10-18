@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.clickables.PaintableClickable;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.EdgeSelectedListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 
-import javax.swing.*;
 
 /**
  * Created by tobias on 17/10/16.

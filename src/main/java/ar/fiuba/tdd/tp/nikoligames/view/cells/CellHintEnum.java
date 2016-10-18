@@ -5,11 +5,11 @@ package ar.fiuba.tdd.tp.nikoligames.view.cells;
  */
 public enum CellHintEnum {
     KAKURO() {
-        public CellHint createCell(String numbers){
+        public CellHint createCell(String numbers) {
             return new KakuroCell(numbers);
         }
     }, NULLCELL() {
-        public CellHint createCell(String empty){
+        public CellHint createCell(String empty) {
             return new NullCell();
         }
     }, CONTENTCELL() {

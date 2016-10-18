@@ -21,6 +21,7 @@ public class CommonPositionSolver extends StrategyPositionSolver {
     private int getScaledEdgeHeight() {
         return (int) Math.floor(getGridCellHeight() * edgeProportion);
     }
+
     private int getScaledEdgeWidth() {
         return (int) Math.floor(getGridCellWidth() * edgeProportion);
     }
@@ -34,18 +35,9 @@ public class CommonPositionSolver extends StrategyPositionSolver {
     }
 
     @Override
-    public Position getStartPosition(EdgePosition position) {
-        Position start = EdgePositionHelper.mostTopLeftPosition(position);
-        Position viewPosition = transformPosition(start);
-        Integer actualX = viewPosition.getRow();
-        Integer actualY = viewPosition.getColumn();
-
-        if (isHorizontal(position)) {
-            actualY -= getHalfEdgeHeight();
-        } else {
-            actualX -= getHalfEdgeWidth();
-        }
-        return new ClassicPosition(actualX,actualY);
+    public Position getStartPosition(EdgePosition edge) {
+        Position start = EdgePositionHelper.mostTopLeftPosition(edge);
+        return getViewPositionOf(edge, start, -1);
     }
 
     private boolean isHorizontal(EdgePosition edgePosition) {
@@ -55,18 +47,22 @@ public class CommonPositionSolver extends StrategyPositionSolver {
     }
 
     @Override
-    public Position getEndPosition(EdgePosition position) {
-        Position end = EdgePositionHelper.mostBottomRightPosition(position);
-        Position viewPosition = transformPosition(end);
+    public Position getEndPosition(EdgePosition edge) {
+        Position end = EdgePositionHelper.mostBottomRightPosition(edge);
+        return getViewPositionOf(edge, end, 1);
+    }
+
+    private Position getViewPositionOf(EdgePosition edge, Position position, Integer moveFactor) {
+        Position viewPosition = transformPosition(position);
         Integer actualX = viewPosition.getRow();
         Integer actualY = viewPosition.getColumn();
 
-        if (isHorizontal(position)) {
-            actualY += getHalfEdgeHeight();
+        if (isHorizontal(edge)) {
+            actualY += moveFactor * getHalfEdgeHeight();
         } else {
-            actualX += getHalfEdgeWidth();
+            actualX += moveFactor * getHalfEdgeWidth();
         }
-        return new ClassicPosition(actualX,actualY);
+        return new ClassicPosition(actualX, actualY);
     }
 
 

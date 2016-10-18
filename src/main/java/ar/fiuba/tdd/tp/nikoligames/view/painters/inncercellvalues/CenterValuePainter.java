@@ -1,7 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
+
 
 /**
  * Created by fedebrasburg on 10/17/16.

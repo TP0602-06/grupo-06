@@ -10,14 +10,15 @@ import javax.swing.*;
 /**
  * Created by fedebrasburg on 10/18/16.
  */
-public class InshiCell implements CellHint{
+public class InshiCell implements CellHint {
     private String content;
-    public  InshiCell(String content){
+
+    public InshiCell(String content) {
         this.content = content;
     }
 
-    public void draw(CellView cell){
-        PainterBuilder painterBuilder = new PainterBuilder(false,true);
+    public void draw(CellView cell) {
+        PainterBuilder painterBuilder = new PainterBuilder(false, true);
         painterBuilder.topLeftValue(content);
         CellPainter painter = painterBuilder.end();
         painter.paintCell(cell);

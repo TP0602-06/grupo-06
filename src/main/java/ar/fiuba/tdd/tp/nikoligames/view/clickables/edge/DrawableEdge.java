@@ -22,7 +22,7 @@ public class DrawableEdge extends ViewEdge {
 
     @Override
     protected void toggleClick() {
-        selected = ! selected;
+        selected = !selected;
     }
 
     @Override

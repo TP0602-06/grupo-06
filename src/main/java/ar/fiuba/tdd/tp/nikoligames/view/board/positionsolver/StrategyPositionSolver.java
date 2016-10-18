@@ -24,25 +24,25 @@ public abstract class StrategyPositionSolver {
     public abstract Position getEndPosition(EdgePosition position);
 
     public Position transformPosition(Position modelPosition) {
-        Integer coordinateX = getCoordinateOf(getGridCellWidth(),modelPosition.getColumn());
-        Integer coordinateY = getCoordinateOf(getGridCellHeight(),modelPosition.getRow());
+        Integer coordinateX = getCoordinateOf(getGridCellWidth(), modelPosition.getColumn());
+        Integer coordinateY = getCoordinateOf(getGridCellHeight(), modelPosition.getRow());
 
         if (viewCellsMatcheNodeView) {
             coordinateX = moveToAlignWidthInCenter(coordinateX);
             coordinateY = moveToAlignHeightInCenter(coordinateY);
         }
 
-        return new ClassicPosition(coordinateX,coordinateY);
+        return new ClassicPosition(coordinateX, coordinateY);
     }
 
     protected int getGridCellWidth() {
         Rectangle gridSize = grid.getBounds();
-        return (int) Math.floor((double)gridSize.width / grid.getCols());
+        return (int) Math.floor((double) gridSize.width / grid.getCols());
     }
 
     protected int getGridCellHeight() {
         Rectangle gridSize = grid.getBounds();
-        return (int) Math.floor((double)gridSize.height / grid.getRows());
+        return (int) Math.floor((double) gridSize.height / grid.getRows());
     }
 
     private int getCoordinateOf(Integer celSize, Integer position) {
@@ -50,21 +50,16 @@ public abstract class StrategyPositionSolver {
     }
 
     protected Integer getHalfOf(Integer celSize) {
-        return (int) Math.floor((double)celSize / 2);
+        return (int) Math.floor((double) celSize / 2);
     }
 
-    private Integer moveToAlignHeightInCenter(Integer coordinateY){
+    private Integer moveToAlignHeightInCenter(Integer coordinateY) {
         return coordinateY - getHalfOf(getGridCellHeight());
     }
 
-    private Integer moveToAlignWidthInCenter(Integer coordinateX){
+    private Integer moveToAlignWidthInCenter(Integer coordinateX) {
         return coordinateX - getHalfOf(getGridCellWidth());
     }
-
-
-
-
-
 
 
 }

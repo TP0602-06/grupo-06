@@ -14,13 +14,11 @@ import java.awt.*;
  * Created by tobias on 15/10/16.
  */
 public class ViewEdgeCellViewPositionSolver {
-    private GridView grid;
     private StrategyPositionSolver diagonalSolver;
     private StrategyPositionSolver commonSolver;
 
 
     public ViewEdgeCellViewPositionSolver(GridView grid, boolean viewCellsMatcheNodeView) {
-        this.grid = grid;
         diagonalSolver = new DiagonalPositionSolver(grid,viewCellsMatcheNodeView);
         commonSolver = new CommonPositionSolver(grid,viewCellsMatcheNodeView);
     }
