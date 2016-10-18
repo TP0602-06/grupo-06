@@ -5,8 +5,11 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 
 /**
- * Responsabilidades: Crear una arista NO DIRIGIDA entre 2 nodos y poder borrarla.
- */
+ * Responsibilities:
+ * 1. Represents a directrd edge betweem two nodes in the board. From position 1 to position 2
+ * 2. It can  create or erase the edge.
+ *
+ * */
 public class DirectedEdge extends AbstractEdge {
 
 

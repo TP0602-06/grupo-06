@@ -6,7 +6,10 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import java.util.List;
 
 /**
- * Created by german on 9/30/2016.
+ * Responsibilities:
+ * 1.Its the interface of a squared Board for the model.
+ * 2. It contains the nodes
+ * 3. Can do operations with the nodes like change their value or create or remove edges from them.
  */
 public interface Board extends DrawableBoard {
     int getRows();

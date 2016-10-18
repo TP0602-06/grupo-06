@@ -11,7 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by german on 10/1/2016.
+ * Responsibilities:
+ * 1. Creates a board from a board configuration.
  */
 public class BoardFactory {
 

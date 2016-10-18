@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Created by german on 10/16/2016.
+ * Resposabilities:
+ * 1. Game implementation that admits invalids plays.
  */
 public class ConcreteGameAdmitsInvalidPlays extends GameImplementation {
     public ConcreteGameAdmitsInvalidPlays(Board board, List<Rule> rules) {

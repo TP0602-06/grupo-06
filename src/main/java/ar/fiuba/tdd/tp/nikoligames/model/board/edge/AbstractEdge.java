@@ -5,7 +5,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 
 /**
- * Created by Andres on 16/10/2016.
+ * Responsibilities:
+ * 1. Represents an edge betweem two nodes in the board. Iit can be directed or undirected
+ * 2. It can be created with the node or by giving two position and the board.
  */
 public abstract class AbstractEdge implements EdgeInterface {
     protected AbstractNode node1;

@@ -5,6 +5,12 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 
 /**
  * Created by german on 10/1/2016.
+ * Responsabilites:
+ * 1. Interface from a generic game
+ * 2. Get board Status gives you the actual state if you are breaking any rules
+ * 3. Check win tells you if yo won the game (or not)
+ * 4. Gives you the board as seen by the view.
+ * 5. Gives you the ability to change the state of the board.
  */
 public interface Game {
 

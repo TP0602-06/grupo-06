@@ -1,7 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board.node;
 
 /**
- * Da una interfaz para darle al exterior del modelo y este no pueda editar la celda.
+ * Responsibilities:
+ * 1.Is the interface of the node that can be seen by the View
  */
 public interface DrawableNode {
 

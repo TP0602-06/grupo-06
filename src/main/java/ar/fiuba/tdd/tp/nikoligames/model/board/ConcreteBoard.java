@@ -12,9 +12,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import java.util.*;
 
 /**
- * Tablero del juego. Representar la disposicion de celdas.
- * Patron de diseno:
- * 1. Template Method, la clase que implemente la abstracción debe definir la forma de crear una arista de forma dirigida o no dirigida
+ * Responsabilities:
+ * 1. It is the actual implementation for the model of the board , has the same responsabilities as his interface.
  */
 
 public class ConcreteBoard implements DrawableBoard, Board {

@@ -3,8 +3,14 @@ package ar.fiuba.tdd.tp.nikoligames.model.board.node;
 import java.util.List;
 
 /**
- * Created by fedebrasburg on 10/6/16.
- */
+
+ * Responsibilities:
+ * 1. Represents a node or a cell from the board
+ * 2. It saves a value
+ * 3. It can also be connected by edges to any other node. Knows to which nodes, it is connected.
+ * 4. Knows his state if it is invalid, empty or editable.
+ *
+ * */
 public abstract class AbstractNode implements DrawableNode {
 
     public abstract String getValue();

@@ -6,7 +6,10 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import java.util.Iterator;
 
 /**
- * Este es el iterador para reccorer obtener las posiciones del board.
+* Resposabilities
+ * 1. It is the iterator for positions in the board.
+ * 2. It starts for the first row and goes by column, until the next row.
+ *
  */
 public class BoardPositionIterator implements Iterator {
     private Integer actualRow;
