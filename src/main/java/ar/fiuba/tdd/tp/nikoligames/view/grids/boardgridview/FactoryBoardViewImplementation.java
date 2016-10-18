@@ -49,7 +49,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
             Position position = (Position) positionIterator.next();
             DrawableNode modelCell = modelBoard.getDrawableNode(position);
             CellView cellView = helper.drawCellFromModel(modelCell);
-            cellView.setCoordinates(position.getRow(), position.getColumn());
+            cellView.setCoordinates(position.getRow() - 1, position.getColumn() - 1);
             makeup.beautyfy(cellView, modelCell);
             grid.addCellView(cellView);
         }

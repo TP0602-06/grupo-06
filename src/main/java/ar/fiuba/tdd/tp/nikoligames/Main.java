@@ -60,7 +60,7 @@ public class Main {
 
     public static void createView(GameConfig gameConfig, Game game) throws Exception {
         FactoryGameView factoryView = new FactoryGameViewImplementation();
-        GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
+        GameView view = factoryView.createDefaultGameView(game, gameConfig);
         view.setVisible(true);
     }
 

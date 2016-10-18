@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.board.ViewEdgeFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
@@ -35,7 +36,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     private static int DEFAULT_VIEW_HEIGHT = 700;
 
     @Override
-    public GameView createDefaultGameView(Game game, HashSet<String> validInputs) throws Exception {
+    public GameView createDefaultGameView(Game game, GameConfig gameConfig) throws Exception {
         //TODO take information from a json
         //TODO create edges
         //TODO take dimension from json
@@ -54,7 +55,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         boardView.addEdges(edges);
 
         Component restartAndCheckButtons = createButtons(game);
-        GridView inputs = createInputPanel(selectValueController, gridView, validInputs);
+        GridView inputs = createInputPanel(selectValueController, gridView, gameConfig.getValidInputs());
 
         view.add(restartAndCheckButtons);
         view.add(boardView);
