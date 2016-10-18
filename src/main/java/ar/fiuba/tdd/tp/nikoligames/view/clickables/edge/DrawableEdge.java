@@ -16,12 +16,10 @@ public class DrawableEdge extends ViewEdge {
 
     private EdgePosition edgePositions;
     private boolean selected = false;
-    private GraphicDraw backgroundPaint;
 
     public DrawableEdge(EdgePosition joiner, SelectEdgeController controller) {
         super(controller);
         edgePositions = joiner;
-        backgroundPaint = new GraphicPaintAllBackground(ColorSet.EDGE);
     }
 
     @Override
@@ -37,6 +35,7 @@ public class DrawableEdge extends ViewEdge {
     @Override
     protected void updateView() {
         if (selected) {
+            GraphicDraw backgroundPaint = new GraphicPaintAllBackground(ColorSet.EDGE);
             addGraphic(backgroundPaint);
         } else {
             resetGraphics();

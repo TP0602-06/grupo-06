@@ -20,13 +20,13 @@ public class ViewEdgeFactory {
     private SelectEdgeController common;
     private List<ViewDiagonalEdge> diagonalEdges;
 
-    public ViewEdgeFactory(Game game){
+    public ViewEdgeFactory(Game game) {
         this.diagonal = new SelectDiagonalEdge(game);
         this.common = new SelectNotDiagonalEdgeController(game);
         diagonalEdges = new ArrayList<>();
     }
 
-    public ViewEdge createViewEdge(EdgePosition edge){
+    public ViewEdge createViewEdge(EdgePosition edge) {
         ViewEdge viewEdge;
         if (EdgePositionHelper.isDiagonal(edge)) {
             viewEdge = getNewOrExistantDiagonalEdge(edge);
