@@ -25,11 +25,8 @@ public class FactoryInputDigit implements AbstractFactoryInputGrid {
         this.selectValueController = controller;
     }
 
-    public GridView createInputGridForBoardView(HashSet<String> validInputs) throws Exception {
+    public GridView createInputGridForBoardView(HashSet<String> validInputs) {
         this.validInputs = validInputs;
-        if (validInputs.size() == 0) {
-            throw new Exception("No están definidos los inputs del juego");
-        }
         GridView inputGridView = new GridOfSquares(1, validInputs.size());
         selectValueController.addInputBoardView(inputGridView);
 
