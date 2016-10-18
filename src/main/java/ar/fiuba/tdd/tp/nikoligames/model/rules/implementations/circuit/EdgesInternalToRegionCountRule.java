@@ -31,7 +31,7 @@ public class EdgesInternalToRegionCountRule extends RuleImplementation {
     @Override
     public boolean isActualBroken() {
         int count = getInternalEdgesCount();
-        return (count <= countRule);
+        return (count > countRule);
     }
 
     public int getInternalEdgesCount() {
