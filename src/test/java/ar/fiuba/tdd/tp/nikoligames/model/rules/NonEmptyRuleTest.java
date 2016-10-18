@@ -25,7 +25,7 @@ public class NonEmptyRuleTest {
     @Test
     public void ruleWithEmptyNodes() {
         List<String> nodeValues = Arrays.asList("1", "", "3", "4");
-        List<AbstractNode> nodes = NodeWithValueCreator.createNodesWithValues(nodeValues, false);
+        List<AbstractNode> nodes = NodeWithValueCreator.createNodesWithValues(nodeValues, true);
 
         NonEmptyRegionRule rule = new NonEmptyRegionRule(nodes);
         Assert.assertEquals(true, rule.isBroken());

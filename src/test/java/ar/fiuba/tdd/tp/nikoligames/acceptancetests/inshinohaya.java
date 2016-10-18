@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -39,7 +38,7 @@ public class inshinohaya {
                 "1", "5", "4", "2", "3",
                 "4", "2", "5", "3", "1"
         );
-        GameSetup.fillGame(game,values);
+        GameSetup.fillGame(game, values);
 
         Assert.assertTrue(game.getBoardStatus());
         Assert.assertTrue(game.checkWin());
@@ -57,7 +56,7 @@ public class inshinohaya {
                 "1", "5", "4", "2", "3",
                 "4", "2", "5", "3", "1"
         );
-        GameSetup.fillGame(game,values);
+        GameSetup.fillGame(game, values);
 
         Assert.assertFalse(game.getBoardStatus());
         Assert.assertFalse(game.checkWin());

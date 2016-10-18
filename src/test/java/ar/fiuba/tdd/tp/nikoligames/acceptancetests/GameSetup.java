@@ -28,7 +28,9 @@ public class GameSetup {
         int col = 1;
         while (iterator.hasNext()){
             String value = iterator.next();
-            game.changeNodeValue(new ClassicPosition(row, col), value);
+            if (!value.isEmpty()){
+                game.changeNodeValue(new ClassicPosition(row, col), value);
+            }
             if (col >= game.getDrawableBoard().getCols()){
                 col = 1;
                 row++;
