@@ -16,18 +16,12 @@ public class inshinohaya {
 
     public static final String DATA_INSHI_TABLERO1_JSON = "data/inshi/tablero1.json";
 
-    public Game setup(String boardFilePath) throws Exception {
-        GameFactory gameFactory = new GameFactory();
-        AbstractParser gameConfigParser = new ConcreteParser(boardFilePath);
 
-        GameConfig gameConfig = gameConfigParser.parse();
-        Game game = gameFactory.createGame(gameConfig);
-        return game;
-    }
 
     @Test
     public void InshiNoHayaFirstPlay() throws Exception {
-        Game game = setup(DATA_INSHI_TABLERO1_JSON);
+        GameSetup gameSetup =new GameSetup();
+        Game game = gameSetup.setup(DATA_INSHI_TABLERO1_JSON);
 
         game.changeNodeValue(new ClassicPosition(1, 1), "3");
 
