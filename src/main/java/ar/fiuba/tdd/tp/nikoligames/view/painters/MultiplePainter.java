@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 
 import java.util.ArrayList;
 import java.util.List;

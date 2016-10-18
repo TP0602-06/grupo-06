@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.EditableViewCell;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.NotEditableViewCell;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.EditableViewCell;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.NotEditableViewCell;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 /**

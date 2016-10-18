@@ -1,6 +1,6 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
+package ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 
 /**
  * Esta interfaz define el comportamiento de las celdas de la vista.

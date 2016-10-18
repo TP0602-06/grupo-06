@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.listeners;
 
-import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 
 import java.awt.event.MouseAdapter;

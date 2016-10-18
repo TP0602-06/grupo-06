@@ -1,0 +1,81 @@
+package ar.fiuba.tdd.tp.nikoligames.view.clickables.edge;
+
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
+import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
+import ar.fiuba.tdd.tp.nikoligames.view.graphics.LineGraphicDraw;
+import ar.fiuba.tdd.tp.nikoligames.view.graphics.LinePosition;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectDiagonalEdge;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by tobias on 17/10/16.
+ */
+public class ViewDiagonalEdge extends ViewEdge {
+    private List<EdgePosition> diagonals;
+    private Integer actualIndex = -1;
+
+    public ViewDiagonalEdge(EdgePosition joiner, SelectDiagonalEdge controller) {
+        super(controller);
+        diagonals = new ArrayList<>();
+        diagonals.add(joiner);
+    }
+
+    public void addOtherEdge(EdgePosition edge) {
+        diagonals.add(edge);
+    }
+
+    @Override
+    public EdgePosition getEdgePositions() {
+        if (actualIndex < diagonals.size()){
+            return  null;
+        } else {
+            return diagonals.get(actualIndex);
+        }
+    }
+
+    @Override
+    protected void toggleClick() {
+        actualIndex++;
+    }
+
+    @Override
+    protected void updateView() {
+        resetGraphics();
+        if (actualIndex > diagonals.size()){
+            restartSequence();
+        } else {
+            paintEdge(diagonals.get(actualIndex));
+        }
+    }
+
+    private void restartSequence() {
+        actualIndex = -1;
+    }
+
+    private void paintEdge(EdgePosition actualDiagonal) {
+        LinePosition start = startCorner(actualDiagonal);
+        LinePosition end = endCorner(actualDiagonal);
+        LineGraphicDraw graphicDraw = new LineGraphicDraw(ColorSet.EDGE,start,end);
+    }
+
+    private LinePosition startCorner(EdgePosition actualDiagonal) {
+        return getLinePosition(actualDiagonal, LinePosition.TOP_RIGHT, LinePosition.TOP_LEFT);
+    }
+
+    private LinePosition endCorner(EdgePosition actualDiagonal) {
+        return getLinePosition(actualDiagonal, LinePosition.BOTTOM_LEFT, LinePosition.BOTTOM_RIGHT);
+    }
+
+    private LinePosition getLinePosition(EdgePosition actualDiagonal, LinePosition rightLeftDiagonl, LinePosition leftRightDiagonl) {
+        Position topLeft = EdgePositionHelper.mostTopLeftPosition(actualDiagonal);
+        Position bottomRight = EdgePositionHelper.mostBottomRightPosition(actualDiagonal);
+        if (topLeft.getColumn() > bottomRight.getColumn()){
+            return rightLeftDiagonl;
+        }
+        return leftRightDiagonl;
+    }
+}

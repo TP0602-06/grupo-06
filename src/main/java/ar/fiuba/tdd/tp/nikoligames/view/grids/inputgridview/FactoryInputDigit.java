@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueClearerCell;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueToSelectCellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.ValueClearerCell;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.ValueToSelectCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;

@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;
 
 import java.awt.*;

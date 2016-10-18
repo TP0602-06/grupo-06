@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.AbstractEditableNumberCell;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.AbstractEditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
 import java.awt.Component;

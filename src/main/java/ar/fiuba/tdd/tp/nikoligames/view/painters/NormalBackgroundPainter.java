@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 
 /**
  * Pinta el fondo de la celda con el color basico.

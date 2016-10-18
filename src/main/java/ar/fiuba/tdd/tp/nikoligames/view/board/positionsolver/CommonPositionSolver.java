@@ -1,0 +1,73 @@
+package ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver;
+
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
+import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
+
+import java.awt.*;
+
+/**
+ * Created by tobias on 17/10/16.
+ */
+public class CommonPositionSolver extends StrategyPositionSolver {
+    private double edgeProportion = 0.1;
+
+    public CommonPositionSolver(GridView grid, boolean viewCellsMatchNodeView) {
+        super(grid, viewCellsMatchNodeView);
+    }
+
+    private int getScaledEdgeHeight() {
+        return (int) Math.floor(getGridCellHeight() * edgeProportion);
+    }
+    private int getScaledEdgeWidth() {
+        return (int) Math.floor(getGridCellWidth() * edgeProportion);
+    }
+
+    private int getHalfEdgeHeight() {
+        return getHalfOf(getScaledEdgeHeight());
+    }
+
+    private int getHalfEdgeWidth() {
+        return getHalfOf(getScaledEdgeWidth());
+    }
+
+    @Override
+    public Position getStartPosition(EdgePosition position) {
+        Position start = EdgePositionHelper.mostTopLeftPosition(position);
+        Position viewPosition = transformPosition(start);
+        Integer actualX = viewPosition.getRow();
+        Integer actualY = viewPosition.getColumn();
+
+        if (isHorizontal(position)) {
+            actualY -= getHalfEdgeHeight();
+        } else {
+            actualX -= getHalfEdgeWidth();
+        }
+        return new ClassicPosition(actualX,actualY);
+    }
+
+    private boolean isHorizontal(EdgePosition edgePosition) {
+        Position position1 = edgePosition.getPosition1();
+        Position position2 = edgePosition.getPosition2();
+        return position1.getRow() == position2.getRow();
+    }
+
+    @Override
+    public Position getEndPosition(EdgePosition position) {
+        Position end = EdgePositionHelper.mostBottomRightPosition(position);
+        Position viewPosition = transformPosition(end);
+        Integer actualX = viewPosition.getRow();
+        Integer actualY = viewPosition.getColumn();
+
+        if (isHorizontal(position)) {
+            actualY += getHalfEdgeHeight();
+        } else {
+            actualX += getHalfEdgeWidth();
+        }
+        return new ClassicPosition(actualX,actualY);
+    }
+
+
+}

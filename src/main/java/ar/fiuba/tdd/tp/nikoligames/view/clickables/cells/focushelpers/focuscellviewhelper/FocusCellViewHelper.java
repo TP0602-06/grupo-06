@@ -1,7 +1,7 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper;
+package ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focuscellviewhelper;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 
 /**
  * Define el la forma de manejar el focus de la celda.

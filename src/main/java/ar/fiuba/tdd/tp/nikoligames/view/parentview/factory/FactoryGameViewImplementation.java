@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
-import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -14,7 +14,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.FactoryBoardViewImpl
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectNotDiagonalEdgeController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 
@@ -43,7 +43,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
         SelectValueController selectValueController = new SelectValueControllerImp(game);
-        SelectEdgeController selectEdgeController = new SelectEdgeController(game);
+        SelectNotDiagonalEdgeController selectEdgeController = new SelectNotDiagonalEdgeController(game);
 
         GridView gridView = createBoardView(game, selectValueController);
         List<DrawableEdge> edges = createEdges(game, selectEdgeController);
@@ -76,7 +76,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return gridBoardFactory.createBoardView(game.getDrawableBoard());
     }
 
-    private List<DrawableEdge> createEdges(Game game, SelectEdgeController edgeController) {
+    private List<DrawableEdge> createEdges(Game game, SelectNotDiagonalEdgeController edgeController) {
         //Todo create drawableEdges
         List<DrawableEdge> edges = new ArrayList<>();
         Position first = new ClassicPosition(1,1);

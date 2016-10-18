@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.board;
 
-import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
 import java.awt.*;
@@ -48,7 +48,7 @@ public class BoardView extends JPanel {
     }
 
     private void setBoundsOfEdge(DrawableEdge edge) {
-        DrawableEdgePositionSolver edgeSolver = new DrawableEdgePositionSolver(cellgrid);
+        ViewEdgeCellViewPositionSolver edgeSolver = new ViewEdgeCellViewPositionSolver(cellgrid,false);
         Rectangle edgeBounds = edgeSolver.getRectangleFor(edge.getEdgePositions());
         edge.setBounds(edgeBounds);
     }

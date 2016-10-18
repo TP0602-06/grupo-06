@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 
 import java.awt.Color;
 import java.awt.Container;

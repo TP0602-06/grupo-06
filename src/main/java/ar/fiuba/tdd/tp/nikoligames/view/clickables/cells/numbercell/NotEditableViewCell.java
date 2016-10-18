@@ -1,11 +1,9 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
+package ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener.SelectComponentCellListener;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
-
-import java.awt.Color;
 
 /**
  * Estas celdas son la vista de celdas que contienen numeros predeterminados.

@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell;
+package ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener.SelectEditableCellListener;

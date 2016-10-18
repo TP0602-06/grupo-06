@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.listeners.selectvaluelistener;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.AbstractEditableNumberCell;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.AbstractEditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 import java.awt.event.MouseEvent;

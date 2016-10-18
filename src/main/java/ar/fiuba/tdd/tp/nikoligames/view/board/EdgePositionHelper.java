@@ -17,6 +17,17 @@ public class EdgePositionHelper {
         return getComparedPosition(edgePosition, false);
     }
 
+    public static boolean isDiagonal(EdgePosition edgePosition){
+        Position pos1 = edgePosition.getPosition1();
+        Position pos2 = edgePosition.getPosition2();
+        return differentRowAndColum(pos1, pos2);
+    }
+
+    private static boolean differentRowAndColum(Position pos1, Position pos2) {
+        return pos1.getColumn() != pos2.getColumn()
+                && pos1.getRow() != pos2.getRow();
+    }
+
     private static Position getComparedPosition(EdgePosition edgePosition, boolean bottomRightCel) {
         Position pos1 = edgePosition.getPosition1();
         Position pos2 = edgePosition.getPosition2();
@@ -29,16 +40,28 @@ public class EdgePositionHelper {
         return compare(pos1, pos2) >= 0 ? toReturnIfPos1Greater : toReturnIfPos2Greater;
     }
 
-    private static Integer compare(Position position1, Position position2) {
-        if (position1.getRow() < position2.getRow()
-                || (position1.getRow() == position2.getRow()
-                && position1.getColumn() < position2.getColumn())) {
+    public static Integer compare(Position position1, Position position2) {
+        if (rowIsLower(position1, position2)
+                || sameRowButColumLower(position1, position2)) {
             return 1;
         }
-        if (position1.getRow() == position2.getRow()
-                && position1.getColumn() == position2.getColumn()) {
+        if (samePosition(position1, position2)) {
             return 0;
         }
         return -1;
+    }
+
+    private static boolean samePosition(Position position1, Position position2) {
+        return position1.getRow() == position2.getRow()
+                && position1.getColumn() == position2.getColumn();
+    }
+
+    private static boolean sameRowButColumLower(Position position1, Position position2) {
+        return position1.getRow() == position2.getRow()
+        && position1.getColumn() < position2.getColumn();
+    }
+
+    private static boolean rowIsLower(Position position1, Position position2) {
+        return position1.getRow() < position2.getRow();
     }
 }

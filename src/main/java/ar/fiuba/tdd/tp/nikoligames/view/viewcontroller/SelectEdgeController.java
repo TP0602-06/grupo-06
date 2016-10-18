@@ -1,32 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.edge.AbstractEdge;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.view.edge.DrawableEdge;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
 
 /**
- * Es el controlador que se ocupa de crear aristas.
+ * Created by tobias on 17/10/16.
  */
-public class SelectEdgeController {
-    private Game game;
+public interface SelectEdgeController {
 
-    public SelectEdgeController(Game game) {
-        this.game = game;
-    }
-
-    public void notifySelectedEdge(DrawableEdge edge) {
-        EdgePosition edgePositions = edge.getEdgePositions();
-        Position firstPositon = edgePositions.getPosition1();
-        Position secondPositon = edgePositions.getPosition2();
-
-        if (edge.isSelected()) {
-            game.removeUndirectedEdge(firstPositon, secondPositon);
-            edge.deselect();
-        } else {
-            game.removeUndirectedEdge(firstPositon, secondPositon);
-            edge.select();
-        }
-    }
+    void notifySelectedEdge(ViewEdge edge);
 }
