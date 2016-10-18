@@ -45,25 +45,24 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
 
         selectValueController.addBoardView(boardGridView);
 
-        fillGridWithCellsFromModel(boardGridView, modelBoard, rows, cols);
+        fillGridWithCellsFromModel(boardGridView, rows, cols);
         boardGridView.setVisible(true);
 
         return boardGridView;
     }
 
-    public void fillGridWithCellsFromModel(GridView grid, DrawableBoard modelBoard, Integer rows, Integer cols) {
+    public void fillGridWithCellsFromModel(GridView grid, Integer rows, Integer cols) {
         DrawCellFromModelHelper helper = new DrawCellFromModelHelper(selectValueController);
         CellViewMakeUpHelper makeup = new CellViewMakeUpHelper();
 
         //TODO agarrar celdas que se van a ver como tales nada mas
         //TODO beatuyfy deberia estar fuera o dentro?? tiene q sacar info del json
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++ ) {
-                Position modelPosition = new ClassicPosition(i + 1,j + 1);
-                Position drawPosition = new ClassicPosition(i,j);
-                DrawableNode modelCell = modelBoard.getDrawableNode(modelPosition);
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++ ) {
+                Position position = new ClassicPosition(i,j);
+                DrawableNode modelCell = modelBoard.getDrawableNode(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
-                cellView.setCoordinates(drawPosition.getRow(), drawPosition.getColumn());
+                cellView.setCoordinates(position.getRow(), position.getColumn());
                 makeup.beautyfy(cellView, modelCell);
                 grid.addCellView(cellView);
             }
