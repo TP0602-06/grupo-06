@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames;
+package ar.fiuba.tdd.tp.nikoligames.parser;
 
 import org.json.simple.JSONObject;
 
