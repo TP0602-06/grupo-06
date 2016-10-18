@@ -19,6 +19,8 @@ public class KakuroCell implements CellHint {
     private int left = 0;
     private int right = 1;
     private String regex = " ";
+    private boolean isEmpty = false;
+    private boolean isEditable = false;
 
     public KakuroCell(String numbers) {
         leftNumber = numbers.split(regex)[left];
@@ -26,7 +28,7 @@ public class KakuroCell implements CellHint {
     }
 
     public void draw(CellView cell) {
-        PainterBuilder builder = new PainterBuilder(false, false);
+        PainterBuilder builder = new PainterBuilder(isEmpty, isEditable);
         builder.bottomLeftValue(leftNumber);
         builder.topRightValue(rightNumber);
         CellPainter painter = builder.end();

@@ -22,13 +22,13 @@ public enum CellHintEnum {
         }
     };
 
-    public static CellHintEnum getCellHint(String cellType) throws Exception {
+    public static CellHintEnum getCellHint(String cellType) throws NotValidCellHintException {
         for (CellHintEnum cellHint : CellHintEnum.values()) {
             if (cellHint.isCell(cellType)) {
                 return cellHint;
             }
         }
-        throw new Exception();
+        throw new NotValidCellHintException();
     }
 
     public boolean isCell(String string) {

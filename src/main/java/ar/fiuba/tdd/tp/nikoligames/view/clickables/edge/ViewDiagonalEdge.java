@@ -17,7 +17,8 @@ import java.util.List;
  */
 public class ViewDiagonalEdge extends ViewEdge {
     private List<EdgePosition> diagonals;
-    private Integer actualIndex = -1;
+    private static final Integer startIndex = -1;
+    private Integer actualIndex = startIndex;
 
     public ViewDiagonalEdge(EdgePosition joiner, SelectEdgeController controller) {
         super(controller);
@@ -61,7 +62,7 @@ public class ViewDiagonalEdge extends ViewEdge {
     }
 
     private void restartSequence() {
-        actualIndex = -1;
+        actualIndex = startIndex;
     }
 
     private void paintEdge(EdgePosition actualDiagonal) {

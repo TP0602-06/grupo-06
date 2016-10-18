@@ -22,6 +22,8 @@ public class BoardView extends JPanel {
     private JLayeredPane pane;
     private ViewEdgeFactory factoryEdges;
     private ViewEdgeCellViewPositionSolver solver;
+    private int originX = 0;
+    private int originY = 0;
 
     public BoardView(Dimension size, GridView gridLayer, ViewEdgeFactory factoryEdge, boolean nodeMatchesCell) {
         super();
@@ -35,7 +37,7 @@ public class BoardView extends JPanel {
 
     private void addGrid(GridView gridLayer, Dimension size) {
         addInLayer(gridLayer, backLayer);
-        gridLayer.setBounds(0, 0, size.width, size.height);
+        gridLayer.setBounds(originX, originY, size.width, size.height);
     }
 
     public void addEdges(List<EdgePosition> edges) {
