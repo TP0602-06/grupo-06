@@ -58,6 +58,10 @@ public class PainterBuilder {
         painter.addPainter(new BottomLeftValuePainter(value));
     }
 
+    public void centerValue(String value) {
+        painter.addPainter(new CenterValuePainter(value));
+    }
+
     public void bottomRightValue(String value) {
         painter.addPainter(new BottomRightValuePainter(value));
     }
