@@ -19,7 +19,7 @@ public class NonEmptyRegionRule extends RuleImplementation {
         Iterator<AbstractNode> regionIterator = region.iterator();
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
-            if (!node.isEditable()){
+            if (!node.isEditable()) {
                 continue;
             }
             if (node.isEmpty()) {

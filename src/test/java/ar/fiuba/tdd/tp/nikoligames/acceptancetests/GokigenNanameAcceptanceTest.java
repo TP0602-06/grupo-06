@@ -124,7 +124,7 @@ public class GokigenNanameAcceptanceTest {
 
         List<List<Integer>> values = asList(
 
-                asList(3, 2, 2, 1), //cambia y hace ciclo
+                asList(2, 1, 3, 2), //cambia y hace ciclo
 
                 asList(2, 1, 1, 2),
                 asList(1, 2, 2, 3),

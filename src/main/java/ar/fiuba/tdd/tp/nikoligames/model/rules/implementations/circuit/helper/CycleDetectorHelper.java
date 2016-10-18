@@ -14,15 +14,21 @@ public class CycleDetectorHelper {
     private final List<AbstractNode> region;
 
     private Map<AbstractNode, Boolean> marked;
+    private Map<AbstractNode, Boolean> visited;
     private boolean hasCycle = false;
 
     public CycleDetectorHelper(List<AbstractNode> region) {
         this.region = region;
         if (!region.isEmpty()) {
             initMarkedMap(region);
-
-            AbstractNode startingNode = region.get(0);
-            findCycle(startingNode, startingNode);
+            for (AbstractNode startingNode : visited.keySet()) {
+                if (!visited.get(startingNode)) {
+                    findCycle(startingNode, startingNode);
+                }
+                if (hasCycle) {
+                    return;
+                }
+            }
         }
     }
 
@@ -32,16 +38,19 @@ public class CycleDetectorHelper {
 
     private void initMarkedMap(List<AbstractNode> region) {
         marked = new HashMap<AbstractNode, Boolean>();
+        visited = new HashMap<AbstractNode, Boolean>();
         Iterator<AbstractNode> iterator = region.iterator();
         while (iterator.hasNext()) {
             AbstractNode nextNode = iterator.next();
             marked.put(nextNode, false);
+            visited.put(nextNode, false);
         }
     }
 
     private void findCycle(AbstractNode rootNode, AbstractNode previusNode) {
-        marked.put(rootNode, true);
 
+        marked.put(rootNode, true);
+        visited.put(rootNode, true);
         List<AbstractNode> edgelist = rootNode.getEdgeList();
         Iterator<AbstractNode> iterator = edgelist.iterator();
         while (iterator.hasNext()) {
