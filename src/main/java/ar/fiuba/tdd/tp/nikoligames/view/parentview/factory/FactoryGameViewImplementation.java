@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
+import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
@@ -15,6 +16,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.FactoryBoardViewImpl
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.EdgePositionGenerator;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.EdgePositionGeneratorFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 
@@ -81,20 +84,10 @@ public class FactoryGameViewImplementation implements FactoryGameView {
 
     private List<EdgePosition> getPosibleEdges(Game game, GameConfig gameConfig) {
         //Todo getEdges
+        Board board = (Board) game.getDrawableBoard();
+        EdgePositionGeneratorFactory factory = new EdgePositionGeneratorFactory();
+        EdgePositionGenerator generator = factory.getPositionGenerator(board, gameConfig.getRules());
 
-        List<EdgePosition> edges = new ArrayList<>();
-        Position first = new ClassicPosition(1,1);
-        Position second = new ClassicPosition(2,2);
-        Position third = new ClassicPosition(2,1);
-        Position fourth = new ClassicPosition(1,2);
-        EdgePosition testEdge = new EdgePosition(first,second);
-        EdgePosition testEdge2 = new EdgePosition(third,fourth);
-        EdgePosition testEdge3 = new EdgePosition(third,first);
-        EdgePosition testEdge4 = new EdgePosition(fourth,first);
-        edges.add(testEdge);
-        edges.add(testEdge2);
-        edges.add(testEdge3);
-        edges.add(testEdge4);
-        return edges;
+        return generator.getPossibleEdgePositions();
     }
 }

@@ -66,6 +66,16 @@ public class EdgePositionHelper {
         return second;
     }
 
+
+    public static boolean sameEdgePosition(EdgePosition edge1, EdgePosition edge2) {
+        Position pos1Edge1 = edge1.getPosition1();
+        Position pos2Edge1 = edge1.getPosition2();
+        Position pos1Edge2 = edge2.getPosition1();
+        Position pos2Edge2 = edge2.getPosition2();
+        return samePosition(pos1Edge1,pos2Edge1) && samePosition(pos1Edge2,pos2Edge2)
+                || samePosition(pos1Edge1,pos2Edge2) && samePosition(pos1Edge2,pos2Edge1);
+    }
+
     private static boolean samePosition(Position position1, Position position2) {
         return position1.getRow() == position2.getRow()
                 && position1.getColumn() == position2.getColumn();
