@@ -30,7 +30,7 @@ public class ReportPlaysJson implements AbstractPlaysReporter {
     public void writeReport(Game game, List<AbstractPlay> gamePlays, String filenameOutput) throws Exception {
         JSONObject report = this.makeJsonReport(game, gamePlays);
 
-        Writer fileWriter = new OutputStreamWriter(new FileOutputStream("output.txt"), "UTF-8");
+        Writer fileWriter = new OutputStreamWriter(new FileOutputStream(filenameOutput), "UTF-8");
         fileWriter.write(report.toJSONString());
         fileWriter.flush();
         fileWriter.close();

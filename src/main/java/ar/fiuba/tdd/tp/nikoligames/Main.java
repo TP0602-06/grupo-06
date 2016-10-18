@@ -3,14 +3,14 @@ package ar.fiuba.tdd.tp.nikoligames;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.game.GameFactory;
 import ar.fiuba.tdd.tp.nikoligames.model.play.AbstractPlay;
-import ar.fiuba.tdd.tp.nikoligames.reporter.AbstractPlaysReporter;
-import ar.fiuba.tdd.tp.nikoligames.reporter.ReportPlaysJson;
 import ar.fiuba.tdd.tp.nikoligames.parser.AbstractParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.ConcreteParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.PlayParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper.AbstractArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper.ArgsParserHelper;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
+import ar.fiuba.tdd.tp.nikoligames.reporter.AbstractPlaysReporter;
+import ar.fiuba.tdd.tp.nikoligames.reporter.ReportPlaysJson;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.FactoryGameViewImplementation;
@@ -24,8 +24,6 @@ import java.util.List;
  * 3.Crear la vista del juego
  */
 public class Main {
-
-    public static final String OUTPUT_JSON = "output.json";
 
     public static void main(String[] args) {
 
@@ -42,10 +40,12 @@ public class Main {
 
             if (argsParserHelper.hasInputPlaysFile()) {
                 String inputFileName = argsParserHelper.getInputPlaysFileName();
+                String outputFileName = argsParserHelper.getOutputPlaysFileName();
+
                 List<AbstractPlay> plays = PlayParser.parse(inputFileName, game);
 
                 AbstractPlaysReporter reporter = new ReportPlaysJson();
-                reporter.writeReport(game, plays, OUTPUT_JSON);
+                reporter.writeReport(game, plays, outputFileName);
                 return;
             }
             FactoryGameView factoryView = new FactoryGameViewImplementation();
