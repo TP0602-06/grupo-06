@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.acceptancetests;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.game.GameFactory;
 import ar.fiuba.tdd.tp.nikoligames.parser.AbstractParser;
@@ -22,21 +23,39 @@ public class GameSetup {
         Game game = gameFactory.createGame(gameConfig);
         return game;
     }
-    public static void fillGame(Game game, List<String> values){
+
+    public static void fillGame(Game game, List<String> values) {
         Iterator<String> iterator = values.iterator();
         int row = 1;
         int col = 1;
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             String value = iterator.next();
-            if (!value.isEmpty()){
+            if (!value.isEmpty()) {
                 game.changeNodeValue(new ClassicPosition(row, col), value);
             }
-            if (col >= game.getDrawableBoard().getCols()){
+            if (col >= game.getDrawableBoard().getCols()) {
                 col = 1;
                 row++;
-            }else {
-                col ++;
+            } else {
+                col++;
             }
         }
+    }
+
+    public static void processCircuit(Game game, List<List<Integer>> circuit) {
+        Iterator<List<Integer>> circuitIterator = circuit.iterator();
+
+        while (circuitIterator.hasNext()) {
+
+            List<Integer> edge = circuitIterator.next();
+            Position position0 = getPosition(edge, 0);
+            Position position1 = getPosition(edge, 1);
+            game.createUndirectedEdge(position0, position1);
+        }
+    }
+
+    public static Position getPosition(List<Integer> edge, int number) {
+        List<Integer> positionList = edge.subList((0 + 2 * number), (2 + 2 * number));
+        return new ClassicPosition(positionList.get(0), positionList.get(1));
     }
 }
