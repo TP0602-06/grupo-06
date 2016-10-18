@@ -18,6 +18,7 @@ public abstract class ViewEdge extends PaintableClickable {
         super();
         addMouseListener(new EdgeSelectedListener(controller));
         setBackground(ColorSet.TRANSPARENT);
+        setBorder(null);
     }
 
     public void clicked() {

@@ -12,7 +12,7 @@ import java.awt.*;
  * Created by tobias on 17/10/16.
  */
 public class CommonPositionSolver extends StrategyPositionSolver {
-    private double edgeProportion = 0.1;
+    private double edgeProportion = 0.2;
 
     public CommonPositionSolver(GridView grid, boolean viewCellsMatchNodeView) {
         super(grid, viewCellsMatchNodeView);

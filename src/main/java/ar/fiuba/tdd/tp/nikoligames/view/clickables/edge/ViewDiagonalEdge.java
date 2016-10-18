@@ -23,6 +23,7 @@ public class ViewDiagonalEdge extends ViewEdge {
         super(controller);
         diagonals = new ArrayList<>();
         diagonals.add(joiner);
+
     }
 
     public void addOtherEdge(EdgePosition edge) {
@@ -56,6 +57,7 @@ public class ViewDiagonalEdge extends ViewEdge {
         } else {
             paintEdge(diagonals.get(actualIndex));
         }
+        setBackground(ColorSet.TRANSPARENT);
     }
 
     private void restartSequence() {

@@ -86,8 +86,12 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         Position fourth = new ClassicPosition(1,2);
         EdgePosition testEdge = new EdgePosition(first,second);
         EdgePosition testEdge2 = new EdgePosition(third,fourth);
+        EdgePosition testEdge3 = new EdgePosition(third,first);
+        EdgePosition testEdge4 = new EdgePosition(fourth,first);
         edges.add(testEdge);
         edges.add(testEdge2);
+        edges.add(testEdge3);
+        edges.add(testEdge4);
         return edges;
     }
 }
