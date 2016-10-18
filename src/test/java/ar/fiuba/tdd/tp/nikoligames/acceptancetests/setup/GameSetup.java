@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.acceptancetests;
+package ar.fiuba.tdd.tp.nikoligames.acceptancetests.setup;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
