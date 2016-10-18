@@ -6,6 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.BottomLeftValu
 import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.BottomRightValuePainter;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.TopLeftValuePainter;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.TopRightValuePainter;
+import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.CenterValuePainter;
 
 /**
  * Builder para el pintor de la celda.
