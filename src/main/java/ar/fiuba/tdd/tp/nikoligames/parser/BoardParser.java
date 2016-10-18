@@ -20,16 +20,17 @@ public class BoardParser {
         List<NodeConfig> nodes = new ArrayList<NodeConfig>();
         NodeParser nodeParser = new NodeParser();
 
-        JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);
-        JSONArray boardValues = (JSONArray) boardObj.get(BOARD_VALUES);
-        for (int i = 0; i < boardValues.size(); i++) {
-            JSONObject cellObj = (JSONObject) boardValues.get(i);
+        if (jsonObject.containsKey(BOARD)) {
+            JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);
+            JSONArray boardValues = (JSONArray) boardObj.get(BOARD_VALUES);
+            for (int i = 0; i < boardValues.size(); i++) {
+                JSONObject cellObj = (JSONObject) boardValues.get(i);
 
-            NodeConfig nodeConfig = nodeParser.parseNode(cellObj);
+                NodeConfig nodeConfig = nodeParser.parseNode(cellObj);
 
-            nodes.add(nodeConfig);
+                nodes.add(nodeConfig);
+            }
         }
-
         return nodes;
     }
 }

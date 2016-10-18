@@ -31,5 +31,6 @@ public class NonEmptyRuleTest {
 
         NonEmptyRegionRule rule = new NonEmptyRegionRule(nodes);
         Assert.assertEquals(true, rule.isBroken());
+        Assert.assertEquals(false, rule.isActualBroken());
     }
 }

@@ -7,6 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.implementations.circuit.Ed
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Andres on 14/10/2016.
@@ -15,7 +16,7 @@ public class EdgesInternalToRegionCountRuleFactory extends AbstractSingleRuleFac
     @Override
     protected Rule createRule(RuleConfig ruleConfig, Board board) {
         String value = this.getValue(ruleConfig);
-        ArrayList<AbstractNode> region = this.getRegion(ruleConfig, board);
+        List<AbstractNode> region = this.getRegion(ruleConfig, board);
         return new EdgesInternalToRegionCountRule(region, value);
     }
 }

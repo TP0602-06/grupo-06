@@ -10,7 +10,6 @@ public class NodeConfig {
     private int col;
 
     private boolean isEditable = false;
-    private boolean isReadonly = true;
 
     public NodeConfig(String value, int row, int col) {
         this.value = value;
@@ -38,11 +37,4 @@ public class NodeConfig {
         isEditable = editable;
     }
 
-    public boolean isReadonly() {
-        return isReadonly;
-    }
-
-    public void setReadonly(boolean readonly) {
-        isReadonly = readonly;
-    }
 }

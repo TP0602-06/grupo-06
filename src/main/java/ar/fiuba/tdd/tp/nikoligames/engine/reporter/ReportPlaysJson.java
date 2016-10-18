@@ -9,6 +9,9 @@ import ar.fiuba.tdd.tp.nikoligames.parser.PlayParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,6 +26,15 @@ public class ReportPlaysJson implements AbstractPlaysReporter {
     public static final String VALUES_KEY = "values";
     public static final String VALUE_KEY = "value";
     public static final String POSITION_KEY = "position";
+
+    public void writeReport(Game game, List<AbstractPlay> gamePlays, String filenameOutput) throws Exception {
+        JSONObject report = this.makeJsonReport(game, gamePlays);
+
+        Writer fileWriter = new OutputStreamWriter(new FileOutputStream("output.txt"), "UTF-8");
+        fileWriter.write(report.toJSONString());
+        fileWriter.flush();
+        fileWriter.close();
+    }
 
     public JSONObject makeJsonReport(Game game, List<AbstractPlay> gameMoves) throws Exception {
         JSONObject parser = new JSONObject();
