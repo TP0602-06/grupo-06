@@ -85,14 +85,23 @@ public class ConcreteBoard implements DrawableBoard, Board {
         node.setEditable(editable);
     }
 
+    public void setInitialNodeValue(Position position, String value) {
+        AbstractNode node = getNodeFromMap(position);
+        node.changeValue(value);
+    }
+
     public boolean changeNodeValue(Position position, String value) {
-        checkRange(position);
-        AbstractNode node = nodeMap.get(position);
+        AbstractNode node = getNodeFromMap(position);
         if (node.isEditable()) {
             node.changeValue(value);
             return true;
         }
         return false;
+    }
+
+    public AbstractNode getNodeFromMap(Position position) {
+        checkRange(position);
+        return nodeMap.get(position);
     }
 
     public AbstractNode getNode(Position position) {
