@@ -49,7 +49,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         ViewEdgeFactory viewEdgeFactory = new ViewEdgeFactory(game);
 
         GridView gridView = createBoardView(game, selectValueController);
-        List<EdgePosition> edges = getPosibleEdges(game);
+        List<EdgePosition> edges = getPosibleEdges(game,gameConfig);
 
         BoardView boardView = new BoardView(boardDimension,gridView, viewEdgeFactory, cellViewMatchesNodeView);
         boardView.addEdges(edges);
@@ -79,7 +79,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return gridBoardFactory.createBoardView(game.getDrawableBoard());
     }
 
-    private List<EdgePosition> getPosibleEdges(Game game) {
+    private List<EdgePosition> getPosibleEdges(Game game, GameConfig gameConfig) {
         //Todo getEdges
 
         List<EdgePosition> edges = new ArrayList<>();
