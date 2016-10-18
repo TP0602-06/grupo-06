@@ -9,7 +9,6 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.generators.adjacentlist.adjacentp
  * Created by tobias on 18/10/16.
  */
 public class EdgeHorizontalVerticalPositionGeneratorImpl extends EdgePositionGeneratorImpl {
-    private AdjacentListGenerator listGenerator;
 
     public EdgeHorizontalVerticalPositionGeneratorImpl(Board board) {
         super(board, new NotDiagonalAdjacents());

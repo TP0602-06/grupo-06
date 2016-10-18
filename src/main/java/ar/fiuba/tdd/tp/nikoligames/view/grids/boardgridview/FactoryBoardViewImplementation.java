@@ -72,7 +72,9 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
 
     @Override
     public void addInputs(GameView view, HashSet<String> inputs) {
-        if (inputs.isEmpty()) return;
+        if (inputs.isEmpty()) {
+            return;
+        }
 
         AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(selectValueController);
         GridView viewInputs = inputFactory.createInputGridForBoardView(inputs);
