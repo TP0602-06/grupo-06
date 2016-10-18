@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.model.rules.generators.adjacentlist.adjacentposition;
 
+import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 
 import java.util.List;
@@ -16,5 +17,11 @@ public abstract class AdjacentPositionGenerator {
     }
 
     protected abstract List<Position> getListFor(Integer row, Integer colum);
+
+    public boolean isPositionInBoard(Position pos, Board board) {
+        Integer row = pos.getRow();
+        Integer col = pos.getColumn();
+        return (row > 0) && (col > 0) && (col <= board.getCols()) && (row <= board.getRows());
+    }
 
 }

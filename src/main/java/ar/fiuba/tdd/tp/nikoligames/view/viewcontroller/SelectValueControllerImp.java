@@ -58,7 +58,7 @@ public class SelectValueControllerImp implements SelectValueController {
         changeModelCellValue("");
     }
 
-    private void displayInputs(boolean show){
+    private void displayInputs(boolean show) {
         if (selectValueGridView != null) {
             selectValueGridView.setVisible(show);
         }

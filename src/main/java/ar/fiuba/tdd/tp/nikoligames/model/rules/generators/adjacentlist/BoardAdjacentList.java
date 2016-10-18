@@ -33,11 +33,8 @@ public abstract class BoardAdjacentList implements AdjacentListGenerator {
     }
 
     protected void addNode(List<AbstractNode> adjacentList, Position position) {
-        Integer row = position.getRow();
-        Integer col = position.getColumn();
-        if ((row > 0) && (col > 0) && (col <= board.getCols()) && (row <= board.getRows())) {
-            ClassicPosition positionAdjacentBottomRight = new ClassicPosition(row, col);
-            AbstractNode adjacentNode = board.getNode(positionAdjacentBottomRight);
+        if (positionGenerator.isPositionInBoard(position,board)) {
+            AbstractNode adjacentNode = board.getNode(position);
             adjacentList.add(adjacentNode);
         }
 

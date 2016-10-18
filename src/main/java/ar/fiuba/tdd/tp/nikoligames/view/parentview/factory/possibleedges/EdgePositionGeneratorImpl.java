@@ -72,9 +72,7 @@ public abstract class EdgePositionGeneratorImpl implements EdgePositionGenerator
     }
 
     protected void addPosition(List<Position> positions, Position positionToAdd) {
-        Integer row = positionToAdd.getRow();
-        Integer col = positionToAdd.getColumn();
-        if ((row > 0) && (col > 0) && (col <= board.getCols()) && (row <= board.getRows())) {
+        if (positionGenerator.isPositionInBoard(positionToAdd,board)) {
             positions.add(positionToAdd);
         }
     }
