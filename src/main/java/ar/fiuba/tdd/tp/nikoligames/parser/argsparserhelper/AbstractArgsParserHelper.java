@@ -11,5 +11,7 @@ public interface AbstractArgsParserHelper {
 
     String getInputPlaysFileName();
 
+    String getOutputPlaysFileName();
+
     boolean hasInputPlaysFile();
 }

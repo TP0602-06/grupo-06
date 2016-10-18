@@ -1,14 +1,12 @@
 package ar.fiuba.tdd.tp.nikoligames.view.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewDiagonalEdge;
+
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
+
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.*;

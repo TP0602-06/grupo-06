@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewDiagonalEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;

@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.reportertest;
 
-import ar.fiuba.tdd.tp.nikoligames.ReportJsonParserForTest;
-import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportPlaysJson;
+import ar.fiuba.tdd.tp.nikoligames.reporter.ReportPlaysJson;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Assert;

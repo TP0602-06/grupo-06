@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.board.ViewEdgeFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;

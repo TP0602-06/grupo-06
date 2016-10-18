@@ -13,16 +13,19 @@ import java.util.List;
 public class BoardParser {
     public static final String BOARD = "board";
     public static final String BOARD_VALUES = "values";
-    public static final String BOARD_POSITION = "position";
 
-
-    public List<NodeConfig> parseBoard(JSONObject jsonObject) {
+    public List<NodeConfig> parseBoard(JSONObject jsonObject) throws Exception {
         List<NodeConfig> nodes = new ArrayList<NodeConfig>();
         NodeParser nodeParser = new NodeParser();
 
         if (jsonObject.containsKey(BOARD)) {
             JSONObject boardObj = (JSONObject) jsonObject.get(BOARD);
+
+            if (!boardObj.containsKey(BOARD_VALUES)) {
+                throw new Exception("Board -> Must have field 'values' of JSONObject");
+            }
             JSONArray boardValues = (JSONArray) boardObj.get(BOARD_VALUES);
+
             for (int i = 0; i < boardValues.size(); i++) {
                 JSONObject cellObj = (JSONObject) boardValues.get(i);
 

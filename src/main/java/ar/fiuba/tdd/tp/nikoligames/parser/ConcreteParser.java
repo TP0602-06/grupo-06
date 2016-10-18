@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.GameNameParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.*;
 import org.json.simple.JSONObject;
 import utils.JsonObjectFilePathParser;

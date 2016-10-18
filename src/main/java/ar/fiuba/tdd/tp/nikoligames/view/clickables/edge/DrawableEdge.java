@@ -1,13 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.view.clickables.edge;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicDraw;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicPaintAllBackground;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectNotDiagonalEdgeController;
 
-import java.awt.*;
 
 /**
  * Esta clase representa la visualizacion de una arista.

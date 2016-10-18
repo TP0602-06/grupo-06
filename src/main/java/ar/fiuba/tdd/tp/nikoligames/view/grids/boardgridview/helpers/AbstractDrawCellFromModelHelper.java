@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
+import ar.fiuba.tdd.tp.nikoligames.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 
 /**

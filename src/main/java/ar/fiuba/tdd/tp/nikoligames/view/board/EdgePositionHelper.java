@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.view.board;
 
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 
 /**
  * Created by tobias on 16/10/16.

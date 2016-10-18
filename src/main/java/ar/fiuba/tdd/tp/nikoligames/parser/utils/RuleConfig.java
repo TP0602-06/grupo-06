@@ -1,9 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.parser.utils;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.NotValidRuleException;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleType;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.rules.NotValidRuleException;
+import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,19 +12,19 @@ import java.util.List;
  */
 public class RuleConfig {
 
+    public static final String DEFAULT_STRING_VALUE = "";
+
     private List<Position> regionPositions = new ArrayList();
     private List<List<Position>> regionListPositions = new ArrayList();
-
     private List<Position> adjacentPositions = new ArrayList();
 
     private RuleType ruleDefinition;
-    private String value = "";
+    private String value = DEFAULT_STRING_VALUE;
 
 
     public RuleConfig(String ruleDefinition) throws Exception {
         this.setRuleDefinition(ruleDefinition);
     }
-
 
     public RuleType getRuleDefinition() {
         return ruleDefinition;
@@ -43,18 +42,6 @@ public class RuleConfig {
         this.value = value;
     }
 
-    public void addCellToRegion(int row, int col) {
-        this.regionPositions.add(new ClassicPosition(row, col));
-    }
-
-    public void addNodePositionToAdjacentRegion(int row, int col) {
-        this.adjacentPositions.add(new ClassicPosition(row, col));
-    }
-
-    public void addRegionToRegionListPosition(List<Position> regionPositions) {
-        this.regionListPositions.add(regionPositions);
-    }
-
     public List<List<Position>> getRegionListPositions() {
         return regionListPositions;
     }
@@ -63,9 +50,20 @@ public class RuleConfig {
         return regionPositions;
     }
 
-
     public List<Position> getAdjacentPositions() {
         return adjacentPositions;
+    }
+
+    public void setRegionPositions(List<Position> regionPositions) {
+        this.regionPositions = regionPositions;
+    }
+
+    public void setRegionListPositions(List<List<Position>> regionListPositions) {
+        this.regionListPositions = regionListPositions;
+    }
+
+    public void setAdjacentPositions(List<Position> adjacentPositions) {
+        this.adjacentPositions = adjacentPositions;
     }
 
 }

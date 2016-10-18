@@ -1,8 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.board;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver.CommonPositionSolver;
 import ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver.DiagonalPositionSolver;
 import ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver.StrategyPositionSolver;

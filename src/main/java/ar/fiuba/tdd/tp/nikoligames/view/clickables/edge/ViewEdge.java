@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.clickables.edge;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.PaintableClickable;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.EdgeSelectedListener;

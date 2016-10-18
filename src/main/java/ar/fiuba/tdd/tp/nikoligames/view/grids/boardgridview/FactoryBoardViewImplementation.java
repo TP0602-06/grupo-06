@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.DrawableBoard;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.node.DrawableNode;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.board.DrawableBoard;
+import ar.fiuba.tdd.tp.nikoligames.model.board.node.DrawableNode;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
