@@ -77,7 +77,7 @@ public class OneCycleRule extends RuleImplementation {
     private boolean checkOnlyOneClosedCircuit(List<AbstractNode> nodesInCircuit) {
 
         List<AbstractNode> seenNodes = new ArrayList<AbstractNode>();
-        if(nodesInCircuit.isEmpty()){
+        if (nodesInCircuit.isEmpty()) {
             return false;
         }
         AbstractNode firstNode = nodesInCircuit.get(0);

@@ -25,7 +25,7 @@ public class CycleDetectorHelper {
                 if (!visited.get(startingNode)) {
                     findCycle(startingNode, startingNode);
                 }
-                if(hasCycle){
+                if (hasCycle) {
                     return;
                 }
             }

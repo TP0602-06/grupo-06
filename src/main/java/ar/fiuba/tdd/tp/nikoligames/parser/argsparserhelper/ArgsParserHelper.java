@@ -57,7 +57,7 @@ public class ArgsParserHelper implements AbstractArgsParserHelper {
     }
 
     public String getOutputPlaysFileName() {
-        if (hasOutputPlaysFile()){
+        if (hasOutputPlaysFile()) {
             return arg2OutputPlaysFileName;
         }
         return DEFAULT_OUTPUT_JSON;

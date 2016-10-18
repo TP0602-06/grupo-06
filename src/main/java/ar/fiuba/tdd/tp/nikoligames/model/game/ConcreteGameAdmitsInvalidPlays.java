@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.model.game;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
+import ar.fiuba.tdd.tp.nikoligames.model.board.boardcommandaction.*;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.model.board.boardcommandaction.*;
 
 import java.util.List;
 
