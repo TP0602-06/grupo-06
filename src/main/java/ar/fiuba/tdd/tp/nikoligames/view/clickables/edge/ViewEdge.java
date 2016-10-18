@@ -18,6 +18,7 @@ public abstract class ViewEdge extends PaintableClickable {
         addMouseListener(new EdgeSelectedListener(controller));
         setBackground(ColorSet.TRANSPARENT);
         setBorder(null);
+        setContentAreaFilled(false);
     }
 
     public void clicked() {
@@ -30,4 +31,5 @@ public abstract class ViewEdge extends PaintableClickable {
     public abstract EdgePosition getEdgePositions();
 
     protected abstract void updateView();
+
 }

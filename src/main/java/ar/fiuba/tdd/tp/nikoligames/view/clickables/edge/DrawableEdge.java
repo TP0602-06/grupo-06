@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.view.clickables.edge;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
+import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicDraw;
+import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicPaintAllBackground;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectNotDiagonalEdgeController;
 
@@ -14,10 +16,12 @@ public class DrawableEdge extends ViewEdge {
 
     private EdgePosition edgePositions;
     private boolean selected = false;
+    private GraphicDraw backgroundPaint;
 
     public DrawableEdge(EdgePosition joiner, SelectEdgeController controller) {
         super(controller);
         edgePositions = joiner;
+        backgroundPaint = new GraphicPaintAllBackground(ColorSet.EDGE);
     }
 
     @Override
@@ -32,11 +36,11 @@ public class DrawableEdge extends ViewEdge {
 
     @Override
     protected void updateView() {
-        Color backgroundColor = ColorSet.TRANSPARENT;
         if (selected) {
-            backgroundColor = ColorSet.EDGE;
+            addGraphic(backgroundPaint);
+        } else {
+            resetGraphics();
         }
-        setBackground(backgroundColor);
     }
 
     public boolean isSelected() {

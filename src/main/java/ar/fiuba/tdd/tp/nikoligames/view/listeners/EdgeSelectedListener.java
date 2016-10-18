@@ -1,8 +1,12 @@
 package ar.fiuba.tdd.tp.nikoligames.view.listeners;
 
+import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
+import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;
+import ar.fiuba.tdd.tp.nikoligames.view.painters.builder.PainterBuilder;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -21,5 +25,17 @@ public class EdgeSelectedListener extends MouseAdapter {
     public void mousePressed(MouseEvent mouseEvent) {
         ViewEdge edge = (ViewEdge) mouseEvent.getSource();
         controler.notifySelectedEdge(edge);
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent mouseEvent){
+        ViewEdge edge = (ViewEdge) mouseEvent.getSource();
+        edge.setBorder(BorderFactory.createLineBorder(ColorSet.HOVER));
+    }
+
+    @Override
+    public void mouseExited(MouseEvent mouseEvent){
+        ViewEdge edge = (ViewEdge) mouseEvent.getSource();
+        edge.setBorder(null);
     }
 }
