@@ -8,10 +8,10 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 /**
  * Created by tobias on 17/10/16.
  */
-public class DiagonalPositionSolver extends StrategyPositionSolver{
+public class DiagonalPositionSolver extends StrategyPositionSolver {
 
     public DiagonalPositionSolver(GridView grid, boolean viewCellsMatchNodeView) {
-        super(grid,viewCellsMatchNodeView);
+        super(grid, viewCellsMatchNodeView);
     }
 
     @Override
