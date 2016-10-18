@@ -54,6 +54,26 @@ public class GameSetup {
         }
     }
 
+    public static void processContunuosCircuit(Game game, List<List<Integer>> circuit) {
+        Iterator<List<Integer>> circuitIterator = circuit.iterator();
+
+        List<Integer> previusPositionList = circuitIterator.next();
+        Position previusPosition = getPosition(previusPositionList);
+
+        while (circuitIterator.hasNext()) {
+            List<Integer> nextPositionList = circuitIterator.next();
+            Position nextPosition = getPosition(nextPositionList);
+
+            game.createUndirectedEdge(previusPosition, nextPosition);
+
+            previusPosition = nextPosition;
+        }
+    }
+
+    public static Position getPosition(List<Integer> positionList) {
+        return new ClassicPosition(positionList.get(0), positionList.get(1));
+    }
+
     public static Position getPosition(List<Integer> edge, int number) {
         List<Integer> positionList = edge.subList((0 + 2 * number), (2 + 2 * number));
         return new ClassicPosition(positionList.get(0), positionList.get(1));
