@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * GameImplementation. Adminstra el juego. Valida las reglas y permite que se modifiquen el valor de las celdas.
  * patron de diseno:
- * Mediador
+ * FACADE
  */
 
 public abstract class GameImplementation implements Game {
