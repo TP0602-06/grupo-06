@@ -13,7 +13,7 @@ import java.util.List;
 public class ConcreteParser implements AbstractParser {
 
     public static final String GAME_NAME = "game_name";
-    public static final String VALID_INPUT = "valid_input";
+
     public static final String GRID_SIZE = "grid_size";
 
     private final BoardParser boardParser = new BoardParser();
@@ -30,8 +30,11 @@ public class ConcreteParser implements AbstractParser {
         JSONObject jsonObject = JsonObjectFilePathParser.getJsonObject(fileName);
 
         String gameName = parseGameName(jsonObject);
+
         SizeConfig sizeConfig = parseGridSize(jsonObject);
-        HashSet<String> validInputsList = parseValidInputList(jsonObject);
+
+        HashSet<String> validInputsList = ValidInputListParser.parseValidInputList(jsonObject);
+
         List<RuleConfig> rules = ruleParser.parseRules(jsonObject);
 
         List<NodeConfig> nodes = boardParser.parseBoard(jsonObject);
@@ -43,16 +46,6 @@ public class ConcreteParser implements AbstractParser {
 
     private String parseGameName(JSONObject jsonObject) {
         return (String) jsonObject.get(GAME_NAME);
-    }
-
-    private HashSet<String> parseValidInputList(JSONObject jsonObject) {
-        HashSet<String> validInputsList = new HashSet<String>();
-        JSONArray validInputs = (JSONArray) jsonObject.get(VALID_INPUT);
-        for (int i = 0; i < validInputs.size(); i++) {
-            String validInput = (String) validInputs.get(i);
-            validInputsList.add(validInput);
-        }
-        return validInputsList;
     }
 
     private SizeConfig parseGridSize(JSONObject jsonObject) {
