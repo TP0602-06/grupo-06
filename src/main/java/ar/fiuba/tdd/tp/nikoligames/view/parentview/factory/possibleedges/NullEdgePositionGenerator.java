@@ -11,10 +11,10 @@ import java.util.List;
 /**
  * Created by tobias on 18/10/16.
  */
-public class NullEdgePositionGenerator implements  EdgePositionGenerator {
+public class NullEdgePositionGenerator implements EdgePositionGenerator {
 
-    public List<EdgePosition> getPossibleEdgePositions(){
-        return  new ArrayList<>();
+    public List<EdgePosition> getPossibleEdgePositions() {
+        return new ArrayList<>();
     }
 
 }

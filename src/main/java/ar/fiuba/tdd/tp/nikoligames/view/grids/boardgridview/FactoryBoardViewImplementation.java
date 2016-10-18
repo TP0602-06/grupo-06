@@ -37,7 +37,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
 
     @Override
     public GridView createGridView(boolean nodeMatchesCell) {
-        Integer oneLesss = nodeMatchesCell ? 0: 1;
+        Integer oneLesss = nodeMatchesCell ? 0 : 1;
         Integer rows = modelBoard.getRows() - oneLesss;
         Integer cols = modelBoard.getCols() - oneLesss;
 
@@ -58,8 +58,8 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
         //TODO agarrar celdas que se van a ver como tales nada mas
         //TODO beatuyfy deberia estar fuera o dentro?? tiene q sacar info del json
         for (int i = 1; i <= rows; i++) {
-            for (int j = 1; j <= cols; j++ ) {
-                Position position = new ClassicPosition(i,j);
+            for (int j = 1; j <= cols; j++) {
+                Position position = new ClassicPosition(i, j);
                 DrawableNode modelCell = modelBoard.getDrawableNode(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
                 cellView.setCoordinates(position.getRow(), position.getColumn());
@@ -76,7 +76,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
         try {
             GridView viewInputs = inputFactory.createInputGridForBoardView(inputs);
             view.add(viewInputs);
-        } catch (Exception exception) {
+        } catch (Exception ignored) {
         }
 
     }

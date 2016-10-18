@@ -1,27 +1,26 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.model.rules.generators.adjacentlist.AdjacentListGenerator;
+import ar.fiuba.tdd.tp.nikoligames.model.rules.generators.adjacentlist.adjacentposition.AdjacentPositionGenerator;
 import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by tobias on 18/10/16.
  */
 public abstract class EdgePositionGeneratorImpl implements EdgePositionGenerator {
     private Board board;
+    private AdjacentPositionGenerator positionGenerator;
 
-    public EdgePositionGeneratorImpl(Board board) {
+    public EdgePositionGeneratorImpl(Board board, AdjacentPositionGenerator positionGenerator) {
         this.board = board;
+        this.positionGenerator = positionGenerator;
     }
 
     public List<EdgePosition> getPossibleEdgePositions() {
@@ -62,7 +61,9 @@ public abstract class EdgePositionGeneratorImpl implements EdgePositionGenerator
         return true;
     }
 
-    protected abstract List<Position> getAdjacentPositionForNode(Position position);
+    protected List<Position> getAdjacentPositionForNode(Position position) {
+        return positionGenerator.getAdjacents(position);
+    }
 
     protected void addPosition(List<Position> positions, int row, int col) {
         if ((row > 0) && (col > 0) && (col <= board.getCols()) && (row <= board.getRows())) {
