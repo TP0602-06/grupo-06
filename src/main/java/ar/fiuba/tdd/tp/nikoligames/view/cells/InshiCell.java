@@ -12,14 +12,15 @@ public class InshiCell implements CellHint {
     private boolean isEditable = true;
     private String content;
 
-    public InshiCell(String content) {
-        this.content = content;
-    }
-
     public void draw(CellView cell) {
-        PainterBuilder painterBuilder = new PainterBuilder(isEmpty,isEditable);
-        painterBuilder.topLeftValue(content);
-        CellPainter painter = painterBuilder.end();
+        PainterBuilder pb = new PainterBuilder(isEmpty,isEditable);
+        pb.topLeftValue(content);
+        CellPainter painter = pb.end();
         painter.paintCell(cell);
     }
+
+    public InshiCell(String number) {
+        this.content = number;
+    }
+
 }
