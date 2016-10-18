@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.acceptancetests;
 
+import ar.fiuba.tdd.tp.nikoligames.acceptancetests.setup.GameSetup;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import org.junit.Assert;
@@ -75,6 +76,46 @@ public class GokigenNanameAcceptanceTest {
 
         Assert.assertTrue(game.getBoardStatus());
         Assert.assertTrue(game.checkWin());
+    }
+
+    @Test
+    public void diagonalCellEmpty() throws Exception {
+        GameSetup gameSetup = new GameSetup();
+        Game game = gameSetup.setup(DATA_JSON);
+
+        List<List<Integer>> values = asList(
+                asList(2, 1, 1, 2),
+                asList(1, 2, 2, 3),
+                asList(2, 3, 3, 4),
+                asList(2, 3, 3, 2),
+                asList(3, 2, 4, 3),
+                asList(4, 3, 5, 4),
+                asList(4, 3, 5, 2),
+                asList(5, 2, 6, 1),
+                asList(5, 2, 4, 1),
+                asList(6, 2, 5, 3),
+                asList(5, 4, 6, 3),
+                asList(5, 4, 6, 5),
+                asList(3, 1, 2, 2),
+                //asList(3, 1, 4, 2),
+
+                asList(1, 3, 2, 4),
+                asList(2, 4, 1, 5),
+                asList(2, 4, 3, 5),
+                asList(3, 5, 4, 4),
+                asList(4, 4, 3, 3),
+                asList(4, 4, 5, 5),
+                asList(5, 5, 4, 6),
+                asList(5, 5, 6, 6),
+
+                asList(1, 6, 2, 5),
+                asList(2, 5, 3, 6),
+                asList(3, 6, 4, 5)
+        );
+        GameSetup.processCircuit(game, values);
+
+        Assert.assertTrue(game.getBoardStatus());
+        Assert.assertFalse(game.checkWin());
     }
 
     @Test

@@ -41,6 +41,8 @@ public class RulesFactory {
 
         hashFactory.put(RuleType.REGION_VISITED_AT_MOST_ONCE, new RegionVisitedAtMostOnceRuleFactory());
         hashFactory.put(RuleType.REGION_VISITED_COUNT, new RegionVisitedCountRuleFactory());
+
+        hashFactory.put(RuleType.ADDITION.DIAGONAL_CELL_NOT_EMPTY, new DiagonalCellNotEmptyGeneratorFactory());
     }
 
     @SuppressWarnings("CPD-END")

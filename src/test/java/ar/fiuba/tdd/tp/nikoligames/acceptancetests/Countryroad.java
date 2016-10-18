@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.acceptancetests;
 
+import ar.fiuba.tdd.tp.nikoligames.acceptancetests.setup.GameSetup;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import org.junit.Assert;
