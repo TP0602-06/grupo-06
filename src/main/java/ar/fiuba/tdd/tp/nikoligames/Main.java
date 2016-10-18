@@ -1,10 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.GameFactory;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.play.AbstractPlay;
-import ar.fiuba.tdd.tp.nikoligames.engine.reporter.AbstractPlaysReporter;
-import ar.fiuba.tdd.tp.nikoligames.engine.reporter.ReportPlaysJson;
+import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.game.GameFactory;
+import ar.fiuba.tdd.tp.nikoligames.model.play.AbstractPlay;
+import ar.fiuba.tdd.tp.nikoligames.reporter.AbstractPlaysReporter;
+import ar.fiuba.tdd.tp.nikoligames.reporter.ReportPlaysJson;
 import ar.fiuba.tdd.tp.nikoligames.parser.AbstractParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.ConcreteParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.PlayParser;

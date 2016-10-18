@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.parser.utils;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.NotValidRuleException;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.rules.RuleType;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.rules.NotValidRuleException;
+import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleType;
 
 import java.util.ArrayList;
 import java.util.List;

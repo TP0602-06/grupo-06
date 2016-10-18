@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.AbstractFocusGridViewHelper;

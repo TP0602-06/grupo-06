@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.engine.model.play.*;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.play.*;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfigParser;
 import org.json.simple.JSONArray;

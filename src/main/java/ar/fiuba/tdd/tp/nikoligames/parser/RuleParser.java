@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.parser;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

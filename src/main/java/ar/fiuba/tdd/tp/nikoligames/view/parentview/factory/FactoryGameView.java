@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
-import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 
 import java.util.HashSet;
