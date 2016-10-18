@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * Created by german on 10/18/2016.
  */
-public class inshinohaya {
+public class Inshinohaya {
 
     public static final String DATA_INSHI_TABLERO1_JSON = "data/inshi/tablero1.json";
 
     @Test
-    public void InshiNoHayaFirstPlay() throws Exception {
+    public void inshiNoHayaFirstPlay() throws Exception {
         GameSetup gameSetup = new GameSetup();
         Game game = gameSetup.setup(DATA_INSHI_TABLERO1_JSON);
 
@@ -27,7 +27,7 @@ public class inshinohaya {
     }
 
     @Test
-    public void InshiNoHayaWinGame() throws Exception {
+    public void inshiNoHayaWinGame() throws Exception {
         GameSetup gameSetup = new GameSetup();
         Game game = gameSetup.setup(DATA_INSHI_TABLERO1_JSON);
 
@@ -45,7 +45,7 @@ public class inshinohaya {
     }
 
     @Test
-    public void InshiNoHayaLooseGame() throws Exception {
+    public void inshiNoHayaLooseGame() throws Exception {
         GameSetup gameSetup = new GameSetup();
         Game game = gameSetup.setup(DATA_INSHI_TABLERO1_JSON);
 
