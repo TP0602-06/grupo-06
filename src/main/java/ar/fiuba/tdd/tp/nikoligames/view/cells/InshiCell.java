@@ -8,6 +8,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.painters.builder.PainterBuilder;
  * Created by fedebrasburg on 10/18/16.
  */
 public class InshiCell implements CellHint {
+    private boolean isEmpty = true;
+    private boolean isEditable = true;
     private String content;
 
     public InshiCell(String content) {
@@ -15,7 +17,7 @@ public class InshiCell implements CellHint {
     }
 
     public void draw(CellView cell) {
-        PainterBuilder painterBuilder = new PainterBuilder(false, true);
+        PainterBuilder painterBuilder = new PainterBuilder(isEmpty,isEditable);
         painterBuilder.topLeftValue(content);
         CellPainter painter = painterBuilder.end();
         painter.paintCell(cell);

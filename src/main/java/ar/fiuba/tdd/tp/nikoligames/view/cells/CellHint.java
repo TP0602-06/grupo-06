@@ -7,5 +7,5 @@ import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
  */
 public interface CellHint {
 
-    public void draw(CellView cell);
+    void draw(CellView cell);
 }

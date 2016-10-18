@@ -11,12 +11,15 @@ import javax.swing.*;
  */
 public class NullCell implements CellHint {
 
+    private boolean isEmpty = true;
+    private boolean isEditable = false;
+
     public NullCell() {
 
     }
 
     public void draw(CellView cell) {
-        PainterBuilder builder = new PainterBuilder(true, false);
+        PainterBuilder builder = new PainterBuilder(isEmpty, isEditable);
         CellPainter painter = builder.end();
         painter.paintCell(cell);
 

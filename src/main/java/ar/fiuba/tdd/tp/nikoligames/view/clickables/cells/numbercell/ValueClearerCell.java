@@ -14,11 +14,12 @@ import java.awt.Color;
 public class ValueClearerCell extends CellView {
     private Color backgroundColor = ColorSet.NORMAL_BACKGROUND;
     private Color foregroundColor = ColorSet.NUMBER;
+    private static final String content = "X";
 
     public ValueClearerCell(SelectValueController selectValueController) {
         setBackground(backgroundColor);
         setForeground(foregroundColor);
-        setText("X");
+        setText(content);
         registerMouseListener(selectValueController);
     }
 

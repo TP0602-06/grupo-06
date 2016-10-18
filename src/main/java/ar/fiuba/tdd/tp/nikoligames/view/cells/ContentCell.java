@@ -11,13 +11,15 @@ import javax.swing.*;
  */
 public class ContentCell implements CellHint {
     private String content;
+    private boolean isEmpty = false;
+    private boolean isEditable = false;
 
     public ContentCell(String content) {
         this.content = content;
     }
 
     public void draw(CellView cell) {
-        PainterBuilder painterBuilder = new PainterBuilder(false, false);
+        PainterBuilder painterBuilder = new PainterBuilder(isEmpty, isEditable);
         painterBuilder.centerValue(content);
         CellPainter painter = painterBuilder.end();
         painter.paintCell(cell);

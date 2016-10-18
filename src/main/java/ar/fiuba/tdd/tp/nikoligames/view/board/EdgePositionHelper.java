@@ -10,6 +10,10 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
  */
 public class EdgePositionHelper {
 
+    private static final int  first = 1;
+    private  static final int equal = 0;
+    private static final int second = -1;
+
     public static Position mostBottomRightPosition(EdgePosition edgePosition) {
         return getComparedPosition(edgePosition, true);
     }
@@ -31,7 +35,7 @@ public class EdgePositionHelper {
         Position invertedBottom = new ClassicPosition(bottomRight.getRow(), topLeft.getColumn());
         Integer equalsTop = compare(invertedTop, mostTopLeftPosition(edgePosition2));
         Integer equalsBottom = compare(invertedBottom, mostBottomRightPosition(edgePosition2));
-        return equalsTop == 0 && equalsBottom == 0;
+        return equalsTop == equal && equalsBottom == equal;
     }
 
     private static boolean differentRowAndColum(Position pos1, Position pos2) {
@@ -48,18 +52,18 @@ public class EdgePositionHelper {
             toReturnIfPos1Greater = pos2;
             toReturnIfPos2Greater = pos1;
         }
-        return compare(pos1, pos2) >= 0 ? toReturnIfPos1Greater : toReturnIfPos2Greater;
+        return compare(pos1, pos2) >= equal ? toReturnIfPos1Greater : toReturnIfPos2Greater;
     }
 
     public static Integer compare(Position position1, Position position2) {
         if (rowIsLower(position1, position2)
                 || sameRowButColumLower(position1, position2)) {
-            return 1;
+            return first;
         }
         if (samePosition(position1, position2)) {
-            return 0;
+            return equal;
         }
-        return -1;
+        return second;
     }
 
     private static boolean samePosition(Position position1, Position position2) {
