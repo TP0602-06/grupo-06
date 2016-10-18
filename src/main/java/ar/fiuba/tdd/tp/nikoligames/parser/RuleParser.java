@@ -80,6 +80,7 @@ public class RuleParser {
                 List<Position> regionListPosition = JsonArrayOfPositionsParser.parseJsonArrayOfPositions(regionObjs);
                 allRegionsList.add(regionListPosition);
             }
+            ruleConfig.setRegionListPositions(allRegionsList);
         }
     }
 

@@ -29,13 +29,14 @@ public class NoNotVisitedAdjacentNodesInSameRegionRule extends RuleImplementatio
         if (!areBothNotVisited(node1, node2)) {
             return false;
         }
-
+        //Si deja celdas contiguas sin visitar,
         Iterator<List<AbstractNode>> regionsIterator = regions.iterator();
         while (regionsIterator.hasNext()) {
 
             List<AbstractNode> currentRegion = regionsIterator.next();
             if (this.regionContainsAnyNode(node1, node2, currentRegion)) {
-                return (regionContainsBothNodes(node1, node2, currentRegion));
+                // se rompe la regla si son de distinta region
+                return (!regionContainsBothNodes(node1, node2, currentRegion));
             }
         }
 
