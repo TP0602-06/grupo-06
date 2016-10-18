@@ -54,9 +54,10 @@ public class EdgePositionGeneratorFactory {
 
     private EdgePositionGenerator chooseGenerator(Board board) {
         if (chosen.isRule(RuleType.HOR_VER_VALID_EDGES_GENERATOR.toString())) {
-            return new EdgeDiagonalPossibleGenerator(board);
+            return new EdgeHorizontalVerticalPositionGeneratorImpl(board);
         }
-        return new EdgeHorizontalVerticalPositionGeneratorImpl(board);
+        return new EdgeDiagonalPossibleGenerator(board);
+
     }
 }
 

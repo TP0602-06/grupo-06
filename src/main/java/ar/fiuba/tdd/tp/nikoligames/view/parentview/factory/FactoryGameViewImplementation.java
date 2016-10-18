@@ -44,7 +44,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         //TODO create edges
         //TODO take dimension from json
         Dimension boardDimension = new Dimension(300, 300);
-        boolean cellViewMatchesNodeView = true;
+        boolean cellViewMatchesNodeView = false;
 
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
@@ -58,11 +58,15 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         boardView.addEdges(edges);
 
         Component restartAndCheckButtons = createButtons(game);
-        GridView inputs = createInputPanel(selectValueController, gridView, gameConfig.getValidInputs());
 
         view.add(restartAndCheckButtons);
         view.add(boardView);
-        view.add(inputs);
+        try {
+            GridView inputs = createInputPanel(selectValueController, gridView, gameConfig.getValidInputs());
+            view.add(inputs);
+        }catch (Exception e){
+
+        }
 
         return view;
     }
