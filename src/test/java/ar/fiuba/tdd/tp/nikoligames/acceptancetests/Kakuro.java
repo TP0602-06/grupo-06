@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by german on 10/18/2016.
  */
-public class kakuro {
+public class Kakuro {
     public static final String DATA_KAKURO_TABLERO1_JSON = "data/kakuro/tablero1.json";
 
     @Test
@@ -26,7 +26,7 @@ public class kakuro {
     }
 
     @Test
-    public void KakuroWinGame() throws Exception {
+    public void kakuroWinGame() throws Exception {
         GameSetup gameSetup = new GameSetup();
         Game game = gameSetup.setup(DATA_KAKURO_TABLERO1_JSON);
 
@@ -47,7 +47,7 @@ public class kakuro {
     }
 
     @Test
-    public void KakuroLooseForEmptyGame() throws Exception {
+    public void kakuroLooseForEmptyGame() throws Exception {
         GameSetup gameSetup = new GameSetup();
         Game game = gameSetup.setup(DATA_KAKURO_TABLERO1_JSON);
 
@@ -68,7 +68,7 @@ public class kakuro {
     }
 
     @Test
-    public void KakuroLooseForNumbersGame() throws Exception {
+    public void kakuroLooseForNumbersGame() throws Exception {
         GameSetup gameSetup = new GameSetup();
         Game game = gameSetup.setup(DATA_KAKURO_TABLERO1_JSON);
 

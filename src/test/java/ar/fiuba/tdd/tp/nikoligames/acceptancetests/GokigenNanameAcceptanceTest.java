@@ -78,7 +78,7 @@ public class GokigenNanameAcceptanceTest {
     }
 
     @Test
-    public void DiagonalCellEmpty() throws Exception {
+    public void diagonalCellEmpty() throws Exception {
         GameSetup gameSetup = new GameSetup();
         Game game = gameSetup.setup(DATA_JSON);
 
