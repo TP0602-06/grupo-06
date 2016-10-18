@@ -26,34 +26,56 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
-        AbstractArgsParserHelper argsParserHelper = new ArgsParserHelper();
-        GameFactory gameFactory = new GameFactory();
-
         try {
-            argsParserHelper.parseArgs(args);
-            String gameJsonFilePath = argsParserHelper.getGameFileName();
-            AbstractParser gameConfigParser = new ConcreteParser(gameJsonFilePath);
+            AbstractArgsParserHelper argsParserHelper = parseProgramArgs(args);
 
-            GameConfig gameConfig = gameConfigParser.parse();
-            Game game = gameFactory.createGame(gameConfig);
+            String gameJsonFilePath = argsParserHelper.getGameFileName();
+
+            GameConfig gameConfig = parseJsonGameFile(gameJsonFilePath);
+
+            Game game = getGame(gameConfig);
 
             if (argsParserHelper.hasInputPlaysFile()) {
-                String inputFileName = argsParserHelper.getInputPlaysFileName();
-                String outputFileName = argsParserHelper.getOutputPlaysFileName();
-
-                List<AbstractPlay> plays = PlayParser.parse(inputFileName, game);
-
-                AbstractPlaysReporter reporter = new ReportPlaysJson();
-                reporter.writeReport(game, plays, outputFileName);
+                generateReport(argsParserHelper, game);
                 return;
             }
-            FactoryGameView factoryView = new FactoryGameViewImplementation();
-            GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
-            view.setVisible(true);
+            createView(gameConfig, game);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static GameConfig parseJsonGameFile(String gameJsonFilePath) throws Exception {
+        AbstractParser gameConfigParser = new ConcreteParser(gameJsonFilePath);
+
+        return gameConfigParser.parse();
+    }
+
+    public static AbstractArgsParserHelper parseProgramArgs(String[] args) throws Exception {
+        AbstractArgsParserHelper argsParserHelper = new ArgsParserHelper();
+        argsParserHelper.parseArgs(args);
+        return argsParserHelper;
+    }
+
+    public static void createView(GameConfig gameConfig, Game game) throws Exception {
+        FactoryGameView factoryView = new FactoryGameViewImplementation();
+        GameView view = factoryView.createDefaultGameView(game, gameConfig.getValidInputs());
+        view.setVisible(true);
+    }
+
+    public static void generateReport(AbstractArgsParserHelper argsParserHelper, Game game) throws Exception {
+        String inputFileName = argsParserHelper.getInputPlaysFileName();
+        String outputFileName = argsParserHelper.getOutputPlaysFileName();
+
+        List<AbstractPlay> plays = PlayParser.parse(inputFileName, game);
+
+        AbstractPlaysReporter reporter = new ReportPlaysJson();
+        reporter.writeReport(game, plays, outputFileName);
+    }
+
+    public static Game getGame(GameConfig gameConfig) throws Exception {
+        GameFactory gameFactory = new GameFactory();
+        return gameFactory.createGame(gameConfig);
     }
 }
