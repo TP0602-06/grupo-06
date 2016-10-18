@@ -12,8 +12,8 @@ import static java.util.Arrays.asList;
 /**
  * Created by german on 10/18/2016.
  */
-public class countryroad {
-    public static final String DATA_JSON = "data/countryroad/tablero1.json";
+public class Countryroad {
+    public static final String DATA_JSON = "data/Countryroad/tablero1.json";
 
     @Test
     public void countryroadFirstPlay() throws Exception {
