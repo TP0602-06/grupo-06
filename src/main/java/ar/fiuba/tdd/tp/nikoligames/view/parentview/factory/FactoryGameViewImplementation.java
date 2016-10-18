@@ -80,6 +80,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
 
     private List<EdgePosition> getPosibleEdges(Game game) {
         //Todo getEdges
+
         List<EdgePosition> edges = new ArrayList<>();
         Position first = new ClassicPosition(1,1);
         Position second = new ClassicPosition(2,2);
