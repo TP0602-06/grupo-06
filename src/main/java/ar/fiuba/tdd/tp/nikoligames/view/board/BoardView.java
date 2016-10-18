@@ -21,25 +21,21 @@ public class BoardView extends JPanel {
 
     private int backLayer = 1;
     private int frontLayer = 2;
-    private GridView cellgrid;
     private JLayeredPane pane;
-    private SelectEdgeController diagonal;
-    private SelectEdgeController common;
-    private List<ViewDiagonalEdge> diagonalEdges;
+    private ViewEdgeFactory factoryEdges;
+    private ViewEdgeCellViewPositionSolver solver;
 
-    public BoardView(Dimension size, GridView gridLayer, SelectEdgeController common, SelectEdgeController diagonal) {
+    public BoardView(Dimension size, GridView gridLayer, ViewEdgeFactory factoryEdge, boolean nodeMatchesCell) {
         super();
-        this.diagonal = diagonal;
-        this.common = common;
-        diagonalEdges = new ArrayList<>();
+        factoryEdges = factoryEdge;
         pane = new JLayeredPane();
         pane.setPreferredSize(size);
         add(pane);
         addGrid(gridLayer, size);
+        solver = new ViewEdgeCellViewPositionSolver(gridLayer,nodeMatchesCell);
     }
 
     private void addGrid(GridView gridLayer, Dimension size) {
-        cellgrid = gridLayer;
         addInLayer(gridLayer, backLayer);
         gridLayer.setBounds(0, 0, size.width, size.height);
     }
@@ -53,28 +49,9 @@ public class BoardView extends JPanel {
     }
 
     private void createEdge(EdgePosition edge) {
-        ViewEdge viewEdge;
-        if (EdgePositionHelper.isDiagonal(edge)) {
-            viewEdge = getNewOrExistantDiagonalEdge(edge);
-        } else {
-            viewEdge = new DrawableEdge(edge, common);
-        }
+        ViewEdge viewEdge = factoryEdges.createViewEdge(edge);
         addInLayer(viewEdge, frontLayer);
         setBoundsOfEdge(viewEdge);
-    }
-
-    private ViewEdge getNewOrExistantDiagonalEdge(EdgePosition edge) {
-        for (int i = 0; i < diagonalEdges.size(); i++) {
-            ViewDiagonalEdge diagonalEdge = diagonalEdges.get(i);
-            EdgePosition existentDiagonal = diagonalEdges.get(i).getEdgePositions();
-            if (EdgePositionHelper.areDiagonalsOfSameCell(edge, existentDiagonal)) {
-                diagonalEdge.addOtherEdge(edge);
-                return diagonalEdge;
-            }
-        }
-        ViewDiagonalEdge newEdge = new ViewDiagonalEdge(edge, diagonal);
-        diagonalEdges.add(newEdge);
-        return newEdge;
     }
 
     private void addInLayer(Component component, int layerIndex) {
@@ -83,8 +60,7 @@ public class BoardView extends JPanel {
     }
 
     private void setBoundsOfEdge(ViewEdge edge) {
-        ViewEdgeCellViewPositionSolver edgeSolver = new ViewEdgeCellViewPositionSolver(cellgrid, true);
-        Rectangle edgeBounds = edgeSolver.getRectangleFor(edge.getEdgePositions());
+        Rectangle edgeBounds = solver.getRectangleFor(edge.getEdgePositions());
         edge.setBounds(edgeBounds);
     }
 

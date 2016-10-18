@@ -46,7 +46,7 @@ public abstract class StrategyPositionSolver {
     }
 
     private int getCoordinateOf(Integer celSize, Integer position) {
-        return celSize * position + getHalfOf(celSize);
+        return celSize * position;
     }
 
     protected Integer getHalfOf(Integer celSize) {
@@ -54,11 +54,11 @@ public abstract class StrategyPositionSolver {
     }
 
     private Integer moveToAlignHeightInCenter(Integer coordinateY) {
-        return coordinateY - getHalfOf(getGridCellHeight());
+        return coordinateY + getHalfOf(getGridCellHeight());
     }
 
     private Integer moveToAlignWidthInCenter(Integer coordinateX) {
-        return coordinateX - getHalfOf(getGridCellWidth());
+        return coordinateX + getHalfOf(getGridCellWidth());
     }
 
 
