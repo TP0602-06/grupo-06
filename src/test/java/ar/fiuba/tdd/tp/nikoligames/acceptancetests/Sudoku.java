@@ -31,6 +31,7 @@ public class Sudoku {
         Assert.assertTrue(game.getBoardStatus());
         Assert.assertTrue(game.checkWin());
     }
+
     @Test
     public void notCompletedGame() throws Exception {
         GameSetup gameSetup = new GameSetup();
@@ -47,6 +48,7 @@ public class Sudoku {
         Assert.assertTrue(game.getBoardStatus());
         Assert.assertFalse(game.checkWin());
     }
+
     @Test
     public void looseGame() throws Exception {
         GameSetup gameSetup = new GameSetup();
@@ -63,6 +65,7 @@ public class Sudoku {
         Assert.assertFalse(game.getBoardStatus());
         Assert.assertFalse(game.checkWin());
     }
+
     @Test
     public void invalidInputGame() throws Exception {
         GameSetup gameSetup = new GameSetup();

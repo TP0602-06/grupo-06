@@ -15,6 +15,8 @@ public interface Board extends DrawableBoard {
 
     void setEditable(Position position, boolean editable);
 
+    void setInitialNodeValue(Position position,String value);
+
     boolean changeNodeValue(Position position, String value);
 
     void createDirectedEdge(Position position1, Position position2);

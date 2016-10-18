@@ -31,7 +31,7 @@ public class BoardFactory {
             NodeConfig nodeConfig = iterator.next();
             Position position = new ClassicPosition(nodeConfig.getRow(), nodeConfig.getCol());
             board.setEditable(position, nodeConfig.isEditable());
-            board.changeNodeValue(position, nodeConfig.getValue());
+            board.setInitialNodeValue(position, nodeConfig.getValue());
         }
     }
 }
