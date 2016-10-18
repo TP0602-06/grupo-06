@@ -11,7 +11,10 @@ import java.util.HashSet;
 public class ValidInputListParser {
     public static final String VALID_INPUT = "valid_input";
 
-    public static HashSet<String> parseValidInputList(JSONObject jsonObject) {
+    public static HashSet<String> parseValidInputList(JSONObject jsonObject) throws Exception {
+        if (!jsonObject.containsKey(VALID_INPUT)){
+            throw new Exception("You must specify the valid inputs");
+        }
         HashSet<String> validInputsList = new HashSet<String>();
         JSONArray validInputs = (JSONArray) jsonObject.get(VALID_INPUT);
         for (int i = 0; i < validInputs.size(); i++) {
