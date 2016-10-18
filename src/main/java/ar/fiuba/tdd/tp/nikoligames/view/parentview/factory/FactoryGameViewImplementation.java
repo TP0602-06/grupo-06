@@ -5,7 +5,6 @@ import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -14,6 +13,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.FactoryBoardViewImpl
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectDiagonalEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectNotDiagonalEdgeController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
@@ -44,12 +44,13 @@ public class FactoryGameViewImplementation implements FactoryGameView {
 
         SelectValueController selectValueController = new SelectValueControllerImp(game);
         SelectNotDiagonalEdgeController selectEdgeController = new SelectNotDiagonalEdgeController(game);
+        SelectDiagonalEdge selectDiagonalEdgeController = new SelectDiagonalEdge(game);
 
         GridView gridView = createBoardView(game, selectValueController);
-        List<DrawableEdge> edges = createEdges(game, selectEdgeController);
+        List<EdgePosition> edges = createEdges(game);
 
-        BoardView boardView = new BoardView(new Dimension(300, 300),gridView);
-        boardView.addDrawbleEdges(edges);
+        BoardView boardView = new BoardView(new Dimension(300, 300),gridView, selectEdgeController, selectDiagonalEdgeController);
+        boardView.addEdges(edges);
 
         Component restartAndCheckButtons = createButtons(game);
         GridView inputs = createInputPanel(selectValueController, gridView, validInputs);
@@ -76,16 +77,17 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return gridBoardFactory.createBoardView(game.getDrawableBoard());
     }
 
-    private List<DrawableEdge> createEdges(Game game, SelectNotDiagonalEdgeController edgeController) {
-        //Todo create drawableEdges
-        List<DrawableEdge> edges = new ArrayList<>();
+    private List<EdgePosition> createEdges(Game game) {
+        //Todo getEdges
+        List<EdgePosition> edges = new ArrayList<>();
         Position first = new ClassicPosition(1,1);
-        Position second = new ClassicPosition(1,2);
+        Position second = new ClassicPosition(2,2);
         Position third = new ClassicPosition(2,1);
+        Position fourth = new ClassicPosition(1,2);
         EdgePosition testEdge = new EdgePosition(first,second);
-        EdgePosition testEdge2 = new EdgePosition(third,first);
-        edges.add(new DrawableEdge(testEdge,edgeController));
-        edges.add(new DrawableEdge(testEdge2,edgeController));
+        EdgePosition testEdge2 = new EdgePosition(third,fourth);
+        edges.add(testEdge);
+        edges.add(testEdge2);
         return edges;
     }
 }

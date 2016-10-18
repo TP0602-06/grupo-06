@@ -2,10 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.painters.builder;
 
 import ar.fiuba.tdd.tp.nikoligames.view.painters.*;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.bordercell.BorderCellPainter;
-import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.BottomLeftValuePainter;
-import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.BottomRightValuePainter;
-import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.TopLeftValuePainter;
-import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.TopRightValuePainter;
+import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.*;
 
 /**
  * Builder para el pintor de la celda.

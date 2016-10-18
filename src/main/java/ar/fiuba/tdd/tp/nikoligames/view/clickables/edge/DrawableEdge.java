@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.clickables.edge;
 
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectNotDiagonalEdgeController;
 
 import java.awt.*;
@@ -14,7 +15,7 @@ public class DrawableEdge extends ViewEdge {
     private EdgePosition edgePositions;
     private boolean selected = false;
 
-    public DrawableEdge(EdgePosition joiner, SelectNotDiagonalEdgeController controller) {
+    public DrawableEdge(EdgePosition joiner, SelectEdgeController controller) {
         super(controller);
         edgePositions = joiner;
     }

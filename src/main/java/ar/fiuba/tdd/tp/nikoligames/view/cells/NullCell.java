@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells;
 
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.builder.PainterBuilder;
 

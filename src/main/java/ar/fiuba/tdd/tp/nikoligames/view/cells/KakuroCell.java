@@ -1,11 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells;
 
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicDraw;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LineGraphicDraw;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LinePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.builder.PainterBuilder;
-import javafx.scene.control.Cell;
 
 import java.awt.*;
 

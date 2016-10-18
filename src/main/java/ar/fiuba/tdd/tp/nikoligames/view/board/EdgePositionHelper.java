@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.board;
 
 
+import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.engine.model.board.position.Position;
 
@@ -23,6 +24,15 @@ public class EdgePositionHelper {
         return differentRowAndColum(pos1, pos2);
     }
 
+    public static boolean areDiagonalsOfSameCell(EdgePosition edgePosition1,EdgePosition edgePosition2) {
+        Position topLeft = mostTopLeftPosition(edgePosition1);
+        Position bottomRight = mostBottomRightPosition(edgePosition1);
+        Position invertedTop = new ClassicPosition(topLeft.getRow(), bottomRight.getColumn());
+        Position invertedBottom = new ClassicPosition(bottomRight.getRow(),topLeft.getColumn());
+        Integer equalsTop =  compare(invertedTop,mostTopLeftPosition(edgePosition2));
+        Integer equalsBottom =  compare(invertedBottom,mostBottomRightPosition(edgePosition2));
+        return equalsTop == 0 && equalsBottom == 0;
+    }
     private static boolean differentRowAndColum(Position pos1, Position pos2) {
         return pos1.getColumn() != pos2.getColumn()
                 && pos1.getRow() != pos2.getRow();

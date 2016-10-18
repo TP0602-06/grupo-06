@@ -7,6 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LineGraphicDraw;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LinePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectDiagonalEdge;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class ViewDiagonalEdge extends ViewEdge {
     private List<EdgePosition> diagonals;
     private Integer actualIndex = -1;
 
-    public ViewDiagonalEdge(EdgePosition joiner, SelectDiagonalEdge controller) {
+    public ViewDiagonalEdge(EdgePosition joiner, SelectEdgeController controller) {
         super(controller);
         diagonals = new ArrayList<>();
         diagonals.add(joiner);
@@ -28,9 +29,9 @@ public class ViewDiagonalEdge extends ViewEdge {
         diagonals.add(edge);
     }
 
-    @Override
-    public EdgePosition getEdgePositions() {
-        if (actualIndex < diagonals.size()){
+
+    public EdgePosition getDisplayedPosition() {
+        if (actualIndex < 0 ){
             return  null;
         } else {
             return diagonals.get(actualIndex);
@@ -43,9 +44,14 @@ public class ViewDiagonalEdge extends ViewEdge {
     }
 
     @Override
+    public EdgePosition getEdgePositions() {
+        return diagonals.get(0);
+    }
+
+    @Override
     protected void updateView() {
         resetGraphics();
-        if (actualIndex > diagonals.size()){
+        if (actualIndex >= diagonals.size()){
             restartSequence();
         } else {
             paintEdge(diagonals.get(actualIndex));
@@ -60,6 +66,7 @@ public class ViewDiagonalEdge extends ViewEdge {
         LinePosition start = startCorner(actualDiagonal);
         LinePosition end = endCorner(actualDiagonal);
         LineGraphicDraw graphicDraw = new LineGraphicDraw(ColorSet.EDGE,start,end);
+        addGraphic(graphicDraw);
     }
 
     private LinePosition startCorner(EdgePosition actualDiagonal) {

@@ -20,10 +20,10 @@ public class SelectDiagonalEdge implements SelectEdgeController {
     @Override
     public void notifySelectedEdge(ViewEdge edge) {
         ViewDiagonalEdge diagonalEdge = (ViewDiagonalEdge) edge;
-        EdgePosition previousPosition = diagonalEdge.getEdgePositions();
+        EdgePosition previousPosition = diagonalEdge.getDisplayedPosition();
 
         diagonalEdge.clicked();
-        EdgePosition actualPosition = diagonalEdge.getEdgePositions();
+        EdgePosition actualPosition = diagonalEdge.getDisplayedPosition();
 
         removeEdge(previousPosition);
         createEdge(actualPosition);

@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.listeners;
 
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
 
 import java.awt.event.MouseAdapter;
@@ -18,8 +18,8 @@ public class EdgeSelectedListener extends MouseAdapter {
     }
 
     @Override
-    public void mouseClicked(MouseEvent mouseEvent) {
-        DrawableEdge edge = (DrawableEdge) mouseEvent.getSource();
+    public void mousePressed(MouseEvent mouseEvent) {
+        ViewEdge edge = (ViewEdge) mouseEvent.getSource();
         controler.notifySelectedEdge(edge);
     }
 }
