@@ -73,11 +73,13 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
     @Override
     public void addInputs(GameView view, HashSet<String> inputs) {
         AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(selectValueController);
+        //CHECKSTYLE:OFF
         try {
             GridView viewInputs = inputFactory.createInputGridForBoardView(inputs);
             view.add(viewInputs);
         } catch (Exception ignored) {
         }
+        //CHECKSTYLE:ON
 
     }
 }

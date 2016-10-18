@@ -6,7 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LineGraphicDraw;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LinePosition;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.edgecontroller.SelectEdgeController;
 
 import java.util.ArrayList;
 import java.util.List;

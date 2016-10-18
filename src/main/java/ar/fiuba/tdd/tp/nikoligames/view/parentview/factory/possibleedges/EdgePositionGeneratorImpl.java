@@ -62,12 +62,19 @@ public abstract class EdgePositionGeneratorImpl implements EdgePositionGenerator
     }
 
     protected List<Position> getAdjacentPositionForNode(Position position) {
-        return positionGenerator.getAdjacents(position);
+        List<Position> adjacent = new ArrayList<>();
+        Iterator positions = positionGenerator.getAdjacents(position).iterator();
+        while (positions.hasNext()) {
+            Position posistionToAdd = (Position) positions.next();
+            addPosition(adjacent, posistionToAdd);
+        }
+        return adjacent;
     }
 
-    protected void addPosition(List<Position> positions, int row, int col) {
+    protected void addPosition(List<Position> positions, Position positionToAdd) {
+        Integer row = positionToAdd.getRow();
+        Integer col = positionToAdd.getColumn();
         if ((row > 0) && (col > 0) && (col <= board.getCols()) && (row <= board.getRows())) {
-            ClassicPosition positionToAdd = new ClassicPosition(row, col);
             positions.add(positionToAdd);
         }
     }

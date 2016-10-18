@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
+package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.edgecontroller;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
