@@ -1,10 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.playtest;
 
-import ar.fiuba.tdd.tp.nikoligames.reportertest.SimpleGameFactoryForTest;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.play.AbstractPlay;
 import ar.fiuba.tdd.tp.nikoligames.model.play.ChangeNodeValuePlay;
+import ar.fiuba.tdd.tp.nikoligames.reportertest.SimpleGameFactoryForTest;
 import org.junit.Assert;
 import org.junit.Test;
 
