@@ -5,7 +5,7 @@ import javax.swing.*;
 
 
 /**
- * Created by fedebrasburg on 10/17/16.
+ * Esta clase se encarga de centrar el valor en la celda.
  */
 public class CenterValuePainter extends CellPainterWithValue {
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by tobias on 18/10/16.
+ * Esta se encarga de actual como el generador de edges cuando no existe ninguno.
  */
 public class NullEdgePositionGenerator implements EdgePositionGenerator {
 

@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.generators.adjacentlist.adjacentposition.DiagonalAdjacents;
 
 /**
- * Created by tobias on 18/10/16.
+ * Esta clase obtiene los edges diagonales posibles del board.
  */
 public class EdgeDiagonalPossibleGenerator extends EdgePositionGeneratorImpl {
 

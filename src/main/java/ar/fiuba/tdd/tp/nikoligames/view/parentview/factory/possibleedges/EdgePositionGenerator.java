@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import java.util.List;
 
 /**
- * Created by tobias on 18/10/16.
+ * Esta interfaz responde a obtener todos los posibles edges del juego.
  */
 public interface EdgePositionGenerator {
 

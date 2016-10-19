@@ -1,15 +1,19 @@
-package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges;
+package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.factory;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleType;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.EdgeDiagonalPossibleGenerator;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.EdgeHorizontalVerticalPositionGeneratorImpl;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.EdgePositionGenerator;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.NullEdgePositionGenerator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by tobias on 18/10/16.
+ * Esta clase crea el generador de edges posibles del mapa.
  */
 public class EdgePositionGeneratorFactory {
     private List<RuleType> validTypes;

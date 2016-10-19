@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by tobias on 18/10/16.
+ * Esta se encarga de obtener todos los edges posibles de un juego.
  */
 public abstract class EdgePositionGeneratorImpl implements EdgePositionGenerator {
     private Board board;
