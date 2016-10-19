@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.parser.argsparserhelper;
+package ar.fiuba.tdd.tp.nikoligames.parser;
 
 import utils.Constants;
 
@@ -6,7 +6,8 @@ import utils.Constants;
  * Responsabilidades:
  * 1.Parsear los argumentos pasados por parametros al programa
  */
-public class ArgsParserHelper implements AbstractArgsParserHelper {
+
+public class ArgsParser {
 
     public static final String DEFAULT_OUTPUT_JSON = "output.json";
 
@@ -36,20 +37,12 @@ public class ArgsParserHelper implements AbstractArgsParserHelper {
         }
     }
 
-    public String getString(String[] args, int number) {
-        return (args[number]).toLowerCase();
-    }
-
     public String getGameFileName() {
         return arg0GameFileName;
     }
 
     public boolean hasInputPlaysFile() {
         return (!this.arg1InputPlaysFileName.isEmpty());
-    }
-
-    private boolean hasOutputPlaysFile() {
-        return (!this.arg2OutputPlaysFileName.isEmpty());
     }
 
     public String getInputPlaysFileName() {
@@ -61,5 +54,13 @@ public class ArgsParserHelper implements AbstractArgsParserHelper {
             return arg2OutputPlaysFileName;
         }
         return DEFAULT_OUTPUT_JSON;
+    }
+
+    private boolean hasOutputPlaysFile() {
+        return (!this.arg2OutputPlaysFileName.isEmpty());
+    }
+
+    private String getString(String[] args, int number) {
+        return (args[number]).toLowerCase();
     }
 }

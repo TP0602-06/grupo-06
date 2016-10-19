@@ -1,19 +1,19 @@
 package ar.fiuba.tdd.tp.nikoligames.parser.utils;
 
 
-import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ConcreteGameConfig implements GameConfig {
 
     private String name;
     private List<NodeConfig> nodes;
     private List<RuleConfig> rules;
-    private HashSet<String> inputs;
+    private Set<String> inputs;
 
     private SizeConfig sizeConfig;
 
-    public ConcreteGameConfig(String name,SizeConfig sizeConfig,HashSet<String> validInputs,List<RuleConfig> rules, List<NodeConfig> node) {
+    public ConcreteGameConfig(String name, SizeConfig sizeConfig, Set<String> validInputs, List<RuleConfig> rules, List<NodeConfig> node) {
         this.sizeConfig = sizeConfig;
         this.name = name;
         this.rules = rules;
@@ -33,7 +33,7 @@ public class ConcreteGameConfig implements GameConfig {
         return rules;
     }
 
-    public HashSet<String> getValidInputs() {
+    public Set<String> getValidInputs() {
         return inputs;
     }
 

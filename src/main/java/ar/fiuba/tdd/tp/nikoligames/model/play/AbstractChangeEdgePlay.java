@@ -5,11 +5,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 
 /**
  * Created by german on 10/16/2016.
- *
  * Responsibilities:
  * 1. Play of the game, it  models all the plays of the game.
  * 2. It models the plays with changes in the edge.
- *
  */
 public abstract class AbstractChangeEdgePlay extends AbstractPlay {
 

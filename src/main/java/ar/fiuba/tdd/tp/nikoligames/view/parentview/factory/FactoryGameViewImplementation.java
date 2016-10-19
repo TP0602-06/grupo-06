@@ -14,6 +14,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 
 import java.awt.Component;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Responsabilidades:
@@ -27,7 +28,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     private static int DEFAULT_VIEW_HEIGHT = 700;
 
     @Override
-    public GameView createDefaultGameView(Game game, HashSet<String> validInputs) throws Exception {
+    public GameView createDefaultGameView(Game game, Set<String> validInputs) throws Exception {
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
         SelectValueController selectValueController = new SelectValueControllerImp(game);
@@ -49,7 +50,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return groupButtonFactory.makeGroupButton(game);
     }
 
-    private GridView createInputPanel(SelectValueController controller, GridView boardView, HashSet<String> inputs) throws Exception {
+    private GridView createInputPanel(SelectValueController controller, GridView boardView, Set<String> inputs) throws Exception {
         AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(controller);
         return inputFactory.createInputGridForBoardView(boardView, inputs);
     }
