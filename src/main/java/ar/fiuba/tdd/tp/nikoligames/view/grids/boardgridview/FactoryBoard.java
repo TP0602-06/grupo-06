@@ -1,10 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
-import ar.fiuba.tdd.tp.nikoligames.model.board.DrawableBoard;
-import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 
 import java.util.HashSet;
 import java.util.List;
@@ -17,7 +15,7 @@ import java.util.List;
  */
 public interface FactoryBoard {
 
-    GridView createGridView(boolean nodeMatchesCell);
+    GridView createGridView(boolean nodeMatchesCell, List<RegionConfig> regionConfigs) throws Exception;
 
     void addInputs(GameView view, HashSet<String> inputs);
 

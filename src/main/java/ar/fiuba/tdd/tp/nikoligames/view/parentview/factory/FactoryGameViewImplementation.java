@@ -43,7 +43,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         FactoryBoard factoryGridView = new FactoryBoardViewImplementation(game, viewConfig.getCellHintConfigs());
         ViewEdgeFactory viewEdgeFactory = new ViewEdgeFactory(game);
 
-        GridView gridView = factoryGridView.createGridView(cellViewMatchesNodeView);
+        GridView gridView = factoryGridView.createGridView(cellViewMatchesNodeView, viewConfig.getRegions());
         List<EdgePosition> edges = getPosibleEdges(game,gameConfig.getRules());
 
         BoardView boardView = new BoardView(boardDimension,gridView, viewEdgeFactory, cellViewMatchesNodeView);

@@ -1,11 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.view.config;
 
-import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellHint;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
 
 /**
@@ -15,11 +13,14 @@ public class ViewConfig {
     boolean isCellBoard;
     Dimension boardDimension;
     List<CellHintConfig> cellHintConfigs;
+    private List<RegionConfig> regions;
 
-    public ViewConfig(boolean isCellBoard, Dimension boardDimension, List<CellHintConfig> cellHintConfigs) {
+    public ViewConfig(boolean isCellBoard, Dimension boardDimension,
+                      List<CellHintConfig> cellHintConfigs, List<RegionConfig> regionConfigs) {
         this.isCellBoard = isCellBoard;
         this.boardDimension = boardDimension;
         this.cellHintConfigs = cellHintConfigs;
+        this.regions = regionConfigs;
     }
 
     public boolean isCellBoard() {
@@ -36,5 +37,9 @@ public class ViewConfig {
 
     public List<CellHintConfig> getCellHintConfigs() {
         return cellHintConfigs;
+    }
+
+    public List<RegionConfig> getRegions() {
+        return regions;
     }
 }

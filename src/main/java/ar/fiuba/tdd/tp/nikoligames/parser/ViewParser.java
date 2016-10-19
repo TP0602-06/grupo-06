@@ -1,7 +1,10 @@
 package ar.fiuba.tdd.tp.nikoligames.parser;
 
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.cells.NotValidCellHintException;
 import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
 import org.json.simple.JSONArray;
@@ -25,6 +28,7 @@ public class ViewParser {
     public static final Integer Y_INDEX = 1;
     public static final String POSITION = "pos";
     public static final String BOARD_DIMENSION = "board_dimension";
+    public static final String REGIONS_VIEW = "regions";
 
     public ViewConfig parseView(JSONObject jsonObject) throws Exception {
         if (!jsonObject.containsKey(VIEW)) {
@@ -34,7 +38,34 @@ public class ViewParser {
         boolean isCellBoard = parseIsCellBoard(viewObj);
         List<CellHintConfig> cellHintConfigs = parseCellHintConfig(viewObj);
         Dimension boardDimension  = parseBoardDimensionBoard(viewObj);
-        return new ViewConfig(isCellBoard, boardDimension, cellHintConfigs);
+        List<RegionConfig> regionConfigs = parseRegionConfigs(viewObj);
+
+        return new ViewConfig(isCellBoard, boardDimension, cellHintConfigs, regionConfigs);
+    }
+
+    private List<RegionConfig> parseRegionConfigs(JSONObject viewObj) {
+        List<RegionConfig> regionConfigList = new ArrayList<>();
+
+        if (viewObj.containsKey(REGIONS_VIEW)) {
+            JSONArray regions = (JSONArray) viewObj.get(REGIONS_VIEW);
+
+            Iterator<JSONArray> regionsIterator = regions.iterator();
+            while (regionsIterator.hasNext()) {
+                JSONArray regionArray = regionsIterator.next();
+                List<Position> positions = new ArrayList<>();
+                Iterator<JSONArray> positionIterator = regionArray.iterator();
+                while (positionIterator.hasNext()) {
+                    JSONArray postion = positionIterator.next();
+                    Integer row = Integer.parseInt(postion.get(X_INDEX).toString());
+                    Integer colum = Integer.parseInt(postion.get(Y_INDEX).toString());
+                    Position newPos = new ClassicPosition(row,colum);
+                    positions.add(newPos);
+                }
+                RegionConfig regionConfig = new RegionConfig(positions);
+                regionConfigList.add(regionConfig);
+            }
+        }
+        return regionConfigList;
     }
 
     private boolean parseIsCellBoard(JSONObject viewObj) {

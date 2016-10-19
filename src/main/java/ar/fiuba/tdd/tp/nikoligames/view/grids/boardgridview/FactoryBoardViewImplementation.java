@@ -14,12 +14,11 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.rulehelper.C
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
-import jdk.nashorn.internal.runtime.ECMAException;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -40,7 +39,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
     }
 
     @Override
-    public GridView createGridView(boolean nodeMatchesCell) {
+    public GridView createGridView(boolean nodeMatchesCell, List<RegionConfig> regionConfigs) throws Exception {
         Integer oneLesss = nodeMatchesCell ? 0 : 1;
         Integer rows = modelBoard.getRows() - oneLesss;
         Integer cols = modelBoard.getCols() - oneLesss;
@@ -50,8 +49,9 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
         selectValueController.addBoardView(boardGridView);
 
         fillGridWithCellsFromModel(boardGridView, rows, cols);
-        boardGridView.setVisible(true);
+        boardGridView.paintRegions(regionConfigs);
 
+        boardGridView.setVisible(true);
         return boardGridView;
     }
 

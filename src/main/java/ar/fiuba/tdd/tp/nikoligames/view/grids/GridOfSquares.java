@@ -1,6 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.regionpainter.RegionPainter;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -14,7 +16,7 @@ import java.util.List;
  * 1. Implementar una vista de grilla cuadriculada
  */
 public class GridOfSquares extends GridView {
-    List<CellView> cellViewList = new ArrayList<CellView>();
+    List<CellView> cellViewList = new ArrayList<>();
     private Integer rows;
     private Integer cols;
 
@@ -36,6 +38,12 @@ public class GridOfSquares extends GridView {
 
     public Integer getRows() {
         return rows;
+    }
+
+    @Override
+    public void paintRegions(List<RegionConfig> regionConfigs) throws Exception {
+        RegionPainter regionPainter = new RegionPainter(regionConfigs);
+        regionPainter.addBorders(getCellViews());
     }
 
     @Override

@@ -76,7 +76,7 @@ public class EdgePositionHelper {
                 || samePosition(pos1Edge1,pos2Edge2) && samePosition(pos1Edge2,pos2Edge1);
     }
 
-    private static boolean samePosition(Position position1, Position position2) {
+    public static boolean samePosition(Position position1, Position position2) {
         return position1.getRow() == position2.getRow()
                 && position1.getColumn() == position2.getColumn();
     }
