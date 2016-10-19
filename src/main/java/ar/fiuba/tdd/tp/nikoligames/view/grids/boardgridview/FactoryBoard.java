@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
-import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 
 import java.util.HashSet;
 import java.util.List;

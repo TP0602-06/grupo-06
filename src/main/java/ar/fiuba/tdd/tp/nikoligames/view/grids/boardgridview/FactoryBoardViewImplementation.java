@@ -6,6 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -14,7 +15,6 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.rulehelper.C
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
-import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 

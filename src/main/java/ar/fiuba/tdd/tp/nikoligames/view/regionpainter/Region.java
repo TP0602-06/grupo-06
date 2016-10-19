@@ -4,9 +4,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
-import ar.fiuba.tdd.tp.nikoligames.view.regionpainter.borderSavers.*;
+import ar.fiuba.tdd.tp.nikoligames.view.regionpainter.bordersavers.*;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 

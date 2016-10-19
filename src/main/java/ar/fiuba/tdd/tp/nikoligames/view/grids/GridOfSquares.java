@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.regionpainter.RegionPainter;
 
 import java.awt.Color;

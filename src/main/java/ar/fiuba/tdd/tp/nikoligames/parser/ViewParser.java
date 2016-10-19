@@ -37,35 +37,14 @@ public class ViewParser {
         JSONObject viewObj = (JSONObject) jsonObject.get(VIEW);
         boolean isCellBoard = parseIsCellBoard(viewObj);
         List<CellHintConfig> cellHintConfigs = parseCellHintConfig(viewObj);
-        Dimension boardDimension  = parseBoardDimensionBoard(viewObj);
+        Dimension boardDimension = parseBoardDimensionBoard(viewObj);
         List<RegionConfig> regionConfigs = parseRegionConfigs(viewObj);
 
         return new ViewConfig(isCellBoard, boardDimension, cellHintConfigs, regionConfigs);
     }
 
-    private List<RegionConfig> parseRegionConfigs(JSONObject viewObj) {
-        List<RegionConfig> regionConfigList = new ArrayList<>();
-
-        if (viewObj.containsKey(REGIONS_VIEW)) {
-            JSONArray regions = (JSONArray) viewObj.get(REGIONS_VIEW);
-
-            Iterator<JSONArray> regionsIterator = regions.iterator();
-            while (regionsIterator.hasNext()) {
-                JSONArray regionArray = regionsIterator.next();
-                List<Position> positions = new ArrayList<>();
-                Iterator<JSONArray> positionIterator = regionArray.iterator();
-                while (positionIterator.hasNext()) {
-                    JSONArray postion = positionIterator.next();
-                    Integer row = Integer.parseInt(postion.get(X_INDEX).toString());
-                    Integer colum = Integer.parseInt(postion.get(Y_INDEX).toString());
-                    Position newPos = new ClassicPosition(row,colum);
-                    positions.add(newPos);
-                }
-                RegionConfig regionConfig = new RegionConfig(positions);
-                regionConfigList.add(regionConfig);
-            }
-        }
-        return regionConfigList;
+    private int getIntFrom(JSONArray postion, Integer index) {
+        return Integer.parseInt(postion.get(index).toString());
     }
 
     private boolean parseIsCellBoard(JSONObject viewObj) {
@@ -80,9 +59,9 @@ public class ViewParser {
             throw new Exception("ViewConig -> No dimension specified for Board ");
         }
         JSONArray dimensionObject = (JSONArray) viewObj.get(BOARD_DIMENSION);
-        Integer width = Integer.parseInt(dimensionObject.get(X_INDEX).toString());
-        Integer height = Integer.parseInt(dimensionObject.get(Y_INDEX).toString());
-        return new Dimension(width,height);
+        Integer width = getIntFrom(dimensionObject, X_INDEX);
+        Integer height = getIntFrom(dimensionObject, Y_INDEX);
+        return new Dimension(width, height);
     }
 
     private List<CellHintConfig> parseCellHintConfig(JSONObject viewObj) throws NotValidCellHintException {
@@ -97,13 +76,38 @@ public class ViewParser {
                 String name = cellHintObj.get(CELL_HINT_NAME).toString();
                 String value = cellHintObj.get(CELL_HINT_VALUE).toString();
                 JSONArray pos = (JSONArray) cellHintObj.get(POSITION);
-                Integer row = Integer.parseInt(pos.get(X_INDEX).toString());
-                Integer colum = Integer.parseInt(pos.get(Y_INDEX).toString());
+                Integer row = getIntFrom(pos, X_INDEX);
+                Integer colum = getIntFrom(pos, Y_INDEX);
                 CellHintConfig hintConfig = new CellHintConfig(name, value, row, colum);
                 cellHintConfigs.add(hintConfig);
             }
         }
         return cellHintConfigs;
+    }
+
+    private List<RegionConfig> parseRegionConfigs(JSONObject viewObj) {
+        List<RegionConfig> regionConfigList = new ArrayList<>();
+
+        if (viewObj.containsKey(REGIONS_VIEW)) {
+            JSONArray regions = (JSONArray) viewObj.get(REGIONS_VIEW);
+
+            Iterator regionsIterator = regions.iterator();
+            while (regionsIterator.hasNext()) {
+                JSONArray regionArray = (JSONArray) regionsIterator.next();
+                List<Position> positions = new ArrayList<>();
+                Iterator<JSONArray> positionIterator = regionArray.iterator();
+                while (positionIterator.hasNext()) {
+                    JSONArray postion = positionIterator.next();
+                    Integer row = getIntFrom(postion, X_INDEX);
+                    Integer colum = getIntFrom(postion, Y_INDEX);
+                    Position newPos = new ClassicPosition(row, colum);
+                    positions.add(newPos);
+                }
+                RegionConfig regionConfig = new RegionConfig(positions);
+                regionConfigList.add(regionConfig);
+            }
+        }
+        return regionConfigList;
     }
 
 }
