@@ -67,6 +67,7 @@ public class ConcreteBoard implements DrawableBoard, Board {
         if (edges.containsKey(edgePosition)) {
             EdgeInterface edge = edges.get(edgePosition);
             edge.erase();
+            edges.remove(edgePosition);
         }
     }
 
