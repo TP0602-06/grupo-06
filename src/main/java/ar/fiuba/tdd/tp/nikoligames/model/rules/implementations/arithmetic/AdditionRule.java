@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * Created by german on 9/30/2016.
+ * Responsabilties:
+ * 1. Checks that the sum of several node values is equal to a number.
  */
 public class AdditionRule extends AbstractArithmeticRule {
 

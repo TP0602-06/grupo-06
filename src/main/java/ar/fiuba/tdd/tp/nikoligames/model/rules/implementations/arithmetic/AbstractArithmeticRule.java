@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Created by Andres on 01/10/2016.
+ * Responsabilites:
+ * 1. Implements a rule that checks an arithmetical value with the values of the nodes in the region.
  */
 public abstract class AbstractArithmeticRule extends RuleImplementation {
     private final int intValue;

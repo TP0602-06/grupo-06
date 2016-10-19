@@ -4,7 +4,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 
 /**
- * Esta clase representa el movimiento de una jugada.
+ * Responsabilities:
+ *  1.It models the change of a value in a node in the game
  */
 public class ChangeNodeValuePlay extends AbstractPlay {
 

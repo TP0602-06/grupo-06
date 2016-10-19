@@ -10,6 +10,8 @@ import java.util.Map;
 
 /**
  * Created by german on 10/9/2016.
+ * Responsibilites:
+ * 1. Creates a list of adjacent Rules
  */
 public class ValidEdgesRules extends AbstractAdjacentRulesGenerator {
 

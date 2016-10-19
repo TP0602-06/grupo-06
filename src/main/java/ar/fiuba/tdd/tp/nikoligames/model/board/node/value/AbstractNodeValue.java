@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board.node.value;
 
 /**
- * Responsabilidades: da flexibilidad para extender lo que se puede guardar como valor del nodo.
- * Es responsable de que el valor de nodo este siempre en un estado válido.
+ * Responsibilities:
+ * 1. Gives flexibility to extent what it can be saved as a value on a node and it is responsable to give the value a valid state.
  */
 public interface AbstractNodeValue {
     int getIntValue();

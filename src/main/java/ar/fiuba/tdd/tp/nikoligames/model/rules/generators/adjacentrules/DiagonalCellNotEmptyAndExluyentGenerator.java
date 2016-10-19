@@ -12,6 +12,8 @@ import java.util.List;
 
 /**
  * Created by german on 10/18/2016.
+ * Responsibilities:
+ * 1. Creates a list of EdgesInternalToRegionCountRule for the countryroad game (Every node must have at least one diagonal)
  */
 public class DiagonalCellNotEmptyAndExluyentGenerator {
 

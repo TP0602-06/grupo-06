@@ -10,6 +10,8 @@ import java.util.List;
 
 /**
  * Created by german on 10/6/2016.
+ *  Resposibilities:
+ * 1. Checks there are no not visited adjcent nodes in a region.
  */
 public class NoNotVisitedAdjacentNodesInSameRegionRule extends RuleImplementation {
 

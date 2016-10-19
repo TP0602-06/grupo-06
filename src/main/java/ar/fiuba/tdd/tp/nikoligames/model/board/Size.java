@@ -1,7 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board;
 
 /**
- * Created by german on 10/15/2016.
+ * Resposabilities:
+ * 1. It models the size of a rectangular board.
+ * 2. Has rows and columns.
  */
 public class Size {
     private int rows;

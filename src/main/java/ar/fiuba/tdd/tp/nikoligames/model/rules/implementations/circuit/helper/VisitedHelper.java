@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * Created by Andres on 08/10/2016.
+ * Responsabilites:
+ * 1. Check if a node was visited.
  */
 public class VisitedHelper {
 

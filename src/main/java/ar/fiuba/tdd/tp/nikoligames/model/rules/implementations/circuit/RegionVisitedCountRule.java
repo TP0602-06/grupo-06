@@ -8,7 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Responsabilidades: Verificar que hayan X cantidad de nodos visitados por el circuito en una region dada.
+ * Responsabilidades:
+ * 1. Checks that there is a certain quantity of visited nodes on a certain region.
+ *
  */
 public class RegionVisitedCountRule extends RuleImplementation {
 

@@ -6,7 +6,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleImplementation;
 import java.util.List;
 
 /**
- * Responsabilidades: verifica que cada nodo de la region sea visitado como mucho una vez por el circuito.
+ * Responsibilities:
+ * 1. Checks each node of the region is visited as much as once
+ *
  */
 public class RegionVisitedAtMostOnceRule extends RuleImplementation {
 

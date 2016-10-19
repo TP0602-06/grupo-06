@@ -8,6 +8,8 @@ import java.util.Set;
 
 /**
  * Created by german on 10/7/2016.
+ * Responsabilities:
+ * 1.Checks that the values of nodes in a region are from a valid set of strings.
  */
 public class ValidInputValueRule extends AbstractRegionRule {
     private Set<String> validInputs;

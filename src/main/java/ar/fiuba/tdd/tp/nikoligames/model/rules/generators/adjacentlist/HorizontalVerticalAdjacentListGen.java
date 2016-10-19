@@ -5,6 +5,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.generators.adjacentlist.adjacentp
 
 /**
  * Created by german on 10/8/2016.
+ * Responsabilites:
+ * 1.Creates an adjacentList with all the horizontal and vertical adjacents of each node on the board.
  */
 public class HorizontalVerticalAdjacentListGen extends BoardAdjacentList {
 

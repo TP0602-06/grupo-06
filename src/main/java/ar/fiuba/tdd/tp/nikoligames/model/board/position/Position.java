@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board.position;
 
 /**
- * Da al modelo una forma de representar una posicion sin tener que repetir siempre (x,y).
- * Actualmente no tiene comportamiento, pero aca iria cualquier calculo entre posiciones.
- * Nos es comodo para abstraernos de una (x,y) concreta.
+ * Responsabilites:
+ * 1. It models a position with row, column from a board.It can be confortable to model other kind of positions.
+ *
  */
 public abstract class Position {
 

@@ -5,6 +5,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 
 /**
  * Created by Andres on 16/10/2016.
+ * Responsibilities:
+ * 1.Create Undirected edge on the board
  */
 public class CreateUndirectedEdgeCommand extends BoardCommandAction {
     @Override

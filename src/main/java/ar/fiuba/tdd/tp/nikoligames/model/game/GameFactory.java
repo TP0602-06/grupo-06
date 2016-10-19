@@ -13,6 +13,8 @@ import java.util.List;
 
 /**
  * Created by german on 10/1/2016.
+ * Resposabilities:
+ * 1. Creates the Game from a game Configuration.
  */
 public class GameFactory {
     private BoardFactory boardFactory = new BoardFactory();

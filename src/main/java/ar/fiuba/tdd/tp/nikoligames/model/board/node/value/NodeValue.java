@@ -3,8 +3,8 @@ package ar.fiuba.tdd.tp.nikoligames.model.board.node.value;
 import utils.StringToIntConverter;
 
 /**
- * Responsabilidades: Implementa la abstracción para el valor de un nodo.
- * Es responsable de que el valor de nodo este siempre en un estado válido.
+ * Responsabilities:
+ * 1.Implements the interface of an abstract node value an has the same resposabilites.
  */
 public class NodeValue implements AbstractNodeValue {
 

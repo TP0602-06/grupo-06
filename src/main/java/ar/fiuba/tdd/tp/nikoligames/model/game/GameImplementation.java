@@ -9,9 +9,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleManager;
 import java.util.List;
 
 /**
- * GameImplementation. Adminstra el juego. Valida las reglas y permite que se modifiquen el valor de las celdas.
- * patron de diseno:
- * FACADE
+ * Responsibilities:
+ * 1. Actual implementation of the game.
+ *
  */
 
 public abstract class GameImplementation implements Game {

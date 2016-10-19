@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Created by Andres on 08/10/2016.
+ * Responsabilities:
+ * 1. Checks a condition on a certain node.
  */
 public abstract class AbstractRegionRule extends RuleImplementation {
     public AbstractRegionRule(List<AbstractNode> region, String value) {

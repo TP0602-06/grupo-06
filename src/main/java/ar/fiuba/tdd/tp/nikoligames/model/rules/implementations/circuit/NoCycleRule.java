@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Created by german on 10/8/2016.
+ * Resposibilities:
+ * 1. Detects if there is a cycle in a region.
  */
 public class NoCycleRule extends RuleImplementation {
     public NoCycleRule(List<AbstractNode> region) {

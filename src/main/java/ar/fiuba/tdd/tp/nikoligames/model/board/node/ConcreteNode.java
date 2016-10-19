@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Responsabilidades: contiene los aspectos generales de cualquier nodo de cualquier juego.
+ * Responsibilities:
+ * 1. It is the implementation of an abstract node and haas the same resposabilites.
  */
 public class ConcreteNode extends AbstractNode {
 
