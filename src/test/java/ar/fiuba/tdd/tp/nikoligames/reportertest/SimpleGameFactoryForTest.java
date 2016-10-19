@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.ConcreteBoard;
 import ar.fiuba.tdd.tp.nikoligames.model.game.ConcreteGameAdmitsInvalidPlays;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.NoDuplicatesRule;
+import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.region.NoDuplicatesRule;
 
 import java.util.ArrayList;
 import java.util.List;

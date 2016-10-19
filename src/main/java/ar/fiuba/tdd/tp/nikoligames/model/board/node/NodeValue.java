@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.model.board.node.value;
+package ar.fiuba.tdd.tp.nikoligames.model.board.node;
 
 import utils.StringToIntConverter;
 
