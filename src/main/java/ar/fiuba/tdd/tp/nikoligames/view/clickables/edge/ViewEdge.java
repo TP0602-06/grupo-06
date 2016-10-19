@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.PaintableClickable;
 import ar.fiuba.tdd.tp.nikoligames.view.listeners.EdgeSelectedListener;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.edgecontroller.SelectEdgeController;
 
 
 /**

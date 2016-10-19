@@ -31,13 +31,13 @@ public class NoNotVisitedAdjacentNodesInSameRegionRuleTest {
 
 
     @Test
-    public void nodeNoEdgesTestTrue() {
+    public void sameRegionNodesNotVisited() {
         setup();
         region = board.subList(0, 2);
 
         Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region, allRegions);
 
-        Assert.assertTrue(rule.isBroken());
+        Assert.assertFalse(rule.isBroken());
 
     }
 
@@ -54,13 +54,13 @@ public class NoNotVisitedAdjacentNodesInSameRegionRuleTest {
     }
 
     @Test
-    public void nodeEdgesTestTrue() {
+    public void differentRegionCellsNotVisited() {
         setup();
         region = board.subList(1, 3);
 
         Rule rule = new NoNotVisitedAdjacentNodesInSameRegionRule(region, allRegions);
 
-        Assert.assertFalse(rule.isBroken());
+        Assert.assertTrue(rule.isBroken());
 
     }
 

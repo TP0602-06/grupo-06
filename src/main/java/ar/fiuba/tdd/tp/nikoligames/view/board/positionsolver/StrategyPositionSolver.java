@@ -46,7 +46,7 @@ public abstract class StrategyPositionSolver {
     }
 
     private int getCoordinateOf(Integer celSize, Integer position) {
-        return celSize * position;
+        return celSize * (position - 1);
     }
 
     protected Integer getHalfOf(Integer celSize) {

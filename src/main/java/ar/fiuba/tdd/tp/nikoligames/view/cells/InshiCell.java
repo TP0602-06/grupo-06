@@ -8,9 +8,9 @@ import ar.fiuba.tdd.tp.nikoligames.view.painters.builder.PainterBuilder;
  * Created by fedebrasburg on 10/18/16.
  */
 public class InshiCell implements CellHint {
+    private String content;
     private boolean isEmpty = true;
     private boolean isEditable = true;
-    private String content;
 
     public void draw(CellView cell) {
         PainterBuilder pb = new PainterBuilder(isEmpty,isEditable);

@@ -1,7 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.DrawableBoard;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+
+import java.util.HashSet;
 
 /**
  * Responsabilidades:
@@ -10,5 +14,9 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
  * 1. Abstract Factory
  */
 public interface FactoryBoard {
-    GridView createBoardView(DrawableBoard modelBoard);
+
+    GridView createGridView(boolean nodeMatchesCell);
+
+    void addInputs(GameView view, HashSet<String> inputs);
+
 }

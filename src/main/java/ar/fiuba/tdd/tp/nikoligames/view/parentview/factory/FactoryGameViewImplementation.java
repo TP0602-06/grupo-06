@@ -1,9 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
+import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.board.ViewEdgeFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
@@ -14,6 +16,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.FactoryBoardViewImpl
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.EdgePositionGenerator;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.EdgePositionGeneratorFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 
@@ -35,30 +39,29 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     private static int DEFAULT_VIEW_HEIGHT = 700;
 
     @Override
-    public GameView createDefaultGameView(Game game, HashSet<String> validInputs) throws Exception {
+    public GameView createDefaultGameView(Game game, GameConfig gameConfig) throws Exception {
         //TODO take information from a json
-        //TODO create edges
         //TODO take dimension from json
         Dimension boardDimension = new Dimension(300, 300);
         boolean cellViewMatchesNodeView = true;
 
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
-        SelectValueController selectValueController = new SelectValueControllerImp(game);
+        FactoryBoard factoryGridView = new FactoryBoardViewImplementation(game);
         ViewEdgeFactory viewEdgeFactory = new ViewEdgeFactory(game);
 
-        GridView gridView = createBoardView(game, selectValueController);
-        List<EdgePosition> edges = getPosibleEdges(game);
+        GridView gridView = factoryGridView.createGridView(cellViewMatchesNodeView);
+        List<EdgePosition> edges = getPosibleEdges(game,gameConfig);
 
         BoardView boardView = new BoardView(boardDimension,gridView, viewEdgeFactory, cellViewMatchesNodeView);
         boardView.addEdges(edges);
 
         Component restartAndCheckButtons = createButtons(game);
-        GridView inputs = createInputPanel(selectValueController, gridView, validInputs);
 
         view.add(restartAndCheckButtons);
         view.add(boardView);
-        view.add(inputs);
+
+        factoryGridView.addInputs(view, gameConfig.getValidInputs());
 
         return view;
     }
@@ -68,32 +71,11 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return groupButtonFactory.makeGroupButton(game);
     }
 
-    private GridView createInputPanel(SelectValueController controller, GridView boardView, HashSet<String> inputs) throws Exception {
-        AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(controller);
-        return inputFactory.createInputGridForBoardView(boardView, inputs);
-    }
+    private List<EdgePosition> getPosibleEdges(Game game, GameConfig gameConfig) {
+        Board board = (Board) game.getDrawableBoard();
+        EdgePositionGeneratorFactory factory = new EdgePositionGeneratorFactory();
+        EdgePositionGenerator generator = factory.getPositionGenerator(board, gameConfig.getRules());
 
-    private GridView createBoardView(Game game, SelectValueController selectValueController) {
-        FactoryBoard gridBoardFactory = new FactoryBoardViewImplementation(selectValueController);
-        return gridBoardFactory.createBoardView(game.getDrawableBoard());
-    }
-
-    private List<EdgePosition> getPosibleEdges(Game game) {
-        //Todo getEdges
-
-        List<EdgePosition> edges = new ArrayList<>();
-        Position first = new ClassicPosition(1,1);
-        Position second = new ClassicPosition(2,2);
-        Position third = new ClassicPosition(2,1);
-        Position fourth = new ClassicPosition(1,2);
-        EdgePosition testEdge = new EdgePosition(first,second);
-        EdgePosition testEdge2 = new EdgePosition(third,fourth);
-        EdgePosition testEdge3 = new EdgePosition(third,first);
-        EdgePosition testEdge4 = new EdgePosition(fourth,first);
-        edges.add(testEdge);
-        edges.add(testEdge2);
-        edges.add(testEdge3);
-        edges.add(testEdge4);
-        return edges;
+        return generator.getPossibleEdgePositions();
     }
 }

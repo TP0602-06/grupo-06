@@ -5,9 +5,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewDiagonalEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectDiagonalEdge;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectEdgeController;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectNotDiagonalEdgeController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.edgecontroller.SelectDiagonalEdge;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.edgecontroller.SelectEdgeController;
+import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.edgecontroller.SelectNotDiagonalEdgeController;
 
 import java.util.ArrayList;
 import java.util.List;

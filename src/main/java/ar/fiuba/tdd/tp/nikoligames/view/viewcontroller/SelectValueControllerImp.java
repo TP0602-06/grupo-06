@@ -40,11 +40,11 @@ public class SelectValueControllerImp implements SelectValueController {
         this.lastSelectedEditableCellView = cellView;
         focusGridHelper.clearFocus();
         focusCellViewHelper.setFocus(cellView);
-        selectValueGridView.setVisible(true);
+        showInputs();
     }
 
     public void notifySelectedComponent(Component component) {
-        selectValueGridView.setVisible(false);
+        hideInputs();
         focusGridHelper.clearFocus();
     }
 
@@ -56,6 +56,20 @@ public class SelectValueControllerImp implements SelectValueController {
     public void notifyClearValue() throws Exception {
         lastSelectedEditableCellView.clearValue();
         changeModelCellValue("");
+    }
+
+    private void displayInputs(boolean show) {
+        if (selectValueGridView != null) {
+            selectValueGridView.setVisible(show);
+        }
+    }
+
+    private void hideInputs() {
+        displayInputs(false);
+    }
+
+    private void showInputs() {
+        displayInputs(true);
     }
 
     private void changeModelCellValue(String value) throws Exception {
