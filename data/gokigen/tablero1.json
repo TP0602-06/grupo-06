@@ -8,6 +8,9 @@
   "rules": {
     "values": [
       {
+        "definition": "DIAGONAL_CELL_NOT_EMPTY"
+      },
+      {
         "definition": "DIAGONAL_VALID_EDGES_GENERATOR"
       },
       {
