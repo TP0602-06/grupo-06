@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.cells;
 
+import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicDraw;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LineGraphicDraw;
@@ -18,7 +19,7 @@ public class KakuroCell implements CellHint {
     private String rightNumber;
     private int left = 0;
     private int right = 1;
-    private String regex = " ";
+    private String regex = "-";
     private boolean isEmpty = false;
     private boolean isEditable = false;
 
@@ -31,10 +32,11 @@ public class KakuroCell implements CellHint {
         PainterBuilder builder = new PainterBuilder(isEmpty, isEditable);
         builder.bottomLeftValue(leftNumber);
         builder.topRightValue(rightNumber);
+        builder.backgroundColor(ColorSet.INVALID_BACKGROUND);
         CellPainter painter = builder.end();
         painter.paintCell(cell);
 
-        GraphicDraw graphicDraw = new LineGraphicDraw(Color.BLACK, LinePosition.BOTTOM_LEFT, LinePosition.TOP_RIGHT);
+        GraphicDraw graphicDraw = new LineGraphicDraw(Color.BLACK, LinePosition.TOP_LEFT, LinePosition.BOTTOM_RIGHT);
         cell.addGraphic(graphicDraw);
     }
 }

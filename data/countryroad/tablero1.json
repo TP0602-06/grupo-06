@@ -134,6 +134,42 @@
         "region": [ [ 6 , 6 ], [ 6 , 7 ], [ 7 , 6] , [ 7 , 7 ] ]
       }
     ]
+  },
+  "view": {
+    "is_cell_board": true,
+    "board_dimension": [400,400],
+    "cell_hints": [
+      {
+        "definition":"CONTENTCELL",
+        "value": "4",
+        "pos": [ 1 , 1 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "1",
+        "pos": [ 2 , 6 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "3",
+        "pos": [ 2 , 7 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "2",
+        "pos": [ 3 , 2 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "1",
+        "pos": [ 4 , 1 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "4",
+        "pos": [ 4 , 5 ]
+      }
+    ]
   }
 
 }

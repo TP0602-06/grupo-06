@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.parser;
 
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.*;
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
 import org.json.simple.JSONObject;
 import utils.JsonObjectFilePathParser;
 
@@ -12,6 +13,7 @@ public class ConcreteParser implements AbstractParser {
 
     private final BoardParser boardParser = new BoardParser();
     private final RuleParser ruleParser = new RuleParser();
+    private final ViewParser viewParser = new ViewParser();
     private final String fileName;
 
     public ConcreteParser(String fileName) throws FileNotFoundException {
@@ -32,7 +34,9 @@ public class ConcreteParser implements AbstractParser {
 
         List<NodeConfig> nodes = boardParser.parseBoard(jsonObject);
 
-        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList, rules, nodes);
+        ViewConfig viewConfig = viewParser.parseView(jsonObject);
+
+        GameConfig gameConfig = new ConcreteGameConfig(gameName, sizeConfig, validInputsList, rules, nodes, viewConfig);
 
         return gameConfig;
     }

@@ -1,0 +1,21 @@
+package ar.fiuba.tdd.tp.nikoligames.view.painters;
+
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+
+import java.awt.*;
+
+/**
+ * Created by tobias on 18/10/16.
+ */
+public class BackgroundPainter implements CellPainter {
+    private Color color;
+
+    public BackgroundPainter(Color color) {
+        this.color = color;
+    }
+
+    @Override
+    public void paintCell(CellView cell) {
+        cell.setBackground(color);
+    }
+}

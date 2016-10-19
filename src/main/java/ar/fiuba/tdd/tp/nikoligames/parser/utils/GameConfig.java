@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.parser.utils;
 
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
+
 import java.util.HashSet;
 import java.util.List;
 
@@ -17,4 +19,6 @@ public interface GameConfig {
     HashSet<String> getValidInputs();
 
     SizeConfig getSizeConfig();
+
+    ViewConfig getViewConfig();
 }

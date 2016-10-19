@@ -12,5 +12,7 @@ public class CenterValuePainter extends CellPainterWithValue {
     public CenterValuePainter(String value) {
         super(value, JLabel.CENTER);
         setAnchor(GridBagConstraints.CENTER);
+        setIpadx(1);
+        setIpady(1);
     }
 }

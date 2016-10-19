@@ -1,11 +1,13 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.DrawableBoard;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.DrawableEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * Responsabilidades:

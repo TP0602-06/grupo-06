@@ -7,6 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.board.ViewEdgeFactory;
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -33,13 +34,13 @@ public class FactoryGameViewImplementation implements FactoryGameView {
 
     @Override
     public GameView createDefaultGameView(Game game, GameConfig gameConfig) throws Exception {
-        //TODO take dimension and boolean from json
-        Dimension boardDimension = new Dimension(300, 300);
-        boolean cellViewMatchesNodeView = false;
+        ViewConfig viewConfig = gameConfig.getViewConfig();
+        Dimension boardDimension = viewConfig.getBoardDimension();
+        boolean cellViewMatchesNodeView = viewConfig.isCellBoard();
 
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
-        FactoryBoard factoryGridView = new FactoryBoardViewImplementation(game);
+        FactoryBoard factoryGridView = new FactoryBoardViewImplementation(game, viewConfig.getCellHintConfigs());
         ViewEdgeFactory viewEdgeFactory = new ViewEdgeFactory(game);
 
         GridView gridView = factoryGridView.createGridView(cellViewMatchesNodeView);

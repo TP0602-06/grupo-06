@@ -134,6 +134,10 @@
 				"editable": false
 			}			
 		]
+	},
+	"view": {
+		"is_cell_board": true,
+		"board_dimension": [300,300]
 	}
 	
 }

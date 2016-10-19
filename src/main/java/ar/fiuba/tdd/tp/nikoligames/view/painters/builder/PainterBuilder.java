@@ -1,8 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.builder;
 
+import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.*;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.bordercell.BorderCellPainter;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.*;
+
+import java.awt.*;
 
 /**
  * Builder para el pintor de la celda.
@@ -32,11 +35,15 @@ public class PainterBuilder {
     }
 
     private void normalBackground() {
-        painter.addPainter(new NormalBackgroundPainter());
+        backgroundColor(ColorSet.NORMAL_BACKGROUND);
     }
 
     private void invalidBackground() {
-        painter.addPainter(new InvalidBackgroundPainter());
+        backgroundColor(ColorSet.INVALID_BACKGROUND);
+    }
+
+    public void backgroundColor(Color color) {
+        painter.addPainter(new BackgroundPainter(color));
     }
 
     private void disable() {

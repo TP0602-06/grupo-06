@@ -5,6 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -19,6 +20,7 @@ import jdk.nashorn.internal.runtime.ECMAException;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Responsabilidades:
@@ -29,10 +31,12 @@ import java.util.Iterator;
 public class FactoryBoardViewImplementation implements FactoryBoard {
     private SelectValueController selectValueController;
     private DrawableBoard modelBoard;
+    private CellViewMakeUpHelper makeUpHelper;
 
-    public FactoryBoardViewImplementation(Game game) {
+    public FactoryBoardViewImplementation(Game game, List<CellHintConfig> cellHintConfigs) {
         selectValueController = new SelectValueControllerImp(game);
         modelBoard = game.getDrawableBoard();
+        makeUpHelper = new CellViewMakeUpHelper(cellHintConfigs);
     }
 
     @Override
@@ -53,17 +57,14 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
 
     public void fillGridWithCellsFromModel(GridView grid, Integer rows, Integer cols) {
         DrawCellFromModelHelper helper = new DrawCellFromModelHelper(selectValueController);
-        CellViewMakeUpHelper makeup = new CellViewMakeUpHelper();
 
-        //TODO agarrar celdas que se van a ver como tales nada mas
-        //TODO beatuyfy deberia estar fuera o dentro?? tiene q sacar info del json
         for (int i = 1; i <= rows; i++) {
             for (int j = 1; j <= cols; j++) {
                 Position position = new ClassicPosition(i, j);
                 DrawableNode modelCell = modelBoard.getDrawableNode(position);
                 CellView cellView = helper.drawCellFromModel(modelCell);
                 cellView.setCoordinates(position.getRow(), position.getColumn());
-                makeup.beautyfy(cellView, modelCell);
+                makeUpHelper.beautyfy(cellView, modelCell);
                 grid.addCellView(cellView);
             }
         }

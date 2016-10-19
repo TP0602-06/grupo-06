@@ -75,5 +75,71 @@
       }
 
     ]
+  },
+  "view": {
+    "is_cell_board": false,
+    "board_dimension": [400,400],
+    "cell_hints": [
+      {
+        "definition":"CONTENTCELL",
+        "value": "3",
+        "pos": [ 2 , 1 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "3",
+        "pos": [ 2 , 2 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "0",
+        "pos": [ 1 , 5 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "1",
+        "pos": [ 2 , 5 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "1",
+        "pos": [ 3 , 3 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "2",
+        "pos": [ 3 , 4 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "2",
+        "pos": [ 4 , 3 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "0",
+        "pos": [ 4 , 4 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "1",
+        "pos": [ 5 , 2 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "1",
+        "pos": [ 5 , 5 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "1",
+        "pos": [ 5 , 6 ]
+      },
+      {
+        "definition":"CONTENTCELL",
+        "value": "2",
+        "pos": [ 6 , 2 ]
+      }
+    ]
   }
 }

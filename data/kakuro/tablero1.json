@@ -488,6 +488,152 @@
         "editable": true
       }
     ]
+  },
+  "view": {
+    "is_cell_board": true,
+    "board_dimension": [400,400],
+    "cell_hints": [
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 1 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "23- ",
+        "pos": [ 1 , 2 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "30- ",
+        "pos": [ 1 , 3 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 1 , 4 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 1 , 5 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "27- ",
+        "pos": [ 1 , 6 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "12- ",
+        "pos": [ 1 , 7 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "16- ",
+        "pos": [ 1 , 8 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -16",
+        "pos": [ 2 , 1 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 2 , 4 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "17-24",
+        "pos": [ 2 , 5 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -17",
+        "pos": [ 3 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "15-29",
+        "pos": [ 3 , 4 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -35",
+        "pos": [ 4 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "12- ",
+        "pos": [ 4 , 7 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 4 , 8 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 5 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -7",
+        "pos": [ 5 , 2 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "7-8",
+        "pos": [ 5 , 5 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "7- ",
+        "pos": [ 5 , 8 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 6 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "11- ",
+        "pos": [ 6 , 2 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "10-16",
+        "pos": [ 6 , 3 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -21",
+        "pos": [ 7 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -5",
+        "pos": [ 7 , 6 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -6",
+        "pos": [ 8 , 1 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 8 , 5 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -3",
+        "pos": [ 8 , 6 ]
+      }
+    ]
   }
 
 }

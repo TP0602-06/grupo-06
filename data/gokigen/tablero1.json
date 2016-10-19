@@ -77,6 +77,10 @@
         "region": [ [ 6 , 6 ] ]
       }
     ]
+  },
+  "view": {
+    "is_cell_board": false,
+    "board_dimension": [400,400]
   }
 
 }
