@@ -8,8 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Responsabilidades:
- * Checkear que haya un sólo camino cerrado en un grafo planar.
+ * Responsibilities:
+ * 1. Checks that there is only one cycle on a region
+ *
  */
 public class OneCycleRule extends RuleImplementation {
     public OneCycleRule(List<AbstractNode> region) {

@@ -9,6 +9,8 @@ import java.util.Map;
 
 /**
  * Created by german on 10/12/2016.
+ * Responsabilites:
+ * 1. Checks if a cycle is formed in a certain region.
  */
 public class CycleDetectorHelper {
     private final List<AbstractNode> region;

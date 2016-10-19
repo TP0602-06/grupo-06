@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Created by german on 9/30/2016.
+ * Responsabilites:
+ * 1. Checks that  values in a certain region dont repeat
  */
 public class NoDuplicatesRule extends RuleImplementation {
     public NoDuplicatesRule(List<AbstractNode> nodes) {

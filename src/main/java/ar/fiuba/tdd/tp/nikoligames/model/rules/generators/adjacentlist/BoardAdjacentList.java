@@ -12,6 +12,10 @@ import java.util.Map;
 
 /**
  * Created by german on 10/9/2016.
+ * Responsabilities:
+ *1. Create a Adjacent List.
+ *
+ *
  */
 public abstract class BoardAdjacentList implements AdjacentListGenerator {
     protected final Board board;

@@ -6,8 +6,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleImplementation;
 import java.util.List;
 
 /**
- * Responsabilidades: Verificar que se cumpla la regla de cantidad de aristas que debe tener
- * determinado nodo del juego. Se debe checkear en otra aregla que las adjacencias sean correctas y no estén repetidas
+ * Responsibilities:
+ * 1. Checks that a node has a certain number of edges.
  */
 public class NodeEdgelistCountRule extends RuleImplementation {
     private int countRule;

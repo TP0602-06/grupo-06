@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Created by german on 10/8/2016.
+ * Responsabilities:
+ * 1. Checks that all nodes in a region are not empty
  */
 public class NonEmptyRegionRule extends RuleImplementation {
     public NonEmptyRegionRule(List<AbstractNode> region) {

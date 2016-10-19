@@ -4,6 +4,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 
 /**
  * Created by german on 10/16/2016.
+ * Responsibilities:
+ * 1. Play of the game, it  models all the plays of the game.
+ * 2. It makes a change of the status of the game and saves the status of the game after.
  */
 public abstract class AbstractPlay {
     protected final int number;

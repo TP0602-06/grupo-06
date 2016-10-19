@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Created by german on 10/6/2016.
+ * Responsabilities:
+ * 1. Checks that a node is only linked to a certain list of nodes.
  */
 public class AdjacentRule extends AbstractRegionRule {
 

@@ -5,6 +5,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 
 /**
  * Created by german on 10/16/2016.
+ * Responsabilities:
+ * 1. Play that creates a undirected edge on between two position in the board.
  */
 public class CreateUndirectedEdgePlay extends AbstractChangeEdgePlay {
 

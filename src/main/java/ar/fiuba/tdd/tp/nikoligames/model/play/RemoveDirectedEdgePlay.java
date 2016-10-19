@@ -5,6 +5,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 
 /**
  * Created by german on 10/16/2016.
+ * Responsabilities:
+ * 1. Play that removes a directed edge on between two position in the board.
+ *
  */
 public class RemoveDirectedEdgePlay extends AbstractChangeEdgePlay {
     @SuppressWarnings("CPD-START")

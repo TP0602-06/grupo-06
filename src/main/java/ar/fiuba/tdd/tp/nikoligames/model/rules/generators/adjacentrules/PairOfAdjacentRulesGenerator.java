@@ -11,6 +11,8 @@ import java.util.Map;
 
 /**
  * Created by german on 10/7/2016.
+ * Responsibilites:
+ * 1.Creates a list of NoNotVisitedAdjacentNodesInSameRegion rules.
  */
 public class PairOfAdjacentRulesGenerator extends AbstractAdjacentRulesGenerator {
 

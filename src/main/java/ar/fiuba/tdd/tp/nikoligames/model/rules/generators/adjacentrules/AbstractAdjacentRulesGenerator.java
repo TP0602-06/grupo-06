@@ -10,8 +10,11 @@ import java.util.Map;
 
 /**
  * Created by german on 10/8/2016.
+ * Responsibilities:
+ * 1.Create a list of adjcent Rules
  */
 public abstract class AbstractAdjacentRulesGenerator {
+
 
     protected final Map<AbstractNode, List<AbstractNode>> adjacentList;
 

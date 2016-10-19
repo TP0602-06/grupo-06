@@ -6,8 +6,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleImplementation;
 import java.util.List;
 
 /**
- * Responsabilidades:
- * Contar la cantidad de aristas internas a la region, para Slitherlink debe ser una region de 4 nodos de una celda.
+ * Responsibilities:
+ * 1. Checks the quantity of edges on a region
+ *
  */
 public class EdgesInternalToRegionCountRule extends RuleImplementation {
     private final int countRule;
