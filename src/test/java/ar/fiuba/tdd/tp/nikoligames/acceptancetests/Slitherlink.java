@@ -14,7 +14,7 @@ import static java.util.Arrays.asList;
  * Created by Andres on 18/10/2016.
  */
 public class Slitherlink {
-    public static final String SLITHERINK_TABLERO1_JSON = "data/slitherlink/tablero1.json";
+    public static final String SLITHERINK_TABLERO1_JSON = "data/slitherlink/tablero2.json";
 
 
     @Test
