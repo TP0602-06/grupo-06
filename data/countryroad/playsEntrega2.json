@@ -1,0 +1,64 @@
+{
+  "plays": [
+    {
+      "number": 1,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 2 , 1 ] , [ 2 , 2 ] ]
+    },
+    {
+      "number": 2,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 2 , 2 ] , [ 1 , 2 ] ]
+    },
+    {
+      "number": 3,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 1 , 2 ] , [ 1 , 3 ] ]
+    },
+    {
+      "number": 4,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 1 , 3 ] , [ 2 , 3 ] ]
+    },
+    {
+      "number": 5,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 2 , 3 ] , [ 2 , 4 ] ]
+    },
+    {
+      "number": 6,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 2 , 4 ] , [ 3 , 4 ] ]
+    },
+    {
+      "number": 7,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 3 , 4 ] , [ 3 , 3 ] ]
+    },
+    {
+      "number": 8,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 3 , 3 ] , [ 4 , 3 ] ]
+    },
+    {
+      "number": 9,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 4 , 3 ] , [ 4 , 2 ] ]
+    },
+    {
+      "number": 10,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 4 , 2 ] , [ 4 , 1 ] ]
+    },
+    {
+      "number": 11,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 4 , 1 ] , [ 3 , 1 ] ]
+    },
+    {
+      "number": 12,
+      "edge_action" : "CREATE_UNDIRECTED",
+      "node_positions": [ [ 3 , 1 ] , [ 2 , 1 ] ]
+    }
+  ]
+}
