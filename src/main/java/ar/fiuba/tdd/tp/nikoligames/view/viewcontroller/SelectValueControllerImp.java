@@ -2,11 +2,11 @@ package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.AbstractFocusGridViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.focushelpers.focusgridviewhelper.FocusGridViewHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.AbstractEditableNumberCell;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focusgridviewhelper.AbstractFocusGridViewHelper;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focusgridviewhelper.FocusGridViewHelper;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.AbstractEditableNumberCell;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
 import java.awt.*;
@@ -40,11 +40,11 @@ public class SelectValueControllerImp implements SelectValueController {
         this.lastSelectedEditableCellView = cellView;
         focusGridHelper.clearFocus();
         focusCellViewHelper.setFocus(cellView);
-        selectValueGridView.setVisible(true);
+        showInputs();
     }
 
     public void notifySelectedComponent(Component component) {
-        selectValueGridView.setVisible(false);
+        hideInputs();
         focusGridHelper.clearFocus();
     }
 
@@ -58,9 +58,23 @@ public class SelectValueControllerImp implements SelectValueController {
         changeModelCellValue("");
     }
 
+    private void displayInputs(boolean show) {
+        if (selectValueGridView != null) {
+            selectValueGridView.setVisible(show);
+        }
+    }
+
+    private void hideInputs() {
+        displayInputs(false);
+    }
+
+    private void showInputs() {
+        displayInputs(true);
+    }
+
     private void changeModelCellValue(String value) throws Exception {
-        int row = lastSelectedEditableCellView.getXIndex() + 1;
-        int col = lastSelectedEditableCellView.getYIndex() + 1;
+        int row = lastSelectedEditableCellView.getXIndex();
+        int col = lastSelectedEditableCellView.getYIndex();
         ClassicPosition celPosition = new ClassicPosition(row, col);
         game.changeNodeValue(celPosition, value);
     }

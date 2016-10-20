@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.bordercell;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.builder.PainterBuilder;
 
@@ -24,12 +24,12 @@ public class BorderCellPainter implements CellPainter {
     }
 
     @Override
-    public void paintCell(CellView cell) {
-        Border previousBorder = cell.getBorder();
-        Insets previousSizes = previousBorder.getBorderInsets(cell);
+    public void paintCell(Paintable paintable) {
+        Border previousBorder = paintable.getBorder();
+        Insets previousSizes = previousBorder.getBorderInsets(paintable);
         Insets newInsets = makeNewInset(previousSizes);
         Border newBorder = makeNewBorder(newInsets);
-        cell.setBorder(newBorder);
+        paintable.setBorder(newBorder);
     }
 
     private Border makeNewBorder(Insets newInsets) {

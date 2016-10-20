@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters;
 
-import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
 
 /**
  * Deshabilita la celda a ser clickeada.
@@ -9,7 +8,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
 public class DisablePainter implements CellPainter {
 
     @Override
-    public void paintCell(CellView cell) {
-        cell.setEnabled(false);
+    public void paintCell(Paintable paintable) {
+        paintable.setEnabled(false);
     }
 }

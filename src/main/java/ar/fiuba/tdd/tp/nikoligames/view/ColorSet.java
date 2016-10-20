@@ -14,5 +14,7 @@ public class ColorSet {
     public static final Color ERROR = Color.RED;
     public static final Color HOVER = Color.orange;
     public static final Color BORDER = Color.LIGHT_GRAY;
+    public static final Color EDGE = Color.BLACK;
+    public static final Color TRANSPARENT = new Color(0,0,0,0);
 
 }

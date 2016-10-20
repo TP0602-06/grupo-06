@@ -1,22 +1,27 @@
 package ar.fiuba.tdd.tp.nikoligames.view.config;
 
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.PaintableHintConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
+
+import java.awt.*;
+import java.util.List;
+
+
 /**
- * Created by Andres on 17/10/2016.
+ * Created by tobias on 19/10/16.
  */
-public class ViewConfig {
-    boolean isCellBoard;
+public interface ViewConfig {
 
-    public ViewConfig(boolean isCellBoard) {
-        this.isCellBoard = isCellBoard;
-    }
+    boolean isCellBoard();
 
-    boolean isCellBoard() {
-        return isCellBoard;
-    }
+    boolean isNodeBoard();
 
-    ;
+    Dimension getBoardDimension();
 
-    boolean isNodeBoard() {
-        return !isCellBoard;
-    }
+    List<PaintableHintConfig> getCellHintConfigs();
+
+    List<PaintableHintConfig> getNodeHintConfigs();
+
+    List<RegionConfig> getRegions();
+
 }

@@ -4,8 +4,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.game.GameFactory;
-import ar.fiuba.tdd.tp.nikoligames.parser.GameParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.ConcreteParser;
+import ar.fiuba.tdd.tp.nikoligames.parser.GameParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 
 import java.util.Iterator;

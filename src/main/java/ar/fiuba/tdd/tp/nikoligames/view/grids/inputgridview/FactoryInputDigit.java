@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview;
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueClearerCell;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.numbercell.ValueToSelectCellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.ValueClearerCell;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.ValueToSelectCellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
@@ -26,11 +26,8 @@ public class FactoryInputDigit implements AbstractFactoryInputGrid {
         this.selectValueController = controller;
     }
 
-    public GridView createInputGridForBoardView(GridView board, Set<String> validInputs) throws Exception {
+    public GridView createInputGridForBoardView(Set<String> validInputs) {
         this.validInputs = validInputs;
-        if (validInputs.size() == 0) {
-            throw new Exception("No están definidos los inputs del juego");
-        }
         GridView inputGridView = new GridOfSquares(1, validInputs.size());
         selectValueController.addInputBoardView(inputGridView);
 

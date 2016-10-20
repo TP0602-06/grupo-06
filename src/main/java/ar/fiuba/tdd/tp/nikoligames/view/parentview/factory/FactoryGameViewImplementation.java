@@ -1,19 +1,26 @@
 package ar.fiuba.tdd.tp.nikoligames.view.parentview.factory;
 
+import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
+import ar.fiuba.tdd.tp.nikoligames.view.board.ViewEdgeFactory;
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfigImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.FactoryBoard;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.FactoryBoardViewImplementation;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.AbstractFactoryInputGrid;
-import ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview.FactoryInputDigit;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
-import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.EdgePositionGenerator;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.factory.possibleedges.factory.EdgePositionGeneratorFactory;
 
 import java.awt.Component;
-import java.util.HashSet;
+import java.awt.Dimension;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,19 +35,28 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     private static int DEFAULT_VIEW_HEIGHT = 700;
 
     @Override
-    public GameView createDefaultGameView(Game game, Set<String> validInputs) throws Exception {
+    public GameView createDefaultGameView(Game game, GameConfig gameConfig) throws Exception {
+        ViewConfig viewConfig = gameConfig.getViewConfig();
+        boolean cellViewMatchesNodeView = viewConfig.isCellBoard();
+
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
 
-        SelectValueController selectValueController = new SelectValueControllerImp(game);
+        FactoryBoard factoryGridView = new FactoryBoardViewImplementation(game, viewConfig.getCellHintConfigs());
+        ViewEdgeFactory viewEdgeFactory = new ViewEdgeFactory(game);
 
-        GridView boardView = createBoardView(game, selectValueController);
-        GridView inputs = createInputPanel(selectValueController, boardView, validInputs);
+        GridView gridView = factoryGridView.createGridView(cellViewMatchesNodeView, viewConfig.getRegions());
+        List<EdgePosition> edges = getPosibleEdges(game,gameConfig.getRules());
+
+        BoardView boardView = new BoardView(gridView, viewEdgeFactory, viewConfig);
+        boardView.addEdges(edges);
+        boardView.addNodeHints();
 
         Component restartAndCheckButtons = createButtons(game);
 
         view.add(restartAndCheckButtons);
         view.add(boardView);
-        view.add(inputs);
+
+        factoryGridView.addInputs(view, gameConfig.getValidInputs());
 
         return view;
     }
@@ -50,13 +66,11 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return groupButtonFactory.makeGroupButton(game);
     }
 
-    private GridView createInputPanel(SelectValueController controller, GridView boardView, Set<String> inputs) throws Exception {
-        AbstractFactoryInputGrid inputFactory = new FactoryInputDigit(controller);
-        return inputFactory.createInputGridForBoardView(boardView, inputs);
-    }
+    private List<EdgePosition> getPosibleEdges(Game game, List<RuleConfig> rules) {
+        Board board = (Board) game.getDrawableBoard();
+        EdgePositionGeneratorFactory factory = new EdgePositionGeneratorFactory();
+        EdgePositionGenerator generator = factory.getPositionGenerator(board, rules);
 
-    private GridView createBoardView(Game game, SelectValueController selectValueController) {
-        FactoryBoard gridBoardFactory = new FactoryBoardViewImplementation(selectValueController);
-        return gridBoardFactory.createBoardView(game.getDrawableBoard());
+        return generator.getPossibleEdgePositions();
     }
 }

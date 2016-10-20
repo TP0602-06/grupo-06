@@ -13,6 +13,6 @@ import java.util.Set;
  * 1. Abstract Factory
  */
 public interface AbstractFactoryInputGrid {
-    GridView createInputGridForBoardView(GridView board, Set<String> validInputs) throws Exception;
+    GridView createInputGridForBoardView(Set<String> validInputs);
 
 }

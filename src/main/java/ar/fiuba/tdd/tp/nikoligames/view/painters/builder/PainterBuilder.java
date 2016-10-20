@@ -1,11 +1,11 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.builder;
 
+import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.*;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.bordercell.BorderCellPainter;
-import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.BottomLeftValuePainter;
-import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.BottomRightValuePainter;
-import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.TopLeftValuePainter;
-import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.TopRightValuePainter;
+import ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues.*;
+
+import java.awt.*;
 
 /**
  * Builder para el pintor de la celda.
@@ -22,28 +22,13 @@ public class PainterBuilder {
 
     private MultiplePainter painter;
 
-    public PainterBuilder(boolean isEmpty, boolean isEditable) {
+    public PainterBuilder() {
         painter = new MultiplePainter();
-
-        if (!isEditable && isEmpty) {
-            invalidBackground();
-            disable();
-        } else {
-            normalBackground();
-        }
-
+        backgroundColor(ColorSet.NORMAL_BACKGROUND);
     }
 
-    private void normalBackground() {
-        painter.addPainter(new NormalBackgroundPainter());
-    }
-
-    private void invalidBackground() {
-        painter.addPainter(new InvalidBackgroundPainter());
-    }
-
-    private void disable() {
-        painter.addPainter(new DisablePainter());
+    public void backgroundColor(Color color) {
+        painter.addPainter(new BackgroundPainter(color));
     }
 
     public void topLeftValue(String value) {
@@ -58,12 +43,20 @@ public class PainterBuilder {
         painter.addPainter(new BottomLeftValuePainter(value));
     }
 
+    public void centerValue(String value) {
+        painter.addPainter(new CenterValuePainter(value));
+    }
+
     public void bottomRightValue(String value) {
         painter.addPainter(new BottomRightValuePainter(value));
     }
 
     public void border(Integer size, Integer side) {
         painter.addPainter(new BorderCellPainter(size, side));
+    }
+
+    public void noBackground() {
+        painter.addPainter(new TransparentPainter());
     }
 
     public CellPainter end() {

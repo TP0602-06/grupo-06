@@ -1,7 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids;
 
 
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 
 import java.util.List;
 import javax.swing.JPanel;
@@ -20,4 +21,6 @@ public abstract class GridView extends JPanel {
     public abstract Integer getCols();
 
     public abstract Integer getRows();
+
+    public abstract void paintRegions(List<RegionConfig> regionConfig) throws Exception;
 }

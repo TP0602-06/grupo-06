@@ -16,9 +16,10 @@ import javax.swing.JButton;
  */
 public class CheckGameButton extends JButton implements ButtonCommand {
     private Game game;
+    private static final String checkText = "Check";
 
     public CheckGameButton(Game game) {
-        setText("Check");
+        setText(checkText);
         addMouseListener(new BasicButtonListener());
         this.game = game;
     }

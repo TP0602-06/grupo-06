@@ -1,5 +1,8 @@
 package ar.fiuba.tdd.tp.nikoligames.parser.utils;
 
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfigImplementation;
+
 import java.util.List;
 import java.util.Set;
 
@@ -17,4 +20,6 @@ public interface GameConfig {
     Set<String> getValidInputs();
 
     SizeConfig getSizeConfig();
+
+    ViewConfig getViewConfig();
 }

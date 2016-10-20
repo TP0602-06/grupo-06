@@ -1,7 +1,12 @@
 package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview;
 
-import ar.fiuba.tdd.tp.nikoligames.model.board.DrawableBoard;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
+import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Responsabilidades:
@@ -10,5 +15,9 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
  * 1. Abstract Factory
  */
 public interface FactoryBoard {
-    GridView createBoardView(DrawableBoard modelBoard);
+
+    GridView createGridView(boolean nodeMatchesCell, List<RegionConfig> regionConfigs) throws Exception;
+
+    void addInputs(GameView view, Set<String> inputs);
+
 }
