@@ -21,8 +21,7 @@ public class GokigenHintPainter implements HintPainter {
     public void draw(Paintable paintable) {
         PainterBuilder painterBuilder = new PainterBuilder();
         painterBuilder.noBackground();
-        painterBuilder.bottomLeftValue(value);
-        painterBuilder.bottomRightValue(value);
+        painterBuilder.centerValue(value);
         painterBuilder.end().paintCell(paintable);
     }
 }

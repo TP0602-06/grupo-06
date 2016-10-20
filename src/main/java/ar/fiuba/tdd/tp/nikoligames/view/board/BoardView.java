@@ -34,7 +34,7 @@ public class BoardView extends JPanel {
     public BoardView(GridView gridLayer, ViewEdgeFactory factoryEdge, ViewConfig viewConfig) {
         super();
         Dimension size = viewConfig.getBoardDimension();
-        Dimension withPadding = new Dimension(size.width + padding, size.height + padding);
+        Dimension withPadding = new Dimension(size.width + padding*2, size.height + padding*2);
         pane = new JLayeredPane();
         pane.setPreferredSize(withPadding);
         cellSizeCalculator = new CellSizeCalculator(gridLayer);
