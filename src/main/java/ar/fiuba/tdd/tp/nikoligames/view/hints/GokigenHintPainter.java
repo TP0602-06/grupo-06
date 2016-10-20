@@ -19,7 +19,7 @@ public class GokigenHintPainter implements HintPainter {
 
     @Override
     public void draw(Paintable paintable) {
-        PainterBuilder painterBuilder = new PainterBuilder(false, true);
+        PainterBuilder painterBuilder = new PainterBuilder();
         painterBuilder.noBackground();
         painterBuilder.bottomLeftValue(value);
         painterBuilder.bottomRightValue(value);

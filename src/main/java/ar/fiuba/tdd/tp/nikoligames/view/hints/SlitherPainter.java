@@ -12,14 +12,12 @@ import java.awt.*;
  * Created by tobias on 19/10/16.
  */
 public class SlitherPainter implements HintPainter {
-    private boolean empty = true;
-    private boolean editable = false;
     private Integer radius = 10;
     private Color circleColor = ColorSet.INVALID_BACKGROUND;
 
     @Override
     public void draw(Paintable paintable) {
-        PainterBuilder builder = new PainterBuilder(empty,editable);
+        PainterBuilder builder = new PainterBuilder();
         builder.border(0,PainterBuilder.TOP);
         builder.border(0,PainterBuilder.BOTTOM);
         builder.border(0,PainterBuilder.LEFT);

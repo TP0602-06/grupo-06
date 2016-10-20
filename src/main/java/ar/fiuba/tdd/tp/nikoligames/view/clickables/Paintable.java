@@ -13,6 +13,7 @@ import javax.swing.*;
  */
 public abstract class Paintable extends JButton {
     private List<GraphicDraw> graphics;
+    private Color backgroundColor;
 
     public Paintable() {
         this.graphics = new ArrayList<>();
@@ -24,6 +25,15 @@ public abstract class Paintable extends JButton {
 
     public void resetGraphics() {
         graphics.clear();
+    }
+
+    public void setBaseBackground(Color color) {
+        setBackground(color);
+        backgroundColor = color;
+    }
+
+    public void clearFocus() {
+        this.setBackground(backgroundColor);
     }
 
     @Override

@@ -22,32 +22,13 @@ public class PainterBuilder {
 
     private MultiplePainter painter;
 
-    public PainterBuilder(boolean isEmpty, boolean isEditable) {
+    public PainterBuilder() {
         painter = new MultiplePainter();
-
-        if (!isEditable && isEmpty) {
-            invalidBackground();
-            disable();
-        } else {
-            normalBackground();
-        }
-
-    }
-
-    private void normalBackground() {
         backgroundColor(ColorSet.NORMAL_BACKGROUND);
-    }
-
-    private void invalidBackground() {
-        backgroundColor(ColorSet.INVALID_BACKGROUND);
     }
 
     public void backgroundColor(Color color) {
         painter.addPainter(new BackgroundPainter(color));
-    }
-
-    private void disable() {
-        painter.addPainter(new DisablePainter());
     }
 
     public void topLeftValue(String value) {

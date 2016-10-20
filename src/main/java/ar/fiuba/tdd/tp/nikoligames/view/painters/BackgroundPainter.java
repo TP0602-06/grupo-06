@@ -16,6 +16,6 @@ public class BackgroundPainter implements CellPainter {
 
     @Override
     public void paintCell(Paintable paintable) {
-        paintable.setBackground(color);
+        paintable.setBaseBackground(color);
     }
 }

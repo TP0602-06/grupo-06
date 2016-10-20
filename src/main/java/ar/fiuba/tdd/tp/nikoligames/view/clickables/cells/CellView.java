@@ -12,7 +12,6 @@ public abstract class CellView extends Paintable {
 
     private Integer indexX;
     private Integer indexY;
-    private Color backgroundColor;
 
 
     public CellView() {
@@ -24,21 +23,12 @@ public abstract class CellView extends Paintable {
         this.indexY = indexY;
     }
 
-    public void setBaseBackground(Color color) {
-        setBackground(color);
-        backgroundColor = color;
-    }
-
     public Integer getXIndex() {
         return this.indexX;
     }
 
     public Integer getYIndex() {
         return this.indexY;
-    }
-
-    public void clearFocus() {
-        this.setBackground(backgroundColor);
     }
 
 }

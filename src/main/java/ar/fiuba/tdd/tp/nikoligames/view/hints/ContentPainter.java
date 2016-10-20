@@ -9,15 +9,13 @@ import ar.fiuba.tdd.tp.nikoligames.view.painters.builder.PainterBuilder;
  */
 public class ContentPainter implements HintPainter {
     private String content;
-    private boolean isEmpty = false;
-    private boolean isEditable = false;
 
     public ContentPainter(String content) {
         this.content = content;
     }
 
     public void draw(Paintable paintable) {
-        PainterBuilder painterBuilder = new PainterBuilder(isEmpty, isEditable);
+        PainterBuilder painterBuilder = new PainterBuilder();
         painterBuilder.centerValue(content);
         CellPainter painter = painterBuilder.end();
         painter.paintCell(paintable);

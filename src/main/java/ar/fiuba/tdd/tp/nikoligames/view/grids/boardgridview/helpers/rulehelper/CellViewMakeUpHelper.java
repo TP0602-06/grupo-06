@@ -44,7 +44,7 @@ public class CellViewMakeUpHelper {
             }
         }
         if (hintPainters.isEmpty()) {
-            hintPainters.add(new HintPainterBasic(baseCell));
+            hintPainters.add(new HintPainterBasic());
         }
         return hintPainters;
     }

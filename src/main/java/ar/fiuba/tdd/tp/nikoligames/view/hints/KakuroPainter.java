@@ -20,8 +20,6 @@ public class KakuroPainter implements HintPainter {
     private int left = 0;
     private int right = 1;
     private String regex = "-";
-    private boolean isEmpty = false;
-    private boolean isEditable = false;
 
     public KakuroPainter(String numbers) {
         leftNumber = numbers.split(regex)[left];
@@ -29,7 +27,7 @@ public class KakuroPainter implements HintPainter {
     }
 
     public void draw(Paintable paintable) {
-        PainterBuilder builder = new PainterBuilder(isEmpty, isEditable);
+        PainterBuilder builder = new PainterBuilder();
         builder.bottomLeftValue(leftNumber);
         builder.topRightValue(rightNumber);
         builder.backgroundColor(ColorSet.INVALID_BACKGROUND);
