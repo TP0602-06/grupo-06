@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.model.rules.implementations;
+package ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.region;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleImplementation;

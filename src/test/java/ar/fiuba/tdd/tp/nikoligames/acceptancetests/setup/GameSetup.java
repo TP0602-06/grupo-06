@@ -4,8 +4,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.game.GameFactory;
-import ar.fiuba.tdd.tp.nikoligames.parser.AbstractParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.ConcreteParser;
+import ar.fiuba.tdd.tp.nikoligames.parser.GameParser;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 
 import java.util.Iterator;
@@ -17,7 +17,7 @@ import java.util.List;
 public class GameSetup {
     public Game setup(String boardFilePath) throws Exception {
         GameFactory gameFactory = new GameFactory();
-        AbstractParser gameConfigParser = new ConcreteParser(boardFilePath);
+        GameParser gameConfigParser = new ConcreteParser(boardFilePath);
 
         GameConfig gameConfig = gameConfigParser.parse();
         Game game = gameFactory.createGame(gameConfig);

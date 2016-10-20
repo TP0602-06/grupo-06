@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids.inputgridview;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
 import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -12,6 +13,6 @@ import java.util.HashSet;
  * 1. Abstract Factory
  */
 public interface AbstractFactoryInputGrid {
-    GridView createInputGridForBoardView(HashSet<String> validInputs);
+    GridView createInputGridForBoardView(Set<String> validInputs);
 
 }

@@ -3,7 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.model.rules.rulesfactories;
 import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.Rule;
-import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.NoDuplicatesRule;
+import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.region.NoDuplicatesRule;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 
 import java.util.List;

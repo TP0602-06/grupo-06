@@ -7,7 +7,7 @@ import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
  * Created by mcapolupo on 20/9/16.
  * All implementations know how to parse any file type to create a {@link ConcreteGameConfig}
  */
-public interface AbstractParser {
+public interface GameParser {
 
     GameConfig parse() throws Exception;
 }

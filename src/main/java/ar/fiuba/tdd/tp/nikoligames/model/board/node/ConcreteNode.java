@@ -1,8 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board.node;
 
-import ar.fiuba.tdd.tp.nikoligames.model.board.node.value.AbstractNodeValue;
-import ar.fiuba.tdd.tp.nikoligames.model.board.node.value.NodeValue;
-
 import java.util.ArrayList;
 import java.util.List;
 

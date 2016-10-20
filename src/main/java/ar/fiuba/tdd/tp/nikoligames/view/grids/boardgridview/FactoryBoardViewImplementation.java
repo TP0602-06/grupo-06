@@ -20,6 +20,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Responsabilidades:
@@ -72,7 +73,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
     }
 
     @Override
-    public void addInputs(GameView view, HashSet<String> inputs) {
+    public void addInputs(GameView view, Set<String> inputs) {
         if (inputs.isEmpty()) {
             return;
         }

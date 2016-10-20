@@ -6,6 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Responsabilidades:
@@ -17,6 +18,6 @@ public interface FactoryBoard {
 
     GridView createGridView(boolean nodeMatchesCell, List<RegionConfig> regionConfigs) throws Exception;
 
-    void addInputs(GameView view, HashSet<String> inputs);
+    void addInputs(GameView view, Set<String> inputs);
 
 }

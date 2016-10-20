@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.model.rules;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
-import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.NoDuplicatesRule;
+import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.region.NoDuplicatesRule;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.utils.NodeWithValueCreator;
 import org.junit.Assert;
 import org.junit.Test;

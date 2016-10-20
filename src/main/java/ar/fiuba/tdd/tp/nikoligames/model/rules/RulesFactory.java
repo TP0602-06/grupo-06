@@ -48,7 +48,7 @@ public class RulesFactory {
     @SuppressWarnings("CPD-END")
 
 
-    public Rule createValidValueRule(HashSet<String> validInputs) {
+    public Rule createValidValueRule(Set<String> validInputs) {
         List<AbstractNode> allNodes = board.getAllNodes();
         Rule validInputsRule = new ValidInputValueRule(allNodes, validInputs);
         return validInputsRule;

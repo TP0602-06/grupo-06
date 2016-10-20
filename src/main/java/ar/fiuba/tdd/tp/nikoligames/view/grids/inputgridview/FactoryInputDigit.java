@@ -9,6 +9,7 @@ import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Responsabilidades:
@@ -19,13 +20,13 @@ import java.util.Iterator;
 public class FactoryInputDigit implements AbstractFactoryInputGrid {
 
     SelectValueController selectValueController;
-    private HashSet<String> validInputs;
+    private Set<String> validInputs;
 
     public FactoryInputDigit(SelectValueController controller) {
         this.selectValueController = controller;
     }
 
-    public GridView createInputGridForBoardView(HashSet<String> validInputs) {
+    public GridView createInputGridForBoardView(Set<String> validInputs) {
         this.validInputs = validInputs;
         GridView inputGridView = new GridOfSquares(1, validInputs.size());
         selectValueController.addInputBoardView(inputGridView);

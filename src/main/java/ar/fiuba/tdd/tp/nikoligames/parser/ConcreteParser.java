@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.List;
 
-public class ConcreteParser implements AbstractParser {
+public class ConcreteParser implements GameParser {
 
     private final BoardParser boardParser = new BoardParser();
     private final RuleParser ruleParser = new RuleParser();

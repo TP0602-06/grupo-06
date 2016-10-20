@@ -4,7 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.GameConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 
-import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Responsabilidades:
