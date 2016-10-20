@@ -1,0 +1,639 @@
+{
+  "game_name" : "Kakuro",
+
+  "grid_size" : [ 8 , 8 ],
+
+  "valid_input" : [ "1" , "2" , "3" , "4", "5", "6", "7", "8", "9" ],
+
+  "rules": {
+    "values": [
+      {
+        "definition": "NON_EMPTY_REGION"
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 2 , 2 ],[ 2 , 3 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "16",
+        "region": [ [ 2 , 2 ],[ 2 , 3 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 2 , 6 ],[ 2 , 7 ], [ 2 , 8 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "24",
+        "region": [ [ 2 , 6 ],[ 2 , 7 ], [ 2 , 8 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 3 , 2 ],[ 3 , 3 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "17",
+        "region": [ [ 3 , 2 ],[ 3 , 3 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 3 , 5 ],[ 3 , 6 ],[ 3 , 7 ],[ 3 , 8 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "29",
+        "region": [ [ 3 , 5 ],[ 3 , 6 ],[ 3 , 7 ],[ 3 , 8 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 4 , 2 ],[ 4 , 3 ],[ 4 , 4 ],[ 4 , 5 ],[ 4 , 6 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "35",
+        "region": [ [ 4 , 2 ],[ 4 , 3 ],[ 4 , 4 ],[ 4 , 5 ],[ 4 , 6 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 5 , 3 ],[ 5 , 4 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "7",
+        "region": [ [ 5 , 3 ],[ 5 , 4 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 5 , 6 ],[ 5 , 7 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "8",
+        "region": [ [ 5 , 6 ],[ 5 , 7 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 6 , 4 ],[ 6 , 5 ], [ 6 , 6 ],[ 6 , 7 ], [ 6 , 8] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "16",
+        "region": [ [ 6 , 4 ],[ 6 , 5 ], [ 6 , 6 ],[ 6 , 7 ], [ 6 , 8] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 7 , 2 ],[ 7 , 3 ], [ 7 , 4 ],[ 7 , 5 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "21",
+        "region": [ [ 7 , 2 ],[ 7 , 3 ], [ 7 , 4 ],[ 7 , 5 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 7 , 7 ],[ 7 , 8 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "5",
+        "region": [ [ 7 , 7 ],[ 7 , 8 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 8 , 2 ],[ 8 , 3 ], [ 8 , 4 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "6",
+        "region": [ [ 8 , 2 ],[ 8 , 3 ], [ 8 , 4 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 8 , 7 ],[ 8 , 8 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "3",
+        "region": [ [ 8 , 7 ],[ 8 , 8 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 2 , 2 ], [ 3 , 2 ], [ 4 , 2 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "23",
+        "region": [ [ 2 , 2 ], [ 3 , 2 ], [ 4 , 2 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 7 , 2 ], [ 8 , 2 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "11",
+        "region": [ [ 7 , 2 ], [ 8 , 2 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 2 , 3 ], [ 3 , 3 ], [ 4 , 3 ], [ 5 , 3 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "30",
+        "region": [ [ 2 , 3 ], [ 3 , 3 ], [ 4 , 3 ], [ 5 , 3 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 7 , 3 ], [ 8 , 3 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "10",
+        "region": [ [ 7 , 3 ], [ 8 , 3 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 4 , 4 ], [ 5 , 4 ], [ 6 , 4 ], [ 7 , 4 ],[ 8 , 4 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "15",
+        "region": [ [ 4 , 4 ], [ 5 , 4 ], [ 6 , 4 ], [ 7 , 4 ],[ 8 , 4 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 3 , 5 ], [ 4 , 5 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "17",
+        "region": [ [ 3 , 5 ], [ 4 , 5 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 6 , 5 ], [ 7 , 5 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "7",
+        "region": [ [ 6 , 5 ], [ 7 , 5 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 2 , 6 ], [ 3 , 6 ],[ 4 , 6 ], [ 5 , 6 ],[ 6 , 6 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "27",
+        "region": [ [ 2 , 6 ], [ 3 , 6 ],[ 4 , 6 ], [ 5 , 6 ],[ 6 , 6 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 2 , 7 ], [ 3 , 7 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "12",
+        "region": [ [ 2 , 7 ], [ 3 , 7 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 5 , 7 ], [ 6 , 7 ],[ 7 , 7 ], [ 8 , 7 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "12",
+        "region": [ [ 5 , 7 ], [ 6 , 7 ],[ 7 , 7 ], [ 8 , 7 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 2 , 8 ], [ 3 , 8 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "16",
+        "region": [ [ 2 , 8 ], [ 3 , 8 ] ]
+      },
+      {
+        "definition": "NO_DUPLICATES",
+        "region": [ [ 6 , 8 ], [ 7 , 8 ], [ 8 , 8 ] ]
+      },
+      {
+        "definition": "ADDITION",
+        "value" : "7",
+        "region": [ [ 6 , 8 ], [ 7 , 8 ], [ 8 , 8 ] ]
+      }
+    ]
+  },
+
+  "board": {
+    "values": [
+      {
+        "position": [1, 1],
+        "editable": false
+      },
+      {
+        "position": [1, 2],
+        "editable": false
+      },
+      {
+        "position": [1, 3],
+        "editable": false
+      },
+      {
+        "position": [1, 4],
+        "editable": false
+      },
+      {
+        "position": [1, 5],
+        "editable": false
+      },
+      {
+        "position": [1, 6],
+        "editable": false
+      },
+      {
+        "position": [1, 7],
+        "editable": false
+      },
+      {
+        "position": [1, 8],
+        "editable": false
+      },
+      {
+        "position": [2, 1],
+        "editable": false
+      },
+      {
+        "position": [2, 2],
+        "editable": true
+      },
+      {
+        "position": [2, 3],
+        "editable": true
+      },
+      {
+        "position": [2, 4],
+        "editable": false
+      },
+      {
+        "position": [2, 5],
+        "editable": false
+      },
+      {
+        "position": [2, 6],
+        "editable": true
+      },
+      {
+        "position": [2, 7],
+        "editable": true
+      },
+      {
+        "position": [2, 8],
+        "editable": true
+      },
+      {
+        "position": [3, 1],
+        "editable": false
+      },
+      {
+        "position": [3, 2],
+        "editable": true
+      },
+      {
+        "position": [3, 3],
+        "editable": true
+      },
+      {
+        "position": [3, 4],
+        "editable": false
+      },
+      {
+        "position": [3, 5],
+        "editable": true
+      },
+      {
+        "position": [3, 6],
+        "editable": true
+      },
+      {
+        "position": [3, 7],
+        "editable": true
+      },
+      {
+        "position": [3, 8],
+        "editable": true
+      },
+      {
+        "position": [4, 1],
+        "editable": false
+      },
+      {
+        "position": [4, 2],
+        "editable": true
+      },
+      {
+        "position": [4, 3],
+        "editable": true
+      },
+      {
+        "position": [4, 4],
+        "editable": true
+      },
+      {
+        "position": [4, 5],
+        "editable": true
+      },
+      {
+        "position": [4, 6],
+        "editable": true
+      },
+      {
+        "position": [4, 7],
+        "editable": false
+      },
+      {
+        "position": [4, 8],
+        "editable": false
+      },
+      {
+        "position": [5, 1],
+        "editable": false
+      },
+      {
+        "position": [5, 2],
+        "editable": false
+      },
+      {
+        "position": [5, 3],
+        "editable": true
+      },
+      {
+        "position": [5, 4],
+        "editable": true
+      },
+      {
+        "position": [5, 5],
+        "editable": false
+      },
+      {
+        "position": [5, 6],
+        "editable": true
+      },
+      {
+        "position": [5, 7],
+        "editable": true
+      },
+      {
+        "position": [5, 8],
+        "editable": false
+      },
+      {
+        "position": [6, 1],
+        "editable": false
+      },
+      {
+        "position": [6, 2],
+        "editable": false
+      },
+      {
+        "position": [6, 3],
+        "editable": false
+      },
+      {
+        "position": [6, 4],
+        "editable": true
+      },
+      {
+        "position": [6, 5],
+        "editable": true
+      },
+      {
+        "position": [6, 6],
+        "editable": true
+      },
+      {
+        "position": [6, 7],
+        "editable": true
+      },
+      {
+        "position": [6, 8],
+        "editable": true
+      },
+      {
+        "position": [7, 1],
+        "editable": false
+      },
+      {
+        "position": [7, 2],
+        "editable": true
+      },
+      {
+        "position": [7, 3],
+        "editable": true
+      },
+      {
+        "position": [7, 4],
+        "editable": true
+      },
+      {
+        "position": [7, 5],
+        "editable": true
+      },
+      {
+        "position": [7, 6],
+        "editable": false
+      },
+      {
+        "position": [7, 7],
+        "editable": true
+      },
+      {
+        "position": [7, 8],
+        "editable": true
+      },
+      {
+        "position": [8, 1],
+        "editable": false
+      },
+      {
+        "position": [8, 2],
+        "editable": true
+      },
+      {
+        "position": [8, 3],
+        "editable": true
+      },
+      {
+        "position": [8, 4],
+        "editable": true
+      },
+      {
+        "position": [8, 5],
+        "editable": false
+      },
+      {
+        "position": [8, 6],
+        "editable": false
+      },
+      {
+        "position": [8, 7],
+        "editable": true
+      },
+      {
+        "position": [8, 8],
+        "editable": true
+      }
+    ]
+  },
+  "view": {
+    "is_cell_board": true,
+    "board_dimension": [400,400],
+    "cell_hints": [
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 1 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "23- ",
+        "pos": [ 1 , 2 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "30- ",
+        "pos": [ 1 , 3 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 1 , 4 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 1 , 5 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "27- ",
+        "pos": [ 1 , 6 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "12- ",
+        "pos": [ 1 , 7 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "16- ",
+        "pos": [ 1 , 8 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -16",
+        "pos": [ 2 , 1 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 2 , 4 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "17-24",
+        "pos": [ 2 , 5 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -17",
+        "pos": [ 3 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "15-29",
+        "pos": [ 3 , 4 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -35",
+        "pos": [ 4 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "12- ",
+        "pos": [ 4 , 7 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 4 , 8 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 5 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -7",
+        "pos": [ 5 , 2 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "7-8",
+        "pos": [ 5 , 5 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "7- ",
+        "pos": [ 5 , 8 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 6 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "11- ",
+        "pos": [ 6 , 2 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": "10-16",
+        "pos": [ 6 , 3 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -21",
+        "pos": [ 7 , 1 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -5",
+        "pos": [ 7 , 6 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -6",
+        "pos": [ 8 , 1 ]
+      },
+      {
+        "definition":"NULLCELL",
+        "value": "",
+        "pos": [ 8 , 5 ]
+      },
+      {
+        "definition":"KAKURO",
+        "value": " -3",
+        "pos": [ 8 , 6 ]
+      }
+    ]
+  }
+
+}

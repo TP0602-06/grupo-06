@@ -1,0 +1,49 @@
+plugins {
+    id 'de.aaschmid.cpd' version '0.4'
+}
+
+group 'ar.fiuba.tdd.tp'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'checkstyle'
+apply plugin: 'maven'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: "jacoco"
+apply from: 'gradle/fatjar.gradle'
+apply from: 'gradle/quality.gradle'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    maven {
+        url "http://nexus-tecnicas7510.rhcloud.com/nexus/content/repositories/third-party"
+    }
+}
+
+dependencies {
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'xml-apis:xml-apis:1.4.01'
+    }
+}
+
+task start(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'ar.fiuba.tdd.tp.nikoligames.Main'
+
+    /* Need to split the space-delimited value in the exec.args */
+    if (System.getProperty("exec.args")) {
+        args System.getProperty("exec.args").split()
+    }
+}
