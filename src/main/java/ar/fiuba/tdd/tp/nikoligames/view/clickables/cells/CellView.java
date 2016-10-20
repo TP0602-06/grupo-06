@@ -1,18 +1,14 @@
 package ar.fiuba.tdd.tp.nikoligames.view.clickables.cells;
 
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.PaintableClickable;
-import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicDraw;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.util.*;
-import javax.swing.JButton;
 
 
 /**
  * Esta clase es la claseBase de toda celda.
  */
-public abstract class CellView extends PaintableClickable {
+public abstract class CellView extends Paintable {
 
     private Integer indexX;
     private Integer indexY;

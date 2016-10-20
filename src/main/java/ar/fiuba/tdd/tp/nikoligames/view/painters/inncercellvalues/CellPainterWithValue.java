@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters.inncercellvalues;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.painters.CellPainter;
 
@@ -22,15 +23,15 @@ public abstract class CellPainterWithValue implements CellPainter {
         this.alignment = alignment;
     }
 
-    public void paintCell(CellView cell) {
-        if (!emptyMargins(cell)) {
-            cell.setMargin(new Insets(0, 0, 0, 0));
-            cell.setLayout(new GridBagLayout());
+    public void paintCell(Paintable paintable) {
+        if (!emptyMargins(paintable)) {
+            paintable.setMargin(new Insets(0, 0, 0, 0));
+            paintable.setLayout(new GridBagLayout());
         }
-        insertClueTo(cell);
+        insertClueTo(paintable);
     }
 
-    private boolean emptyMargins(CellView cell) {
+    private boolean emptyMargins(Paintable cell) {
         Insets marginInsets = cell.getMargin();
         return allZero(marginInsets);
     }
@@ -72,8 +73,9 @@ public abstract class CellPainterWithValue implements CellPainter {
         return constraints;
     }
 
-    private void insertClueTo(CellView cell) {
+    private void insertClueTo(Paintable cell) {
         JLabel label = makeLabel();
+        label.setForeground(ColorSet.CLUE);
         label.setHorizontalAlignment(alignment);
         cell.add(label, makeConstraint());
     }

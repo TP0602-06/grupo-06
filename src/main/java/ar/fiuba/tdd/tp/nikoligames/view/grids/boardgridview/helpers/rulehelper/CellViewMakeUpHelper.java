@@ -3,12 +3,14 @@ package ar.fiuba.tdd.tp.nikoligames.view.grids.boardgridview.helpers.rulehelper;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
-import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.PaintableHintConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellHint;
-import ar.fiuba.tdd.tp.nikoligames.view.cells.CellHintBasic;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.hints.HintPainter;
+import ar.fiuba.tdd.tp.nikoligames.view.hints.HintPainterBasic;
 
+
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,27 +18,34 @@ import java.util.List;
  * Esta clase se encarga de pintar la celda de acuerdo a las reglas existentes.
  */
 public class CellViewMakeUpHelper {
-    private List<CellHintConfig> cellHintConfigs;
+    private List<PaintableHintConfig> cellHintConfigs;
 
-    public CellViewMakeUpHelper(List<CellHintConfig> cellHintConfigs) {
-        this.cellHintConfigs = cellHintConfigs;
+    public CellViewMakeUpHelper(List<PaintableHintConfig> paintableHintConfigs) {
+        this.cellHintConfigs = paintableHintConfigs;
     }
 
     public void beautyfy(CellView cellView, DrawableNode baseCell) {
-        CellHint hint = getCellHint(cellView, baseCell);
-        hint.draw(cellView);
+        List<HintPainter> hints = getCellHint(cellView, baseCell);
+        Iterator<HintPainter> hintsIterator = hints.iterator();
+        while (hintsIterator.hasNext()) {
+            hintsIterator.next().draw(cellView);
+        }
     }
 
-    private CellHint getCellHint(CellView cellView, DrawableNode baseCell) {
+    private List<HintPainter> getCellHint(CellView cellView, DrawableNode baseCell) {
+        List<HintPainter> hintPainters = new ArrayList<>();
         Iterator listIterator = cellHintConfigs.iterator();
         Position cellPosition = new ClassicPosition(cellView.getXIndex(), cellView.getYIndex());
         while (listIterator.hasNext()) {
-            CellHintConfig hintConfig = (CellHintConfig) listIterator.next();
+            PaintableHintConfig hintConfig = (PaintableHintConfig) listIterator.next();
             Position configPosition = hintConfig.getPosition();
             if (EdgePositionHelper.compare(configPosition, cellPosition) == 0) {
-                return hintConfig.getCellHint();
+                hintPainters.add(hintConfig.getCellHint());
             }
         }
-        return new CellHintBasic(baseCell);
+        if (hintPainters.isEmpty()) {
+            hintPainters.add(new HintPainterBasic(baseCell));
+        }
+        return hintPainters;
     }
 }

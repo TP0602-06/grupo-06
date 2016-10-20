@@ -13,8 +13,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 public class CommonPositionSolver extends StrategyPositionSolver {
     private double edgeProportion = 0.2;
 
-    public CommonPositionSolver(GridView grid, boolean viewCellsMatchNodeView) {
-        super(grid, viewCellsMatchNodeView);
+    public CommonPositionSolver(CellSizeCalculator cellSizeCalculator, boolean viewCellsMatchNodeView) {
+        super(cellSizeCalculator, viewCellsMatchNodeView);
     }
 
     private int getScaledEdgeHeight() {

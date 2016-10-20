@@ -73,8 +73,8 @@ public class SelectValueControllerImp implements SelectValueController {
     }
 
     private void changeModelCellValue(String value) throws Exception {
-        int row = lastSelectedEditableCellView.getXIndex() + 1;
-        int col = lastSelectedEditableCellView.getYIndex() + 1;
+        int row = lastSelectedEditableCellView.getXIndex();
+        int col = lastSelectedEditableCellView.getYIndex();
         ClassicPosition celPosition = new ClassicPosition(row, col);
         game.changeNodeValue(celPosition, value);
     }

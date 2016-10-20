@@ -1,45 +1,27 @@
 package ar.fiuba.tdd.tp.nikoligames.view.config;
 
-import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.PaintableHintConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 
 import java.awt.*;
 import java.util.List;
 
+
 /**
- * Created by Andres on 17/10/2016.
+ * Created by tobias on 19/10/16.
  */
-public class ViewConfig {
-    boolean isCellBoard;
-    Dimension boardDimension;
-    List<CellHintConfig> cellHintConfigs;
-    private List<RegionConfig> regions;
+public interface ViewConfig {
 
-    public ViewConfig(boolean isCellBoard, Dimension boardDimension,
-                      List<CellHintConfig> cellHintConfigs, List<RegionConfig> regionConfigs) {
-        this.isCellBoard = isCellBoard;
-        this.boardDimension = boardDimension;
-        this.cellHintConfigs = cellHintConfigs;
-        this.regions = regionConfigs;
-    }
+    boolean isCellBoard();
 
-    public boolean isCellBoard() {
-        return isCellBoard;
-    }
+    boolean isNodeBoard();
 
-    public boolean isNodeBoard() {
-        return !isCellBoard;
-    }
+    Dimension getBoardDimension();
 
-    public Dimension getBoardDimension() {
-        return boardDimension;
-    }
+    List<PaintableHintConfig> getCellHintConfigs();
 
-    public List<CellHintConfig> getCellHintConfigs() {
-        return cellHintConfigs;
-    }
+    List<PaintableHintConfig> getNodeHintConfigs();
 
-    public List<RegionConfig> getRegions() {
-        return regions;
-    }
+    List<RegionConfig> getRegions();
+
 }

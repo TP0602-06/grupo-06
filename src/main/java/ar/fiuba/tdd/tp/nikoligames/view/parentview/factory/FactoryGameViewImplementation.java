@@ -8,6 +8,7 @@ import ar.fiuba.tdd.tp.nikoligames.parser.utils.RuleConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.board.ViewEdgeFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfigImplementation;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.BasicGroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.gamebuttons.factory.GroupButtonFactory;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -35,7 +36,6 @@ public class FactoryGameViewImplementation implements FactoryGameView {
     @Override
     public GameView createDefaultGameView(Game game, GameConfig gameConfig) throws Exception {
         ViewConfig viewConfig = gameConfig.getViewConfig();
-        Dimension boardDimension = viewConfig.getBoardDimension();
         boolean cellViewMatchesNodeView = viewConfig.isCellBoard();
 
         GameView view = new GameView(DEFAULT_TITLE, DEFAULT_VIEW_WIDTH, DEFAULT_VIEW_HEIGHT);
@@ -46,8 +46,9 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         GridView gridView = factoryGridView.createGridView(cellViewMatchesNodeView, viewConfig.getRegions());
         List<EdgePosition> edges = getPosibleEdges(game,gameConfig.getRules());
 
-        BoardView boardView = new BoardView(boardDimension,gridView, viewEdgeFactory, cellViewMatchesNodeView);
+        BoardView boardView = new BoardView(gridView, viewEdgeFactory, viewConfig);
         boardView.addEdges(edges);
+        boardView.addNodeHints();
 
         Component restartAndCheckButtons = createButtons(game);
 

@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.node.DrawableNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
-import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.CellHintConfig;
+import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.PaintableHintConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.RegionConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridOfSquares;
@@ -32,7 +32,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
     private DrawableBoard modelBoard;
     private CellViewMakeUpHelper makeUpHelper;
 
-    public FactoryBoardViewImplementation(Game game, List<CellHintConfig> cellHintConfigs) {
+    public FactoryBoardViewImplementation(Game game, List<PaintableHintConfig> cellHintConfigs) {
         selectValueController = new SelectValueControllerImp(game);
         modelBoard = game.getDrawableBoard();
         makeUpHelper = new CellViewMakeUpHelper(cellHintConfigs);

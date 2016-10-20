@@ -80,7 +80,69 @@
   },
   "view": {
     "is_cell_board": false,
-    "board_dimension": [400,400]
+    "board_dimension": [400,400],
+    "node_hints": [
+      {
+        "definition":"GOKIGENCELL",
+        "value": "2",
+        "pos": [ 1 , 2 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "1",
+        "pos": [ 1 , 3 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "3",
+        "pos": [ 2 , 3 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "3",
+        "pos": [ 2 , 4 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "0",
+        "pos": [ 2 , 6 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "3",
+        "pos": [ 4 , 3 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "3",
+        "pos": [ 4 , 4 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "0",
+        "pos": [ 5 , 1 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "3",
+        "pos": [ 5 , 4 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "3",
+        "pos": [ 5 , 5 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "1",
+        "pos": [ 6 , 5 ]
+      },
+      {
+        "definition":"GOKIGENCELL",
+        "value": "1",
+        "pos": [ 6 , 6 ]
+      }
+    ]
   }
 
 }

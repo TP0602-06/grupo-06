@@ -3,12 +3,12 @@ package ar.fiuba.tdd.tp.nikoligames.view.painters;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
 
 /**
- * Deshabilita la celda a ser clickeada.
+ * Created by tobias on 20/10/16.
  */
-public class DisablePainter implements CellPainter {
+public class TransparentPainter implements CellPainter {
 
     @Override
     public void paintCell(Paintable paintable) {
-        paintable.setEnabled(false);
+        paintable.setOpaque(false);
     }
 }

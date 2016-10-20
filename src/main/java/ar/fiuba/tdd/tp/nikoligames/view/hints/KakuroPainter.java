@@ -1,7 +1,7 @@
-package ar.fiuba.tdd.tp.nikoligames.view.cells;
+package ar.fiuba.tdd.tp.nikoligames.view.hints;
 
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicDraw;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LineGraphicDraw;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LinePosition;
@@ -13,7 +13,7 @@ import java.awt.*;
 /**
  * Created by fedebrasburg on 10/17/16.
  */
-public class KakuroCell implements CellHint {
+public class KakuroPainter implements HintPainter {
 
     private String leftNumber;
     private String rightNumber;
@@ -23,20 +23,20 @@ public class KakuroCell implements CellHint {
     private boolean isEmpty = false;
     private boolean isEditable = false;
 
-    public KakuroCell(String numbers) {
+    public KakuroPainter(String numbers) {
         leftNumber = numbers.split(regex)[left];
         rightNumber = numbers.split(regex)[right];
     }
 
-    public void draw(CellView cell) {
+    public void draw(Paintable paintable) {
         PainterBuilder builder = new PainterBuilder(isEmpty, isEditable);
         builder.bottomLeftValue(leftNumber);
         builder.topRightValue(rightNumber);
         builder.backgroundColor(ColorSet.INVALID_BACKGROUND);
         CellPainter painter = builder.end();
-        painter.paintCell(cell);
+        painter.paintCell(paintable);
 
         GraphicDraw graphicDraw = new LineGraphicDraw(Color.BLACK, LinePosition.TOP_LEFT, LinePosition.BOTTOM_RIGHT);
-        cell.addGraphic(graphicDraw);
+        paintable.addGraphic(graphicDraw);
     }
 }

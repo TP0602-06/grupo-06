@@ -11,11 +11,11 @@ import java.awt.*;
  * Created by tobias on 17/10/16.
  */
 public abstract class StrategyPositionSolver {
-    private GridView grid;
+    private CellSizeCalculator cellSizeCalculator;
     private boolean viewCellsMatcheNodeView;
 
-    public StrategyPositionSolver(GridView grid, boolean viewCellsMatcheNodeView) {
-        this.grid = grid;
+    public StrategyPositionSolver(CellSizeCalculator cellSizeCalculator, boolean viewCellsMatcheNodeView) {
+        this.cellSizeCalculator = cellSizeCalculator;
         this.viewCellsMatcheNodeView = viewCellsMatcheNodeView;
     }
 
@@ -35,14 +35,12 @@ public abstract class StrategyPositionSolver {
         return new ClassicPosition(coordinateX, coordinateY);
     }
 
-    protected int getGridCellWidth() {
-        Rectangle gridSize = grid.getBounds();
-        return (int) Math.floor((double) gridSize.width / grid.getCols());
+    public int getGridCellWidth() {
+        return cellSizeCalculator.getWidth();
     }
 
-    protected int getGridCellHeight() {
-        Rectangle gridSize = grid.getBounds();
-        return (int) Math.floor((double) gridSize.height / grid.getRows());
+    public int getGridCellHeight() {
+        return cellSizeCalculator.getHeight();
     }
 
     private int getCoordinateOf(Integer celSize, Integer position) {

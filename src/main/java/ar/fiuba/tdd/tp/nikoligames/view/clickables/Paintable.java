@@ -11,10 +11,10 @@ import javax.swing.*;
 /**
  * Created by tobias on 17/10/16.
  */
-public abstract class PaintableClickable extends JButton {
+public abstract class Paintable extends JButton {
     private List<GraphicDraw> graphics;
 
-    public PaintableClickable() {
+    public Paintable() {
         this.graphics = new ArrayList<>();
     }
 

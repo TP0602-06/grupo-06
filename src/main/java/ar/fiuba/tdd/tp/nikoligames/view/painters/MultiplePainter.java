@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.painters;
 
-import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,8 @@ public class MultiplePainter implements CellPainter {
     }
 
     @Override
-    public void paintCell(CellView cell) {
-        painters.forEach((painter) -> painter.paintCell(cell));
+    public void paintCell(Paintable paintable) {
+        painters.forEach((painter) -> painter.paintCell(paintable));
     }
 
     public void addPainter(CellPainter painter) {

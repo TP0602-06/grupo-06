@@ -74,6 +74,10 @@ public class PainterBuilder {
         painter.addPainter(new BorderCellPainter(size, side));
     }
 
+    public void noBackground() {
+        painter.addPainter(new TransparentPainter());
+    }
+
     public CellPainter end() {
         return painter;
     }

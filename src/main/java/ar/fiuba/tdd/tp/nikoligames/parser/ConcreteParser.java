@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.parser;
 
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.*;
 import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
+import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfigImplementation;
 import org.json.simple.JSONObject;
 import utils.JsonObjectFilePathParser;
 

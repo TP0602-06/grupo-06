@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.view.board;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver.CellSizeCalculator;
 import ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver.CommonPositionSolver;
 import ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver.DiagonalPositionSolver;
 import ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver.StrategyPositionSolver;
@@ -17,9 +18,9 @@ public class ViewEdgeCellViewPositionSolver {
     private StrategyPositionSolver commonSolver;
 
 
-    public ViewEdgeCellViewPositionSolver(GridView grid, boolean viewCellsMatcheNodeView) {
-        diagonalSolver = new DiagonalPositionSolver(grid,viewCellsMatcheNodeView);
-        commonSolver = new CommonPositionSolver(grid,viewCellsMatcheNodeView);
+    public ViewEdgeCellViewPositionSolver(CellSizeCalculator cellSizeCalculator, boolean viewCellsMatcheNodeView) {
+        diagonalSolver = new DiagonalPositionSolver(cellSizeCalculator,viewCellsMatcheNodeView);
+        commonSolver = new CommonPositionSolver(cellSizeCalculator,viewCellsMatcheNodeView);
     }
 
     public Rectangle getRectangleFor(EdgePosition edgePosition) {
@@ -32,6 +33,10 @@ public class ViewEdgeCellViewPositionSolver {
         Position end = solver.getEndPosition(edgePosition);
 
         return makeEdgeRectangle(start, end);
+    }
+
+    public Position transformToViewPosition(Position position) {
+        return diagonalSolver.transformPosition(position);
     }
 
     private Rectangle makeEdgeRectangle(Position start, Position end) {
