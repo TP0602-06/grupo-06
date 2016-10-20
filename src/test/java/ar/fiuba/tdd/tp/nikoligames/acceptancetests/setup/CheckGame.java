@@ -13,17 +13,17 @@ import java.util.List;
  * Created by fedebrasburg on 10/20/16.
  */
 public class CheckGame {
-    public static boolean checkGame(String boardPath, String playsPath) throws Exception  {
+    public static boolean checkGame(String boardPath, String playsPath) throws Exception {
         GameSetup gs = new GameSetup();
         Game game = gs.setup(boardPath);
-        return checkWin(playsPath,game);
+        return checkWin(playsPath, game);
     }
 
     private static boolean checkWin(String playsPath, Game game) throws Exception {
 
         List<AbstractPlay> plays = PlayParser.parse(playsPath, game);
 
-        for(AbstractPlay play : plays){
+        for (AbstractPlay play : plays) {
             play.process();
         }
 

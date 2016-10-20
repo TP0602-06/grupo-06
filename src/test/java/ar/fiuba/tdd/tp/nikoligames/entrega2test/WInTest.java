@@ -24,36 +24,36 @@ import java.util.List;
  */
 public class WInTest {
 
-    private  String boardCountryroadPath= "data/countryroad/tableroEntrega2.json";
-    private  String playsCountryroadPath= "data/countryroad/playsEntrega2.json";
+    private String boardCountryroadPath = "data/countryroad/tableroEntrega2.json";
+    private String playsCountryroadPath = "data/countryroad/playsEntrega2.json";
 
-    private  String boardInshiPath= "data/inshi/tablero1.json";
-    private  String playsInshiPath= "data/inshi/plays1.json";
+    private String boardInshiPath = "data/inshi/tablero1.json";
+    private String playsInshiPath = "data/inshi/plays1.json";
 
-    private  String boardGokigenPath= "data/gokigen/tablero1.json";
-    private  String playsGokigenPath= "data/gokigen/playsentrega2.json";
+    private String boardGokigenPath = "data/gokigen/tablero1.json";
+    private String playsGokigenPath = "data/gokigen/playsentrega2.json";
 
-    private  String boardSlitherlinkPath= "data/slitherlink/tablero2.json";
-    private  String playsSlitherlinkPath= "data/slitherlink/plays2.json";
+    private String boardSlitherlinkPath = "data/slitherlink/tablero2.json";
+    private String playsSlitherlinkPath = "data/slitherlink/plays2.json";
 
     @Test
-    public void CountryroadTest() throws Exception {
-        Assert.assertTrue(CheckGame.checkGame(boardCountryroadPath,playsCountryroadPath));
+    public void countryroadTest() throws Exception {
+        Assert.assertTrue(CheckGame.checkGame(boardCountryroadPath, playsCountryroadPath));
     }
 
     @Test
-    public void InshiTest() throws Exception {
-        Assert.assertTrue(CheckGame.checkGame(boardInshiPath,playsInshiPath));
+    public void inshiTest() throws Exception {
+        Assert.assertTrue(CheckGame.checkGame(boardInshiPath, playsInshiPath));
     }
 
     @Test
-    public void GokigenTest() throws Exception {
-        Assert.assertTrue(CheckGame.checkGame(boardGokigenPath,playsGokigenPath));
+    public void gokigenTest() throws Exception {
+        Assert.assertTrue(CheckGame.checkGame(boardGokigenPath, playsGokigenPath));
     }
 
     @Test
-    public void SlitherlinkTest() throws Exception {
-        Assert.assertTrue(CheckGame.checkGame(boardSlitherlinkPath,playsSlitherlinkPath));
+    public void slitherlinkTest() throws Exception {
+        Assert.assertTrue(CheckGame.checkGame(boardSlitherlinkPath, playsSlitherlinkPath));
     }
 
 
