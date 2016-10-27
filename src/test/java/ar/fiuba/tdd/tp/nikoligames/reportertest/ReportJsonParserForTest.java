@@ -3,7 +3,7 @@ package ar.fiuba.tdd.tp.nikoligames.reportertest;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.play.AbstractPlay;
-import ar.fiuba.tdd.tp.nikoligames.model.play.ChangeNodeValuePlay;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.ChangeNodeValuePlay;
 import ar.fiuba.tdd.tp.nikoligames.parser.PlayParser;
 import ar.fiuba.tdd.tp.nikoligames.reporter.AbstractPlaysReporter;
 import ar.fiuba.tdd.tp.nikoligames.reporter.ReportPlaysJson;

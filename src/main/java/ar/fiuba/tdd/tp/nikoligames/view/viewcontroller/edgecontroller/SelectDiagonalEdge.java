@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.edgecontroller;
 
+import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeAlreadyExistsExpection;
+import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeNotExistsExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
@@ -33,7 +35,11 @@ public class SelectDiagonalEdge implements SelectEdgeController {
         if (actualPosition != null) {
             Position firstPositon = actualPosition.getPosition1();
             Position secondPositon = actualPosition.getPosition2();
-            game.createUndirectedEdge(firstPositon, secondPositon);
+            try {
+                game.createUndirectedEdge(firstPositon, secondPositon);
+            } catch (EdgeAlreadyExistsExpection edgeAlreadyExistsExpection) {
+                edgeAlreadyExistsExpection.printStackTrace();
+            }
         }
     }
 
@@ -41,7 +47,11 @@ public class SelectDiagonalEdge implements SelectEdgeController {
         if (previousPosition != null) {
             Position firstPositon = previousPosition.getPosition1();
             Position secondPositon = previousPosition.getPosition2();
-            game.removeUndirectedEdge(firstPositon, secondPositon);
+            try {
+                game.removeUndirectedEdge(firstPositon, secondPositon);
+            } catch (EdgeNotExistsExpection edgeNotExistsExpection) {
+                edgeNotExistsExpection.printStackTrace();
+            }
         }
     }
 }

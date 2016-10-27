@@ -7,7 +7,6 @@ import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
  * Responsibilities:
  * 1. Play of the game, it  models all the plays of the game.
  * 2. It models the plays with changes in the edge.
- *
  */
 public abstract class AbstractChangeEdgePlay extends AbstractPlay {
 
@@ -20,4 +19,11 @@ public abstract class AbstractChangeEdgePlay extends AbstractPlay {
         this.position2 = position2;
     }
 
+    public Position getPosition2() {
+        return position2;
+    }
+
+    public Position getPosition1() {
+        return position1;
+    }
 }

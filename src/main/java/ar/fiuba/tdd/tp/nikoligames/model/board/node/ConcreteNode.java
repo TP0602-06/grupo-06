@@ -34,8 +34,21 @@ public class ConcreteNode extends AbstractNode {
         return value.getIntValue();
     }
 
-    public void changeValue(String newValue) {
+    public void changeValue(String newValue) throws NotEditableExpection {
+        checkEditable();
         value.setValue(newValue);
+    }
+
+    public void checkEditable() throws NotEditableExpection {
+        if (!this.isEditable()) {
+            throw new NotEditableExpection();
+        }
+    }
+
+    @Override
+    public void clearValue() throws NotEditableExpection {
+        checkEditable();
+        this.value.clearValue();
     }
 
     @Override

@@ -19,9 +19,9 @@ public class ArgsParser {
     public static final int ARG_INPUT_PLAYS_FILE = 1;
     public static final int ARG_OUTPUT_PLAYS_FILE = 2;
 
-    private String arg0GameFileName = Constants.EMPTY_STRING;
-    private String arg1InputPlaysFileName = Constants.EMPTY_STRING;
-    private String arg2OutputPlaysFileName = Constants.EMPTY_STRING;
+    private String arg0GameFileName = Constants.CLEAR_STRING;
+    private String arg1InputPlaysFileName = Constants.CLEAR_STRING;
+    private String arg2OutputPlaysFileName = Constants.CLEAR_STRING;
 
     public void parseArgs(String[] args) throws Exception {
         if (args.length >= NUMBER_ARGS_NO_PLAYS) {

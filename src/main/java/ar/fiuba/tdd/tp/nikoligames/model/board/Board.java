@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
+import ar.fiuba.tdd.tp.nikoligames.model.board.node.NotEditableExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 
 import java.util.List;
@@ -20,15 +21,17 @@ public interface Board extends DrawableBoard {
 
     void setInitialNodeValue(Position position,String value);
 
-    boolean changeNodeValue(Position position, String value);
+    void changeNodeValue(Position position, String value) throws NotEditableExpection;
 
-    void createDirectedEdge(Position position1, Position position2);
+    void clearNodeValue(Position position) throws NotEditableExpection;
 
-    void createUndirectedEdge(Position position1, Position position2);
+    void createDirectedEdge(Position position1, Position position2) throws EdgeAlreadyExistsExpection;
 
-    void removeUndirectedEdge(Position position1, Position position2);
+    void createUndirectedEdge(Position position1, Position position2) throws EdgeAlreadyExistsExpection;
 
-    void removeDirectedEdge(Position position1, Position position2);
+    void removeUndirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection;
+
+    void removeDirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection;
 
     AbstractNode getNode(Position position);
 

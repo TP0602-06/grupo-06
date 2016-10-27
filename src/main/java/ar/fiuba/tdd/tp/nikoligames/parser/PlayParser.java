@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.play.*;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.*;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfig;
 import ar.fiuba.tdd.tp.nikoligames.parser.utils.SizeConfigParser;
 import org.json.simple.JSONArray;

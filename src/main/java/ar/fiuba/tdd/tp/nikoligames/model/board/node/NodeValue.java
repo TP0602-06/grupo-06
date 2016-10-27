@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board.node;
 
+import utils.Constants;
 import utils.StringToIntConverter;
 
 /**
@@ -8,14 +9,13 @@ import utils.StringToIntConverter;
  */
 public class NodeValue implements AbstractNodeValue {
 
-    private static final String DEFAUL_EMPTY_VALUE = "";
     private static final int DEFAUL_EMPTY_INT_VALUE = 0;
 
     private String value;
 
 
     public NodeValue() {
-        setValue(DEFAUL_EMPTY_VALUE);
+        setValue(Constants.CLEAR_STRING);
     }
 
     public NodeValue(String initValue) {
@@ -34,8 +34,13 @@ public class NodeValue implements AbstractNodeValue {
         this.value = value;
     }
 
+    @Override
+    public void clearValue() {
+        this.setValue(Constants.CLEAR_STRING);
+    }
+
     public boolean isEmpty() {
-        return (value.equals(DEFAUL_EMPTY_VALUE));
+        return (value.equals(Constants.CLEAR_STRING));
     }
 
 

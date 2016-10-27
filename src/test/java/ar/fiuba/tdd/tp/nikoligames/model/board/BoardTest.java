@@ -62,15 +62,28 @@ public class BoardTest {
     }
 
     @Test
-    public void createDuplicateAndRemoveEdgeTest() throws Exception {
+    public void createDuplicateAndRemoveEdgeTest() throws SizeExpection {
         Board board = new ConcreteBoard(2, 2);
         Position nodePosition = new ClassicPosition(1, 1);
         Position nodePosition2 = new ClassicPosition(1, 2);
 
-        board.createUndirectedEdge(nodePosition, nodePosition2);
-        board.createUndirectedEdge(nodePosition2, nodePosition);
+        try {
+            board.createUndirectedEdge(nodePosition, nodePosition2);
+        } catch (EdgeAlreadyExistsExpection edgeAlreadyExistsExpection) {
 
-        board.removeUndirectedEdge(nodePosition2, nodePosition);
+        }
+        try {
+            board.createUndirectedEdge(nodePosition2, nodePosition);
+        } catch (EdgeAlreadyExistsExpection edgeAlreadyExistsExpection) {
+
+        }
+
+        try {
+            board.removeUndirectedEdge(nodePosition2, nodePosition);
+        } catch (EdgeNotExistsExpection edgeNotExistsExpection) {
+
+        }
+
 
         AbstractNode node = board.getNode(nodePosition);
         AbstractNode node2 = board.getNode(nodePosition2);

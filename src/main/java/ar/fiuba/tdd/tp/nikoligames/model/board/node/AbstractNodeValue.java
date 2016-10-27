@@ -11,5 +11,7 @@ public interface AbstractNodeValue {
 
     void setValue(String value);
 
+    void clearValue();
+
     boolean isEmpty();
 }

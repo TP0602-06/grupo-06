@@ -5,6 +5,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.edge.EdgeInterface;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.ConcreteNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.DrawableNode;
+import ar.fiuba.tdd.tp.nikoligames.model.board.node.NotEditableExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
@@ -23,33 +24,33 @@ public class ConcreteBoard implements DrawableBoard, Board {
 
     private Map<EdgePosition, EdgeInterface> edges = new HashMap<EdgePosition, EdgeInterface>();
 
-    public ConcreteBoard(int rows, int cols) throws Exception {
+    public ConcreteBoard(int rows, int cols) throws SizeExpection {
         validateSize(rows, cols);
         boardSize = new Size(rows, cols);
         initializeNodes();
     }
 
-    private void validateSize(int rows, int cols) throws Exception {
+    private void validateSize(int rows, int cols) throws SizeExpection {
         if ((rows <= 0) && (cols <= 0)) {
-            throw new Exception("not a valid size");
+            throw new SizeExpection();
         }
     }
 
-    public void createUndirectedEdge(Position position1, Position position2) {
+    public void createUndirectedEdge(Position position1, Position position2) throws EdgeAlreadyExistsExpection {
         createDirectedEdge(position1, position2);
         createDirectedEdge(position2, position1);
     }
 
-    public void removeUndirectedEdge(Position pos1, Position pos2) {
+    public void removeUndirectedEdge(Position pos1, Position pos2) throws EdgeNotExistsExpection {
         removeDirectedEdge(pos2, pos1);
         removeDirectedEdge(pos1, pos2);
     }
 
-    public void createDirectedEdge(Position position1, Position position2) {
+    public void createDirectedEdge(Position position1, Position position2) throws EdgeAlreadyExistsExpection {
         checkBothPositions(position1, position2);
         EdgePosition edgePosition = new EdgePosition(position1, position2);
         if (edges.containsKey(edgePosition)) {
-            return;
+            throw new EdgeAlreadyExistsExpection();
         }
         EdgeInterface edge1 = new DirectedEdge(this, position1, position2);
         edges.put(edgePosition, edge1);
@@ -60,14 +61,16 @@ public class ConcreteBoard implements DrawableBoard, Board {
         checkRange(position2);
     }
 
-    public void removeDirectedEdge(Position position1, Position position2) {
+    public void removeDirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection {
         checkBothPositions(position1, position2);
         EdgePosition edgePosition = new EdgePosition(position1, position2);
-        if (edges.containsKey(edgePosition)) {
-            EdgeInterface edge = edges.get(edgePosition);
-            edge.erase();
-            edges.remove(edgePosition);
+        if (!edges.containsKey(edgePosition)) {
+            throw new EdgeNotExistsExpection();
         }
+        EdgeInterface edge = edges.get(edgePosition);
+        edge.erase();
+        edges.remove(edgePosition);
+
     }
 
     public int getRows() {
@@ -87,16 +90,25 @@ public class ConcreteBoard implements DrawableBoard, Board {
 
     public void setInitialNodeValue(Position position, String value) {
         AbstractNode node = getNodeFromMap(position);
+        boolean isEditable = node.isEditable();
+        node.setEditable(true);
+        try {
+            node.changeValue(value);
+        } catch (NotEditableExpection notEditableExpection) {
+            notEditableExpection.printStackTrace();
+        }
+        node.setEditable(isEditable);
+    }
+
+    public void changeNodeValue(Position position, String value) throws NotEditableExpection {
+        AbstractNode node = getNodeFromMap(position);
         node.changeValue(value);
     }
 
-    public boolean changeNodeValue(Position position, String value) {
+    @Override
+    public void clearNodeValue(Position position) throws NotEditableExpection {
         AbstractNode node = getNodeFromMap(position);
-        if (node.isEditable()) {
-            node.changeValue(value);
-            return true;
-        }
-        return false;
+        node.clearValue();
     }
 
     public AbstractNode getNodeFromMap(Position position) {

@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.acceptancetests.setup;
 
+import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeAlreadyExistsExpection;
+import ar.fiuba.tdd.tp.nikoligames.model.board.node.NotEditableExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
@@ -31,7 +33,11 @@ public class GameSetup {
         while (iterator.hasNext()) {
             String value = iterator.next();
             if (!value.isEmpty()) {
-                game.changeNodeValue(new ClassicPosition(row, col), value);
+                try {
+                    game.changeNodeValue(new ClassicPosition(row, col), value);
+                } catch (NotEditableExpection notEditableExpection) {
+                    notEditableExpection.printStackTrace();
+                }
             }
             if (col >= game.getDrawableBoard().getCols()) {
                 col = 1;
@@ -50,7 +56,11 @@ public class GameSetup {
             List<Integer> edge = circuitIterator.next();
             Position position0 = getPosition(edge, 0);
             Position position1 = getPosition(edge, 1);
-            game.createUndirectedEdge(position0, position1);
+            try {
+                game.createUndirectedEdge(position0, position1);
+            } catch (EdgeAlreadyExistsExpection edgeAlreadyExistsExpection) {
+                edgeAlreadyExistsExpection.printStackTrace();
+            }
         }
     }
 
@@ -64,7 +74,11 @@ public class GameSetup {
             List<Integer> nextPositionList = circuitIterator.next();
             Position nextPosition = getPosition(nextPositionList);
 
-            game.createUndirectedEdge(previusPosition, nextPosition);
+            try {
+                game.createUndirectedEdge(previusPosition, nextPosition);
+            } catch (EdgeAlreadyExistsExpection edgeAlreadyExistsExpection) {
+                edgeAlreadyExistsExpection.printStackTrace();
+            }
 
             previusPosition = nextPosition;
         }
