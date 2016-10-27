@@ -25,7 +25,7 @@ public class ChangeNodeValuePlay extends AbstractPlay {
     @Override
     public void undo() {
         try {
-            super.game.changeNodeValue(position, oldValue);
+            super.game.getBoard().changeNodeValue(position, oldValue);
         } catch (NotEditableExpection notEditableExpection) {
             notEditableExpection.printStackTrace();
         }

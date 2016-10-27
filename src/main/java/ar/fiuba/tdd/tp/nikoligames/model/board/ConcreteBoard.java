@@ -138,11 +138,11 @@ public class ConcreteBoard implements DrawableBoard, Board {
 
     @Override
     public Map<Position, DrawableNode> getDrawableNodes() {
-        Map<Position, DrawableNode> map = new HashMap<Position, DrawableNode>();
-        map.forEach((position, drawableNode) -> {
-                map.put(position, getDrawableNode(position));
+        Map<Position, DrawableNode> newmap = new HashMap<Position, DrawableNode>();
+        nodeMap.forEach((position, drawableNode) -> {
+                newmap.put(position, getDrawableNode(position));
             });
-        return map;
+        return newmap;
     }
 
     public Iterator getPositionIterator() {
