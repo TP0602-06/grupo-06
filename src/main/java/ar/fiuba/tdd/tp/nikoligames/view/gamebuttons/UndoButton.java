@@ -6,6 +6,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawableChangeNodeValuePlay;
 import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawableEdgeOperationPlay;
 import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
+import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.EditableViewCell;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
@@ -25,6 +26,7 @@ public class UndoButton extends JButton implements ButtonCommand {
     public UndoButton(Game game, BoardView boardView) {
         setText(buttonText);
         addMouseListener(new BasicButtonListener());
+        setBackground(ColorSet.NORMAL_BACKGROUND);
         this.game = game;
         this.boardView = boardView;
     }
@@ -44,10 +46,11 @@ public class UndoButton extends JButton implements ButtonCommand {
                 DrawableEdgeOperationPlay edgePlay = (DrawableEdgeOperationPlay) drawablePlay;
                 EdgePosition edge = edgePlay.getEdgePosition();
                 ViewEdge viewEdge = boardView.getViewEdge(edge);
-                viewEdge.undoClick();
+                viewEdge.undoClick(game);
             }
+            setBackground(ColorSet.NORMAL_BACKGROUND);
         } catch (Exception e) {
-            e.printStackTrace();
+            setBackground(ColorSet.BUTTON_EXCEPTION);
         }
     }
 }

@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.view.clickables.edge;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.play.NoPlaysException;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.LineGraphicDraw;
@@ -17,8 +19,9 @@ import java.util.List;
  */
 public class ViewDiagonalEdge extends ViewEdge {
     private List<EdgePosition> diagonals;
-    private static final Integer startIndex = -1;
     private Integer actualIndex = startIndex;
+    private static final Integer startIndex = -1;
+    private static final Integer needsTwoMovesForThisIndex = 0;
 
     public ViewDiagonalEdge(EdgePosition joiner, SelectEdgeController controller) {
         super(controller);
@@ -41,9 +44,20 @@ public class ViewDiagonalEdge extends ViewEdge {
     }
 
     @Override
-    public void undoClick() {
+    public void undoClick(Game game) {
         goBackIndex();
+        removePlayIfNecessary(game);
         updateView();
+    }
+
+    private void removePlayIfNecessary(Game game) {
+        if (actualIndex.equals(needsTwoMovesForThisIndex)) {
+            try {
+                game.undoLastPlayMade();
+            } catch (NoPlaysException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -60,7 +74,7 @@ public class ViewDiagonalEdge extends ViewEdge {
     public boolean hasEdgePosition(EdgePosition edgePosition) {
         for (int edgeIndex = 0; edgeIndex < diagonals.size(); edgeIndex++) {
             EdgePosition actual = diagonals.get(edgeIndex);
-            if (EdgePositionHelper.sameEdgePosition(edgePosition,actual)) {
+            if (EdgePositionHelper.sameEdgePosition(edgePosition, actual)) {
                 return true;
             }
         }
@@ -85,7 +99,12 @@ public class ViewDiagonalEdge extends ViewEdge {
     }
 
     private void goBackIndex() {
-        actualIndex --;
+        validateBackIndex();
+        actualIndex--;
+        validateBackIndex();
+    }
+
+    private void validateBackIndex() {
         if (actualIndex <= startIndex) {
             actualIndex = diagonals.size();
         }

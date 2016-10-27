@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.nikoligames.view.clickables.edge;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
+import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.view.ColorSet;
 import ar.fiuba.tdd.tp.nikoligames.view.board.EdgePositionHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.graphics.GraphicDraw;
@@ -22,7 +23,7 @@ public class DrawableEdge extends ViewEdge {
     }
 
     @Override
-    public void undoClick() {
+    public void undoClick(Game game) {
         super.clicked();
         repaint();
     }
