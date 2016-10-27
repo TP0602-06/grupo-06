@@ -25,10 +25,15 @@ public abstract class ViewEdge extends Paintable {
         updateView();
     }
 
+    public abstract void undoClick();
+
     protected abstract void toggleClick();
 
     public abstract EdgePosition getEdgePositions();
 
+    public abstract boolean hasEdgePosition(EdgePosition edgePosition);
+
     protected abstract void updateView();
+
 
 }

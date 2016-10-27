@@ -5,6 +5,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeNotExistsExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawableEdgeOperationPlay;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
+import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
 
 /**
@@ -39,4 +42,5 @@ public class SelectNotDiagonalEdgeController implements SelectEdgeController {
         }
 
     }
+
 }

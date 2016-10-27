@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.edgecontroller;
 
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
 
 /**
@@ -8,4 +9,5 @@ import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
 public interface SelectEdgeController {
 
     void notifySelectedEdge(ViewEdge edge);
+
 }

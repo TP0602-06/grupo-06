@@ -41,6 +41,12 @@ public class ViewDiagonalEdge extends ViewEdge {
     }
 
     @Override
+    public void undoClick() {
+        goBackIndex();
+        updateView();
+    }
+
+    @Override
     protected void toggleClick() {
         actualIndex++;
     }
@@ -48,6 +54,18 @@ public class ViewDiagonalEdge extends ViewEdge {
     @Override
     public EdgePosition getEdgePositions() {
         return diagonals.get(0);
+    }
+
+    @Override
+    public boolean hasEdgePosition(EdgePosition edgePosition) {
+        for (int edgeIndex = 0; edgeIndex < diagonals.size(); edgeIndex++) {
+            EdgePosition actual = diagonals.get(edgeIndex);
+            if (EdgePositionHelper.sameEdgePosition(edgePosition,actual)) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
     @Override
@@ -59,10 +77,18 @@ public class ViewDiagonalEdge extends ViewEdge {
             paintEdge(diagonals.get(actualIndex));
         }
         setBackground(ColorSet.TRANSPARENT);
+        repaint();
     }
 
     private void restartSequence() {
         actualIndex = startIndex;
+    }
+
+    private void goBackIndex() {
+        actualIndex --;
+        if (actualIndex <= startIndex) {
+            actualIndex = diagonals.size();
+        }
     }
 
     private void paintEdge(EdgePosition actualDiagonal) {

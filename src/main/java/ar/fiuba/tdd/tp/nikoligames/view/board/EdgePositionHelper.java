@@ -72,8 +72,8 @@ public class EdgePositionHelper {
         Position pos2Edge1 = edge1.getPosition2();
         Position pos1Edge2 = edge2.getPosition1();
         Position pos2Edge2 = edge2.getPosition2();
-        return samePosition(pos1Edge1,pos2Edge1) && samePosition(pos1Edge2,pos2Edge2)
-                || samePosition(pos1Edge1,pos2Edge2) && samePosition(pos1Edge2,pos2Edge1);
+        return (samePosition(pos1Edge1,pos1Edge2) && samePosition(pos2Edge1,pos2Edge2))
+                || (samePosition(pos1Edge1,pos2Edge2) && samePosition(pos2Edge1,pos1Edge2));
     }
 
     public static boolean samePosition(Position position1, Position position2) {
