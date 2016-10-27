@@ -123,7 +123,7 @@ public class BoardView extends JPanel {
         throw new Exception("Looking for unexistant viewEdge");
     }
 
-    public EditableViewCell getViewCell(Position cell) throws Exception {
+    public EditableViewCell getEditableCell(Position cell) throws Exception {
         List<EditableViewCell> editableViewCells = getEditableViewCells();
         for (int i = 0; i < editableViewCells.size(); i++) {
             EditableViewCell editableViewCell = editableViewCells.get(i);

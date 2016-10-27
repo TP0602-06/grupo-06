@@ -29,7 +29,6 @@ public class SelectValueControllerImp implements SelectValueController {
     private Game game;
     private AbstractFocusCellViewHelper focusCellViewHelper = new FocusCellViewHelper();
     private AbstractEditableNumberCell lastSelectedEditableCellView;
-    private BoardView board;
 
     public SelectValueControllerImp(Game game) {
         this.game = game;
@@ -41,10 +40,6 @@ public class SelectValueControllerImp implements SelectValueController {
 
     public void addInputBoardView(GridView inputBoardView) {
         this.selectValueGridView = inputBoardView;
-    }
-
-    public void addBoardView(BoardView boardView) {
-        this.board = boardView;
     }
 
     public void notifySelectedEditableCellView(AbstractEditableNumberCell cellView) {
