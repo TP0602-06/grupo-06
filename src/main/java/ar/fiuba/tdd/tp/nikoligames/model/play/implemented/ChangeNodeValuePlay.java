@@ -36,6 +36,6 @@ public class ChangeNodeValuePlay extends AbstractPlay {
     }
 
     public DrawablePlay getDrawableUndoPlay() {
-        return new DrawableChangeNodeValuePlay(position, value);
+        return new DrawableChangeNodeValuePlay(position, oldValue);
     }
 }
