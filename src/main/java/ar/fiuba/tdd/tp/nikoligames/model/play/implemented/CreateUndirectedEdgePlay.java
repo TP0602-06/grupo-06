@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.model.play.implemented;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeAlreadyExistsExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeNotExistsExpection;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
 import ar.fiuba.tdd.tp.nikoligames.model.play.AbstractChangeEdgePlay;
@@ -26,6 +27,12 @@ public class CreateUndirectedEdgePlay extends AbstractChangeEdgePlay {
         } catch (EdgeNotExistsExpection edgeNotExistsExpection) {
             edgeNotExistsExpection.printStackTrace();
         }
+    }
+
+    @Override
+    public DrawablePlay getDrawableUndoPlay() {
+        EdgePosition edgePosition = new EdgePosition(position1, position2);
+        return new DrawableEdgeOperationPlay(edgePosition, DrawableEdgeOperationPlay.EdgeOperation.REMOVE_UNDIRECTED);
     }
 
     @SuppressWarnings("CPD-END")

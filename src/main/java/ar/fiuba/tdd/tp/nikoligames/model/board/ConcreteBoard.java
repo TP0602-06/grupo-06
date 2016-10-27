@@ -121,12 +121,6 @@ public class ConcreteBoard implements DrawableBoard, Board {
         return this.nodeMap.get(position);
     }
 
-    @Override
-    public String getNodeValue(Position position) {
-        AbstractNode node = this.getNode(position);
-        return node.getValue();
-    }
-
     public List<AbstractNode> getAllNodes() {
         Collection<AbstractNode> nodes = this.nodeMap.values();
         List<AbstractNode> nodeList = new ArrayList(nodes);
@@ -135,6 +129,20 @@ public class ConcreteBoard implements DrawableBoard, Board {
 
     public DrawableNode getDrawableNode(Position position) {
         return getNode(position);
+    }
+
+    @Override
+    public Set<EdgePosition> getDrawableEdges() {
+        return edges.keySet();
+    }
+
+    @Override
+    public Map<Position, DrawableNode> getDrawableNodes() {
+        Map<Position, DrawableNode> map = new HashMap<Position, DrawableNode>();
+        map.forEach((position, drawableNode) -> {
+                map.put(position, getDrawableNode(position));
+            });
+        return map;
     }
 
     public Iterator getPositionIterator() {

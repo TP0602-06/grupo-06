@@ -7,7 +7,9 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeNotExistsExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.NotEditableExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.play.AbstractPlayHistory;
+import ar.fiuba.tdd.tp.nikoligames.model.play.NoPlaysException;
 import ar.fiuba.tdd.tp.nikoligames.model.play.PlayHistory;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleManager;
 
@@ -58,8 +60,8 @@ public class GameWithPlaysImplementation implements Game {
     }
 
     @Override
-    public void undoLastPlayMade() {
-        playHistory.undo();
+    public DrawablePlay undoLastPlayMade() throws NoPlaysException {
+        return playHistory.undo();
     }
 
     public DrawableBoard getDrawableBoard() {

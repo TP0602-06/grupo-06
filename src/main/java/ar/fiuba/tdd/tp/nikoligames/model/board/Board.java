@@ -27,17 +27,16 @@ public interface Board extends DrawableBoard {
 
     void createDirectedEdge(Position position1, Position position2) throws EdgeAlreadyExistsExpection;
 
+    AbstractNode getNode(Position position);
+
+    List<AbstractNode> getAllNodes();
+
     void createUndirectedEdge(Position position1, Position position2) throws EdgeAlreadyExistsExpection;
 
     void removeUndirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection;
 
     void removeDirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection;
 
-    AbstractNode getNode(Position position);
 
-    String getNodeValue(Position position);
-
-
-    List<AbstractNode> getAllNodes();
 
 }

@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeAlreadyExistsExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeNotExistsExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.NotEditableExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
 
 /**
  * Created by german on 10/27/2016.
@@ -20,5 +21,5 @@ public interface AbstractPlayHistory {
 
     void removeUndirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection;
 
-    void undo();
+    DrawablePlay undo() throws NoPlaysException;
 }

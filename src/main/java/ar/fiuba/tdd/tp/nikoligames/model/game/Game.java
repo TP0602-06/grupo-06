@@ -6,6 +6,8 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeAlreadyExistsExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeNotExistsExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.NotEditableExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.play.NoPlaysException;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
 
 /**
  * Created by german on 10/1/2016.
@@ -32,7 +34,7 @@ public interface Game {
 
     void removeDirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection;
 
-    void undoLastPlayMade();
+    DrawablePlay undoLastPlayMade() throws NoPlaysException;
 
     DrawableBoard getDrawableBoard();
 

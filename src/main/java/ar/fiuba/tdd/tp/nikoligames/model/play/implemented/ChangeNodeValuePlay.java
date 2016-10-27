@@ -35,7 +35,7 @@ public class ChangeNodeValuePlay extends AbstractPlay {
         super.game.getBoard().changeNodeValue(position, value);
     }
 
-    public String getValue() {
-        return value;
+    public DrawablePlay getDrawableUndoPlay() {
+        return new DrawableChangeNodeValuePlay(position, value);
     }
 }

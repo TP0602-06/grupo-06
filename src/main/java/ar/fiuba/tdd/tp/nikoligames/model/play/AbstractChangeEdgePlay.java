@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.model.play;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawableChangeNodeValuePlay;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
 
 /**
  * Responsibilities:
@@ -26,4 +28,5 @@ public abstract class AbstractChangeEdgePlay extends AbstractPlay {
     public Position getPosition1() {
         return position1;
     }
+
 }

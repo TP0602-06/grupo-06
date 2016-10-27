@@ -31,7 +31,7 @@ public class PlayHistory implements AbstractPlayHistory {
 
     @SuppressWarnings("CPD-START")
     public void changeNodeValue(String newValue, Position position) throws NotEditableExpection {
-        AbstractPlay play = new ChangeNodeValuePlay(game, nextPlayNumber, newValue, position);
+        ChangeNodeValuePlay play = new ChangeNodeValuePlay(game, nextPlayNumber, newValue, position);
         try {
             this.addPlay(play);
         } catch (EdgeNotExistsExpection edgeNotExistsExpection) {
@@ -85,8 +85,12 @@ public class PlayHistory implements AbstractPlayHistory {
         }
     }
 
-    public void undo() {
+    public DrawablePlay undo() throws NoPlaysException {
+        if (playsMadeStack.isEmpty()) {
+            throw new NoPlaysException();
+        }
         UndoablePlay play = playsMadeStack.pop();
         play.undo();
+        return play.getDrawableUndoPlay();
     }
 }
