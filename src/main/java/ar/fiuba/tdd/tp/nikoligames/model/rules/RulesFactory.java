@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.model.rules;
 
-
 import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.nodecondition.ValidInputValueRule;
@@ -43,6 +42,8 @@ public class RulesFactory {
         hashFactory.put(RuleType.REGION_VISITED_COUNT, new RegionVisitedCountRuleFactory());
 
         hashFactory.put(RuleType.ADDITION.DIAGONAL_CELL_NOT_EMPTY, new DiagonalCellNotEmptyGeneratorFactory());
+
+        hashFactory.put(RuleType.CONSECUTIVE_NUMBERS, new ConsecutiveNumbersRuleFactory());
     }
 
     @SuppressWarnings("CPD-END")

@@ -8,92 +8,136 @@
         "definition": "NON_EMPTY_REGION"
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 1 , 1 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 1 , 2 ], [ 2 , 2 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 1 , 3 ], [ 1 , 4 ], [ 1 , 5 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 1 , 6 ], [ 1 , 7 ], [ 1 , 8 ], [ 2 , 7 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 2 , 1 ], [ 3 , 1 ], [ 3 , 2 ], [ 4 , 1 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 2 , 3 ], [ 3 , 3 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 2 , 4 ], [ 3 , 4 ], [ 3 , 5 ], [ 4 , 4 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 2 , 5 ], [ 2 , 6 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 2 , 8 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 3 , 6 ], [ 3 , 7 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 3 , 8 ], [ 4 , 7 ], [ 4 , 8 ], [ 5 , 8 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 4 , 5 ], [ 4 , 6 ], [ 5 , 6 ], [ 5 , 7 ], [ 6 , 6 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 4 , 2 ], [ 4 , 3 ], [ 5 , 1 ], [ 5 , 2 ], [ 6 , 2 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 5 , 3 ], [ 6 , 3 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 5 , 4 ], [ 5 , 5 ], [ 6 , 5 ], [ 7 , 4 ], [ 7 , 5 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 6 , 1 ], [ 7 , 1 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 6 , 4 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 6 , 7 ], [ 6 , 8 ], [ 7 , 6 ], [ 7 , 7 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 7 , 2 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 7 , 3 ], [ 8 , 3 ], [ 8 , 4 ], [ 8 , 5 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 7 , 8 ], [ 8 , 6 ], [ 8 , 7 ], [ 8 , 8 ] ]
       },
       {
-        "definition": "NO_DUPLICATES",
+        "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 8 , 1 ], [ 8 , 2 ] ]
+      }
+    ]
+  },
+  "board": {
+    "values": [
+      {
+        "editable": false,
+        "value": "3",
+        "position": [ 1 , 4 ]
+      },
+      {
+        "editable": false,
+        "value": "2",
+        "position": [ 3 , 7 ]
+      },
+      {
+        "editable": false,
+        "value": "1",
+        "position": [ 4 , 4 ]
+      },
+      {
+        "editable": false,
+        "value": "3",
+        "position": [ 4 , 6 ]
+      },
+      {
+        "editable": false,
+        "value": "1",
+        "position": [ 5 , 3 ]
+      },
+      {
+        "editable": false,
+        "value": "5",
+        "position": [ 5 , 5 ]
+      },
+      {
+        "editable": false,
+        "value": "3",
+        "position": [ 6 , 2 ]
+      },
+      {
+        "editable": false,
+        "value": "2",
+        "position": [ 8 , 5 ]
       }
     ]
   },

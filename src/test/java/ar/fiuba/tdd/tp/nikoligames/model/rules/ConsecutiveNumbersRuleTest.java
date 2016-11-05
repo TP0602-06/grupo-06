@@ -15,7 +15,7 @@ import java.util.List;
 public class ConsecutiveNumbersRuleTest {
     @Test
     public void ruleWithConsecutiveNumbers() {
-        List<String> nodeValues = Arrays.asList("1", "2", "3", "4");
+        List<String> nodeValues = Arrays.asList("1", "3", "4", "2");
         List<AbstractNode> nodes = NodeWithValueCreator.createNodesWithValues(nodeValues, false);
 
         ConsecutiveNumbersRule rule = new ConsecutiveNumbersRule(nodes);
@@ -24,7 +24,7 @@ public class ConsecutiveNumbersRuleTest {
 
     @Test
     public void ruleWithoutConsecutiveNumbers() {
-        List<String> nodeValues = Arrays.asList("1", "2", "5", "6");
+        List<String> nodeValues = Arrays.asList("1", "3", "5", "2");
         List<AbstractNode> nodes = NodeWithValueCreator.createNodesWithValues(nodeValues, false);
 
         ConsecutiveNumbersRule rule = new ConsecutiveNumbersRule(nodes);

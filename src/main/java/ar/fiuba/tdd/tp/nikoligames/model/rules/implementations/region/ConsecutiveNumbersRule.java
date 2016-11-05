@@ -11,8 +11,6 @@ import java.util.List;
 public class ConsecutiveNumbersRule extends RuleImplementation {
     public ConsecutiveNumbersRule(List<AbstractNode> nodes) {
         super(nodes, "");
-
-        this.region.sort((node1, node2) -> node1.getValue().compareTo(node2.getValue()));
     }
 
     @Override
@@ -26,11 +24,12 @@ public class ConsecutiveNumbersRule extends RuleImplementation {
     }
 
     private boolean check() {
+        this.region.sort((node1, node2) -> node1.getValue().compareTo(node2.getValue()));
         for (int index = 0; index < (this.region.size() - 1); index++) {
             AbstractNode currentNode = this.region.get(index);
             AbstractNode nextNode = this.region.get(index + 1);
 
-            if (currentNode.isEmpty()) {
+            if (currentNode.isEmpty() || nextNode.isEmpty()) {
                 continue;
             }
 
