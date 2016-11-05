@@ -7,23 +7,16 @@ import java.util.List;
 
 /**
  * Created by matias on 05/11/16.
+ * Responsabilities:
+ * 1. Check that each node contains consecutive numbers
  */
-public class ConsecutiveNumbersRule extends RuleImplementation {
-    public ConsecutiveNumbersRule(List<AbstractNode> nodes) {
-        super(nodes, "");
+public class ConsecutiveNumbersRule extends RegionAbstractRule {
+    public ConsecutiveNumbersRule(List<AbstractNode> region) {
+        super(region);
     }
 
     @Override
-    public boolean isBroken() {
-        return this.check();
-    }
-
-    @Override
-    public boolean isActualBroken() {
-        return this.check();
-    }
-
-    private boolean check() {
+    protected boolean check() {
         this.region.sort((node1, node2) -> node1.getValue().compareTo(node2.getValue()));
         for (int index = 0; index < (this.region.size() - 1); index++) {
             AbstractNode currentNode = this.region.get(index);

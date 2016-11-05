@@ -7,37 +7,28 @@ import java.util.List;
 
 /**
  * Created by matias on 05/11/16.
+ * Responsabilities:
+ * 1. Check if a number is duplicated in a row or a column, the space between the duplicated
+ * numbers must be equal to or larger than the value of the number.
  */
-public class DistanceBetweenDuplicatesRule extends RuleImplementation {
+public class DistanceBetweenDuplicatesRule extends RegionAbstractRule {
     private static final int NO_DUPLICATES_DISTANCE = -1;
 
     public DistanceBetweenDuplicatesRule(List<AbstractNode> region) {
-        super(region, "");
+        super(region);
     }
 
     @Override
-    public boolean isBroken() {
-        return this.check();
-    }
-
-    @Override
-    public boolean isActualBroken() {
-        return this.check();
-    }
-
-    private boolean check() {
+    protected boolean check() {
         for (int index = 0; index < this.region.size(); index++) {
             AbstractNode currentNode = this.region.get(index);
-            if (currentNode.isEmpty()) {
+            int distanceToNextDuplicate = this.getDistanceToNextDuplicate(index);
+
+            if ((currentNode.isEmpty()) || (distanceToNextDuplicate == NO_DUPLICATES_DISTANCE)) {
                 continue;
             }
 
             int currentValue = Integer.parseInt(currentNode.getValue());
-            int distanceToNextDuplicate = this.getDistanceToNextDuplicate(index);
-            if (distanceToNextDuplicate == NO_DUPLICATES_DISTANCE) {
-                continue;
-            }
-
             if (currentValue > distanceToNextDuplicate) {
                 return true;
             }
@@ -49,16 +40,12 @@ public class DistanceBetweenDuplicatesRule extends RuleImplementation {
         AbstractNode node = this.region.get(nodeIndex);
 
         for (int index = 0; index < this.region.size(); index++) {
-            if (index == nodeIndex) {
-                continue;
-            }
-
             AbstractNode currentNode = this.region.get(index);
-            if (currentNode.isEmpty()) {
+            if ((index == nodeIndex) || currentNode.isEmpty()) {
                 continue;
             }
 
-            if (node.getValue() == currentNode.getValue()) {
+            if (node.getValue().equals(currentNode.getValue())) {
                 return Math.abs(nodeIndex - index) - 1;
             }
         }

@@ -18,7 +18,7 @@ public class NonEmptyRegionRule extends RuleImplementation {
 
     @Override
     public boolean isBroken() {
-        Iterator<AbstractNode> regionIterator = region.iterator();
+        Iterator<AbstractNode> regionIterator = this.region.iterator();
         while (regionIterator.hasNext()) {
             AbstractNode node = regionIterator.next();
             if (!node.isEditable()) {
