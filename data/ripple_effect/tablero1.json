@@ -1,10 +1,7 @@
 {
   "game_name" : "RIPPLE EFFECT",
-
   "grid_size" : [ 8 , 8 ],
-
   "valid_input" : [ "1", "2", "3", "4", "5" ],
-
   "rules": {
     "values": [
       {
@@ -105,42 +102,42 @@
     "board_dimension": [ 400, 400 ],
     "cell_hints": [
       {
-        "definition":"CONTENTCELL",
+        "definition": "CONTENTCELL",
         "value": "3",
         "pos": [ 1 , 4 ]
       },
       {
-        "definition":"CONTENTCELL",
+        "definition": "CONTENTCELL",
         "value": "2",
         "pos": [ 3 , 7 ]
       },
       {
-        "definition":"CONTENTCELL",
+        "definition": "CONTENTCELL",
         "value": "1",
         "pos": [ 4 , 4 ]
       },
       {
-        "definition":"CONTENTCELL",
+        "definition": "CONTENTCELL",
         "value": "3",
         "pos": [ 4 , 6 ]
       },
       {
-        "definition":"CONTENTCELL",
+        "definition": "CONTENTCELL",
         "value": "1",
         "pos": [ 5 , 3 ]
       },
       {
-        "definition":"CONTENTCELL",
+        "definition": "CONTENTCELL",
         "value": "5",
         "pos": [ 5 , 5 ]
       },
       {
-        "definition":"CONTENTCELL",
+        "definition": "CONTENTCELL",
         "value": "3",
         "pos": [ 6 , 2 ]
       },
       {
-        "definition":"CONTENTCELL",
+        "definition": "CONTENTCELL",
         "value": "2",
         "pos": [ 8 , 5 ]
       }
@@ -170,5 +167,4 @@
       [ [ 8 , 1 ], [ 8 , 2 ] ]
     ]
   }
-
 }

@@ -15,7 +15,6 @@ import java.util.List;
 public class NoDuplicatesRuleTest {
     @Test
     public void ruleWithoutNoDuplicates() {
-
         List<String> nodeValues = Arrays.asList("1", "2", "3", "4");
         List<AbstractNode> nodes = NodeWithValueCreator.createNodesWithValues(nodeValues, false);
 
