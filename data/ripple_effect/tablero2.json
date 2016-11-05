@@ -22,6 +22,38 @@
       {
         "definition": "CONSECUTIVE_NUMBERS",
         "region": [ [ 3 , 3 ], [ 3 , 4 ], [ 4 , 3 ], [ 4 , 4 ] ]
+      },
+      {
+        "definition": "DISTANCE_BETWEEN_DUPLICATES",
+        "region": [ [ 1 , 1 ], [ 1 , 2 ], [ 1 , 3 ], [ 1 , 4 ] ]
+      },
+      {
+        "definition": "DISTANCE_BETWEEN_DUPLICATES",
+        "region": [ [ 2 , 1 ], [ 2 , 2 ], [ 2 , 3 ], [ 2 , 4 ] ]
+      },
+      {
+        "definition": "DISTANCE_BETWEEN_DUPLICATES",
+        "region": [ [ 3 , 1 ], [ 3 , 2 ], [ 3 , 3 ], [ 3 , 4 ] ]
+      },
+      {
+        "definition": "DISTANCE_BETWEEN_DUPLICATES",
+        "region": [ [ 4 , 1 ], [ 4 , 2 ], [ 4 , 3 ], [ 4 , 4 ] ]
+      },
+      {
+        "definition": "DISTANCE_BETWEEN_DUPLICATES",
+        "region": [ [ 1 , 1 ], [ 2 , 1 ], [ 3 , 1 ], [ 4 , 1 ] ]
+      },
+      {
+        "definition": "DISTANCE_BETWEEN_DUPLICATES",
+        "region": [ [ 1 , 2 ], [ 2 , 2 ], [ 3 , 2 ], [ 4 , 2 ] ]
+      },
+      {
+        "definition": "DISTANCE_BETWEEN_DUPLICATES",
+        "region": [ [ 1 , 3 ], [ 2 , 3 ], [ 3 , 3 ], [ 4 , 3 ] ]
+      },
+      {
+        "definition": "DISTANCE_BETWEEN_DUPLICATES",
+        "region": [ [ 1 , 4 ], [ 2 , 4 ], [ 3 , 4 ], [ 4 , 4 ] ]
       }
     ]
   },
