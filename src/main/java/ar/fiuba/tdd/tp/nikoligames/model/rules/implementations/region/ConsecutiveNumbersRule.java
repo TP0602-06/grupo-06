@@ -33,10 +33,10 @@ public class ConsecutiveNumbersRule extends RuleImplementation {
                 continue;
             }
 
-            int currentNodeValue = Integer.parseInt(currentNode.getValue());
-            int nextNodeValue = Integer.parseInt(nextNode.getValue());
+            int currentValue = Integer.parseInt(currentNode.getValue());
+            int nextValue = Integer.parseInt(nextNode.getValue());
 
-            if (nextNodeValue != (currentNodeValue + 1)) {
+            if (nextValue != (currentValue + 1)) {
                 return true;
             }
         }

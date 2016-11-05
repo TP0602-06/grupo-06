@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.nikoligames.model.rules;
+package ar.fiuba.tdd.tp.nikoligames.model.rules.region;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.region.ConsecutiveNumbersRule;
