@@ -9,9 +9,6 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by matias on 05/11/16.
- */
 public class ConsecutiveNumbersRuleTest {
     @Test
     public void ruleWithConsecutiveNumbers() {

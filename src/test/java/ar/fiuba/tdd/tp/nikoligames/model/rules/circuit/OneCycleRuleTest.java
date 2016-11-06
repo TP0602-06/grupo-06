@@ -4,15 +4,11 @@ import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.circuit.OneCycleRule;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.utils.ChainEdgeCreator;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.utils.DefaultRegionCreator;
-import com.sun.net.httpserver.Filter;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 
-/**
- * Created by matias on 13/10/16.
- */
 public class OneCycleRuleTest {
     @Test
     public void ruleWithOneCycle() {

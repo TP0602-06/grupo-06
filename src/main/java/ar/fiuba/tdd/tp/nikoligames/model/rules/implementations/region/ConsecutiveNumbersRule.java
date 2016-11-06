@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleImplementation;
 import java.util.List;
 
 /**
- * Created by matias on 05/11/16.
  * Responsabilities:
  * 1. Check that each node contains consecutive numbers
  */

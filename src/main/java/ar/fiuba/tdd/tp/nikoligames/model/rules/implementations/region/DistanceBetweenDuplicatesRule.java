@@ -6,7 +6,6 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleImplementation;
 import java.util.List;
 
 /**
- * Created by matias on 05/11/16.
  * Responsabilities:
  * 1. Check if a number is duplicated in a row or a column, the space between the duplicated
  * numbers must be equal to or larger than the value of the number.

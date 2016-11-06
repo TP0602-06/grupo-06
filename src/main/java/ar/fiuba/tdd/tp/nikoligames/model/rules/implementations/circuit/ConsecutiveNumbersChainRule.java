@@ -2,13 +2,13 @@ package ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleImplementation;
-import com.sun.javafx.binding.SelectBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by matias on 06/11/16.
+ * Responsibilities:
+ * 1. Checks if exists a chain of consecutive numbers
  */
 public class ConsecutiveNumbersChainRule extends RuleImplementation {
     public ConsecutiveNumbersChainRule(List<AbstractNode> region) {
@@ -37,18 +37,14 @@ public class ConsecutiveNumbersChainRule extends RuleImplementation {
 
     private boolean hasConsecutiveNumbers(int currentValue, AbstractNode node, List<AbstractNode> visitedNodes) {
         boolean hasConsecutiveNumbers = true;
-        if (!node.isEmpty())
-            currentValue = Integer.parseInt(node.getValue());
+        currentValue = this.getCurrentValue(node, currentValue);
         for (AbstractNode edge : node.getEdgeList()) {
             if (visitedNodes.contains(edge)) {
                 continue;
             }
             visitedNodes.add(edge);
-            if (!edge.isEmpty()) {
-                int edgeValue = Integer.parseInt(edge.getValue());
-                if (Math.abs(currentValue - edgeValue) > 1) {
-                    return false;
-                }
+            if (!this.validEdge(edge, currentValue)) {
+                return false;
             }
             hasConsecutiveNumbers &= this.hasConsecutiveNumbers(currentValue, edge, visitedNodes);
         }
@@ -78,5 +74,20 @@ public class ConsecutiveNumbersChainRule extends RuleImplementation {
         } else {
             return node2;
         }
+    }
+
+    private int getCurrentValue(AbstractNode node, int currentValue) {
+        if (node.isEmpty()) {
+            return currentValue;
+        }
+        return Integer.parseInt(node.getValue());
+    }
+
+    private boolean validEdge(AbstractNode edge, int currentValue) {
+        if (edge.isEmpty()) {
+            return true;
+        }
+        int edgeValue = Integer.parseInt(edge.getValue());
+        return (Math.abs(currentValue - edgeValue) == 1);
     }
 }

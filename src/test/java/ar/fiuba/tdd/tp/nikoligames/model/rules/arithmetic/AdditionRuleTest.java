@@ -9,9 +9,6 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by matias on 11/10/16.
- */
 public class AdditionRuleTest {
     @Test
     public void validRuleWithoutEmptyNodes() {
