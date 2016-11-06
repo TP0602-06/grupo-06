@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by german on 10/13/2016.
  */
-public class NoCyleRuleTest {
+public class NoCycleRuleTest {
 
     @Test
     public void nodeNoEdgesTest() {
