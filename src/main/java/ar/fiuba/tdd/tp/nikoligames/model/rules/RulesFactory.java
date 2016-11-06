@@ -45,6 +45,7 @@ public class RulesFactory {
 
         hashFactory.put(RuleType.CONSECUTIVE_NUMBERS, new ConsecutiveNumbersRuleFactory());
         hashFactory.put(RuleType.DISTANCE_BETWEEN_DUPLICATES, new DistanceBetweenDuplicatesRuleFactory());
+        hashFactory.put(RuleType.CONSECUTIVE_NUMBERS_CHAIN, new ConsecutiveNumbersChainRuleFactory());
     }
 
     @SuppressWarnings("CPD-END")

@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.circuit;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.RuleImplementation;
+import com.sun.javafx.binding.SelectBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,22 +32,25 @@ public class ConsecutiveNumbersChainRule extends RuleImplementation {
     private boolean hasConsecutiveNumbers(AbstractNode node) {
         ArrayList<AbstractNode> visitedNodes = new ArrayList<>();
         visitedNodes.add(node);
-        return this.hasConsecutiveNumbers(node, visitedNodes);
+        return this.hasConsecutiveNumbers(0, node, visitedNodes);
     }
 
-    private boolean hasConsecutiveNumbers(AbstractNode node, List<AbstractNode> visitedNodes) {
+    private boolean hasConsecutiveNumbers(int currentValue, AbstractNode node, List<AbstractNode> visitedNodes) {
         boolean hasConsecutiveNumbers = true;
-        int nodeValue = Integer.parseInt(node.getValue());
+        if (!node.isEmpty())
+            currentValue = Integer.parseInt(node.getValue());
         for (AbstractNode edge : node.getEdgeList()) {
             if (visitedNodes.contains(edge)) {
                 continue;
             }
             visitedNodes.add(edge);
-            int edgeValue = Integer.parseInt(edge.getValue());
-            if (Math.abs(nodeValue - edgeValue) > 1) {
-                return false;
+            if (!edge.isEmpty()) {
+                int edgeValue = Integer.parseInt(edge.getValue());
+                if (Math.abs(currentValue - edgeValue) > 1) {
+                    return false;
+                }
             }
-            hasConsecutiveNumbers &= this.hasConsecutiveNumbers(edge, visitedNodes);
+            hasConsecutiveNumbers &= this.hasConsecutiveNumbers(currentValue, edge, visitedNodes);
         }
         return hasConsecutiveNumbers;
     }

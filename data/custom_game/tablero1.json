@@ -9,6 +9,58 @@
       },
       {
         "definition": "ONE_CYCLE"
+      },
+      {
+        "definition": "CONSECUTIVE_NUMBERS_CHAIN"
+      }
+    ]
+  },
+  "board": {
+    "values": [
+      {
+        "editable": false,
+        "value": "1",
+        "position": [ 1, 1 ]
+      },
+      {
+        "editable": false,
+        "value": "2",
+        "position": [ 2, 6 ]
+      },
+      {
+        "editable": false,
+        "value": "3",
+        "position": [ 2, 7 ]
+      },
+      {
+        "editable": false,
+        "value": "4",
+        "position": [ 3, 2 ]
+      },
+      {
+        "editable": false,
+        "value": "5",
+        "position": [ 4, 3 ]
+      },
+      {
+        "editable": false,
+        "value": "6",
+        "position": [ 4, 5 ]
+      },
+      {
+        "editable": false,
+        "value": "7",
+        "position": [ 6, 3 ]
+      },
+      {
+        "editable": false,
+        "value": "8",
+        "position": [ 5, 7 ]
+      },
+      {
+        "editable": false,
+        "value": "9",
+        "position": [ 7, 5 ]
       }
     ]
   },
