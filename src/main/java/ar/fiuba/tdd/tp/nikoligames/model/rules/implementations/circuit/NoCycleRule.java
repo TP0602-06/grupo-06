@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class NoCycleRule extends RuleImplementation {
     public NoCycleRule(List<AbstractNode> region) {
-        super(region, Constants.EMPTY_STRING);
+        super(region, Constants.CLEAR_STRING);
     }
 
 

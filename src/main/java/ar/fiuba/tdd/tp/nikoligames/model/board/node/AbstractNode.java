@@ -17,7 +17,9 @@ public abstract class AbstractNode implements DrawableNode {
 
     public abstract int getIntValue();
 
-    public abstract void changeValue(String value);
+    public abstract void changeValue(String value) throws NotEditableExpection;
+
+    public abstract void clearValue() throws NotEditableExpection;
 
     public abstract boolean isInvalid();
 

@@ -14,7 +14,7 @@ public class DefaultRegionCreator {
     public static List<AbstractNode> createRegion(int size) {
         ArrayList<AbstractNode> region = new ArrayList<>();
         for (int count = 0; count < size; count++) {
-            region.add(new ConcreteNode(Constants.EMPTY_STRING, false));
+            region.add(new ConcreteNode(Constants.CLEAR_STRING, false));
         }
         return region;
     }

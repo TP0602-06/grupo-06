@@ -18,8 +18,8 @@ import ar.fiuba.tdd.tp.nikoligames.view.parentview.GameView;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueController;
 import ar.fiuba.tdd.tp.nikoligames.view.viewcontroller.SelectValueControllerImp;
 
-import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -47,7 +47,7 @@ public class FactoryBoardViewImplementation implements FactoryBoard {
 
         GridView boardGridView = new GridOfSquares(rows, cols);
 
-        selectValueController.addBoardView(boardGridView);
+        selectValueController.addGridView(boardGridView);
 
         fillGridWithCellsFromModel(boardGridView, rows, cols);
         boardGridView.paintRegions(regionConfigs);

@@ -20,6 +20,7 @@ public class CheckGameButton extends JButton implements ButtonCommand {
 
     public CheckGameButton(Game game) {
         setText(checkText);
+        setBackground(ColorSet.NORMAL_BACKGROUND);
         addMouseListener(new BasicButtonListener());
         this.game = game;
     }

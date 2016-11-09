@@ -7,14 +7,12 @@ import ar.fiuba.tdd.tp.nikoligames.model.rules.utils.NodeWithValueCreator;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-/**
- * Created by matias on 13/10/16.
- */
 public class ValidInputValueRuleTest {
-
-
     private Rule setup(List<String> nodeValues, List<String> validValues) {
         List<AbstractNode> nodes = NodeWithValueCreator.createNodesWithValues(nodeValues, false);
         Set<String> validValuesSet = getValidValuesSet(validValues);

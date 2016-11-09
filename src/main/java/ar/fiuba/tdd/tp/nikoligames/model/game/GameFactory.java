@@ -24,7 +24,7 @@ public class GameFactory {
         Board board = makeBoard(gameConfig);
         List<Rule> rules = makeRules(gameConfig, board);
 
-        Game game = new ConcreteGameAdmitsInvalidPlays(board, rules);
+        Game game = new GameWithPlaysImplementation(board, rules);
         return game;
     }
 

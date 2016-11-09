@@ -2,12 +2,13 @@ package ar.fiuba.tdd.tp.nikoligames.model.play;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawableChangeNodeValuePlay;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
 
 /**
  * Responsibilities:
  * 1. Play of the game, it  models all the plays of the game.
  * 2. It models the plays with changes in the edge.
- *
  */
 public abstract class AbstractChangeEdgePlay extends AbstractPlay {
 
@@ -18,6 +19,14 @@ public abstract class AbstractChangeEdgePlay extends AbstractPlay {
         super(game, number);
         this.position1 = position1;
         this.position2 = position2;
+    }
+
+    public Position getPosition2() {
+        return position2;
+    }
+
+    public Position getPosition1() {
+        return position1;
     }
 
 }

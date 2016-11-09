@@ -1,12 +1,18 @@
 package ar.fiuba.tdd.tp.nikoligames.view.viewcontroller;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawableChangeNodeValuePlay;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
+import ar.fiuba.tdd.tp.nikoligames.view.board.BoardView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focuscellviewhelper.AbstractFocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focuscellviewhelper.FocusCellViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focusgridviewhelper.AbstractFocusGridViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.focushelpers.focusgridviewhelper.FocusGridViewHelper;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.AbstractEditableNumberCell;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.EditableViewCell;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
 
 import java.awt.*;
@@ -28,7 +34,7 @@ public class SelectValueControllerImp implements SelectValueController {
         this.game = game;
     }
 
-    public void addBoardView(GridView boardView) {
+    public void addGridView(GridView boardView) {
         this.focusGridHelper = new FocusGridViewHelper(boardView);
     }
 
@@ -78,4 +84,5 @@ public class SelectValueControllerImp implements SelectValueController {
         ClassicPosition celPosition = new ClassicPosition(row, col);
         game.changeNodeValue(celPosition, value);
     }
+
 }

@@ -19,7 +19,7 @@ public class NoNotVisitedAdjacentNodesInSameRegionRule extends RuleImplementatio
 
     //la region seria cada par de celda contiguas o adyacentes
     public NoNotVisitedAdjacentNodesInSameRegionRule(List<AbstractNode> region, List<List<AbstractNode>> regions) {
-        super(region, Constants.EMPTY_STRING);
+        super(region, Constants.CLEAR_STRING);
         this.regions = regions;
     }
 

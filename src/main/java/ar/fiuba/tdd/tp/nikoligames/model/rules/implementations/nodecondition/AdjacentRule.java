@@ -17,7 +17,7 @@ public class AdjacentRule extends AbstractRegionRule {
     @SuppressWarnings("CPD-START")
 
     public AdjacentRule(List<AbstractNode> region, List<AbstractNode> adjacentNodes) {
-        super(region, Constants.EMPTY_STRING);
+        super(region, Constants.CLEAR_STRING);
         this.adjacentNodes = adjacentNodes;
     }
 

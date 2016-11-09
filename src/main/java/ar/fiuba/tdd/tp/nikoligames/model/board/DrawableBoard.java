@@ -1,9 +1,12 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.DrawableNode;
+import ar.fiuba.tdd.tp.nikoligames.model.board.position.EdgePosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
 
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Responsabilites:
@@ -13,6 +16,10 @@ import java.util.Iterator;
  */
 public interface DrawableBoard {
     DrawableNode getDrawableNode(Position position);
+
+    Set<EdgePosition> getDrawableEdges();
+
+    Map<Position, DrawableNode> getDrawableNodes();
 
     int getCols();
 

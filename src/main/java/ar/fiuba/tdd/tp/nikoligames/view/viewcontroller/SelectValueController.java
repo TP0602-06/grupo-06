@@ -12,7 +12,7 @@ import java.awt.Component;
  */
 public interface SelectValueController {
 
-    void addBoardView(GridView boardView);
+    void addGridView(GridView boardView);
 
     void addInputBoardView(GridView inputBoardView);
 

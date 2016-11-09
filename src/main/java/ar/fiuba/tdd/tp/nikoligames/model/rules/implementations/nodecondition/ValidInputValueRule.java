@@ -15,7 +15,7 @@ public class ValidInputValueRule extends AbstractRegionRule {
     private Set<String> validInputs;
 
     public ValidInputValueRule(List<AbstractNode> region, Set<String> validInputs) {
-        super(region, Constants.EMPTY_STRING);
+        super(region, Constants.CLEAR_STRING);
         this.validInputs = validInputs;
     }
 
@@ -30,6 +30,6 @@ public class ValidInputValueRule extends AbstractRegionRule {
     }
 
     public boolean isValidInput(String input) {
-        return (validInputs.contains(input) || input.equals(Constants.EMPTY_STRING));
+        return (validInputs.contains(input) || input.equals(Constants.CLEAR_STRING));
     }
 }

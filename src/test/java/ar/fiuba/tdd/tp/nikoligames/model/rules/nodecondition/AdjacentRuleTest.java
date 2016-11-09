@@ -11,9 +11,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by matias on 12/10/16.
- */
 public class AdjacentRuleTest {
     List<AbstractNode> region = new ArrayList<AbstractNode>();
     List<AbstractNode> adjacentList = new ArrayList<AbstractNode>();

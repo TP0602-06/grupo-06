@@ -2,8 +2,8 @@ package ar.fiuba.tdd.tp.nikoligames.reportertest;
 
 import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.board.ConcreteBoard;
-import ar.fiuba.tdd.tp.nikoligames.model.game.ConcreteGameAdmitsInvalidPlays;
 import ar.fiuba.tdd.tp.nikoligames.model.game.Game;
+import ar.fiuba.tdd.tp.nikoligames.model.game.GameWithPlaysImplementation;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.Rule;
 import ar.fiuba.tdd.tp.nikoligames.model.rules.implementations.region.NoDuplicatesRule;
 
@@ -24,7 +24,7 @@ public class SimpleGameFactoryForTest {
         Rule rule = new NoDuplicatesRule(board.getAllNodes());
         rules.add(rule);
 
-        return new ConcreteGameAdmitsInvalidPlays(board, rules);
+        return new GameWithPlaysImplementation(board, rules);
     }
 
 }

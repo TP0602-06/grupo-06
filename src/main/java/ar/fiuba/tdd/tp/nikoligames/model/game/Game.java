@@ -1,7 +1,13 @@
 package ar.fiuba.tdd.tp.nikoligames.model.game;
 
+import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
 import ar.fiuba.tdd.tp.nikoligames.model.board.DrawableBoard;
+import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeAlreadyExistsExpection;
+import ar.fiuba.tdd.tp.nikoligames.model.board.EdgeNotExistsExpection;
+import ar.fiuba.tdd.tp.nikoligames.model.board.node.NotEditableExpection;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
+import ar.fiuba.tdd.tp.nikoligames.model.play.NoPlaysException;
+import ar.fiuba.tdd.tp.nikoligames.model.play.implemented.DrawablePlay;
 
 /**
  * Created by german on 10/1/2016.
@@ -18,15 +24,19 @@ public interface Game {
 
     boolean getBoardStatus();
 
+    void changeNodeValue(Position position, String value) throws NotEditableExpection;
+
+    void createDirectedEdge(Position position1, Position position2) throws EdgeAlreadyExistsExpection;
+
+    void createUndirectedEdge(Position position1, Position position2) throws EdgeAlreadyExistsExpection;
+
+    void removeUndirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection;
+
+    void removeDirectedEdge(Position position1, Position position2) throws EdgeNotExistsExpection;
+
+    DrawablePlay undoLastPlayMade() throws NoPlaysException;
+
     DrawableBoard getDrawableBoard();
 
-    boolean changeNodeValue(Position position, String value);
-
-    boolean createDirectedEdge(Position position1, Position position2);
-
-    boolean createUndirectedEdge(Position position1, Position position2);
-
-    boolean removeUndirectedEdge(Position position1, Position position2);
-
-    boolean removeDirectedEdge(Position position1, Position position2);
+    Board getBoard();
 }

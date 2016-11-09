@@ -7,6 +7,8 @@ import ar.fiuba.tdd.tp.nikoligames.parser.utils.viewconfig.PaintableHintConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.board.positionsolver.CellSizeCalculator;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.NotClickableHint;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.Paintable;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.CellView;
+import ar.fiuba.tdd.tp.nikoligames.view.clickables.cells.numbercell.EditableViewCell;
 import ar.fiuba.tdd.tp.nikoligames.view.clickables.edge.ViewEdge;
 import ar.fiuba.tdd.tp.nikoligames.view.config.ViewConfig;
 import ar.fiuba.tdd.tp.nikoligames.view.grids.GridView;
@@ -14,8 +16,10 @@ import ar.fiuba.tdd.tp.nikoligames.view.hints.HintPainter;
 
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.Exchanger;
 import javax.swing.*;
 
 
@@ -30,6 +34,9 @@ public class BoardView extends JPanel {
     private ViewEdgeCellViewPositionSolver solver;
     private List<PaintableHintConfig> nodeHints;
     private CellSizeCalculator cellSizeCalculator;
+    private static final Integer cellLayer = JLayeredPane.DEFAULT_LAYER;
+    private static final Integer edgeLayer = JLayeredPane.PALETTE_LAYER;
+    private static final Integer edgeHintLayer = JLayeredPane.MODAL_LAYER;
 
     public BoardView(GridView gridLayer, ViewEdgeFactory factoryEdge, ViewConfig viewConfig) {
         super();
@@ -46,7 +53,7 @@ public class BoardView extends JPanel {
     }
 
     private void addGrid(GridView gridLayer, Dimension size) {
-        addInLayer(gridLayer, JLayeredPane.DEFAULT_LAYER);
+        addInLayer(gridLayer, cellLayer);
         gridLayer.setBounds(padding, padding, size.width, size.height);
     }
 
@@ -60,7 +67,7 @@ public class BoardView extends JPanel {
 
     private void createEdge(EdgePosition edge) {
         ViewEdge viewEdge = factoryEdges.createViewEdge(edge);
-        addInLayer(viewEdge, JLayeredPane.PALETTE_LAYER);
+        addInLayer(viewEdge, edgeLayer);
         setBoundsOfEdge(viewEdge);
     }
 
@@ -99,9 +106,51 @@ public class BoardView extends JPanel {
         Rectangle hintRectangle = new Rectangle(coordinateX, coordinateY, width, height);
         hint.setBounds(hintRectangle);
         hint.setSize(width, height);
-        addInLayer(hint, JLayeredPane.MODAL_LAYER);
+        addInLayer(hint, edgeHintLayer);
         painter.draw(hint);
-        hint.setForeground(Color.GREEN);
+    }
+
+    public ViewEdge getViewEdge(EdgePosition edge) throws Exception {
+        Component[] components = pane.getComponentsInLayer(edgeLayer);
+        for (int i = 0; i < components.length; i++) {
+            if (components[i] instanceof ViewEdge) {
+                ViewEdge viewEdge = (ViewEdge) components[i];
+                if (viewEdge.hasEdgePosition(edge)) {
+                    return viewEdge;
+                }
+            }
+        }
+        throw new Exception("Looking for unexistant viewEdge");
+    }
+
+    public EditableViewCell getEditableCell(Position cell) throws Exception {
+        List<EditableViewCell> editableViewCells = getEditableViewCells();
+        for (int i = 0; i < editableViewCells.size(); i++) {
+            EditableViewCell editableViewCell = editableViewCells.get(i);
+            if (editableViewCell.getXIndex() == cell.getRow()
+                    && editableViewCell.getYIndex() == cell.getColumn()) {
+                return editableViewCell;
+            }
+        }
+        throw new Exception("Looking for unexistant editableCell");
+    }
+
+    private GridView getGridView() {
+        Integer gridIndex = 0;
+        Component[] components = pane.getComponentsInLayer(cellLayer);
+        return (GridView) components[gridIndex];
+    }
+
+    private List<EditableViewCell> getEditableViewCells() {
+        List<CellView> cellViews = getGridView().getCellViews();
+        List<EditableViewCell> editableCells = new ArrayList<>();
+        for (int i = 0; i < cellViews.size(); i++) {
+            CellView cell = cellViews.get(i);
+            if (cell instanceof EditableViewCell) {
+                editableCells.add((EditableViewCell) cell);
+            }
+        }
+        return editableCells;
     }
 
 }

@@ -51,7 +51,7 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         boardView.addEdges(edges);
         boardView.addNodeHints();
 
-        Component restartAndCheckButtons = createButtons(game);
+        Component restartAndCheckButtons = createButtons(game, boardView);
 
         view.add(restartAndCheckButtons);
         view.add(boardView);
@@ -61,9 +61,9 @@ public class FactoryGameViewImplementation implements FactoryGameView {
         return view;
     }
 
-    private Component createButtons(Game game) {
+    private Component createButtons(Game game, BoardView boardView) {
         GroupButtonFactory groupButtonFactory = new BasicGroupButtonFactory();
-        return groupButtonFactory.makeGroupButton(game);
+        return groupButtonFactory.makeGroupButton(game, boardView);
     }
 
     private List<EdgePosition> getPosibleEdges(Game game, List<RuleConfig> rules) {
