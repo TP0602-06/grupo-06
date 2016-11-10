@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp.nikoligames.model.board;
 
-import ar.fiuba.tdd.tp.nikoligames.model.board.Board;
-import ar.fiuba.tdd.tp.nikoligames.model.board.ConcreteBoard;
 import ar.fiuba.tdd.tp.nikoligames.model.board.node.AbstractNode;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.ClassicPosition;
 import ar.fiuba.tdd.tp.nikoligames.model.board.position.Position;
